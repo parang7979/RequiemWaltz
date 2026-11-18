@@ -1,0 +1,15 @@
+# Godot editor caches and local export credentials
+.godot/
+.import/
+export_credentials.cfg
+*.translation
+
+# Local tools, diagnostics and exported builds
+/build/*
+!/build/.gdignore
+/.local/
+__pycache__/
+*.pyc
+.venv/
+Thumbs.db
+.DS_Store

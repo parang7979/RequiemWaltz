@@ -1,0 +1,41 @@
+[project]
+specs = "specs"
+engine = "godot"
+
+[export]
+dir = "../../assets/actors"
+godot_project = "../.."
+
+[defaults]
+size = 64
+palette = "gothic"
+camera = { pitch = 0, scale = 0.038, center = [0, 0.94, 0] }
+
+[style]
+view = "side"
+height = 53
+scale = 0.038
+size = 64
+directions = ["e", "w"]
+mirror = false
+palette = "gothic"
+colors = "Bone silver, oyster silk, near-black violet, one garnet accent"
+outline = "selective"
+shading = "soft"
+lines = "depth"
+highlights = true
+dither = "none"
+light = "soft"
+proportions = "realistic"
+face = "minimal"
+animation = "snappy"
+snap = true
+notes = "Starting scale for the lighting study. Review silhouettes in the playable room."
+
+[dependency]
+# Relative to this file. SPRITEKILN_ROOT can select the same checkout elsewhere.
+checkout = "../../../spritekiln"
+upstream = "https://github.com/LucasJRamos/spritekiln"
+version = "0.4.0"
+upstream_commit = "17ae0ea8d822b9bb543e539118516ae37d25b114"
+shared_commit = "d4a378ad2814367b61bfc04aabad9891fb04ebd7"

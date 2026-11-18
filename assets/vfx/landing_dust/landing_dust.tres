@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/vfx/landing_dust/landing_dust.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="Frame_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_1"]
+atlas = ExtResource("1")
+region = Rect2(34, 0, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_2"]
+atlas = ExtResource("1")
+region = Rect2(0, 14, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_3"]
+atlas = ExtResource("1")
+region = Rect2(34, 14, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_4"]
+atlas = ExtResource("1")
+region = Rect2(0, 28, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_5"]
+atlas = ExtResource("1")
+region = Rect2(34, 28, 34, 14)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_6"]
+atlas = ExtResource("1")
+region = Rect2(0, 42, 34, 14)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{"duration": 50, "texture": SubResource("Frame_0")},
+{"duration": 50, "texture": SubResource("Frame_1")},
+{"duration": 50, "texture": SubResource("Frame_2")},
+{"duration": 50, "texture": SubResource("Frame_3")},
+{"duration": 50, "texture": SubResource("Frame_4")},
+{"duration": 50, "texture": SubResource("Frame_5")},
+{"duration": 50, "texture": SubResource("Frame_6")}],
+"loop": false,
+"name": &"fx",
+"speed": 1000.0
+}]
+metadata/pixelfx = {"id": "requiem/landing_dust", "name": "Limestone landing", "fps": 20, "loop": false, "frames": 7, "frameSize": [34, 14], "pivot": [17, 11], "columns": 2}

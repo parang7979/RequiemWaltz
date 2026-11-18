@@ -1,0 +1,106 @@
+spritekiln: 1
+name: vigil
+extends: side_humanoid
+size: 64
+directions: [e, w]
+camera: {pitch: 0, scale: 0.038, center: [0, 0.94, 0]}
+brief:
+  summary: Adult swordswoman on a ruined gallery. The silver line of her ponytail echoes her narrow duelling blade.
+  head: Tapered chin, silver side fringe, high swept-back ponytail tied with wine-red silk.
+  must_keep: [silver_hair, wine_mantle, long_blade, garnet_clasp]
+  simplify: One luminous clasp, a fitted dark jacket and a swept-back split skirt; no facial adornment.
+remove: [animations.idle, animations.run, animations.jump, animations.rise, animations.fall, animations.land, animations.crouch, animations.attack, animations.hurt, animations.death, parts.smear]
+ramps:
+  silver: ["#322e45", "#575268", "#837e94", "#aaa9b8", "#cfcbd0", "#eeeeeb"]
+  skin: ["#4f3348", "#85585f", "#bc8180", "#dfa797", "#f2ccb3", "#f9e3c7"]
+  velvet: ["#121020", "#211d33", "#302b42", "#494057", "#65586e", "#837187"]
+  garnet_velvet: ["#251324", "#402033", "#5b2b43", "#793c54", "#9d5364", "#bf7380"]
+  boots: ["#151322", "#292535", "#3c3345", "#5b4d58", "#786868", "#ae9893"]
+  blade: ["#343041", "#595666", "#8e8990", "#bfb9b4", "#e5dcd2", "#fff5e8"]
+  brass: ["#382737", "#61424c", "#88624e", "#b69269", "#e5c48c", "#ffddac"]
+  garnet: ["#381b32", "#662638", "#a53a4c", "#f37677", "#ffd2aa"]
+materials:
+  hair: {ramp: silver, finish: soft, bands: [2, 5]}
+  skin: {ramp: skin, finish: soft, bands: [2, 5]}
+  cloth: {ramp: velvet}
+  cape: {ramp: garnet_velvet, finish: matte}
+  leather: {ramp: boots, bands: [2, 4]}
+  gold: {ramp: brass, finish: metal}
+  steel: {ramp: blade, bands: [2, 5], finish: metal}
+  ink: {ramp: velvet, emissive: false, bands: [0, 1]}
+  brooch: {ramp: garnet, emissive: true, band: 3, outline: false}
+use:
+  - {kit: hair, at: head, with: {fringe: 0.9, part: 0.65, locks: 1.2, length: 0.25, volume: 0.93}}
+  - {kit: ponytail, at: head, with: {height: 0.85, length: 1.7, volume: 0.9}, materials: {tie: cape}}
+  - {kit: head, at: head, with: {width: 0.95, jaw: 0.32, chin: 0.67, nose: 0, ears: 0}}
+  - {kit: cape, at: pelvis, with: {length: 0.67, width: 0.37, flare: 0.14, drape: 0.29, dip: 0.32, clasp: false}}
+  - {kit: sword, at: wrist_R, with: {length: 0.76, width: 0.077, thick: 0.052, roll: 1.5708, tilt: 0.48, pitch: sword_pitch, guard: 0.21}}
+bones:
+  head: {scale: 1.02}
+  shoulder_L: {pos: [0.21, 0.55, 0]}
+parts:
+  sword_guard: {material: gold}
+  sword_pommel: {material: gold}
+  sword_ridge:
+    material: steel
+    space: sword_edge
+    prims:
+      - cone: {a: [0, 0.075, 0], b: [0, 0.72, 0], r: [0.031, 0.012]}
+  belt: {material: gold}
+  cape:
+    paint:
+      - material: leather
+        stripes: {axis: y, at: [-0.56], width: 0.095}
+      - material: gold
+        stripes: {axis: y, at: [-0.53], width: 0.038}
+  eye_L:
+    prims:
+      - extrude: {c: [0.1, 0.115, 0.065], rot: [0, 1.0, 0], depth: 0.05, profile: {rect: [0.021, 0.037], round: 0.008}}
+  boot_L:
+    prims:
+      - cone: {a: [0, 0.25, -0.005], b: [0, -0.02, 0.0], r: [0.076, 0.06]}
+      - ellipsoid: {c: [0, -0.04, 0.065], r: [0.065, 0.045, 0.125]}
+    paint:
+      - material: gold
+        stripes: {axis: y, at: [0.21], width: 0.04}
+  brooch:
+    material: brooch
+    space: pelvis
+    priority: 3
+    min_cover: 1
+    prims:
+      - ellipsoid: {c: [0, 0.54, 0.13], r: [0.077, 0.055, 0.04]}
+  coat:
+    prims:
+      - cone: {a: [0, 0.06, -0.02], b: [0, -0.24, -0.09], r: [0.16, 0.20]}
+      - cone: {a: [0, -0.18, -0.09], b: [0, -0.57, -0.30], r: [0.185, 0.22]}
+    cut:
+      - plane: {n: [0, -1, 0.7], c: [0, -0.53, -0.30]}
+      - plane: {n: [0, -0.45, 1], c: [0, -0.40, -0.12]}
+animations:
+  idle:
+    frames: 1
+    ms: 200
+    loop: false
+    channels:
+      bob: -0.04
+      lean: -0.035
+      twist: -0.12
+      head_yaw: -0.09
+      hand_R: [0.23, 0.12, 0.29]
+      hand_L: [0.26, 0.04, -0.15]
+      foot_L: [0.12, 0, -0.20]
+      foot_R: [0.14, 0, 0.21]
+      coat: 0.03
+      cape_sway: 0.36
+      ponytail_swing: 0.45
+      ponytail_lift: 0.10
+      sword_pitch: 0.34
+sockets:
+  sole: {bone: root, offset: [0, 0, 0]}
+review:
+  keep:
+    silver_hair: {materials: [hair], min_px: 20}
+    wine_mantle: {materials: [cape], min_px: 12}
+    long_blade: {parts: [sword_blade], min_px: 12}
+    garnet_clasp: {parts: [brooch], min_px: 1}

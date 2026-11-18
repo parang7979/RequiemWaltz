@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="res://assets/vfx/landing_dust/landing_dust.tres" id="1"]
+
+[node name="PixelFX" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = ExtResource("1")
+animation = &"fx"
+autoplay = "fx"
+centered = false
+offset = Vector2(-17, -11)
