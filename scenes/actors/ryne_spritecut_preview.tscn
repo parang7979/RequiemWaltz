@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/actors/ryne_spritecut_preview.gd" id="1"]
+
+[sub_resource type="SystemFont" id="Korean"]
+font_names = PackedStringArray("Malgun Gothic", "Noto Sans CJK KR", "Apple SD Gothic Neo")
+
+[sub_resource type="Theme" id="Theme"]
+default_font = SubResource("Korean")
+default_font_size = 13
+
+[sub_resource type="StyleBoxFlat" id="ListStyle"]
+bg_color = Color(0.095, 0.097, 0.14, 1)
+content_margin_left = 5.0
+content_margin_right = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="GlowMaterial"]
+blend_mode = 1
+light_mode = 1
+
+[node name="SpriteCutPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource("Theme")
+script = ExtResource("1")
+
+[node name="Sidebar" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 176.0
+offset_bottom = -8.0
+
+[node name="Title" type="Label" parent="Sidebar"]
+theme_override_font_sizes/font_size = 18
+text = "리네 · 모션"
+
+[node name="Motions" type="ItemList" parent="Sidebar"]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("ListStyle")
+theme_override_constants/v_separation = 4
+
+[node name="Stage" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 36.0
+offset_right = -12.0
+offset_bottom = -56.0
+clip_contents = true
+mouse_filter = 2
+
+[node name="Ground" type="ColorRect" parent="Stage"]
+anchor_right = 1.0
+color = Color(0.23, 0.24, 0.30, 1)
+mouse_filter = 2
+
+[node name="Paint" type="Sprite2D" parent="Stage"]
+texture_filter = 1
+centered = false
+region_enabled = true
+
+[node name="Glow" type="Sprite2D" parent="Stage/Paint"]
+material = SubResource("GlowMaterial")
+centered = false
+region_enabled = true
+
+[node name="MotionName" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 8.0
+theme_override_font_sizes/font_size = 18
+
+[node name="Footer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = -43.0
+offset_right = -14.0
+offset_bottom = -10.0
+theme_override_constants/separation = 6
+
+[node name="Playback" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(70, 0)
+text = "일시정지"
+
+[node name="Restart" type="Button" parent="Footer"]
+text = "처음부터"
+
+[node name="Info" type="Label" parent="Footer"]
+size_flags_horizontal = 3
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(0.73, 0.75, 0.83, 1)

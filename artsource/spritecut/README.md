@@ -4,6 +4,52 @@
 
 이 경로의 캐릭터 입력·결과물·예제는 로컬 제작 자료다. 다른 체크아웃에서 아래 레시피와 프리뷰를 사용하려면 해당 제작 폴더를 별도로 준비한다.
 
+## Godot 모션 미리보기
+
+[리네 미리보기 씬](../../scenes/actors/ryne_spritecut_preview.tscn)을 열고 **F6**을 누른다. 왼쪽 목록에서 동작을 선택하면 원본 타이밍으로 재생된다. 단발 동작은 마지막 프레임에서 멈추고 **재생**을 누르면 다시 시작한다. **처음부터**는 재생 중에도 첫 프레임으로 돌아간다.
+
+게임은 [모션 카탈로그](../../assets/actors/ryne_spritecut/catalog.json)와 베이크된 컬러·노멀·이미시브 PNG를 읽는다. 모션 24종을 이동·기본 8종, 검술 4종, 소셜 12종으로 묶었다. 비교본에는 초기 내려베기 v001, 기존 씬의 걷기·달리기, 508 걷기가 있다. [올려베기 v002](ryne/productions/pilot-01/motions/slash_up/v002/previews/full-speed.gif)는 현재 생성된 최신 후보이며 재생 시간은 920ms다. 기본 내려베기는 SpriteCut 소셜 제작 폴더의 v002 후보를 사용한다. 이단 점프는 게임 제작 기준표에서 선택한 v002 검수본을 사용한다.
+
+### 소셜 모션 채택본
+
+| 모션 | 클립 | 버전 |
+| --- | --- | --- |
+| 헐떡이기 | `pant` | v007 |
+| 손인사 | `wave` | v004 |
+| 무릎 앉기 | `kneel_hug` | v004 |
+| 감사 인사 | `thank_you` | v003 |
+| 머리 위 스트레칭 | `stretch_overhead` | v001 |
+| 응원의 박수 | `applause` | v002 |
+| 한 팔씩 뻗기 | `stretch_reach` | v002 |
+| 귀 기울이기 | `listen` | v001 |
+| 생각하기 | `think` | v001 |
+| 대화하기 | `talk` | v001 |
+| 꾸벅꾸벅 졸기 | `doze` | v001 |
+| 하품하기 | `yawn` | v001 |
+
+소셜 버전은 SpriteCut의 `build/social-ryne/pilot-01/selection.json`을 따른다. 시트를 갱신할 때는 두 프로젝트의 로컬 제작 자료를 준비하고 게임 루트에서 `python artsource/spritecut/ryne/build_preview.py`를 실행한다. 각 동작의 `clips.json`에는 프레임 영역, 재생 시간, 피벗, 반복 여부가 있다. 대시 폴더에는 프레임별 이동을 위한 `root_motion.json`도 있다. 복사한 결과만으로 Godot에서 재생할 수 있다.
+
+## 게임 제작 폴더의 모션 원본
+
+2026-11-20 기준 `pilot-01`에서 컬러·노멀·이미시브 시트를 확인한 동작은 10종이다. 모두 오른쪽 앞대각(`front_right`) 시점이다. 프레임 수와 시간은 각 버전의 `sheets/clips.json` 기준이며 모션 이름을 누르면 해당 속도로 재생되는 미리보기가 열린다.
+
+| 모션 | 클립 | 버전 | 재료 | 프레임 | 재생 시간 | 제작 상태 |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| [대기](ryne/productions/pilot-01/motions/idle/v002/previews/full-speed.gif) | `idle` | v002 | v002 | 48 | 1,920ms | 검수본 |
+| [걷기](ryne/productions/pilot-01/motions/walk/v003/previews/full-speed.png) | `walk` | v003 | v002 | 48 | 1,200ms | 검수본 |
+| [달리기](ryne/productions/pilot-01/motions/run/v012/previews/full-speed.gif) | `run` | v012 | v002 | 24 | 720ms | 채택 기준 |
+| [팔 스윙](ryne/productions/pilot-01/motions/arm_swing/v002/previews/full-speed.gif) | `arm_swing` | v002 | v001 | 24 | 960ms | 검수본 |
+| [점프](ryne/productions/pilot-01/motions/jump/v003/previews/full-speed.gif) | `jump` | v003 | v004 | 26 | 1,160ms | 검수본 |
+| [전방 대시](ryne/productions/pilot-01/motions/dash_forward/v001/previews/full-speed.gif) | `dash_forward` | v001 | v004 | 15 | 380ms | 검증된 후보 |
+| [후방 대시](ryne/productions/pilot-01/motions/dash_backward/v002/previews/full-speed.gif) | `dash_backward` | v002 | v004 | 15 | 360ms | 검증된 후보 |
+| [왼쪽 횡베기](ryne/productions/pilot-01/motions/slash_left/v003/previews/full-speed.gif) | `slash_left` | v003 | v006 | 20 | 780ms | 채택 기준 |
+| [오른쪽 횡베기](ryne/productions/pilot-01/motions/slash_right/v003/previews/full-speed.gif) | `slash_right` | v003 | v006 | 20 | 780ms | 채택 기준 |
+| [내려베기](ryne/productions/pilot-01/motions/slash_down/v001/previews/downslash.gif) | `slash_down` | v001 | v006 | 26 | 1,040ms | 후보 |
+
+대기·걷기·달리기·팔 스윙은 반복 클립이고 나머지 여섯 동작은 단발이다. 채택 기준과 검수본은 [선택 기록](ryne/productions/pilot-01/selection.json)을 따르고, 후보 상태는 해당 버전의 `revision.json`을 따른다. 두 횡베기는 [오른쪽에서 왼쪽으로 이어 보는 비교본](ryne/productions/pilot-01/reviews/horizontal-slashes-v003/right-then-left.gif)도 있다.
+
+[이단 점프 v002](ryne/productions/pilot-01/motions/double_jump/v002/previews/full-speed.gif)(`double_jump`)는 530ms 단발 동작이다. [v001과 v002의 재생 비교](ryne/productions/pilot-01/motions/double_jump/v002/previews/before-after.gif)에서 두 버전을 볼 수 있다. 헐떡이기는 소셜 제작본 v007을 사용한다.
+
 ## 리네의 새 모션 제작
 
 같은 캐릭터의 납품 시트는 [제작 루트의 시트 규격](ryne/productions/pilot-01/sheet-layout.json)을 공유한다. 리네의 현재 모션 24종과 초기 내려베기 비교본은 64×88 px, 접지 피벗 [32, 85]다. 게임 경로는 `assets/actors/ryne_spritecut/motions/`이고 컬러·노말·이미시브 PNG와 `clips.json`을 함께 설치한다. 기존 씬의 걷기·달리기와 508 걷기는 별도 원화 세트의 비교 자료다.
@@ -27,8 +73,4 @@ python tools/spritecut_cli.py normalize "$production/motions/run/v012/sheets/cli
 python tools/spritecut_cli.py bake artsource/spritecut/ryne/recipe.json .local/ryne-bake-review
 ```
 
-검토 후 `assets/actors/ryne_spritecut/`에 PNG 여섯 장과 `clips.json`을 반영하고 `python artsource/spritecut/ryne/build_preview.py`로 Godot 씬에 프레임 시간을 반영한다. [미리보기 씬](../../scenes/actors/ryne_spritecut_preview.tscn)을 열고 F6을 누르면 왼쪽은 걷기 24프레임(960ms), 오른쪽은 달리기 24프레임(640ms)을 반복한다. 이 씬은 베이크된 세 맵을 사용하는 소비 예제다.
-
-메시 포즈 자체를 바꿀 때는 기존 리네 R&D 리그에서 `artsource/spritekiln/studies/ryne-quarter-walk/build_godot_gaits.py`를 SpriteKiln 환경으로 실행한다. 6개 정지 파츠의 맵, 프레임별 꼭짓점, 발 접지, 피벗, 주기당 이동 거리를 갱신한다. Idle·Slash와 해골 원본 및 과거 비교 결과는 기존 연구 디렉터리에 있다.
-
-도구를 업데이트할 때 새 리비전의 SpriteCut 예제 테스트를 실행하고 게임에서 리네 레시피를 다시 베이크한다. 게임에 배포된 선택적 Godot 실시간 코어는 SpriteCut의 `integrations/godot/addons/pixel_cutout/`에서 같은 이름의 파일을 가져온다. 게임용 패널·예제·원화는 RequiemWaltz에서 관리한다.
+이 레시피의 입력 맵은 `ryne/gait-materials/`에 있다. 기존 걷기(960ms)와 달리기(640ms)의 결과는 `assets/actors/ryne_spritecut/`에 보관하며 미리보기 씬의 **비교본**에서 재생한다.
