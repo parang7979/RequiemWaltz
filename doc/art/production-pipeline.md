@@ -47,7 +47,7 @@ SpriteKiln의 발광 아틀라스는 프레임을 동기화한 두 번째 스프
 석재 착지 샘플은 [먼지 레시피](../../artsource/pixelfx/landing_dust.mjs)와 [착지음 레시피](../../artsource/plinkfx/stone_land.json)로 재생성한다. 프로젝트 루트에서 Node 18 이상과 Python 3.10 이상으로 다음 명령을 실행한다.
 
 ```powershell
-node tools/render_landing.mjs
+node artsource/render_landing.mjs
 ```
 
 먼지는 발 피벗의 34×14픽셀 셀에 두 갈래로 퍼지고 마지막 프레임에서 사라진다. [생성한 씬](../../assets/vfx/landing_dust/landing_dust.tscn)의 `fx` 클립은 한 번 재생된다. 프로젝트용으로 직접 작성한 도형 레시피이며 PixelFX의 straight RGBA 출력을 그대로 사용한다. 공유 도구의 `LICENSE`와 `NOTICE.md`에 원저작자 표기가 있다.

@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import * as dust from "../artsource/pixelfx/landing_dust.mjs";
+import * as dust from "./pixelfx/landing_dust.mjs";
 
 const project = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const pixelfx = resolve(project, process.env.PIXELFX_ROOT ?? "../pixelfx");
