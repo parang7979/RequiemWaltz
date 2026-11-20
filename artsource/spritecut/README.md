@@ -1,6 +1,8 @@
 # RequiemWaltz의 SpriteCut 제작 경로
 
-공용 제작 도구 저장소는 `../SpriteCut`(게임 루트 기준)이다. 이 게임에는 원화, 캐릭터별 파츠·포즈와 생성한 시트를 저장한다. 제작 도구 기준은 **SpriteCut 0.1.0**, Git `109282ff07e81352d3dfac65996b5b3463dc6b3b`이다. 게임에서 `tools/spritecut_cli.py`는 `SPRITECUT_ROOT`, 이웃 체크아웃, 설치된 패키지 순서로 도구를 찾는다. 환경 변수로 경로를 지정했다면 그 경로를 사용한다.
+공용 제작 도구 저장소는 `../SpriteCut`(게임 루트 기준)이다. 이 게임에는 원화, 캐릭터별 파츠·포즈와 생성한 시트를 저장한다. 제작 도구 기준은 **SpriteCut 0.1.0**, Git `5c6a831cca040ebc74e4e51ad889991f51f7d842`이다. 게임에서 `tools/spritecut_cli.py`는 `SPRITECUT_ROOT`, 이웃 체크아웃, 설치된 패키지 순서로 도구를 찾는다. 환경 변수로 경로를 지정했다면 그 경로를 사용한다.
+
+리네 이단 점프 v005(530ms)와 v006(385ms)을 공용 도구의 같은 시간축에서 비교했다. 짧은 클립이 끝나면 마지막 자세를 유지하며 비교 영상은 530ms에 끝난다. 점프 v007과 이단 점프 v006의 연결 양끝에서 컬러·노멀·이미시브 차이는 각각 0픽셀이었다. [재생 길이가 다른 두 버전의 비교](ryne/previews/double-jump-v005-v006-duration/before-after.png) · [게임에서 낙하와 착지까지 재생](ryne/motions/jump/v007/previews/full-jumps-game.gif)
 
 이 경로의 캐릭터 입력·결과물·예제는 로컬 제작 자료다. 다른 체크아웃에서 아래 레시피와 프리뷰를 사용하려면 해당 제작 폴더를 별도로 준비한다.
 
