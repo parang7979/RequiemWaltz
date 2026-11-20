@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/actors/ryne/idle.png" id="1"]
+[ext_resource type="Texture2D" path="res://assets/actors/ryne/idle_normal.png" id="2"]
+
+[resource]
+diffuse_texture = ExtResource("1")
+normal_texture = ExtResource("2")
