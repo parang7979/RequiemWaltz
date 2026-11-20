@@ -1,0 +1,66 @@
+spritekiln: 1
+name: vigil_motion
+extends: ../specs/characters/vigil/vigil.yaml
+remove: [animations.idle]
+brief:
+  head: Small adult profile with loose, straight ash-silver hair sweeping from the nape.
+channels:
+  hair_lift: 0
+bones:
+  loose_hair: {parent: head, pos: [0, 0.16, 0], rot: "[hair_lift, 0, 0]"}
+parts:
+  hair_fall: {space: loose_hair}
+animations:
+  idle:
+    frames: 6
+    ms: 160
+    loop: true
+    channels:
+      bob: "-0.02+0.023*sin(p)"
+      lean: "0.035+0.024*sin(p)"
+      head_pitch: "-0.02-0.04*sin(p-0.3)"
+      twist: -0.25
+      hand_R: "[0.19,0.238+0.027*sin(p),0.34]"
+      hand_L: [0.205, 0.147, -0.32]
+      foot_L: [0.13, 0, -0.284]
+      foot_R: [0.14, 0, 0.245]
+      hair_lift: "0.10+0.07*sin(p-0.7)"
+      coat: "0.18+0.12*sin(p-0.8)"
+      sword_pitch: "0.46+0.04*cos(p)"
+  walk:
+    frames: 8
+    ms: 105
+    loop: true
+    events: {0: step_R, 4: step_L}
+    channels:
+      bob: "-0.055-0.032*cos(2*p)"
+      lean: 0.09
+      twist: "-0.14+0.13*cos(p)"
+      hand_R: "[0.20,0.214+0.045*sin(p),0.24-0.105*cos(p)]"
+      hand_L: "[0.22,0.115+0.025*sin(p),-0.10+0.245*cos(p)]"
+      foot_R: "[0.13,0.20*pos(-sin(p)),0.34*cos(p)]"
+      foot_L: "[0.13,0.20*pos(sin(p)),-0.34*cos(p)]"
+      pitch_foot_R: "0.24*sin(p)"
+      pitch_foot_L: "-0.24*sin(p)"
+      hair_lift: "0.22+0.10*sin(2*p-0.6)"
+      coat: "0.52+0.24*sin(p-0.8)"
+      sword_pitch: "0.46+0.13*sin(p)"
+  run:
+    frames: 8
+    ms: 75
+    loop: true
+    events: {0: step_R, 4: step_L}
+    channels:
+      bob: "-0.125-0.080*sin(2*p+0.28)"
+      lean: "0.35+0.04*sin(2*p)"
+      twist: "-0.12+0.18*cos(p)"
+      head_pitch: -0.15
+      hand_R: "[0.20,0.26+0.04*sin(p),0.24-0.07*cos(p)]"
+      hand_L: "[0.20,0.24-0.08*sin(p),-0.09+0.32*cos(p)]"
+      foot_R: "[0.13,0.37*pos(-sin(p))+0.105*pos(-sin(2*p)),0.48*cos(p)]"
+      foot_L: "[0.13,0.37*pos(sin(p))+0.105*pos(-sin(2*p)),-0.48*cos(p)]"
+      pitch_foot_R: "0.57*sin(p)"
+      pitch_foot_L: "-0.57*sin(p)"
+      hair_lift: "0.65+0.12*sin(2*p-0.5)"
+      coat: "1.10+0.36*sin(p-0.7)"
+      sword_pitch: "0.53+0.08*sin(p)"

@@ -5,102 +5,169 @@ size: 64
 directions: [e, w]
 camera: {pitch: 0, scale: 0.038, center: [0, 0.94, 0]}
 brief:
-  summary: Adult swordswoman on a ruined gallery. The silver line of her ponytail echoes her narrow duelling blade.
-  head: Tapered chin, silver side fringe, high swept-back ponytail tied with wine-red silk.
-  must_keep: [silver_hair, wine_mantle, long_blade, garnet_clasp]
-  simplify: One luminous clasp, a fitted dark jacket and a swept-back split skirt; no facial adornment.
+  summary: Lithe adult duellist with a small head above a narrow torso and long, tapered legs. A bent sword arm and two planted feet define her quiet guard.
+  head: Petite profile, a silver-grey fringe and unbound straight hair falling from the nape to the waist.
+  must_keep: [loose_hair, dark_silk, bare_arms, open_skirt, slim_blade, garnet_clasp]
+  simplify: Group the bodice, gloves, slit skirt and boots into one ink-violet silhouette. Reserve the lightest tones for bare skin, a plane of hair and the blade.
 remove: [animations.idle, animations.run, animations.jump, animations.rise, animations.fall, animations.land, animations.crouch, animations.attack, animations.hurt, animations.death, parts.smear]
 ramps:
-  silver: ["#322e45", "#575268", "#837e94", "#aaa9b8", "#cfcbd0", "#eeeeeb"]
-  skin: ["#4f3348", "#85585f", "#bc8180", "#dfa797", "#f2ccb3", "#f9e3c7"]
-  velvet: ["#121020", "#211d33", "#302b42", "#494057", "#65586e", "#837187"]
-  garnet_velvet: ["#251324", "#402033", "#5b2b43", "#793c54", "#9d5364", "#bf7380"]
-  boots: ["#151322", "#292535", "#3c3345", "#5b4d58", "#786868", "#ae9893"]
-  blade: ["#343041", "#595666", "#8e8990", "#bfb9b4", "#e5dcd2", "#fff5e8"]
-  brass: ["#382737", "#61424c", "#88624e", "#b69269", "#e5c48c", "#ffddac"]
-  garnet: ["#381b32", "#662638", "#a53a4c", "#f37677", "#ffd2aa"]
+  ash: ["#2c2939", "#474352", "#777482", "#a6a3aa", "#c7c3c2", "#d3ceca"]
+  skin: ["#554654", "#786474", "#a88c8b", "#c8a99f", "#d8bdb0", "#d8bdb0"]
+  ink_velvet: ["#1d1b2a", "#302b3d", "#433a4e", "#55485b", "#655367", "#655367"]
+  wine: ["#302b3d", "#433a4e", "#55485b", "#655367", "#806276", "#806276"]
+  steel: ["#302b3d", "#474352", "#777482", "#a6a3aa", "#c7c3c2", "#d3ceca"]
+  garnet: ["#554554", "#875766", "#ac6b77", "#bb7b82"]
 materials:
-  hair: {ramp: silver, finish: soft, bands: [2, 5]}
-  skin: {ramp: skin, finish: soft, bands: [2, 5]}
-  cloth: {ramp: velvet}
-  cape: {ramp: garnet_velvet, finish: matte}
-  leather: {ramp: boots, bands: [2, 4]}
-  gold: {ramp: brass, finish: metal}
-  steel: {ramp: blade, bands: [2, 5], finish: metal}
-  ink: {ramp: velvet, emissive: false, bands: [0, 1]}
-  brooch: {ramp: garnet, emissive: true, band: 3, outline: false}
+  hair: {ramp: ash, finish: matte, bands: [3, 4], outline: false}
+  hair_shadow: {ramp: ash, finish: matte, bands: [2, 3], outline: false}
+  skin: {ramp: skin, finish: matte, bands: [2, 4], outline: false}
+  cloth: {ramp: ink_velvet, finish: matte, bands: [2, 3]}
+  facing: {ramp: wine, finish: matte, bands: [2, 3]}
+  leather: {ramp: ink_velvet, finish: matte, bands: [2, 3], outline: false}
+  steel: {ramp: steel, bands: [3, 4], finish: metal, outline: false}
+  ink: {ramp: ink_velvet, emissive: false, bands: [0, 1], outline: false}
+  brooch: {ramp: garnet, emissive: true, band: 2, outline: false}
 use:
-  - {kit: hair, at: head, with: {fringe: 0.9, part: 0.65, locks: 1.2, length: 0.25, volume: 0.93}}
-  - {kit: ponytail, at: head, with: {height: 0.85, length: 1.7, volume: 0.9}, materials: {tie: cape}}
-  - {kit: head, at: head, with: {width: 0.95, jaw: 0.32, chin: 0.67, nose: 0, ears: 0}}
-  - {kit: cape, at: pelvis, with: {length: 0.67, width: 0.37, flare: 0.14, drape: 0.29, dip: 0.32, clasp: false}}
-  - {kit: sword, at: wrist_R, with: {length: 0.76, width: 0.077, thick: 0.052, roll: 1.5708, tilt: 0.48, pitch: sword_pitch, guard: 0.21}}
+  - {kit: hair, at: head, with: {fringe: 0.72, part: 0.62, locks: 0, length: 0, volume: 0.70}}
+  - {kit: head, at: head, with: {width: 0.86, jaw: 0.18, chin: 0.72, nose: 0.30, ears: 0}}
+  - {kit: sword, at: wrist_R, with: {length: 0.81, width: 0.052, thick: 0.042, roll: 1.5708, tilt: 0.48, pitch: sword_pitch, guard: 0.18}}
 bones:
-  head: {scale: 1.02}
-  shoulder_L: {pos: [0.21, 0.55, 0]}
+  torso_rot: {pos: "[0, 0.95 + bob, 0]"}
+  pelvis: {scale: "[0.86/sqrt(squash), 0.86*squash, 0.88/sqrt(squash)]"}
+  head: {scale: 0.73}
+  shoulder_L: {pos: [0.151, 0.54, -0.012]}
+  hip_L: {pos: [0.093, -0.02, 0]}
+ik:
+  arm_L: {up: [0, 1, 0], lengths: [0.253, 0.246]}
+  leg_L: {lengths: [0.473, 0.445]}
 parts:
-  sword_guard: {material: gold}
-  sword_pommel: {material: gold}
-  sword_ridge:
-    material: steel
-    space: sword_edge
+  hair_fall:
+    material: hair
+    space: head
+    line: false
     prims:
-      - cone: {a: [0, 0.075, 0], b: [0, 0.72, 0], r: [0.031, 0.012]}
-  belt: {material: gold}
-  cape:
+      - extrude:
+          rot: [0, 1.5708, 0]
+          depth: 0.17
+          round: 0.020
+          profile: {bezier: [[-0.025, 0.24], [0.13, 0.33], [0.214, 0.215], [0.27, 0.114], [0.265, -0.075], [0.28, -0.37], [0.417, -0.605], [0.519, -0.78], [0.671, -0.875], [0.466, -0.852], [0.32, -0.656], [0.164, -0.41], [0.109, -0.157], [0.089, -0.03], [0.032, 0.072], [-0.018, 0.147]]}
     paint:
-      - material: leather
-        stripes: {axis: y, at: [-0.56], width: 0.095}
-      - material: gold
-        stripes: {axis: y, at: [-0.53], width: 0.038}
+      - material: hair_shadow
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.32, profile: {bezier: [[0.076, 0.236], [0.114, 0.10], [0.167, -0.15], [0.213, -0.45], [0.365, -0.653], [0.505, -0.84], [0.655, -0.868], [0.44, -0.96], [0.232, -0.64], [0.10, -0.35], [0.044, -0.085], [0.032, 0.08]]}}
+  neck:
+    prims:
+      - cone: {a: [0, 0.54, 0], b: [0, 0.705, 0.02], r: [0.049, 0.045]}
   eye_L:
     prims:
-      - extrude: {c: [0.1, 0.115, 0.065], rot: [0, 1.0, 0], depth: 0.05, profile: {rect: [0.021, 0.037], round: 0.008}}
-  boot_L:
+      - extrude: {c: [0.095, 0.119, 0.076], rot: [0.10, 0.96, -0.1], depth: 0.056, profile: {rect: [0.028, 0.027], round: 0.005}}
+  torso:
+    blend: 0.03
     prims:
-      - cone: {a: [0, 0.25, -0.005], b: [0, -0.02, 0.0], r: [0.076, 0.06]}
-      - ellipsoid: {c: [0, -0.04, 0.065], r: [0.065, 0.045, 0.125]}
+      - ellipsoid: {c: [0, 0.015, -0.020], r: [0.15, 0.142, 0.126]}
+      - ellipsoid: {c: [0, 0.20, -0.009], r: [0.115, 0.17, 0.096]}
+      - ellipsoid: {c: [0, 0.399, 0.017], r: [0.148, 0.151, 0.122], rot: [-0.12, 0, 0]}
+      - ellipsoid: {c: [0, 0.521, -0.005], r: [0.151, 0.068, 0.088]}
     paint:
-      - material: gold
-        stripes: {axis: y, at: [0.21], width: 0.04}
+      - material: skin
+        prims:
+          - box: {c: [0, 0.634, 0], half: [0.24, 0.139, 0.22], rot: [0.21, 0, 0.15]}
+  belt:
+    material: facing
+    prims:
+      - ellipsoid: {c: [0, 0.099, -0.016], r: [0.149, 0.066, 0.123], rot: [0.18, 0, -0.10]}
+  arm_L:
+    material: skin
+    blend: 0.013
+    prims:
+      - sphere: {c: "@shoulder_L", r: 0.049}
+      - cone: {a: "@shoulder_L", b: "@elbow_L", r: [0.046, 0.032]}
+      - cone: {a: "@elbow_L", b: "@wrist_L", r: [0.035, 0.024]}
+  glove_L:
+    material: leather
+    space: wrist_L
+    prims:
+      - cone: {a: [0, 0, -0.13], b: [0, 0, 0.014], r: [0.038, 0.028]}
+  hand_L:
+    material: leather
+    prims:
+      - ellipsoid: {c: [0, 0, 0.03], r: [0.034, 0.035, 0.049]}
+  leg_L:
+    material: skin
+    blend: 0.013
+    prims:
+      - cone: {a: "@hip_L", b: {between: ["@hip_L", "@knee_L"], t: 0.42}, r: [0.077, 0.069]}
+      - cone: {a: {between: ["@hip_L", "@knee_L"], t: 0.42}, b: "@knee_L", r: [0.069, 0.043]}
+      - cone: {a: "@knee_L", b: "@ankle_L", r: [0.046, 0.029]}
+  boot_L:
+    space: knee_L
+    blend: 0.013
+    prims:
+      - cone: {a: "@knee_L", b: [0, 0.010, 0.153], r: [0.048, 0.056]}
+      - cone: {a: [0, 0.010, 0.153], b: "@ankle_L", r: [0.056, 0.030]}
+  shoe_L:
+    material: leather
+    space: sole_L
+    prims:
+      - extrude: {rot: [0, 1.5708, 0], depth: 0.062, round: 0.008, profile: {polygon: [[0.05, 0.015], [-0.025, 0.029], [-0.069, -0.027], [-0.156, -0.054], [-0.143, -0.078], [-0.078, -0.078], [0.014, -0.051], [0.052, -0.062]]}}
   brooch:
     material: brooch
     space: pelvis
     priority: 3
     min_cover: 1
     prims:
-      - ellipsoid: {c: [0, 0.54, 0.13], r: [0.077, 0.055, 0.04]}
+      - ellipsoid: {c: [0, 0.481, 0.139], r: [0.038, 0.037, 0.031]}
   coat:
+    material: cloth
+    blend: 0.012
     prims:
-      - cone: {a: [0, 0.06, -0.02], b: [0, -0.24, -0.09], r: [0.16, 0.20]}
-      - cone: {a: [0, -0.18, -0.09], b: [0, -0.57, -0.30], r: [0.185, 0.22]}
-    cut:
-      - plane: {n: [0, -1, 0.7], c: [0, -0.53, -0.30]}
-      - plane: {n: [0, -0.45, 1], c: [0, -0.40, -0.12]}
+      - extrude:
+          rot: [0, 1.5708, 0]
+          depth: 0.24
+          round: 0.017
+          profile: {bezier: [[-0.103, 0.11], [0.06, 0.17], [0.160, 0.076], [0.229, -0.15], [0.385, -0.40], [0.49, -0.58], [0.665, -0.64], [0.455, -0.735], [0.290, -0.655], [0.16, -0.50], [0.04, -0.27], [-0.056, -0.095]]}
+    cut: []
+    paint:
+      - material: facing
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.38, profile: {bezier: [[-0.05, 0.07], [0.098, 0.13], [0.15, 0.04], [0.24, -0.225], [0.46, -0.46], [0.375, -0.53], [0.248, -0.57], [0.166, -0.26], [-0.035, -0.13], [-0.07, -0.015]]}}
+  skirt_facing:
+    material: facing
+    space: coatbase
+    prims:
+      - extrude: {rot: [0, 1.5708, 0], depth: 0.264, round: 0.018, profile: {bezier: [[-0.095, 0.109], [0.058, 0.15], [0.145, 0.077], [0.24, -0.14], [0.38, -0.33], [0.31, -0.39], [0.20, -0.42], [0.125, -0.20], [-0.054, -0.09], [-0.13, 0.01]]}}
+  sword_guard: {material: facing}
+  sword_pommel: {material: facing}
+  sword_blade:
+    prims:
+      - extrude: {depth: 0.043, round: 0.004, profile: {polygon: [[-0.030, 0.088], [0.03, 0.088], [0.018, 0.62], [0, 0.9], [-0.017, 0.63]]}}
 animations:
   idle:
     frames: 1
     ms: 200
     loop: false
     channels:
-      bob: -0.04
-      lean: -0.035
-      twist: -0.12
-      head_yaw: -0.09
-      hand_R: [0.23, 0.12, 0.29]
-      hand_L: [0.26, 0.04, -0.15]
-      foot_L: [0.12, 0, -0.20]
-      foot_R: [0.14, 0, 0.21]
-      coat: 0.03
-      cape_sway: 0.36
-      ponytail_swing: 0.45
-      ponytail_lift: 0.10
-      sword_pitch: 0.34
+      bob: -0.012
+      lean: 0.035
+      twist: -0.25
+      head_pitch: -0.02
+      head_yaw: 0.065
+      hand_R: [0.19, 0.238, 0.34]
+      hand_L: [0.205, 0.147, -0.32]
+      foot_L: [0.13, 0, -0.284]
+      foot_R: [0.14, 0, 0.245]
+      coat: 0.16
+      sword_pitch: 0.46
 sockets:
   sole: {bone: root, offset: [0, 0, 0]}
+  # At 0.038 units per pixel, the subpixel taper disappears past this point.
+  sword_tip: {bone: sword_edge, offset: [0, 0.724, 0]}
+  sword_hit: {bone: sword_edge, offset: [0, 0.534, 0]}
 review:
   keep:
-    silver_hair: {materials: [hair], min_px: 20}
-    wine_mantle: {materials: [cape], min_px: 12}
-    long_blade: {parts: [sword_blade], min_px: 12}
+    loose_hair: {parts: [hair_fall], min_px: 15}
+    dark_silk: {parts: [coat, skirt_facing], min_px: 15}
+    bare_arms: {parts: [arm_L, arm_R], min_px: 12}
+    open_skirt: {parts: [leg_L, leg_R], min_px: 12}
+    slim_blade: {parts: [sword_blade], min_px: 9}
     garnet_clasp: {parts: [brooch], min_px: 1}
