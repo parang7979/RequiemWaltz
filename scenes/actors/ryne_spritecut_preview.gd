@@ -15,14 +15,18 @@ var elapsed_ms := 0.0
 var frame_index := -1
 var playing := false
 var looping := false
-var pivot := Vector2.ZERO
-var cell := Vector2.ZERO
+var framing_bounds := Rect2()
 
 
 func _ready() -> void:
 	var group := ""
 	var catalog: Array = JSON.parse_string(FileAccess.get_file_as_string(CATALOG))
 	for item: Dictionary in catalog:
+		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(item.manifest))
+		var pivot := Vector2(manifest.pivot[0], manifest.pivot[1])
+		var cell := Vector2(manifest.cell[0], manifest.cell[1])
+		framing_bounds = framing_bounds.merge(Rect2(-pivot, cell))
+		item["sheet"] = manifest
 		if item.group != group:
 			group = item.group
 			var header := motions.add_item(group)
@@ -35,6 +39,7 @@ func _ready() -> void:
 	$Footer/Restart.pressed.connect(_restart)
 	stage.resized.connect(_place_sprite)
 	motions.select(1)
+	_place_sprite()
 	_select_motion(1)
 	motions.grab_focus()
 
@@ -42,7 +47,7 @@ func _ready() -> void:
 func _select_motion(row: int) -> void:
 	var item: Dictionary = motions.get_item_metadata(row)
 	var path: String = item.manifest
-	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var manifest: Dictionary = item.sheet
 	var clip: Dictionary = manifest.clips[item.clip]
 	var directory := path.get_base_dir()
 	var lit := CanvasTexture.new()
@@ -50,8 +55,7 @@ func _select_motion(row: int) -> void:
 	lit.normal_texture = load(directory.path_join(clip.maps.normal))
 	paint.texture = lit
 	glow.texture = load(directory.path_join(clip.maps.emissive))
-	pivot = Vector2(manifest.pivot[0], manifest.pivot[1])
-	cell = Vector2(manifest.cell[0], manifest.cell[1])
+	var pivot := Vector2(manifest.pivot[0], manifest.pivot[1])
 	paint.offset = -pivot
 	glow.offset = -pivot
 	frames = clip.frames
@@ -62,16 +66,17 @@ func _select_motion(row: int) -> void:
 		total_ms += int(frame.ms)
 		frame_ends.append(total_ms)
 	$MotionName.text = ("%s  %s" % [item.label, item.version]).strip_edges()
-	_place_sprite()
 	_restart()
 
 
 func _place_sprite() -> void:
-	if cell.y <= 0:
+	if not framing_bounds.has_area():
 		return
-	var zoom := maxf(1, floorf(minf(stage.size.x / cell.x, (stage.size.y - 4) / cell.y)))
+	var zoom := maxf(1, floorf(minf(stage.size.x / framing_bounds.size.x,
+			(stage.size.y - 4) / framing_bounds.size.y)))
 	paint.scale = Vector2.ONE * zoom
-	paint.position = Vector2(roundf(stage.size.x * 0.5), stage.size.y - (cell.y - pivot.y) * zoom)
+	paint.position = Vector2(stage.size.x * 0.5 - framing_bounds.get_center().x * zoom,
+			stage.size.y - framing_bounds.end.y * zoom).round()
 	$Stage/Ground.offset_top = paint.position.y
 	$Stage/Ground.offset_bottom = paint.position.y + 1
 

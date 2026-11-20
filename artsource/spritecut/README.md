@@ -1,6 +1,6 @@
 # RequiemWaltz의 SpriteCut 제작 경로
 
-공용 제작 도구 저장소는 `../SpriteCut`(게임 루트 기준)이다. 이 게임에는 원화, 캐릭터별 파츠·포즈와 생성한 시트를 저장한다. 제작 도구 기준은 **SpriteCut 0.1.0**, Git `607cf83c011fd54b351b6da2e4bd1ca29fbfd24a`이다. 게임에서 `tools/spritecut_cli.py`는 `SPRITECUT_ROOT`, 이웃 체크아웃, 설치된 패키지 순서로 도구를 찾는다. 환경 변수로 경로를 지정했다면 그 경로를 사용한다.
+공용 제작 도구 저장소는 `../SpriteCut`(게임 루트 기준)이다. 이 게임에는 원화, 캐릭터별 파츠·포즈와 생성한 시트를 저장한다. 제작 도구 기준은 **SpriteCut 0.1.0**, Git `109282ff07e81352d3dfac65996b5b3463dc6b3b`이다. 게임에서 `tools/spritecut_cli.py`는 `SPRITECUT_ROOT`, 이웃 체크아웃, 설치된 패키지 순서로 도구를 찾는다. 환경 변수로 경로를 지정했다면 그 경로를 사용한다.
 
 이 경로의 캐릭터 입력·결과물·예제는 로컬 제작 자료다. 다른 체크아웃에서 아래 레시피와 프리뷰를 사용하려면 해당 제작 폴더를 별도로 준비한다.
 
@@ -52,14 +52,9 @@
 
 ## 리네의 새 모션 제작
 
-같은 캐릭터의 납품 시트는 [제작 루트의 시트 규격](ryne/productions/pilot-01/sheet-layout.json)을 공유한다. 리네의 현재 모션 24종과 초기 내려베기 비교본은 64×88 px, 접지 피벗 [32, 85]다. 게임 경로는 `assets/actors/ryne_spritecut/motions/`이고 컬러·노말·이미시브 PNG와 `clips.json`을 함께 설치한다. 기존 씬의 걷기·달리기와 508 걷기는 별도 원화 세트의 비교 자료다.
+리네의 현재 모션 24종과 초기 내려베기 비교본은 각 제작 버전의 프레임 크기와 피벗으로 납품한다. 대기·횡베기는 64×64 px, 상하 베기는 64×80 px, 점프는 64×88 px다. 게임 루트에서 `python artsource/spritecut/ryne/build_preview.py`를 실행하면 세 재질 PNG와 `clips.json`이 `assets/actors/ryne_spritecut/motions/`에 복사된다.
 
-`motion-start`는 새 버전에 규격 사본을 만든다. 소셜 제작 루트에도 같은 규격을 둔다. 기존 버전의 시트를 개별 재생성할 때는 게임 루트에서 다음 명령을 사용한다. 전체 묶음은 로컬 제작 스크립트 `python artsource/spritecut/ryne/build_preview.py`로 갱신한다.
-
-```powershell
-$production = 'artsource/spritecut/ryne/productions/pilot-01'
-python tools/spritecut_cli.py normalize "$production/motions/run/v012/sheets/clips.json" "$production/sheet-layout.json" .local/ryne-run-normalized
-```
+Godot 미리보기는 시트를 전환할 때 컬러·노말과 발광 스프라이트의 오프셋을 각각 해당 시트의 `-pivot`으로 설정한다. 카탈로그의 모든 셀을 피벗 기준으로 겹친 범위에서 창에 맞는 공통 배율과 바닥 위치를 구하므로 크기가 다른 모션으로 바꿔도 캐릭터의 배율과 접지 기준점이 유지된다.
 
 제작 루트는 `artsource/spritecut/ryne/productions/pilot-01`이다. 새 클립에 사용할 재료는 v002, 앞대각 달리기 기준은 run v012다. 같은 루트의 [제작 기준표](ryne/productions/pilot-01/selection.json)에서 채택본과 검수본을 구분한다. 달리기 한 주기는 720ms·40px이며 F23·F24·다음 F01에 왼무릎이 고관절 뒤에 있다. [실제 속도 전후 비교](ryne/productions/pilot-01/motions/run/v012/previews/gait/before-after.gif)
 

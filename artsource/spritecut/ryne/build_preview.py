@@ -3,7 +3,6 @@ import json
 import os
 from pathlib import Path
 from shutil import copyfile
-import sys
 from tempfile import TemporaryDirectory
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -12,13 +11,6 @@ ASSETS = ACTORS / "ryne_spritecut"
 GAME = Path(__file__).resolve().parent / "productions/pilot-01"
 SPRITECUT = Path(os.environ.get("SPRITECUT_ROOT", ROOT.parent / "SpriteCut"))
 SOCIAL = SPRITECUT / "build/social-ryne/pilot-01"
-
-sys.path.insert(0, str(ROOT / "tools"))
-from spritecut_cli import locate
-
-locate()
-from spritecut.render.normalize import normalize_sheets
-
 
 # Display order is also the keyboard navigation order in the preview.
 GROUPS = {
@@ -50,9 +42,16 @@ def entry(group, label, clip, version, manifest):
 def prepare(staging, group, label, clip, revision, folder=None):
     target = ASSETS / "motions" / (folder or clip)
     staged = staging / target.name
-    manifest = normalize_sheets(revision / "sheets/clips.json", GAME / "sheet-layout.json", staged)
-    if clip not in read(manifest)["clips"]:
+    source = revision / "sheets"
+    manifest = source / "clips.json"
+    clips = read(manifest)["clips"]
+    if clip not in clips:
         raise ValueError(f"{revision}: missing {clip}")
+    staged.mkdir()
+    copyfile(manifest, staged / manifest.name)
+    for sheet in clips.values():
+        for filename in sheet["maps"].values():
+            copyfile(source / filename, staged / filename)
     root_motion = revision / "root_motion.json"
     if root_motion.exists():
         copyfile(root_motion, staged / root_motion.name)
