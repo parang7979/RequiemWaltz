@@ -1,0 +1,7 @@
+# Local SpriteCut production artwork, revisions, previews and examples.
+*
+!*/
+!/.gitignore
+!*.md
+/ryne/productions/
+/ryne/turnaround-508/
