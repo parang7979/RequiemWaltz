@@ -5,3 +5,5 @@
 !*.md
 /ryne/productions/
 /ryne/turnaround-508/
+
+!/ryne/build_preview.py

@@ -1,0 +1,198 @@
+[
+  {
+    "group": "이동 · 기본",
+    "label": "대기",
+    "clip": "idle",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/idle/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "걷기",
+    "clip": "walk",
+    "version": "v003",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/walk/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "달리기",
+    "clip": "run",
+    "version": "v012",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/run/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "팔 스윙",
+    "clip": "arm_swing",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/arm_swing/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "점프",
+    "clip": "jump",
+    "version": "v003",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/jump/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "이단 점프",
+    "clip": "double_jump",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/double_jump/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "전방 대시",
+    "clip": "dash_forward",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/dash_forward/clips.json"
+  },
+  {
+    "group": "이동 · 기본",
+    "label": "후방 대시",
+    "clip": "dash_backward",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/dash_backward/clips.json"
+  },
+  {
+    "group": "검술",
+    "label": "왼쪽 횡베기",
+    "clip": "slash_left",
+    "version": "v003",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/slash_left/clips.json"
+  },
+  {
+    "group": "검술",
+    "label": "오른쪽 횡베기",
+    "clip": "slash_right",
+    "version": "v003",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/slash_right/clips.json"
+  },
+  {
+    "group": "검술",
+    "label": "내려베기",
+    "clip": "slash_down",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/slash_down/clips.json"
+  },
+  {
+    "group": "검술",
+    "label": "올려베기",
+    "clip": "slash_up",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/slash_up/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "헐떡이기",
+    "clip": "pant",
+    "version": "v007",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/pant/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "손인사",
+    "clip": "wave",
+    "version": "v004",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/wave/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "무릎 앉기",
+    "clip": "kneel_hug",
+    "version": "v004",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/kneel_hug/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "감사 인사",
+    "clip": "thank_you",
+    "version": "v003",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/thank_you/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "머리 위 스트레칭",
+    "clip": "stretch_overhead",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/stretch_overhead/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "응원의 박수",
+    "clip": "applause",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/applause/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "한 팔씩 뻗기",
+    "clip": "stretch_reach",
+    "version": "v002",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/stretch_reach/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "귀 기울이기",
+    "clip": "listen",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/listen/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "생각하기",
+    "clip": "think",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/think/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "대화하기",
+    "clip": "talk",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/talk/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "꾸벅꾸벅 졸기",
+    "clip": "doze",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/doze/clips.json"
+  },
+  {
+    "group": "소셜",
+    "label": "하품하기",
+    "clip": "yawn",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/yawn/clips.json"
+  },
+  {
+    "group": "비교본",
+    "label": "내려베기 · 초기",
+    "clip": "slash_down",
+    "version": "v001",
+    "manifest": "res://assets/actors/ryne_spritecut/motions/slash_down_v001/clips.json"
+  },
+  {
+    "group": "비교본",
+    "label": "걷기 · 기존 씬",
+    "clip": "walk",
+    "version": "",
+    "manifest": "res://assets/actors/ryne_spritecut/clips.json"
+  },
+  {
+    "group": "비교본",
+    "label": "달리기 · 기존 씬",
+    "clip": "run",
+    "version": "",
+    "manifest": "res://assets/actors/ryne_spritecut/clips.json"
+  },
+  {
+    "group": "비교본",
+    "label": "걷기 · 508",
+    "clip": "walk",
+    "version": "",
+    "manifest": "res://assets/actors/ryne_508/walk/clips.json"
+  }
+]

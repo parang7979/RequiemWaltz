@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    60
+  ],
+  "clips": {
+    "walk": {
+      "maps": {
+        "color": "walk_color.png",
+        "normal": "walk_normal.png",
+        "emissive": "walk_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 24,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 64,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 128,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 256,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 320,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 64,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 128,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "far_boot",
+            "near_boot"
+          ]
+        },
+        {
+          "x": 256,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 320,
+          "y": 128,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 64,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 128,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 256,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        },
+        {
+          "x": 320,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "ms": 40,
+          "contacts": [
+            "near_boot"
+          ]
+        }
+      ]
+    }
+  }
+}
