@@ -1,0 +1,60 @@
+{
+ "errors": [],
+ "warnings": [],
+ "info": {
+  "colors_used": 42,
+  "palette_size": 135,
+  "boil": {
+   "idle/e": 0.034,
+   "idle/w": 0.04,
+   "run/e": 0.113,
+   "run/w": 0.112,
+   "jump/e": 0.134,
+   "jump/w": 0.138,
+   "run_start/e": 0.114,
+   "run_start/w": 0.078,
+   "run_stop/e": 0.065,
+   "run_stop/w": 0.071,
+   "slash/e": 0.077,
+   "slash/w": 0.063,
+   "wave/e": 0.024,
+   "wave/w": 0.022,
+   "interact/e": 0.074,
+   "interact/w": 0.092
+  },
+  "idle_area_ratio_min_max": 0.96,
+  "run_area_ratio_min_max": 0.99,
+  "jump_area_ratio_min_max": 0.92,
+  "run_start_area_ratio_min_max": 0.94,
+  "run_stop_area_ratio_min_max": 0.96,
+  "hidden": {
+   "slash/e": {
+    "curtain_L": [
+     10
+    ]
+   },
+   "interact/e": {
+    "leg_L": [
+     6,
+     7,
+     8
+    ]
+   }
+  },
+  "slash_area_ratio_min_max": 0.92,
+  "wave_area_ratio_min_max": 0.99,
+  "interact_area_ratio_min_max": 0.94,
+  "ground_speed": {
+   "run": {
+    "px_per_s": 63.5,
+    "units_per_s": 4.0,
+    "uneven": 0.05,
+    "feet": [
+     "ankle_L",
+     "ankle_R"
+    ]
+   }
+  }
+ },
+ "ok": true
+}

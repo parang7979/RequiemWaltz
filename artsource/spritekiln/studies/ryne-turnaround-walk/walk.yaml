@@ -1,0 +1,43 @@
+spritekiln: 1
+name: ryne_profile_walk
+view: side
+size: 192
+directions: [s]
+camera: {pitch: 0, scale: 4, center: [240, -358, 0]}
+brief:
+  summary: One rightward walk cycle seen from the reference turnaround's true profile.
+  proportions: Keep the original head, boot, ponytail and body scale of the standing sprite.
+channels:
+  near_target: [200, -648, 0]
+  far_target: [200, -648, 0]
+  lift: 0
+  arm_swing: 0
+  nod: 0
+  hair: 0
+  coat: 0
+bones:
+  hips: {pos: "[247 + 1.8*sin(2*p-0.4), -355 - lift, 0]"}
+  chest: {parent: hips, rot: "[0, 0, -0.024 - 0.011*nod]"}
+  face: {parent: chest, pos: [0, 171, 0], rot: "[0, 0, 0.016 + 0.009*nod]"}
+  tail: {parent: face, pos: [-65, 115, 0], rot: "[0, 0, -0.033 + 0.041*hair]"}
+  hem: {parent: hips, pos: [-25, 40, 0], rot: "[0, 0, -0.025 + 0.048*coat]"}
+  near_hip: {parent: hips, pos: [2, 0, 0]}
+  far_hip: {parent: hips, pos: [-3, 0, 0]}
+  near_arm: {parent: chest, pos: [-12, 142, 0], rot: "[0, 0, -0.38*arm_swing]"}
+  far_arm: {parent: chest, pos: [-16, 142, 0], rot: "[0, 0, 0.38*arm_swing]"}
+  near_forearm: {parent: near_arm, pos: [-7, -78, 0], rot: "[0, 0, 0.12 - 0.13*arm_swing]"}
+  far_forearm: {parent: far_arm, pos: [-7, -78, 0], rot: "[0, 0, 0.12 + 0.13*arm_swing]"}
+ik:
+  near_leg: {start: near_hip, joint: near_knee, end: near_ankle, target: near_target, lengths: [142, 157], pole: [1,0,0]}
+  far_leg: {start: far_hip, joint: far_knee, end: far_ankle, target: far_target, lengths: [142, 157], pole: [1,0,0]}
+animations:
+  walk:
+    loop: true
+    frames: 24
+    ms: 40
+    channels:
+      lift: "3.6*sin(2*p-0.85) + 2*(1-cos(2*p))"
+      arm_swing: "cos(p-0.15)"
+      nod: "sin(2*p-0.45)"
+      hair: "sin(2*p-1.12)"
+      coat: "sin(2*p-1.55)"

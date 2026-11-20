@@ -1,0 +1,28 @@
+spritekiln: 1
+name: skeleton_sentinel_idle
+brief:
+  summary: A right-facing three-quarter skeletal sentinel settling its ribcage and jaw.
+  imagegen_prompt: >-
+    One finished full-body character turnaround pose for a gothic pixel-art JRPG side-scrolling action game: an undead skeleton sentinel in a relaxed battle-ready Idle, front three-quarter facing screen RIGHT, both deep eye sockets visible, nearer shoulder on image left, feet apart and both fully planted. Match a silver-haired red-jacket heroine's hand-painted anime pixel-art equipment-sheet look and roughly four-heads-tall compact proportions. Distinctive oversized ivory skull, a single chipped brow and ember-red points in the sockets, distinct mandible with a dark gap, open readable ribs, antique plum-metal shoulder cap on one shoulder, narrow frayed burgundy hip sash hanging only on one side, short charcoal ankle wraps. Exposed ivory skeleton arms down with slight bend, empty hands, negative space between arms and ribs and between knees. Clean clusters of lights and shadows, plum-black selective ink outlines, warm bone / lavender-shadow palette, light from upper left, detailed concept sprite master suitable for later shrinking to 56 pixels. Single figure centered with clear margins, comfortably fits portrait canvas, orthographic eye level, no floor or ground shadow, no text, no equipment held, no extra poses. Transparent RGBA background including gaps around limbs.
+view: side
+size: 64
+directions: [s]
+channels: {rise: 0, watch: 0, hands: 0, rattle: 0}
+bones:
+  pelvis: {pos: [127,-139,0]}
+  ribs: {parent: pelvis, pos: "[-0.8*watch,25+3.6*rise,0]", rot: "[0,0,0.024*watch]"}
+  skull: {parent: ribs, pos: "[-7,44+0.8*rise,0]", rot: "[0,0,-0.078*watch]"}
+  jaw: {parent: skull, pos: "[2,-0.8*rattle+10,0]", rot: "[0,0,-0.115*rattle]"}
+  near_arm: {parent: ribs, pos: [-23,36,0], rot: "[0,0,-0.058*hands]"}
+  far_arm: {parent: ribs, pos: [14,33,0], rot: "[0,0,0.073*hands]"}
+  sash: {parent: pelvis, pos: [16,4,0], rot: "[0,0,0.047*hands]"}
+animations:
+  idle:
+    loop: true
+    frames: 36
+    ms: 80
+    channels:
+      rise: "0.5-0.5*cos(p)"
+      watch: "0.75*sin(p)+0.25*sin(2*p)"
+      hands: "sin(p-0.7)+sin(0.7)"
+      rattle: "(0.5-0.5*cos(p))*(0.55+0.45*cos(2*p+0.25))"

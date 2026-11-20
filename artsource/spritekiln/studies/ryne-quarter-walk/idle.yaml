@@ -1,0 +1,20 @@
+spritekiln: 1
+extends: ../ryne-turnaround-idle/idle.yaml
+name: ryne_quarter_idle
+brief:
+  summary: Standing breath on the turnaround's second figure, registered to the first step.
+camera: {pitch: 0, scale: 4, center: [247, -357, 0]}
+bones:
+  hips: {pos: "[0.7*drift,-358+1.15*breath,0]"}
+  chest: {parent: hips, pos: "[254,120+2.7*breath,0]", rot: "[0,0,0.004*drift]", scale: "[1+0.009*breath,1,1]"}
+  face: {parent: chest, pos: "[0,41+0.75*breath,0]", rot: "[0,0,-0.008*drift]"}
+  pony: {parent: face, pos: [-69,124,0], rot: "[0,0,0.018*curl]"}
+  mid: {parent: pony, pos: [-56,-70,0], rot: "[0,0,0.021*(sin(p-0.72)+sin(0.72))]"}
+  tip: {parent: mid, pos: [-19,-68,0], rot: "[0,0,0.030*(sin(p-1.17)+sin(1.17))]"}
+  sleeve_near: {parent: chest, pos: [-58,10,0], rot: "[0,0,-0.014*cuff]"}
+  sleeve_far: {parent: chest, pos: [35,7,0], rot: "[0,0,0.011*cuff]"}
+animations:
+  idle:
+    channels:
+      curl: "sin(p-0.38)+sin(0.38)"
+      cuff: "sin(p-0.46)+sin(0.46)"

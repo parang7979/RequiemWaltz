@@ -1,0 +1,48 @@
+{
+ "errors": [],
+ "warnings": [],
+ "info": {
+  "colors_used": 51,
+  "palette_size": 153,
+  "boil": {
+   "transform/e": 0.06,
+   "transform/w": 0.054,
+   "launch/e": 0.086,
+   "launch/w": 0.081,
+   "hover/e": 0.077,
+   "hover/w": 0.081,
+   "air_turn/e": 0.072,
+   "air_turn/w": 0.064
+  },
+  "transform_area_ratio_min_max": 0.93,
+  "launch_area_ratio_min_max": 0.95,
+  "hover_area_ratio_min_max": 0.96,
+  "hidden": {
+   "air_turn/e": {
+    "temple_L": [
+     0
+    ],
+    "temple_R": [
+     6,
+     12,
+     13,
+     14,
+     15
+    ]
+   },
+   "air_turn/w": {
+    "temple_L": [
+     14,
+     15
+    ],
+    "temple_R": [
+     0,
+     1,
+     2
+    ]
+   }
+  },
+  "air_turn_area_ratio_min_max": 0.97
+ },
+ "ok": true
+}

@@ -1,0 +1,234 @@
+spritekiln: 1
+name: ryne
+extends: ./base.yaml
+remove: [animations]
+
+brief:
+  summary: Ryne's side-scrolling movement, blade cut, greeting and crystal pickup from the supplied boards.
+  head: High silver-lilac ponytail, overlapping bangs and a reddish eye turned slightly toward the viewer.
+  must_keep: [silver_fringe, high_ponytail, dropped_jacket, thigh_and_boot]
+  simplify: [One cut from the combo, One crystal for the pickup]
+
+ramps:
+  blade_wake: ["#712640", "#a62751", "#e73167", "#ff6293", "#ffb9cb", "#fff6ed"]
+  pickup_blue: ["#26304f", "#374a81", "#516dc5", "#759aec", "#a1d9ff", "#e5ffff"]
+materials:
+  cut_fringe: {ramp: blade_wake, band: 1, emissive: true, outline: false, line: false}
+  cut_body: {ramp: blade_wake, band: 2, emissive: true, outline: false, line: false}
+  cut_edge: {ramp: blade_wake, band: 5, emissive: true, outline: false, line: false}
+  crystal: {ramp: pickup_blue, bands: [1, 5], finish: glossy}
+  crystal_flash: {ramp: pickup_blue, band: 5, emissive: true, line: false, outline: false}
+
+channels:
+  pickup_visible: 0
+  pickup_grip: 0
+  cut_crescent: 0
+  palm_angle: 0
+  open_palm: 0
+
+bones:
+  pickup_rest: {parent: root, pos: "[-0.18 - 0.08*yaw/90, 0.15, 0.33 - 0.05*yaw/90]"}
+  pickup_hand: {parent: root, at: wrist_R, pos: [0, 0.09, 0.06]}
+  cut_pivot: {parent: root, pos: [-0.38, 1.13, 0.11], rot: [0, -1.5708, 0]}
+  greeting_hand: {parent: root, at: wrist_L, rot: "[0.12*yaw/90, -1.5708*yaw/90, palm_angle*yaw/90]"}
+
+parts:
+  smear:
+    when: "smear_w > 0 and cut_crescent < 0.5"
+    materials: [cut_fringe, cut_body, cut_edge]
+    floating: true
+    prims:
+      - arc: {c: [0, 0, 0], r: smear_r, a0: smear_a0, a1: smear_a1, width: smear_w, fade: smear_fade, dip: 0.16}
+  strike_crescent:
+    when: "cut_crescent > 0.5"
+    space: cut_pivot
+    floating: true
+    material: cut_body
+    line: false
+    prims:
+      - extrude:
+          depth: 0.051
+          profile: {bezier: [[-0.48, 0.31], [-0.09, 0.58], [0.49, 0.45], [1.04, 0.35], [1.11, 0.09], [1.22, -0.19], [0.56, -0.39], [0.27, -0.47], [0.06, -0.46], [0.49, -0.32], [0.66, -0.16], [0.98, 0.09], [0.57, 0.27], [0.16, 0.46], [-0.19, 0.35], [-0.36, 0.31]]}
+    paint:
+      - material: cut_edge
+        prims:
+          - extrude:
+              depth: 0.10
+              profile: {bezier: [[0.07, -0.46], [0.48, -0.34], [0.66, -0.16], [0.95, 0.05], [0.68, 0.22], [0.50, 0.35], [0.27, 0.39], [0.70, 0.34], [0.92, 0.14], [1.30, -0.16], [0.55, -0.39], [0.24, -0.48]]}
+  open_glove:
+    when: "open_palm > 0.5"
+    space: greeting_hand
+    material: skin
+    line: false
+    prims:
+      - extrude:
+          depth: 0.04
+          round: 0.007
+          profile: {polygon: [[-0.031, -0.013], [0.033, -0.013], [0.048, 0.035], [0.061, 0.080], [0.043, 0.086], [0.033, 0.053], [0.034, 0.125], [0.013, 0.126], [-0.002, 0.147], [-0.020, 0.145], [-0.031, 0.102], [-0.047, 0.098], [-0.052, 0.059]]}
+    paint:
+      - material: leather
+        prims: [{box: {c: [0, 0.014, 0], half: [0.07, 0.032, 0.04]}}]
+  pickup_gem:
+    when: "pickup_visible > 0"
+    floating: true
+    material: crystal
+    prims:
+      - extrude:
+          c: &gem_center {between: ["@pickup_rest", "@pickup_hand"], t: pickup_grip}
+          rot: [0, 1.32, 0]
+          profile: {polygon: [[-0.057, 0.010], [-0.015, 0.118], [0.056, 0.041], [0.061, -0.014], [0.011, -0.102]]}
+          depth: 0.065
+    paint:
+      - material: crystal_flash
+        prims:
+          - extrude:
+              c: *gem_center
+              rot: [0, 1.32, 0]
+              profile: {polygon: [[-0.040, 0.012], [-0.015, 0.096], [0.007, 0.025], [0.004, 0.000]]}
+              depth: 0.085
+
+animations:
+  idle:
+    frames: 8
+    ms: 145
+    channels:
+      bob: "-0.025 - 0.019*(1 - cos(p))"
+      squash: "1 + 0.018*sin(p)"
+      lean: "0.055 + 0.018*cos(p)"
+      head_pitch: "-0.055 - 0.028*sin(p - 0.45)"
+      pony_swing: "0.09 + 0.08*sin(p - 1.25)"
+      coat: "-0.12 + 0.09*sin(p - 0.80)"
+      foot_L: &left_stance "[0.15, 0, 0.245*yaw/90]"
+      foot_R: &right_stance "[0.15, 0, -0.245*yaw/90]"
+      hand_L: "[0.285, 0.05 + 0.019*sin(p - 0.6), 0.03 + 0.08*yaw/90]"
+      hand_R: "[0.285, 0.05 + 0.023*sin(p - 0.7), 0.03 - 0.08*yaw/90]"
+
+  run:
+    # Six poses from one heel strike to the other. Each stance advances the
+    # planted foot rearward by a nearly constant distance per millisecond.
+    loop: true
+    carry: true
+    keys:
+      - ms: 46
+        event: step_l
+        set: &run_contact {foot_L: &contact [0.135,0.002,0.31], foot_R: &trail [0.135,0.19,-0.48], pitch_foot_L: -0.10, pitch_foot_R: 1.00, hand_L: &back [0.21,0.24,-0.29], hand_R: &front [0.20,0.46,0.32], bob: -0.054, lean: 0.76, head_pitch: -0.22, twist: "0.58*yaw/90 + 0.09", coat: -0.82, pony_swing: 0.66}
+      - ms: 44
+        set: {foot_L: &load [0.135,0,0.125], foot_R: &heel [0.135,0.32,-0.38], pitch_foot_L: 0.01, pitch_foot_R: 1.22, hand_L: &backlow [0.20,0.21,-0.27], hand_R: &fronthigh [0.20,0.48,0.28], bob: -0.106, lean: 0.83, squash: 0.98, head_pitch: -0.24, coat: -0.78, pony_swing: 0.64}
+      - ms: 45
+        set: {foot_L: &mid [0.135,0,-0.055], foot_R: &pass [0.135,0.34,-0.11], pitch_foot_L: 0.06, pitch_foot_R: 0.95, hand_L: &low [0.215,0.21,-0.12], hand_R: &high [0.215,0.41,0.13], bob: -0.083, lean: 0.81, squash: 0.99, twist: "0.58*yaw/90", coat: -0.71, pony_swing: 0.57}
+      - ms: 46
+        set: {foot_L: &push [0.135,0.018,-0.23], foot_R: &knee [0.135,0.30,0.19], pitch_foot_L: 0.40, pitch_foot_R: 0.51, hand_L: &through [0.22,0.26,0.06], hand_R: &down [0.21,0.31,-0.03], bob: -0.030, lean: 0.75, head_pitch: -0.20, squash: 1.01, coat: -0.69, pony_swing: 0.56}
+      - ms: 44
+        set: {foot_L: &toe [0.135,0.108,-0.39], foot_R: &extend [0.135,0.20,0.35], pitch_foot_L: 0.72, pitch_foot_R: 0.12, hand_L: &drive [0.21,0.36,0.21], hand_R: &draw [0.21,0.24,-0.18], bob: -0.002, lean: 0.71, squash: 1.012, twist: "0.58*yaw/90 - 0.06", coat: -0.76, pony_swing: 0.62}
+      - ms: 42
+        set: {foot_L: &flight [0.135,0.13,-0.48], foot_R: &reach [0.135,0.12,0.40], pitch_foot_L: 0.90, pitch_foot_R: -0.09, hand_L: &crest [0.20,0.43,0.31], hand_R: &swingback [0.21,0.22,-0.26], bob: -0.018, lean: 0.72, squash: 1, coat: -0.85, pony_swing: 0.68}
+      - ms: 46
+        event: step_r
+        set: {foot_R: *contact, foot_L: *trail, pitch_foot_R: -0.10, pitch_foot_L: 1.00, hand_R: *back, hand_L: *front, bob: -0.054, lean: 0.76, head_pitch: -0.22, twist: "0.58*yaw/90 - 0.09", coat: -0.82, pony_swing: 0.66}
+      - ms: 44
+        set: {foot_R: *load, foot_L: *heel, pitch_foot_R: 0.01, pitch_foot_L: 1.22, hand_R: *backlow, hand_L: *fronthigh, bob: -0.106, lean: 0.83, squash: 0.98, head_pitch: -0.24, coat: -0.78, pony_swing: 0.64}
+      - ms: 45
+        set: {foot_R: *mid, foot_L: *pass, pitch_foot_R: 0.06, pitch_foot_L: 0.95, hand_R: *low, hand_L: *high, bob: -0.083, lean: 0.81, squash: 0.99, twist: "0.58*yaw/90", coat: -0.71, pony_swing: 0.57}
+      - ms: 46
+        set: {foot_R: *push, foot_L: *knee, pitch_foot_R: 0.40, pitch_foot_L: 0.51, hand_R: *through, hand_L: *down, bob: -0.030, lean: 0.75, head_pitch: -0.20, squash: 1.01, coat: -0.69, pony_swing: 0.56}
+      - ms: 44
+        set: {foot_R: *toe, foot_L: *extend, pitch_foot_R: 0.72, pitch_foot_L: 0.12, hand_R: *drive, hand_L: *draw, bob: -0.002, lean: 0.71, squash: 1.012, twist: "0.58*yaw/90 + 0.06", coat: -0.76, pony_swing: 0.62}
+      - ms: 42
+        set: {foot_R: *flight, foot_L: *reach, pitch_foot_R: 0.90, pitch_foot_L: -0.09, hand_R: *crest, hand_L: *swingback, bob: -0.018, lean: 0.72, squash: 1, coat: -0.85, pony_swing: 0.68}
+
+  jump:
+    loop: false
+    keys:
+      - {ms: 45, tween: 1, tween_ms: 33, set: &neutral {bob: -0.025, lean: 0.073, head_pitch: "-0.055 - 0.028*sin(-0.45)", pony_swing: "0.09 + 0.08*sin(-1.25)", coat: "-0.12 + 0.09*sin(-0.80)", hand_L: "[0.285, 0.05 + 0.019*sin(-0.6), 0.03 + 0.08*yaw/90]", hand_R: "[0.285, 0.05 + 0.023*sin(-0.7), 0.03 - 0.08*yaw/90]", foot_L: *left_stance, foot_R: *right_stance}}
+      - {ms: 56, tween: 1, tween_ms: 27, set: {bob: -0.19, lean: 0.43, squash: 0.94, head_pitch: -0.06, coat: 0.10, pony_swing: 0.11, foot_L: *left_stance, foot_R: *right_stance, hand_L: [0.24,0.11,-0.27], hand_R: [0.23,0.15,-0.18]}}
+      - {ms: 31, event: takeoff, set: {root: [0,0.065,0], bob: 0.025, lean: 0.29, squash: 1.03, head_pitch: -0.11, foot_L: [0.14,0.008,-0.15], foot_R: [0.14,0.15,0.14], pitch_foot_L: 0.57, pitch_foot_R: 0.25, hand_L: [0.22,0.25,-0.10], hand_R: [0.22,0.44,0.27], pony_swing: -0.13}}
+      - {ms: 44, tween: 1, tween_ms: 42, set: {root: [0,0.235,0.025], bob: -0.015, lean: 0.42, twist: "0.27*yaw/90", head_pitch: -0.13, foot_L: [0.14,0.12,-0.30], foot_R: [0.14,0.34,0.20], pitch_foot_L: 0.85, pitch_foot_R: 0.37, hand_L: [0.22,0.17,-0.21], hand_R: [0.20,0.52,0.29], pony_swing: 0.26, coat: -0.56}}
+      - {ms: 65, event: apex, tween: 1, tween_ms: 43, set: {root: [0,0.33,0.04], bob: -0.030, lean: 0.52, twist: "0.34*yaw/90", head_pitch: -0.15, foot_L: [0.14,0.28,-0.35], foot_R: [0.14,0.40,0.19], pitch_foot_L: 0.91, pitch_foot_R: 0.38, hand_L: [0.22,0.19,-0.23], hand_R: [0.20,0.44,0.32], pony_swing: 0.66, coat: -0.83}}
+      - {ms: 42, tween: 1, tween_ms: 31, set: {root: [0,0.185,0.025], bob: -0.015, lean: 0.34, head_pitch: -0.03, foot_L: [0.14,0.21,-0.23], foot_R: [0.14,0.08,0.18], pitch_foot_L: 0.64, pitch_foot_R: 0.14, hand_L: [0.26,0.30,-0.16], hand_R: [0.25,0.33,0.30], pony_swing: 0.83, coat: -0.55}}
+      - {ms: 32, event: land, set: {bob: -0.04, lean: 0.23, foot_L: *left_stance, foot_R: *right_stance, hand_L: [0.25,0.22,-0.08], hand_R: [0.24,0.22,0.19], pony_swing: 0.63, coat: -0.31}}
+      - {ms: 54, tween: 2, tween_ms: 38, ease: out, set: {bob: -0.18, lean: 0.44, squash: 0.94, head_pitch: -0.05, foot_L: *left_stance, foot_R: *right_stance, hand_L: [0.25,0.15,-0.05], hand_R: [0.24,0.20,0.15], pony_swing: 0.37, coat: 0.12}}
+      - {ms: 48, set: *neutral}
+
+  run_start:
+    loop: false
+    keys:
+      - {ms: 32, tween: 1, tween_ms: 30, set: *neutral}
+      - {ms: 42, tween: 1, tween_ms: 31, set: {bob: -0.12, lean: 0.31, squash: 0.97, foot_L: *left_stance, foot_R: *right_stance, hand_L: [0.24,0.16,-0.13], hand_R: [0.22,0.25,0.16], head_pitch: -0.10, twist: "0.21*yaw/90", coat: 0.05, pony_swing: 0.03}}
+      - {ms: 33, tween: 1, tween_ms: 31, set: {bob: -0.075, lean: 0.63, twist: "0.48*yaw/90", hand_L: *backlow, hand_R: *drive, foot_L: [0.14,0.14,0.21], foot_R: [0.14,0.045,-0.32], pitch_foot_R: 0.60, head_pitch: -0.18, coat: -0.34, pony_swing: 0.32}}
+      - {ms: 22, set: *run_contact}
+  run_stop:
+    loop: false
+    keys:
+      - {ms: 28, tween: 1, tween_ms: 34, set: *run_contact}
+      - {ms: 46, tween: 1, tween_ms: 34, set: {bob: -0.14, lean: 0.37, twist: "0.40*yaw/90", head_pitch: -0.14, foot_L: [0.135,0,0.24], foot_R: [0.135,0.16,-0.30], hand_L: [0.27,0.24,-0.16], hand_R: [0.24,0.36,0.29], coat: -0.48, pony_swing: 0.71}}
+      - {ms: 45, tween: 1, tween_ms: 39, set: {bob: -0.065, lean: 0.02, twist: "0.20*yaw/90", head_pitch: -0.04, foot_L: [0.14,0,0.17], foot_R: [0.14,0,-0.19], hand_L: [0.28,0.14,-0.02], hand_R: [0.28,0.19,0.17], coat: 0.04, pony_swing: 0.35}}
+      - {ms: 55, tween: 1, tween_ms: 42, set: {bob: -0.042, lean: 0.04, foot_L: *left_stance, foot_R: *right_stance, hand_L: [0.285,0.06,0.08], hand_R: [0.285,0.09,-0.03], coat: 0.12, pony_swing: -0.05}}
+      - {ms: 40, set: *neutral}
+
+  slash:
+    loop: false
+    carry: true
+    keys:
+      - {ms: 38, tween: 1, tween_ms: 28, set: *neutral}
+      - ms: 36
+        tween: 2
+        tween_ms: 27
+        set: {blade_on: 1, bob: -0.04, lean: 0.09, foot_L: [0.14, 0, -0.18], foot_R: [0.15, 0, 0.16], hand_L: [0.23, 0.20, 0.20], hand_R: [0.25, 0.08, 0.10], sword_pitch: 0.1}
+      - ms: 46
+        tween: 1
+        tween_ms: 34
+        event: windup
+        set: {bob: -0.10, squash: 0.97, lean: -0.03, twist: -0.19, pony_swing: 0.09, hand_R: [0.22, 0.47, -0.29], sword_pitch: 2.0}
+      - ms: 76
+        tween: 1
+        tween_ms: 24
+        ease: in
+        set: {bob: -0.13, lean: -0.11, twist: -0.28, head_pitch: -0.11, coat: -0.2, pony_swing: 0.16, hand_R: [0.20, 0.73, -0.23], sword_pitch: 1.97}
+      - ms: 29
+        set: {root: [0, 0, 0.04], bob: -0.04, squash: 1.04, lean: 0.22, twist: -0.04, hand_L: [0.21, 0.18, -0.13], hand_R: [0.19, 0.78, 0.27], sword_pitch: 1.53, smear_y: 1.11, smear_z: 0.11, smear_r: 0.80, smear_a0: 2.56, smear_a1: 0.98, smear_w: 0.091}
+      - ms: 59
+        event: hit
+        set: {root: [0, 0, 0.14], lean: 0.68, twist: "0.45*yaw/90 + 0.15", bob: -0.14, squash: 0.97, head_pitch: -0.13, coat: -0.91, pony_swing: 0.78, foot_L: [0.13, 0.04, -0.33], foot_R: [0.15, 0, 0.29], hand_L: [0.23, 0.15, -0.19], hand_R: [0.20, 0.38, 0.42], sword_pitch: 0.45, cut_crescent: 1}
+      - ms: 38
+        tween: 1
+        tween_ms: 35
+        ease: out
+        set: {root: [0, 0, 0.15], lean: 0.53, bob: -0.16, twist: 0.30, hand_R: [0.21, 0.03, 0.26], sword_pitch: 0.38, pony_swing: 0.95, cut_crescent: 0, smear_r: 0.98, smear_a0: 0.43, smear_a1: -1.00, smear_w: 0.073, smear_fade: 0.61}
+      - ms: 52
+        tween: 2
+        tween_ms: 40
+        ease: out
+        set: {root: [0, 0, 0.07], lean: 0.29, bob: -0.09, twist: 0.10, hand_R: [0.24, 0.06, 0.18], sword_pitch: 0.18, smear_w: 0, pony_swing: 0.43, coat: -0.24}
+      - ms: 46
+        tween: 1
+        tween_ms: 35
+        set: {root: [0, 0, 0], lean: 0.06, bob: -0.025, squash: 1, twist: 0, head_pitch: -0.04, hand_R: [0.24, 0.05, 0.09], hand_L: [0.23, 0.06, -0.10], foot_L: [0.13, 0, -0.16], foot_R: [0.14, 0, 0.16], pony_swing: 0.11, coat: -0.12}
+      - {ms: 55, carry: false, set: *neutral}
+
+  wave:
+    loop: false
+    carry: true
+    keys:
+      - {ms: 75, tween: 2, tween_ms: 40, set: *neutral}
+      - {ms: 48, tween: 1, tween_ms: 35, set: {hand_L: "[0.38,0.40,0.20*yaw/90]", head_pitch: -0.07, head_yaw: "-0.06*yaw/90"}}
+      - {ms: 75, event: greet, tween: 1, tween_ms: 42, set: {open_palm: 1, hand_L: "[0.41,0.715,0.25*yaw/90]", palm_angle: -0.46, roll: -0.03, pony_swing: 0.12}}
+      - {ms: 63, tween: 1, tween_ms: 38, set: {hand_L: "[0.48,0.685,0.26*yaw/90]", palm_angle: 0.51, head_pitch: -0.12}}
+      - {ms: 65, tween: 1, tween_ms: 40, set: {hand_L: "[0.405,0.72,0.25*yaw/90]", palm_angle: -0.40, pony_swing: 0.07}}
+      - {ms: 58, tween: 1, tween_ms: 40, set: {hand_L: "[0.465,0.685,0.25*yaw/90]", palm_angle: 0.35, roll: -0.012}}
+      - {ms: 48, tween: 2, tween_ms: 36, set: {open_palm: 0, palm_angle: 0, hand_L: "[0.34,0.40,0.18*yaw/90]", head_yaw: 0, head_pitch: -0.05}}
+      - {ms: 60, carry: false, set: *neutral}
+
+  interact:
+    loop: false
+    carry: true
+    keys:
+      - {ms: 58, tween: 1, tween_ms: 47, set: {pickup_visible: 1, head_pitch: 0.12, lean: 0.12, bob: -0.035, hand_R: &right_rest "[0.285,0.05,0.03 - 0.08*yaw/90]", hand_L: &left_rest "[0.285,0.05,0.03 + 0.08*yaw/90]", foot_L: *left_stance, foot_R: *right_stance}}
+      - {ms: 53, tween: 1, tween_ms: 40, set: {bob: -0.17, lean: 0.36, twist: "0.26*yaw/90", squash: 0.96, head_pitch: 0.19, pony_swing: 0.02, hand_R: [0.23, 0.14, 0.28], hand_L: [0.24, 0.18, 0.10]}}
+      - {ms: 55, tween: 1, tween_ms: 37, set: {bob: -0.34, lean: 0.68, twist: "0.57*yaw/90", squash: 0.92, head_pitch: 0.14, pony_swing: 0.28, hand_R: [0.20, 0.09, 0.35], foot_L: "[0.15, 0.07, 0.21*yaw/90]", pitch_foot_L: 0.46}}
+      - {ms: 95, event: pickup, tween: 1, tween_ms: 36, set: {bob: -0.47, lean: 0.78, head_pitch: 0.08, pony_swing: 0.41, coat: 0.27, hand_R: [0.19, 0.04, 0.37], hand_L: [0.23, 0.19, 0.09], foot_L: "[0.15, 0.09, 0.23*yaw/90]", pitch_foot_L: 0.58}}
+      - {ms: 46, tween: 1, tween_ms: 43, set: {pickup_grip: 1, bob: -0.42, lean: 0.63, hand_R: [0.20, 0.18, 0.36], pony_swing: 0.34}}
+      - {ms: 52, tween: 1, tween_ms: 52, set: {bob: -0.20, lean: 0.32, squash: 0.98, head_pitch: 0.09, coat: -0.18, pony_swing: 0.12, hand_R: [0.23, 0.36, 0.37], foot_L: "[0.15, 0.04, 0.23*yaw/90]", pitch_foot_L: 0.25}}
+      - {ms: 68, tween: 1, tween_ms: 44, set: {bob: -0.02, lean: 0.08, squash: 1, head_pitch: -0.02, hand_R: [0.22, 0.60, 0.33], hand_L: *left_rest, foot_L: *left_stance, pitch_foot_L: 0, pony_swing: -0.06}}
+      - {ms: 200, event: inspect, set: {head_pitch: -0.085, hand_R: [0.22, 0.66, 0.35], pony_swing: 0.08}}
+      - {ms: 42, tween: 2, tween_ms: 50, set: {pickup_visible: 0, hand_R: [0.24,0.45,0.27], head_pitch: -0.04}}
+      - {ms: 70, carry: false, set: *neutral}

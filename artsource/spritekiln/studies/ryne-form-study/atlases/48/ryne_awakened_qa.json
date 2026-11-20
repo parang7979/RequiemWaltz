@@ -1,0 +1,50 @@
+{
+ "errors": [],
+ "warnings": [],
+ "info": {
+  "colors_used": 49,
+  "palette_size": 153,
+  "boil": {
+   "transform/e": 0.074,
+   "transform/w": 0.066,
+   "launch/e": 0.05,
+   "launch/w": 0.055,
+   "hover/e": 0.054,
+   "hover/w": 0.064,
+   "air_turn/e": 0.066,
+   "air_turn/w": 0.062
+  },
+  "transform_area_ratio_min_max": 0.93,
+  "launch_area_ratio_min_max": 0.95,
+  "hover_area_ratio_min_max": 0.96,
+  "hidden": {
+   "air_turn/e": {
+    "arm_L": [
+     1
+    ],
+    "hair": [
+     6
+    ]
+   },
+   "air_turn/w": {
+    "arm_L": [
+     12,
+     13
+    ]
+   }
+  },
+  "air_turn_area_ratio_min_max": 0.98,
+  "ground_speed": {
+   "hover": {
+    "px_per_s": 3.3,
+    "units_per_s": 0.206,
+    "uneven": 0.01,
+    "feet": [
+     "ankle_L",
+     "ankle_R"
+    ]
+   }
+  }
+ },
+ "ok": true
+}

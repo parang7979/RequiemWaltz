@@ -1,0 +1,138 @@
+{
+ "errors": [],
+ "warnings": [],
+ "info": {
+  "colors_used": 42,
+  "palette_size": 135,
+  "boil": {
+   "idle/e": 0.032,
+   "idle/w": 0.027,
+   "run/e": 0.122,
+   "run/w": 0.126,
+   "jump/e": 0.115,
+   "jump/w": 0.11,
+   "run_start/e": 0.109,
+   "run_start/w": 0.089,
+   "run_stop/e": 0.07,
+   "run_stop/w": 0.069,
+   "slash/e": 0.069,
+   "slash/w": 0.065,
+   "wave/e": 0.017,
+   "wave/w": 0.016,
+   "interact/e": 0.1,
+   "interact/w": 0.092
+  },
+  "idle_area_ratio_min_max": 0.96,
+  "hidden": {
+   "run/e": {
+    "hand_L": [
+     2,
+     9,
+     10
+    ]
+   },
+   "run/w": {
+    "hand_R": [
+     3,
+     4,
+     8
+    ]
+   },
+   "jump/e": {
+    "arm_R": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "hand_L": [
+     2,
+     3,
+     5,
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   "jump/w": {
+    "hand_R": [
+     2
+    ]
+   },
+   "run_start/e": {
+    "hand_L": [
+     2,
+     3
+    ]
+   },
+   "run_stop/e": {
+    "arm_R": [
+     1
+    ],
+    "hand_L": [
+     2
+    ]
+   },
+   "slash/e": {
+    "hand_L": [
+     9,
+     10,
+     11,
+     12,
+     13,
+     14
+    ],
+    "temple_L": [
+     10,
+     11,
+     12,
+     13
+    ]
+   },
+   "slash/w": {
+    "hair_back": [
+     11
+    ],
+    "hand_R": [
+     4,
+     7,
+     8
+    ]
+   },
+   "interact/e": {
+    "arm_R": [
+     15
+    ],
+    "belt": [
+     2
+    ],
+    "hand_L": [
+     9
+    ],
+    "leg_L": [
+     6
+    ]
+   }
+  },
+  "run_area_ratio_min_max": 0.99,
+  "jump_area_ratio_min_max": 0.91,
+  "run_start_area_ratio_min_max": 0.95,
+  "run_stop_area_ratio_min_max": 0.95,
+  "slash_area_ratio_min_max": 0.91,
+  "wave_area_ratio_min_max": 0.99,
+  "interact_area_ratio_min_max": 0.93,
+  "ground_speed": {
+   "run": {
+    "px_per_s": 127.0,
+    "units_per_s": 4.0,
+    "uneven": 0.05,
+    "feet": [
+     "ankle_L",
+     "ankle_R"
+    ]
+   }
+  }
+ },
+ "ok": true
+}

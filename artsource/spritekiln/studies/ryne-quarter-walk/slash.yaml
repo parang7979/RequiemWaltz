@@ -1,0 +1,31 @@
+spritekiln: 1
+extends: ./walk.yaml
+name: ryne_quarter_horizontal_slash
+channels:
+  shift: 0
+  pelvic_turn: 0
+  lean: 0
+  twist: 0
+  head: 0
+  hair: 0
+  tip_lag: 0
+  upper: 0
+  arm_depth: 0
+  forearm_pitch: 0
+  elbow: 0
+  guard: 0
+  guard_elbow: 0
+bones:
+  hips: {pos: "[254+shift,-350-lift,0]"}
+  near_hip: {pos: "[-28+pelvic_turn,0,0]"}
+  far_hip: {pos: "[26-pelvic_turn,0,0]"}
+  chest: {rot: "[0,twist,lean]"}
+  face: {rot: "[0,-0.70*twist,head]"}
+  tail: {rot: "[0,0,hair]"}
+  hair_mid: {rot: "[0,0,0.60*hair+0.32*tip_lag]"}
+  hair_tip: {rot: "[0,0,tip_lag]"}
+  near_arm: {pos: "[-58+12*sin(twist),130,38]", rot: "[0,arm_depth-twist,upper]"}
+  far_arm: {pos: "[35-10*sin(twist),127,-25]", rot: "[0,-twist,guard]"}
+  near_forearm: {rot: "[forearm_pitch,0,elbow]"}
+  far_forearm: {rot: "[0,0,guard_elbow]"}
+  pouch: {rot: "[0,0,-0.003*shift]"}

@@ -1,0 +1,33 @@
+[project]
+engine = "generic"
+
+[defaults]
+size = 96
+palette = "gothic"
+
+[style]
+view = "side"
+height = 60
+size = 96
+scale = 0.0315
+directions = ["e", "w"]
+mirror = false
+palette = "gothic"
+colors = "Oyster and lilac hair, warm ivory skin, oxblood jacket, charcoal leather, rose-white awakened light"
+outline = "selective"
+shading = "soft"
+lines = "depth"
+highlights = true
+dither = "none"
+light = "soft"
+proportions = "stylized"
+face = "detailed"
+animation = "snappy"
+snap = true
+notes = "Ryne side-scroller reference study. Oversized frame leaves space for the ponytail, attack and form-change effects."
+
+[dependency]
+checkout = "../../../../../spritekiln"
+version = "0.4.0"
+upstream_commit = "17ae0ea8d822b9bb543e539118516ae37d25b114"
+shared_commit = "d4a378ad2814367b61bfc04aabad9891fb04ebd7"

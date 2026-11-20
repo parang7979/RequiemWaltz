@@ -1,0 +1,360 @@
+spritekiln: 1
+name: ryne_awakened
+extends: ./base.yaml
+remove: [animations.idle, review.keep]
+brief:
+  summary: Ryne releases her ponytail, rises out of her jacket and crosses the air in a split-tailed rose and pearl flight costume.
+  head: The silver fringe stays on the face. Unbound lilac tresses ripple in three separate planes behind it.
+  reference: User's form-change sheet, including the white flare, hover silhouette and continuous airborne reversal.
+  must_keep: [silver_hair_mass, red_trailing_cloth, fitted_bodice]
+  simplify: Cluster the rear hair into a deep violet underside, two broad silver locks and one loose filament. Ground the palette with dark torso panels.
+channels:
+  bank: 0
+  turn: 0
+  hair_lag: 0
+  wake: 0
+  ripple: 0
+ramps:
+  lilac_core: ["#3d294c", "#6f497d", "#9f73ac", "#c59acb", "#e2bfdf", "#ffdfef"]
+  lilac_silk: ["#46304d", "#866587", "#ba95b6", "#d9b8cf", "#f2d4e3", "#fff0f0"]
+  rose_silk: ["#371a39", "#6e284e", "#ab3f66", "#dd5c83", "#ff94a7", "#ffd1c8"]
+  pearl_plate: ["#493547", "#866579", "#b998a9", "#dfc2c9", "#f2d8d7", "#ffeddf"]
+  rose_gold: ["#4b2c46", "#8c576b", "#c28a87", "#ecb7a2", "#ffddbd", "#fff0d4"]
+materials:
+  lilac_under: {ramp: lilac_core, bands: [1, 4], outline: false, line: false, finish: matte}
+  lilac_mane: {ramp: lilac_silk, bands: [2, 4], outline: false, line: false, finish: matte}
+  lilac_fold: {ramp: lilac_core, bands: [2, 3], outline: false, line: false}
+  lilac_streak: {ramp: lilac_silk, emissive: true, band: 5, outline: false, line: false}
+  rose_silk: {ramp: rose_silk, bands: [1, 4], outline: false, line: false, finish: matte}
+  rose_seam: {ramp: rose_silk, emissive: true, band: 4, outline: false, line: false}
+  pearl_plate: {ramp: pearl_plate, bands: [2, 5], outline: false, line: false, finish: metal}
+  rose_gold: {ramp: rose_gold, bands: [3, 5], outline: false, line: false, finish: metal}
+bones:
+  stole_pin: {parent: torso_rot, at: wrist_L}
+  head: {scale: "[1.71-0.17*form_open,1.57-0.12*form_open,1.59-0.12*form_open]"}
+  flight_turn: {parent: root, rot: "[0, turn, 0]"}
+  torso_rot: {parent: flight_turn, pos: "[0, 0.80 + bob + 0.06*form_open, 0]", rot: "[lean, twist - (0.91 - 0.31*wake)*yaw/90*cos(turn), roll + bank]"}
+  headbase: {rot: "[lean*0.5, turn + twist - (0.78 - 0.12*wake)*yaw/90*cos(turn), roll + bank]"}
+  footyaw: {parent: flight_turn, rot: "[0, twist*0.4 - 0.51*yaw/90*cos(turn), 0]"}
+  legyaw: {parent: flight_turn}
+  mane: {parent: head, scale: [0.91,0.94,0.82], pos: [0, 0.10, -0.10], rot: "[-0.24 + 0.28*wake + 0.09*ripple - 0.58*abs(sin(turn)), hair_lag + 0.065*ripple, 0.05*ripple]"}
+  outer_lock: {parent: head, scale: [0.91,0.91,0.83], pos: [0, 0.13, -0.095], rot: "[-0.18 + 0.36*wake - 0.13*ripple - 0.48*abs(sin(turn)), -0.52*hair_lag - 0.08*ripple, -0.055*ripple]"}
+  waist_train: {parent: pelvis, pos: [0, 0.06, -0.075], rot: "[-0.13 + 0.26*wake - 0.15*ripple, 1.42*hair_lag, 0]"}
+ik:
+  leg_L: {space: flight_turn, lengths: "[0.385 + 0.032*form_open,0.365 + 0.028*form_open]"}
+parts:
+  # A soft mass behind the head holds the narrower locks together in the frontal turn.
+  nape_fall:
+    when: form_open >= 0.5
+    material: lilac_under
+    space: mane
+    blend: 0.028
+    prims:
+      - ellipsoid: {c: [0, 0.025, -0.075], r: [0.19, 0.16, 0.105]}
+      - tube: {pts: [[0, 0.060, -0.12], [0, -0.10, -0.25], [0.05, -0.23, -0.36], [0.11, -0.44, -0.47]], r: [0.13, 0.045]}
+      - tube: {pts: [[0.015, -0.13, -0.20], [-0.09, -0.24, -0.29], [-0.11, -0.39, -0.34], [-0.17, -0.55, -0.42]], r: [0.095, 0.012]}
+  # Curves are drawn in the sagittal plane, with a separate sculpt for each lock.
+  lower_tress:
+    when: form_open >= 0.5
+    material: lilac_under
+    space: mane
+    prims:
+      - extrude:
+          c: [0.03, -0.025, 0]
+          rot: [0, 1.5708, 0]
+          depth: 0.15
+          round: 0.017
+          profile: {bezier: [[-0.05,0.075],[0.09,0.15],[0.22,0.025],[0.31,-0.115],[0.43,-0.24],[0.54,-0.37],[0.64,-0.38],[0.79,-0.40],[0.86,-0.55],[0.74,-0.47],[0.62,-0.49],[0.50,-0.50],[0.39,-0.41],[0.32,-0.35],[0.28,-0.23],[0.20,-0.065],[0.11,0.005],[0.02,0.015]]}
+  split_tress:
+    when: form_open >= 0.5
+    material: lilac_mane
+    space: outer_lock
+    prims:
+      - extrude:
+          c: [-0.045, 0.012, -0.005]
+          rot: [0, 1.5708, 0]
+          depth: 0.155
+          round: 0.015
+          profile: {bezier: [[-0.05,0.07],[0.07,0.19],[0.235,0.11],[0.33,0.025],[0.43,-0.10],[0.54,-0.21],[0.65,-0.19],[0.80,-0.17],[0.90,-0.29],[0.77,-0.235],[0.67,-0.28],[0.48,-0.37],[0.34,-0.23],[0.25,-0.14],[0.17,-0.035],[0.055,0.05]]}
+    paint:
+      # Painted along the length so the deep fold travels with this lock when it banks.
+      - material: lilac_fold
+        prims:
+          - extrude: {rot: [0,1.5708,0], depth: 0.50, profile: {bezier: [[0.04,0.04],[0.15,0.09],[0.26,-0.032],[0.38,-0.16],[0.48,-0.202],[0.61,-0.268],[0.75,-0.231],[0.84,-0.232],[0.92,-0.31],[0.72,-0.46],[0.44,-0.47],[0.31,-0.34],[0.16,-0.14],[0.07,-0.08]]}}
+      - material: lilac_streak
+        prims:
+          - extrude: {rot: [0,1.5708,0], depth: 0.32, profile: {bezier: [[0.04,0.116],[0.17,0.16],[0.27,0.042],[0.345,-0.051],[0.47,-0.167],[0.36,-0.114],[0.235,0.017],[0.12,0.105]]}}
+  outer_tress:
+    when: form_open >= 0.5
+    material: lilac_mane
+    space: mane
+    prims:
+      - extrude:
+          c: [-0.095, 0.012, -0.02]
+          rot: [0,1.5708,0]
+          depth: 0.10
+          round: 0.011
+          profile: {bezier: [[-0.02,0.085],[0.09,0.09],[0.17,-0.06],[0.23,-0.19],[0.36,-0.245],[0.49,-0.29],[0.52,-0.42],[0.56,-0.56],[0.68,-0.59],[0.53,-0.61],[0.46,-0.48],[0.40,-0.36],[0.30,-0.35],[0.15,-0.33],[0.102,-0.155],[0.065,-0.02]]}
+    paint:
+      - material: lilac_under
+        prims:
+          - extrude: {rot: [0,1.5708,0], depth: 0.34, profile: {bezier: [[0.02,0.010],[0.095,-0.017],[0.135,-0.160],[0.17,-0.28],[0.27,-0.305],[0.38,-0.327],[0.444,-0.42],[0.50,-0.51],[0.59,-0.58],[0.49,-0.59],[0.40,-0.46],[0.34,-0.39],[0.22,-0.36],[0.09,-0.32],[0.065,-0.17],[0.047,-0.09]]}}
+    paint:
+      - material: lilac_fold
+        prims:
+          - extrude: {rot: [0,1.5708,0], depth: 0.50, profile: {bezier: [[0.05,-0.04],[0.15,-0.16],[0.26,-0.225],[0.41,-0.31],[0.49,-0.43],[0.55,-0.55],[0.68,-0.59],[0.61,-0.74],[0.39,-0.66],[0.33,-0.48],[0.25,-0.36],[0.10,-0.23]]}}
+  slipstream_lock:
+    when: form_open >= 0.5
+    material: lilac_mane
+    space: mane
+    line: false
+    prims:
+      - tube: {pts: [[0.09,0.07,-0.11],[0.15,-0.035,-0.29],[0.15,-0.21,-0.45],[0.13,-0.30,-0.59],[0.12,-0.22,-0.72],[0.09,-0.26,-0.86],[0.07,-0.37,-0.88]], r: [0.037,0.006]}
+  wind_lock:
+    when: form_open >= 0.5
+    material: lilac_under
+    space: outer_lock
+    line: false
+    prims:
+      - tube: {pts: [[0.05,0.08,-0.04],[0.11,0.16,-0.22],[0.15,0.10,-0.38],[0.14,-0.10,-0.56],[0.11,-0.14,-0.70],[0.09,-0.06,-0.84],[0.09,-0.13,-0.96]], r: [0.046,0.007]}
+    paint:
+      - material: lilac_mane
+        prims: [{box: {c: [0.13,-0.035,-0.61], half: [0.065,0.15,0.14], rot: [-0.30,0,0]}}]
+  flyaway:
+    when: form_open >= 0.5
+    material: lilac_mane
+    space: outer_lock
+    prims:
+      - tube: {pts: [[0.09,0.12,-0.07],[0.12,0.205,-0.26],[0.14,0.17,-0.40],[0.11,0.035,-0.55],[0.075,0.025,-0.68],[0.05,0.08,-0.82]], r: [0.035,0.009]}
+  # A fitted pearl breastplate and asymmetrical split waist panels replace the red jacket.
+  heart_plate:
+    when: form_open >= 0.5
+    material: pearl_plate
+    space: pelvis
+    blend: 0.018
+    prims:
+      - ellipsoid: {c: [-0.074,0.405,0.057], r: [0.099,0.088,0.098], rot: [0.03,0,0.16]}
+      - ellipsoid: {c: [0.074,0.405,0.057], r: [0.099,0.088,0.098], rot: [0.03,0,-0.16]}
+  sun_clasp:
+    when: form_open >= 0.5
+    material: rose_seam
+    space: pelvis
+    priority: 2
+    prims:
+      - ellipsoid: {c: [0,0.36,0.151], r: [0.038,0.052,0.025]}
+  ear_pin_L:
+    when: form_open >= 0.5
+    material: rose_gold
+    space: head
+    prims:
+      - tube: {pts: [[0.13,0.14,-0.065],[0.17,0.205,-0.103],[0.23,0.26,-0.14]], r: [0.039,0.009]}
+  fauld_L:
+    when: form_open >= 0.5
+    material: pearl_plate
+    space: pelvis
+    prims:
+      - extrude: {c: [0.135,0.02,-0.012], rot: [0.05,1.45,-0.19], depth: 0.070, round: 0.012, profile: {polygon: [[-0.09,0.055],[-0.045,0.103],[0.085,0.065],[0.12,-0.065],[0.054,-0.25],[-0.005,-0.16],[-0.075,-0.08]]}}
+  hip_sash:
+    when: form_open >= 0.5
+    material: rose_gold
+    space: pelvis
+    prims:
+      - ellipsoid: {c: [0,0.10,0.010], r: [0.168,0.04,0.124], rot: [0,0,-0.15]}
+  ribbon_near:
+    when: form_open >= 0.5
+    material: rose_silk
+    space: waist_train
+    prims:
+      - extrude:
+          c: [-0.10,0,0]
+          rot: [0,1.5708,0]
+          depth: 0.065
+          round: 0.010
+          profile: {bezier: [[-0.055,0.06],[0.075,0.11],[0.15,-0.07],[0.26,-0.23],[0.41,-0.38],[0.55,-0.53],[0.74,-0.55],[0.62,-0.63],[0.49,-0.59],[0.32,-0.52],[0.21,-0.36],[0.10,-0.16],[0.055,-0.105],[0.015,-0.025]]}
+    paint:
+      - material: rose_seam
+        prims:
+          - extrude: {rot: [0,1.5708,0], depth: 0.30, profile: {bezier: [[0.19,-0.17],[0.39,-0.40],[0.60,-0.52],[0.48,-0.54],[0.32,-0.365],[0.25,-0.29]]}}
+  ribbon_far:
+    when: form_open >= 0.5
+    material: rose_silk
+    space: waist_train
+    prims:
+      - extrude:
+          c: [0.145,-0.02,-0.025]
+          rot: [0,1.24,0]
+          depth: 0.060
+          round: 0.010
+          profile: {bezier: [[-0.035,0.07],[0.095,0.10],[0.135,-0.115],[0.18,-0.30],[0.27,-0.45],[0.36,-0.58],[0.52,-0.72],[0.38,-0.70],[0.24,-0.58],[0.085,-0.42],[0.065,-0.21],[0.015,-0.065]]}
+  pearl_gaiter_L:
+    when: form_open >= 0.5
+    material: pearl_plate
+    prims:
+      - cone: {a: {between: ["@knee_L","@ankle_L"], t: 0.31}, b: {between: ["@knee_L","@ankle_L"], t: 0.83}, r: [0.081,0.055]}
+    paint:
+      - material: rose_gold
+        prims:
+          - cone: {a: {between: ["@knee_L","@ankle_L"], t: 0.61}, b: {between: ["@knee_L","@ankle_L"], t: 0.71}, r: [0.105,0.085]}
+  rose_garter_L:
+    when: form_open >= 0.5
+    material: rose_silk
+    prims:
+      - cone: {a: {between: ["@hip_L","@knee_L"], t: 0.32}, b: {between: ["@hip_L","@knee_L"], t: 0.48}, r: [0.089,0.082]}
+  shoulder_petal:
+    when: form_open >= 0.5
+    material: rose_silk
+    space: pelvis
+    prims:
+      - extrude: {c: [-0.155,0.48,0], rot: [0.22,1.30,0.24], depth: 0.115, round: 0.014, profile: {polygon: [[-0.09,0.018],[-0.050,0.066],[0.050,0.095],[0.155,0.14],[0.105,0.008],[0.01,-0.048],[-0.070,-0.035]]}}
+  leg_L: {when: form_open < 0.5}
+  boot_L: {when: form_open < 0.5}
+  shoe_L: {when: form_open < 0.5}
+  flight_leg_L:
+    when: form_open >= 0.5
+    material: skin
+    blend: 0.015
+    prims:
+      - cone: {a: "@hip_L", b: {between: ["@hip_L","@knee_L"], t: 0.52}, r: [0.100,0.078]}
+      - cone: {a: {between: ["@hip_L","@knee_L"], t: 0.48}, b: "@knee_L", r: [0.080,0.050]}
+      - cone: {a: "@knee_L", b: {between: ["@knee_L","@ankle_L"], t: 0.40}, r: [0.050,0.065]}
+      - cone: {a: {between: ["@knee_L","@ankle_L"], t: 0.38}, b: "@ankle_L", r: [0.063,0.034]}
+  flight_slipper_L:
+    when: form_open >= 0.5
+    material: pearl_plate
+    space: sole_L
+    prims:
+      - extrude: {rot: [0,1.5708,0], depth: 0.08, round: 0.01, profile: {polygon: [[0.037,0.018],[-0.028,0.032],[-0.082,-0.022],[-0.147,-0.052],[-0.141,-0.066],[-0.078,-0.067],[0.017,-0.041],[0.038,-0.055]]}}
+    paint:
+      - material: rose_gold
+        prims: [{box: {c: [0,-0.052,0.134], half: [0.06,0.045,0.031]}}]
+  wrist_stole:
+    when: form_open >= 0.5
+    material: rose_silk
+    space: stole_pin
+    prims:
+      - tube:
+          pts: [[0,0,0],[0.035,-0.13,-0.01],
+                "[0.10,-0.27,0.07 - 0.11*wake]",
+                "[0.17,-0.40,0.17 - 0.21*wake + 0.045*ripple]",
+                "[0.14,-0.57,0.17 - 0.31*wake + 0.085*ripple]",
+                "[0.07,-0.69,0.07 - 0.45*wake + 0.12*ripple]"]
+          r: [0.041,0.008]
+  hand_L: {when: form_open < 0.5}
+  flight_hand_L:
+    when: form_open >= 0.5
+    material: skin
+    space: wrist_L
+    prims:
+      - ellipsoid: {c: [0,0,0.035], r: [0.045,0.034,0.061]}
+      - cone: {a: [0,0,0.049], b: [0.008,0.014,0.112], r: [0.033,0.016]}
+    paint:
+      - material: rose_gold
+        prims: [{box: {c: [0,0,-0.012], half: [0.060,0.055,0.031]}}]
+  forearm_cuff_L:
+    when: form_open >= 0.5
+    material: rose_gold
+    prims:
+      - cone: {a: {between: ["@elbow_L","@wrist_L"], t: 0.67}, b: {between: ["@elbow_L","@wrist_L"], t: 0.81}, r: [0.050,0.048]}
+  flight_bracer_L:
+    when: form_open >= 0.5
+    material: cloth
+    prims:
+      - cone: {a: {between: ["@elbow_L","@wrist_L"], t: 0.39}, b: "@wrist_L", r: [0.048,0.041]}
+animations:
+  transform:
+    loop: false
+    carry: true
+    keys:
+      # Counted display frames are 1–8 charge, 9–16 release, 17–28 settle.
+      - ms: 95
+        tween: 1
+        tween_ms: 65
+        set:
+          form_open: 0
+          blade_on: 0
+          bob: -0.025
+          lean: 0.073
+          head_pitch: "-0.055 - 0.028*sin(-0.45)"
+          pony_swing: "0.09 + 0.08*sin(-1.25)"
+          coat: "-0.12 + 0.09*sin(-0.80)"
+          foot_L: "[0.15, 0, 0.245*yaw/90]"
+          foot_R: "[0.15, 0, -0.245*yaw/90]"
+          hand_L: "[0.285, 0.05 + 0.019*sin(-0.6), 0.03 + 0.08*yaw/90]"
+          hand_R: "[0.285, 0.05 + 0.023*sin(-0.7), 0.03 - 0.08*yaw/90]"
+      - {ms: 75, event: charge, tween: 1, tween_ms: 75, set: {bob: -0.09, lean: 0.18, head_pitch: 0.14, hand_L: [0.23,0.10,0.20], hand_R: [0.15,0.24,0.25], coat: 0.48}}
+      - {ms: 100, tween: 2, tween_ms: 62, set: {bob: -0.16, lean: 0.29, head_pitch: 0.24, hand_L: [0.19,0.23,0.20], hand_R: [0.14,0.32,0.29], coat: 0.65}}
+      - {ms: 85, set: {bob: -0.10, lean: 0.15, head_pitch: 0.09, hand_L: [0.22,0.28,0.23], hand_R: [0.18,0.39,0.22]}}
+      - {ms: 58, event: release, tween: 1, tween_ms: 55, set: {root: [0,0.035,0], bob: -0.02, lean: -0.08, head_pitch: -0.12, hand_L: [0.30,0.19,-0.16], hand_R: [0.32,0.16,0.18], foot_L: [0.15,0.03,-0.18], foot_R: [0.14,0.05,0.15]}}
+      - {ms: 65, tween: 1, tween_ms: 60, set: {form_open: 1, root: [0,0.13,0], lean: -0.13, head_pitch: -0.15, foot_L: [0.15,0.04,-0.33], foot_R: [0.12,0.21,0.16], pitch_foot_L: 0.42, pitch_foot_R: 0.32, wake: 0.85, ripple: 1.0}}
+      - {ms: 65, tween: 2, tween_ms: 60, set: {root: [0,0.23,0.02], bob: 0.005, lean: -0.03, hand_L: [0.34,0.21,-0.21], hand_R: [0.33,0.27,0.25], foot_L: [0.17,0.035,-0.39], foot_R: [0.15,0.19,0.19], wake: 1.25, ripple: -0.75}}
+      - {ms: 65, set: {root: [0,0.29,0.035], lean: 0.12, head_pitch: -0.03, hand_L: [0.29,0.15,-0.25], hand_R: [0.31,0.30,0.28], foot_R: [0.14,0.23,0.28], wake: 1.18, ripple: 0.25}}
+      - {ms: 85, event: form_change, tween: 2, tween_ms: 75, set: {root: [0,0.27,0.035], lean: 0.08, head_pitch: 0, hand_L: "[0.35,0.255 + 0.13*yaw/90,0.06 + 0.23*yaw/90]", hand_R: "[0.35,0.255 - 0.13*yaw/90,0.06 - 0.23*yaw/90]", wake: 0.75, ripple: 0.75}}
+      - {ms: 75, tween: 3, tween_ms: 75, set: {root: [0,0.21,0.02], lean: -0.03, foot_L: [0.12,-0.073,-0.05], foot_R: [0.13,0.072,0.14], pitch_foot_L: 0.95, pitch_foot_R: 0.82, hand_L: "[0.34,0.282 + 0.17*yaw/90,0.07 + 0.265*yaw/90]", hand_R: "[0.34,0.282 - 0.17*yaw/90,0.07 - 0.265*yaw/90]", wake: 0.25, ripple: -0.95}}
+      - {ms: 75, tween: 3, tween_ms: 75, set: {root: [0,0.23,0.02], lean: 0.01, head_pitch: -0.045, foot_L: [0.12,-0.073,-0.04], foot_R: [0.12,0.105,0.10], wake: 0.33, ripple: 0.32}}
+      - {ms: 135, set: {root: [0,0.20,0.02], lean: 0.04, head_pitch: -0.015, hand_L: "[0.35,0.312 + 0.225*yaw/90,0.065 + 0.26*yaw/90]", hand_R: "[0.35,0.312 - 0.225*yaw/90,0.065 - 0.26*yaw/90]", foot_R: [0.13,0.083,0.115], wake: 0.24, ripple: -0.40}}
+  launch:
+    # Carry the last suspended pose through a dip and into the first hover pose.
+    loop: false
+    carry: true
+    keys:
+      - ms: 48
+        tween: 2
+        tween_ms: 35
+        set: {form_open: 1, root: [0,0.20,0.02], bob: 0.005, lean: 0.04, head_pitch: -0.015, hand_L: "[0.35,0.312 + 0.225*yaw/90,0.065 + 0.26*yaw/90]", hand_R: "[0.35,0.312 - 0.225*yaw/90,0.065 - 0.26*yaw/90]", foot_L: [0.12,-0.073,-0.04], foot_R: [0.13,0.083,0.115], pitch_foot_L: 0.95, pitch_foot_R: 0.82, wake: 0.24, ripple: -0.40}
+      - ms: 32
+        tween: 2
+        tween_ms: 28
+        set: {root: [0,0.14,-0.015], lean: 0.23, head_pitch: -0.09, foot_L: [0.14,0.06,-0.21], foot_R: [0.14,0.22,0.11], hand_L: [0.24,0.20,-0.12], hand_R: [0.25,0.31,0.20], wake: 0.43, ripple: -0.65}
+      - ms: 32
+        tween: 1
+        tween_ms: 36
+        set: {root: [0,0.175,0.09], lean: 0.54, head_pitch: -0.15, foot_L: [0.15,0.13,-0.48], foot_R: [0.14,0.34,-0.05], hand_L: [0.21,0.15,-0.26], hand_R: [0.22,0.35,0.31], wake: 0.76, ripple: -0.68}
+      - ms: 38
+        set: {root: [0,0.212,0.15], bob: 0, lean: 0.64, head_pitch: -0.17, twist: -0.08, hand_L: [0.20,0.14,-0.31], hand_R: "[0.22,0.34+0.04*cos(0.6),0.33]", foot_L: [0.15,0.14,-0.565], foot_R: "[0.14,0.38-0.045*sin(1),-0.10]", pitch_foot_L: 0.75, pitch_foot_R: 0.48, wake: "1.03+0.075*cos(0.3)", ripple: "sin(-0.65)"}
+  hover:
+    frames: 8
+    ms: 85
+    channels:
+      form_open: 1
+      blade_on: 0
+      root: "[0, 0.18 + 0.032*cos(p), 0.15]"
+      lean: "0.64 + 0.045*sin(p)"
+      head_pitch: "-0.17 - 0.025*sin(p)"
+      twist: "-0.08*cos(p)"
+      hand_L: "[0.20, 0.10 + 0.04*cos(p), -0.31]"
+      hand_R: "[0.22, 0.34 + 0.04*cos(p-0.6), 0.33]"
+      foot_L: "[0.15, 0.14 + 0.043*sin(p), -0.59 + 0.025*cos(p)]"
+      foot_R: "[0.14, 0.38 + 0.045*sin(p-1), -0.16 + 0.06*cos(p)]"
+      pitch_foot_L: 0.75
+      pitch_foot_R: 0.48
+      wake: "1.03 + 0.075*cos(p - 0.3)"
+      ripple: "sin(p - 0.65)"
+  air_turn:
+    loop: false
+    frames: 16
+    ms: [72,68,64,62,60,58,55,55,55,55,58,60,62,64,68,80]
+    events: {8: change_direction}
+    channels:
+      form_open: 1
+      blade_on: 0
+      turn: "-pi * sign(yaw) * smoothstep(0.15, 0.85, f/15)"
+      hair_lag: "0.66*sign(yaw)*sin(pi*f/15)"
+      root: "[0, 0.212 - 0.110*sin(pi*f/15), 0.15*cos(pi*f/15)]"
+      bank: "-0.29*sin(pi*f/15)*sign(yaw)"
+      lean: "0.64 - 0.15*sin(pi*f/15)"
+      twist: "-0.08*cos(2*pi*f/15)"
+      head_pitch: "-0.17 + 0.07*sin(pi*f/15)"
+      head_yaw: "-0.22*sign(yaw)*sin(2*pi*f/15)"
+      hand_L: "[0.20 + 0.13*sin(pi*f/15), 0.14 + 0.14*sin(pi*f/15), -0.31 + 0.14*sin(pi*f/15)]"
+      hand_R: "[0.22 + 0.11*sin(pi*f/15), 0.34 + 0.04*cos(0.6) - 0.09*sin(pi*f/15), 0.33 - 0.16*sin(pi*f/15)]"
+      foot_L: "[0.15 + 0.065*sin(pi*f/15), 0.14 + 0.12*sin(pi*f/15), -0.565 + 0.20*sin(pi*f/15)]"
+      foot_R: "[0.14, 0.38 - 0.045*sin(1) - 0.14*sin(pi*f/15), -0.10 + 0.15*sin(pi*f/15)]"
+      pitch_foot_L: 0.75
+      pitch_foot_R: 0.48
+      wake: "1.03 + 0.075*cos(0.3) + 0.28*sin(pi*f/15)"
+      ripple: "sin(2*pi*f/15 - 0.65)"
+review:
+  keep:
+    silver_hair_mass: {parts: [pony, pony_flash, nape_fall, lower_tress, split_tress, outer_tress], min_px: 8}
+    red_trailing_cloth: {parts: [coat, coat_split, ribbon_near, ribbon_far, wrist_stole], min_px: 5}
+    fitted_bodice: {parts: [torso, heart_plate, fauld_L, fauld_R], min_px: 6}

@@ -1,0 +1,15 @@
+spritekiln: 1
+extends: ./walk.yaml
+name: ryne_quarter_run
+channels:
+  pace: 0
+bones:
+  chest: {rot: "[0,0,-0.019-0.007*sin(2*p-0.45)-pace*(0.43+0.035*sin(2*p))]"}
+  face: {rot: "[0,0,0.013+0.008*sin(2*p-0.65)+pace*0.19]"}
+  tail: {rot: "[0,0,-0.012+0.016*sin(2*p-0.75)-pace*(0.21-0.044*sin(2*p-1.0))]"}
+  hair_mid: {rot: "[0,0,-0.012+0.029*sin(2*p-1.25)-pace*(0.16-0.043*sin(2*p-1.5))]"}
+  hair_tip: {rot: "[0,0,0.040*sin(2*p-1.89)+0.009*sin(p-0.4)+pace*0.055*sin(2*p-2.05)]"}
+  near_arm: {rot: "[0,0,-(0.32+0.43*pace)*swing+0.22*pace]"}
+  far_arm: {rot: "[0,0,(0.25+0.42*pace)*swing-0.05*pace]"}
+  near_forearm: {rot: "[0,0,0.105-0.115*swing+pace*(1.23-0.25*swing)]"}
+  far_forearm: {rot: "[0,0,0.070+0.091*swing+pace*(1.27+0.38*swing)]"}

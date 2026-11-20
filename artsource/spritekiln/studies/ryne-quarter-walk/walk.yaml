@@ -1,0 +1,38 @@
+spritekiln: 1
+name: ryne_quarter_walk
+view: side
+size: 192
+directions: [s]
+camera: {pitch: 0, scale: 4, center: [247, -357, 0]}
+channels:
+  near_target: [157, -649, 0]
+  far_target: [248, -647, 0]
+  lift: 0
+  swing: 0
+  counter: 0
+bones:
+  hips: {pos: "[254 + 1.5*sin(2*p-0.3), -350-lift, 0]"}
+  chest: {parent: hips, rot: "[0,0,-0.019-0.007*sin(2*p-0.45)]", scale: "[1+0.009*counter,1,1]"}
+  face: {parent: chest, pos: [0,161,0], rot: "[0,0,0.013+0.008*sin(2*p-0.65)]"}
+  tail: {parent: face, pos: [-69,124,0], rot: "[0,0,-0.012+0.016*sin(2*p-0.75)]"}
+  hair_mid: {parent: tail, pos: [-56,-70,0], rot: "[0,0,-0.012+0.029*sin(2*p-1.25)]"}
+  hair_tip: {parent: hair_mid, pos: [-19,-68,0], rot: "[0,0,0.040*sin(2*p-1.89)+0.009*sin(p-0.4)]"}
+  pouch: {parent: hips, pos: [-27,31,0], rot: "[0,0,0.028*sin(p-0.65)]"}
+  near_hip: {parent: hips, pos: "[-28 + 2.5*counter,0,0]"}
+  far_hip: {parent: hips, pos: "[26 - 2.0*counter,0,0]"}
+  near_arm: {parent: chest, pos: "[-58-3.0*counter,130,0]", rot: "[0,0,-0.32*swing]"}
+  far_arm: {parent: chest, pos: "[35+2.4*counter,127,0]", rot: "[0,0,0.25*swing]"}
+  near_forearm: {parent: near_arm, pos: [-23,-77,0], rot: "[0,0,0.105-0.115*swing]"}
+  far_forearm: {parent: far_arm, pos: [16,-73,0], rot: "[0,0,0.070+0.091*swing]"}
+ik:
+  near_leg: {start: near_hip, joint: near_knee, end: near_ankle, target: near_target, lengths: [145,159], pole: [1,0,0]}
+  far_leg: {start: far_hip, joint: far_knee, end: far_ankle, target: far_target, lengths: [146,157], pole: [1,0,0]}
+animations:
+  walk:
+    loop: true
+    frames: 24
+    ms: 40
+    channels:
+      lift: "3.5*sin(2*p-0.8)+2.1*(1-cos(2*p))"
+      swing: "cos(p-0.14)"
+      counter: "cos(p-0.23)"

@@ -8,6 +8,7 @@ export_credentials.cfg
 /build/*
 !/build/.gdignore
 /.local/
+/.codex-attachments/
 __pycache__/
 *.pyc
 .venv/

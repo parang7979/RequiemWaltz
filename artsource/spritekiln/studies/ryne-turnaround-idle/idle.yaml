@@ -1,0 +1,34 @@
+spritekiln: 1
+name: ryne_turnaround_idle
+view: side
+size: 192
+directions: [s]
+camera: {pitch: 0, scale: 4, center: [252, -362, 0]}
+brief:
+  summary: A single three-quarter standing idle registered to the first figure on the supplied turnaround.
+  head: Keep both red eyes, the fringe, the dark red bow and the weight of the silver ponytail.
+  proportions: The reference pose defines the silhouette at rest. The feet stay planted.
+channels:
+  breath: 0
+  drift: 0
+  curl: 0
+  cuff: 0
+  blink: 0
+bones:
+  hips: {pos: "[0.9*drift, -354 + 1.2*breath, 0]"}
+  chest: {parent: hips, pos: "[286, 118 + 2.7*breath, 0]", rot: "[0, 0, 0.004*drift]", scale: "[1 + 0.009*breath, 1, 1]"}
+  face: {parent: chest, pos: "[0, 44 + 0.65*breath, 0]", rot: "[0, 0, -0.008*drift]"}
+  pony: {parent: face, pos: [-67, 115, 0], rot: "[0, 0, 0.028*curl]"}
+  sleeve_near: {parent: chest, pos: [-51, 11, 0], rot: "[0, 0, -0.016*cuff]"}
+  sleeve_far: {parent: chest, pos: [53, 11, 0], rot: "[0, 0, 0.013*cuff]"}
+animations:
+  idle:
+    loop: true
+    frames: 40
+    ms: 80
+    channels:
+      breath: "0.5 - 0.5*cos(p)"
+      drift: "sin(p)"
+      curl: "sin(p - 0.74) + 0.18*sin(2*p - 0.24)"
+      cuff: "sin(p - 0.46)"
+      blink: "max(0, 1 - abs(f-29)*0.53)"

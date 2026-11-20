@@ -1,0 +1,404 @@
+spritekiln: 1
+name: ryne_base
+extends: side_humanoid
+size: 96
+directions: [e, w]
+mirror: false
+camera: {pitch: 0, scale: 0.0315, center: [0, 1.18, 0]}
+brief:
+  summary: Ryne, a light-footed explorer in a dropped crimson flight jacket over a fitted graphite shorts suit. A pale bust panel, gunmetal belt and fingerless gloves sit above thigh straps and tall, buckled riding boots.
+  head: A high silver ponytail hooks up from a dark ribbon, falls in an S-curve behind the head and splits into pointed locks. A side-swept fringe frames a small, wine-red eye and a pointed chin.
+  reference: User's Ryne concept art and gameplay pose sheets. The sprite follows the larger head and shorter torso in the gameplay poses. Both profiles turn slightly towards the viewer.
+  must_keep: [silver_fringe, high_ponytail, dropped_jacket, thigh_and_boot]
+  simplify: Merge buckles into a few bright pixels, keep the hanging jacket panels separate, and reserve the brightest whites for the hair. The energized blade appears only when drawn.
+remove: [animations.run, animations.jump, animations.rise, animations.fall, animations.land, animations.crouch, animations.attack, animations.hurt, animations.death]
+ramps:
+  argent: ["#463347", "#77617d", "#ad96b0", "#cbb3c8", "#e8d4df", "#fff0eb"]
+  complexion: ["#674052", "#9f6673", "#ca8f91", "#ecb5ab", "#ffd5c6", "#ffe6d4"]
+  cinnabar: ["#351930", "#592139", "#842a44", "#aa344e", "#ce495e", "#f27a83"]
+  carbon: ["#1c1423", "#251c2c", "#3d2b3a", "#523d50", "#71586d", "#a2848f"]
+  nickel: ["#312738", "#584956", "#887380", "#ad9ca6", "#d4c3c7", "#f0dde0"]
+  pearl: ["#594650", "#8a717d", "#b698a6", "#d5bec3", "#ecd6d5", "#fae6e1"]
+  iris: ["#4f2135", "#63213a", "#932c46", "#bd4355", "#ec787e", "#ffc1af"]
+  ion: ["#174252", "#24737a", "#279e9d", "#4cd8c8", "#93f2dc", "#dcfff1"]
+materials:
+  hair: {ramp: argent, finish: matte, bands: [1, 4], outline: true, line_color: '#8b728c', line_band: 2}
+  hair_shade: {ramp: argent, finish: matte, bands: [1, 3], outline: false}
+  hair_light: {ramp: argent, finish: matte, bands: [4, 5], outline: false}
+  hair_mid: {ramp: argent, bands: [2, 3], outline: false, line: false}
+  skin: {ramp: complexion, finish: matte, bands: [2, 5], outline: false, gamma: 0.79}
+  red: {ramp: cinnabar, finish: matte, bands: [1, 4], outline: false}
+  red_light: {ramp: cinnabar, finish: matte, bands: [3, 5], outline: false}
+  red_dark: {ramp: cinnabar, finish: matte, bands: [1, 3], outline: false}
+  cloth: {ramp: carbon, finish: matte, bands: [1, 3], outline: false}
+  leather: {ramp: carbon, finish: matte, bands: [0, 3], outline: false}
+  piping: {ramp: carbon, finish: matte, bands: [3, 4], outline: false}
+  steel: {ramp: nickel, finish: metal, bands: [2, 4], outline: false}
+  pearl: {ramp: pearl, finish: matte, bands: [2, 4], outline: false}
+  ink: {ramp: carbon, emissive: false, bands: [0, 0], outline: false}
+  lip: {ramp: complexion, bands: [1, 2], line: false, outline: false}
+  garnet: {ramp: iris, bands: [1, 3], outline: false}
+  ion: {ramp: ion, emissive: true, band: 4, outline: false}
+use:
+  - {kit: head, at: head, with: {width: 1.07, jaw: 0.10, chin: 0.28, nose: 0.15, ears: 0.8}}
+  - {kit: hair, at: head, with: {fringe: 0.98, part: 0.65, locks: 0.87, length: 0, volume: 1.18}}
+  - {kit: sword, at: wrist_R, with: {length: 0.71, width: 0.078, thick: 0.038, roll: 1.5708, tilt: 0.48, pitch: sword_pitch, guard: 0.17}}
+channels:
+  blade_on: 0
+  form_open: 0
+  pony_swing: 0
+  lean: 0.028
+  foot_L: [0.13, 0, -0.21]
+  foot_R: [0.13, 0, 0.21]
+  hand_L: [0.275, 0.035, 0.04]
+  hand_R: [0.275, 0.046, 0.02]
+bones:
+  torso_rot: {pos: "[0, 0.80 + bob, 0]", rot: "[lean, twist - 0.91*yaw/90, roll]"}
+  pelvis: {scale: "[1.10/sqrt(squash), 0.94*squash, 1/sqrt(squash)]"}
+  headbase: {pos: [0, 0.61, 0.018], rot: "[lean*0.5, twist - 0.78*yaw/90, roll]"}
+  head: {scale: [1.71, 1.57, 1.59]}
+  eye_plane_L: {parent: head, pos: [0.088, 0.122, 0.106], rot: [0, 0.65, -0.06]}
+  shoulder_L: {pos: [0.181, 0.470, -0.007]}
+  hip_L: {pos: [0.098, -0.015, 0]}
+  footyaw: {rot: "[0, twist*0.4 - 0.51*yaw/90, 0]"}
+  pony_base: {parent: head, pos: [0, 0.248, -0.155], rot: "[0.66*pony_swing - 0.17*lean, 0, 0]", scale: [1.0, 0.88, 1.20]}
+  coatbase: {parent: pelvis, pos: [0, 0.26, -0.085], rot: "[-coat*0.55, 0, 0]"}
+ik:
+  arm_L: {lengths: [0.253, 0.234]}
+  leg_L: {lengths: [0.385, 0.365]}
+parts:
+  hair:
+    paint:
+      - material: hair_shade
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.40, profile: {bezier: [[-0.16, 0.06], [-0.035, 0.097], [0.089, 0.034], [0.17, -0.047], [0.21, -0.16], [-0.13, -0.17]]}}
+      - material: hair_light
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.42, profile: {bezier: [[-0.16, 0.101], [-0.075, 0.18], [0.027, 0.170], [0.115, 0.115], [0.138, 0.059], [0.054, 0.124], [-0.02, 0.13], [-0.11, 0.097]]}}
+  hair_fringe:
+    line: false
+    paint:
+      - material: hair_light
+        prims: [{box: {c: [0, 0.155, 0.107], half: [0.18, 0.055, 0.09], rot: [-0.52, 0, -0.15]}}]
+  # The front lock is broad at the part, then narrows past the far corner of the eye.
+  temple_L:
+    material: hair
+    space: head
+    line: false
+    prims:
+      - extrude: {c: [0.114, 0, 0], rot: [0, 1.34, 0], depth: 0.042, round: 0.012, profile: {bezier: [[-0.085, 0.25], [-0.029, 0.285], [0.049, 0.243], [0.091, 0.164], [0.076, 0.091], [0.08, 0.031], [0.039, -0.042], [0.048, 0.047], [0.015, 0.090], [-0.01, 0.140], [-0.047, 0.152], [-0.08, 0.188]]}}
+    paint:
+      - material: hair_shade
+        prims:
+          - extrude: {c: [0.114, 0, 0], rot: [0, 1.34, 0], depth: 0.12, profile: {polygon: [[0.065, 0.18], [0.1, 0.22], [0.11, -0.08], [0.029, -0.08], [0.064, 0.066]]}}
+  forelock:
+    material: hair
+    space: head
+    line: false
+    prims:
+      - extrude: {c: [0, 0, 0.126], rot: [-0.18, 0.06, 0.10], depth: 0.040, round: 0.007, profile: {bezier: [[-0.098, 0.22], [-0.085, 0.301], [-0.020, 0.313], [0.035, 0.308], [0.082, 0.26], [0.080, 0.216], [0.043, 0.164], [0.046, 0.200], [0.026, 0.217], [0.017, 0.188], [-0.027, 0.158], [-0.002, 0.212], [-0.035, 0.23], [-0.061, 0.230]]}}
+    paint:
+      - material: hair_light
+        prims: [{box: {c: [-0.008, 0.275, 0.11], half: [0.105, 0.023, 0.065], rot: [0, 0, -0.20]}}]
+  tie:
+    material: ink
+    space: head
+    when: "form_open < 0.5"
+    prims:
+      - ellipsoid: {c: [0, 0.248, -0.172], r: [0.080, 0.068, 0.051], rot: [-0.34, 0, 0]}
+      - tube: {pts: [[0, 0.235, -0.176], [0.01, 0.159, -0.234], [0.022, 0.103, -0.285]], r: [0.027, 0.007]}
+    paint:
+      - material: red_light
+        prims: [{box: {c: [0, 0.278, -0.18], half: [0.095, 0.017, 0.09], rot: [0.55, 0, 0]}}]
+  ribbon_knot:
+    when: "form_open < 0.5"
+    material: red_dark
+    space: head
+    prims:
+      - ellipsoid: {c: [0,0.258,-0.167], r: [0.090,0.038,0.055], rot: [-0.44,0,0.27]}
+      - tube: {pts: [[0.04,0.26,-0.18],[0.091,0.229,-0.205],[0.102,0.17,-0.22],[0.081,0.12,-0.249]], r: [0.030,0.008]}
+    paint:
+      - material: red_light
+        prims: [{box: {c: [0.02,0.278,-0.18], half: [0.07,0.010,0.08], rot: [-0.34,0,0.15]}}]
+  pony:
+    when: "form_open < 0.5"
+    material: hair
+    space: pony_base
+    line: false
+    prims:
+      - extrude:
+          rot: [0, 1.5708, 0]
+          depth: 0.113
+          round: 0.015
+          profile: {bezier: [[0.018, 0.005], [0.038, 0.064], [0.116, 0.123], [0.173, 0.115], [0.247, 0.07], [0.28, -0.019], [0.285, -0.122], [0.31, -0.228], [0.367, -0.291], [0.434, -0.291], [0.387, -0.333], [0.318, -0.331], [0.252, -0.281], [0.217, -0.20], [0.19, -0.111], [0.143, -0.036], [0.092, 0.004], [0.045, -0.009]]}
+    paint:
+      - material: hair_shade
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.22, profile: {bezier: [[0, 0.003], [0.087, 0.068], [0.139, 0.049], [0.2, -0.032], [0.231, -0.143], [0.272, -0.238], [0.342, -0.307], [0.435, -0.33], [0.431, -0.420], [0.17, -0.4], [0.07, -0.15], [0, -0.12]]}}
+      - material: hair_light
+        prims:
+          - extrude: {rot: [0, 1.5708, 0], depth: 0.24, profile: {bezier: [[0.078, 0.080], [0.135, 0.151], [0.27, 0.109], [0.301, -0.08], [0.283, -0.144], [0.263, -0.04], [0.225, 0.04], [0.172, 0.085], [0.119, 0.09], [0.098, 0.078]]}}
+  pony_flash:
+    when: "form_open < 0.5"
+    material: hair
+    space: pony_base
+    line: false
+    prims:
+      - tube: {pts: [[0.016, 0.074, -0.09], [0.061, 0.10, -0.19], [0.073, -0.033, -0.240], [0.07, -0.197, -0.248], [0.056, -0.298, -0.285], [0.042, -0.365, -0.362]], r: [0.037, 0.006]}
+      - tube: {pts: [[-0.02, 0.085, -0.11], [-0.062, 0.089, -0.19], [-0.066, -0.021, -0.236], [-0.068, -0.192, -0.246], [-0.05, -0.267, -0.302], [-0.03, -0.361, -0.354]], r: [0.033, 0.004]}
+    paint:
+      - material: hair_light
+        prims: [{box: {c: [0, -0.204, -0.29], half: [0.11, 0.184, 0.073], rot: [-0.29, 0, 0]}}]
+  # A curved curtain in front of each temple frames the eye. The two thinner
+  # bevels follow the sweep of the fringe rather than the surface lighting.
+  curtain_L:
+    space: head
+    material: hair_mid
+    line: false
+    prims:
+      - tube: {pts: [[0.014,0.307,0.06],[0.106,0.285,0.133],[0.153,0.213,0.115],[0.148,0.129,0.097],[0.167,0.068,0.093],[0.144,0.019,0.121]], r: [0.039,0.005]}
+    paint:
+      - material: hair
+        prims: [{box: {c: [0.139,0.193,0.143], half: [0.047,0.155,0.036], rot: [-0.12,0.10,0.09]}}]
+  fringe_sweep:
+    space: head
+    material: hair_mid
+    line: false
+    prims:
+      - tube: {pts: [[0.083,0.286,0.095],[0.045,0.259,0.155],[-0.011,0.206,0.163],[-0.059,0.145,0.153],[-0.089,0.129,0.143]], r: [0.022,0.006]}
+    paint:
+      - material: hair
+        prims: [{box: {c: [0.043,0.255,0.164], half: [0.093,0.039,0.05], rot: [0,0,0.60]}}]
+  loose_curl:
+    when: "form_open < 0.5"
+    space: pony_base
+    material: hair_mid
+    line: false
+    prims:
+      - tube: {pts: [[0,0.067,-0.087],[0.018,0.147,-0.209],[0.039,0.072,-0.309],[0.036,-0.088,-0.302],[0.046,-0.222,-0.329],[0.044,-0.244,-0.449],[0.035,-0.334,-0.478],[0.036,-0.367,-0.439]], r: [0.044,0.006]}
+    paint:
+      - material: hair
+        prims: [{box: {c: [0,-0.193,-0.387], half: [0.13,0.124,0.070], rot: [-0.39,0,0]}}]
+  eye_L:
+    space: eye_plane_L
+    priority: 2
+    material: ink
+    line: false
+    prims:
+      - extrude: {depth: 0.031, profile: {polygon: [[-0.040,0.020],[-0.008,0.034],[0.024,0.033],[0.050,0.045],[0.035,0.005],[0.028,-0.022],[0.009,-0.036],[-0.020,-0.030],[-0.036,-0.014]]}}
+    paint:
+      - material: pearl
+        prims: [{ellipsoid: {c: [-0.008,-0.005,0], r: [0.039,0.026,0.070]}}]
+      - material: garnet
+        prims: [{ellipsoid: {c: [-0.006,-0.006,0], r: [0.024,0.028,0.070]}}]
+      - material: ink
+        prims: [{box: {c: [-0.006,0.013,0], half: [0.014,0.010,0.07]}}]
+      - material: hair_light
+        prims: [{box: {c: [-0.013,0.008,0], half: [0.011,0.010,0.07]}}]
+  mouth:
+    space: head
+    material: lip
+    line: false
+    prims:
+      - ellipsoid: {c: [0,0.033,0.123], r: [0.020,0.006,0.010]}
+  neck:
+    prims:
+      - cone: {a: [0, 0.46, -0.008], b: [0, 0.632, 0.011], r: [0.051, 0.043]}
+    paint:
+      - material: leather
+        prims: [{box: {c: [0, 0.578, 0.007], half: [0.1, 0.031, 0.10]}}]
+  torso:
+    material: cloth
+    blend: 0.018
+    prims:
+      - ellipsoid: {c: [0, 0.020, -0.010], r: [0.167, 0.129, 0.125]}
+      - ellipsoid: {c: [0, 0.218, -0.008], r: [0.132, 0.177, 0.114]}
+      - ellipsoid: {c: [0, 0.375, 0.015], r: [0.178, 0.145, 0.14], rot: [-0.10, 0, 0]}
+      - ellipsoid: {c: [0, 0.47, -0.004], r: [0.173, 0.062, 0.103]}
+    paint:
+      - material: pearl
+        prims:
+          - box: {c: [0, 0.447, 0.143], half: [0.20, 0.068, 0.105], rot: [-0.26, 0, 0]}
+      - material: skin
+        prims:
+          - box: {c: [0, 0.55, 0], half: [0.21, 0.053, 0.22], rot: [0.14, 0, 0]}
+      - material: leather
+        prims:
+          - box: {c: [0.117, 0.455, 0.085], half: [0.018, 0.12, 0.10], rot: [0.02, 0.15, -0.18]}
+          - box: {c: [-0.117, 0.455, 0.085], half: [0.018, 0.12, 0.10], rot: [0.02, -0.15, 0.18]}
+  belt:
+    material: leather
+    prims:
+      - ellipsoid: {c: [0, 0.082, -0.010], r: [0.177, 0.040, 0.133], rot: [0.08, 0, -0.12]}
+    paint:
+      - material: steel
+        prims: [{box: {c: [0, 0.085, 0.111], half: [0.040, 0.031, 0.038]}}]
+  jacket:
+    material: red_dark
+    when: "form_open < 0.5"
+    space: pelvis
+    line: false
+    prims:
+      - ellipsoid: {c: [0, 0.292, -0.075], r: [0.190, 0.177, 0.104], rot: [0.10, 0, 0]}
+    paint:
+      - material: red
+        prims: [{box: {c: [0, 0.39, -0.166], half: [0.22, 0.072, 0.087], rot: [0.1, 0, 0.12]}}]
+  lapel_L:
+    when: "form_open < 0.5"
+    space: pelvis
+    material: red_dark
+    line: false
+    prims:
+      - tube: {pts: [[0.177,0.427,-0.028],[0.175,0.355,0.058],[0.151,0.292,0.089],[0.139,0.184,0.079],[0.167,0.084,0.078],[0.170,0.022,0.072]], r: [0.036,0.021]}
+    paint:
+      - material: red
+        prims: [{box: {c: [0.157,0.23,0.112], half: [0.028,0.172,0.027]}}]
+  belt_slide_L:
+    when: "form_open < 0.5"
+    space: pelvis
+    material: steel
+    line: false
+    prims:
+      - box: {c: [0.114,0.087,0.094], half: [0.010,0.031,0.014], rot: [0,0.44,0.05], round: 0.005}
+  coat:
+    when: "form_open < 0.5"
+    material: red
+    blend: 0
+    cut: []
+    prims:
+      - extrude: {c: [-0.078, 0, 0], rot: [0, 1.5708, 0], depth: 0.065, round: 0.012, profile: {bezier: [[-0.04, 0.045], [0.083, 0.04], [0.11, -0.09], [0.14, -0.24], [0.23, -0.43], [0.318, -0.506], [0.257, -0.50], [0.15, -0.43], [0.069, -0.34], [0.011, -0.19], [-0.035, -0.04], [-0.05, 0.02]]}}
+    paint:
+      - material: red_light
+        prims: [{box: {c: [-0.078, -0.285, -0.145], half: [0.13, 0.034, 0.2], rot: [-0.38, 0, 0]}}]
+  coat_split:
+    when: "form_open < 0.5"
+    material: red_dark
+    space: coatbase
+    line: false
+    prims:
+      - extrude: {c: [0.074, -0.005, -0.01], rot: [0, 1.5708, -0.10], depth: 0.063, round: 0.009, profile: {bezier: [[-0.02, 0.04], [0.10, 0.065], [0.155, -0.124], [0.197, -0.211], [0.335, -0.316], [0.355, -0.368], [0.219, -0.334], [0.103, -0.255], [0.032, -0.121], [0.004, -0.055]]}}
+  pouch:
+    when: "form_open < 0.5"
+    material: leather
+    space: pelvis
+    prims:
+      - box: {c: [-0.149, 0.035, -0.032], half: [0.039, 0.071, 0.052], round: 0.014, rot: [-0.2, 0.12, -0.10]}
+    paint:
+      - material: steel
+        prims: [{box: {c: [-0.192, 0.066, -0.034], half: [0.035, 0.018, 0.025]}}]
+  arm_L:
+    material: skin
+    blend: 0.010
+    prims:
+      - sphere: {c: "@shoulder_L", r: 0.055}
+      - cone: {a: "@shoulder_L", b: "@elbow_L", r: [0.052, 0.035]}
+      - cone: {a: "@elbow_L", b: "@wrist_L", r: [0.039, 0.030]}
+  sleeve_L:
+    when: "form_open < 0.5"
+    material: red
+    line: false
+    blend: 0.014
+    prims:
+      - cone: {a: {between: ["@shoulder_L", "@elbow_L"], t: 0.33}, b: "@elbow_L", r: [0.090, 0.097]}
+      - cone: {a: "@elbow_L", b: {between: ["@elbow_L", "@wrist_L"], t: 0.37}, r: [0.097, 0.070]}
+    paint:
+      - material: leather
+        prims:
+          - cylinder: {a: {between: ["@shoulder_L", "@elbow_L"], t: 0.23}, b: {between: ["@shoulder_L", "@elbow_L"], t: 0.46}, r: 0.12}
+          - cylinder: {a: {between: ["@elbow_L", "@wrist_L"], t: 0.27}, b: {between: ["@elbow_L", "@wrist_L"], t: 0.57}, r: 0.12}
+      - material: red_light
+        prims:
+          - box: {c: {at: shoulder_L, off: [0.070, 0.014, 0.166]}, half: [0.046, 0.020, 0.032], rot: [0.42, 0.12, 0.2], align: ["@shoulder_L", "@elbow_L"]}
+  hand_L:
+    material: leather
+    prims:
+      - ellipsoid: {c: [0, 0, 0.031], r: [0.041, 0.041, 0.057]}
+      - cone: {a: [0, 0, -0.064], b: [0, 0, 0.019], r: [0.045, 0.035]}
+    paint:
+      - material: skin
+        prims: [{box: {c: [0, 0, 0.094], half: [0.052, 0.055, 0.028]}}]
+  leg_L:
+    material: skin
+    blend: 0.012
+    prims:
+      - cone: {a: "@hip_L", b: {between: ["@hip_L", "@knee_L"], t: 0.45}, r: [0.096, 0.081]}
+      - cone: {a: {between: ["@hip_L", "@knee_L"], t: 0.42}, b: "@knee_L", r: [0.081, 0.052]}
+      - cone: {a: "@knee_L", b: "@ankle_L", r: [0.055, 0.034]}
+    paint:
+      - material: cloth
+        prims:
+          - cylinder: {a: "@hip_L", b: {between: ["@hip_L", "@knee_L"], t: 0.20}, r: 0.16}
+      - material: leather
+        prims:
+          - cylinder: {a: {between: ["@hip_L", "@knee_L"], t: 0.38}, b: {between: ["@hip_L", "@knee_L"], t: 0.49}, r: 0.115}
+          - cylinder: {a: {between: ["@hip_L", "@knee_L"], t: "0.78 - 0.27*(sx < 0)"}, b: "@ankle_L", r: 0.095}
+  boot_L:
+    material: leather
+    space: knee_L
+    blend: 0.012
+    prims:
+      - cone: {a: "@knee_L", b: {between: ["@knee_L", "@ankle_L"], t: 0.38}, r: [0.065, 0.078]}
+      - cone: {a: {between: ["@knee_L", "@ankle_L"], t: 0.38}, b: "@ankle_L", r: [0.077, 0.047]}
+    paint:
+      - material: piping
+        prims:
+          - cylinder: {a: {between: ["@knee_L", "@ankle_L"], t: 0.12}, b: {between: ["@knee_L", "@ankle_L"], t: 0.23}, r: 0.12}
+          - cylinder: {a: {between: ["@knee_L", "@ankle_L"], t: 0.67}, b: {between: ["@knee_L", "@ankle_L"], t: 0.77}, r: 0.11}
+      - material: steel
+        prims:
+          - box: {c: [0.071, 0.0, 0.083], half: [0.024, 0.024, 0.018]}
+          - box: {c: [0.052, 0.0, 0.292], half: [0.022, 0.024, 0.014]}
+  boot_straps_L:
+    when: "form_open < 0.5"
+    material: piping
+    space: knee_L
+    line: false
+    prims:
+      - cone: {a: {between: ["@knee_L","@ankle_L"], t: 0.21}, b: {between: ["@knee_L","@ankle_L"], t: 0.27}, r: [0.078,0.080]}
+      - cone: {a: {between: ["@knee_L","@ankle_L"], t: 0.68}, b: {between: ["@knee_L","@ankle_L"], t: 0.74}, r: [0.065,0.063]}
+    paint:
+      - material: steel
+        prims: [{box: {c: [0.061,0.01,0.145], half: [0.024,0.041,0.19]}}]
+  shoe_L:
+    material: leather
+    space: sole_L
+    line: false
+    prims:
+      - extrude: {rot: [0, 1.5708, 0], depth: 0.117, round: 0.010, profile: {polygon: [[0.047, 0.018], [-0.035, 0.041], [-0.069, -0.013], [-0.171, -0.028], [-0.187, -0.053], [-0.154, -0.075], [-0.071, -0.075], [0.006, -0.046], [0.018, -0.073], [0.052, -0.073]]}}
+    paint:
+      - material: piping
+        prims: [{box: {c: [0, -0.025, 0.141], half: [0.064,0.018,0.029], rot: [0.22,0,0]}}]
+      - material: piping
+        prims: [{box: {c: [0, -0.076, 0.045], half: [0.084, 0.012, 0.16]}}]
+  sword_blade:
+    when: "blade_on > 0.5"
+    material: steel
+    paint:
+      - material: ion
+        prims:
+          - extrude: {depth: 0.08, profile: {polygon: [[-0.012, 0.137], [0.030, 0.143], [0.015, 0.67], [0, 0.79], [-0.006, 0.65]]}}
+  sword_guard: {when: "blade_on > 0.5", material: leather}
+  sword_grip: {when: "blade_on > 0.5"}
+  sword_pommel: {when: "blade_on > 0.5"}
+animations:
+  idle:
+    frames: 6
+    ms: 145
+    channels:
+      bob: "-0.008 + 0.018*sin(p)"
+      squash: "1 + 0.009*sin(p)"
+      head_pitch: "-0.04 + 0.022*sin(p - 0.35)"
+      foot_L: "[0.13, 0, 0.21*yaw/90]"
+      foot_R: "[0.13, 0, -0.21*yaw/90]"
+      hand_L: "[0.275, 0.035 + 0.014*sin(p - 0.4), 0.03 + 0.08*yaw/90]"
+      hand_R: "[0.275, 0.046 + 0.014*sin(p - 0.7), 0.03 - 0.08*yaw/90]"
+      coat: "0.13*sin(p - 0.9)"
+      pony_swing: "0.105*sin(p - 0.78)"
+sockets:
+  sole: {bone: root, offset: [0, 0, 0]}
+review:
+  keep:
+    silver_fringe: {parts: [hair, hair_fringe, temple_L, temple_R], min_px: 8}
+    high_ponytail: {parts: [pony, pony_flash], min_px: 8}
+    dropped_jacket: {parts: [coat, jacket, sleeve_L, sleeve_R], min_px: 7}
+    thigh_and_boot: {parts: [boot_L, boot_R, leg_L, leg_R], min_px: 8}
