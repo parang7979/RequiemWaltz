@@ -2,5 +2,5 @@
   "version": 1,
   "material": "v002",
   "motions": {"combat": "v004"},
-  "reviewed": {"combat": ["v001", "v002", "v003", "v005"]}
+  "reviewed": {"combat": ["v001", "v002", "v003", "v005", "v006"]}
 }

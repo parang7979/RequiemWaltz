@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "id": "v006",
+  "clip": "combat",
+  "status": "candidate",
+  "direction": "front_right",
+  "character": "../../../materials/v002/character.json",
+  "parent": "../v004/revision.json",
+  "parent_source": "explicit",
+  "materials": "../../../materials/v002/revision.json",
+  "motion_reference": "../v004/contact-poses.json",
+  "reference_tracks": "../v004/tracks/",
+  "entry_recipes": "../v004/recipes/",
+  "recipe_generator": "../../../authoring/bake_combat_v006.py",
+  "spritecut_commit": "79b60ad93205b59bfc5fba220c30f5eb059eb35e",
+  "tracks": "tracks/",
+  "sheets": "sheets/clips.json",
+  "previews": {
+    "side_by_side": "previews/original-parts-comparison.gif",
+    "end_poses": "previews/original-parts-end.png"
+  },
+  "review": "Transfers the v004 timing, pelvis, neck and skull paths to the existing v002 observed and repair channels. All color pixels originate from the existing skeleton cutouts. The rear roll reveals the existing front skull surface at frame 8. First four cels match v004 pixel for pixel. The two padded clips keep 12 cells, 720 ms, the (48, 58) pivot and the active game's atlas rectangles."
+}

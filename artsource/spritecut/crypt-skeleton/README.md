@@ -33,3 +33,11 @@
 ~~~
 
 [동작 레시피와 시트](motions/combat/v004/revision.json) · [Windows SpriteCut 뷰어](spritecut-viewer.cmd) · [v003](motions/combat/v003/revision.json) · [v002](motions/combat/v002/revision.json)
+
+### 기존 파츠 사망 시안 v006
+
+v002에서 분리한 두개골, 흉곽, 팔과 다리에 v004의 프레임 길이와 골반·목 궤적을 옮겼다. 후면에서는 뒤통수가 넘어가 시야에서 벗어날 때 v002의 전면 두개골 파츠가 드러난다. [채택본과 비교 GIF](motions/combat/v006/previews/original-parts-comparison.gif) · [시안 기록과 시트](motions/combat/v006/revision.json)
+
+~~~powershell
+../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/crypt-skeleton/authoring/bake_combat_v006.py
+~~~
