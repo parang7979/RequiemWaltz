@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yb5qyuojeu3d"
-path="res://.godot/imported/arc.png-29f0f55b6821d57960fa0482f24e3445.ctex"
+uid="uid://deoosmxq01wnn"
+path="res://.godot/imported/seal_chamber.png-562eba88ed706dcc39642a61f1a17733.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vfx/waltz_combat/arc.png"
-dest_files=["res://.godot/imported/arc.png-29f0f55b6821d57960fa0482f24e3445.ctex"]
+source_file="res://assets/rooms/seal_chamber.png"
+dest_files=["res://.godot/imported/seal_chamber.png-562eba88ed706dcc39642a61f1a17733.ctex"]
 
 [params]
 

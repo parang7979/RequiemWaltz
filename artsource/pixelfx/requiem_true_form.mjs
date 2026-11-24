@@ -133,27 +133,25 @@ function smallWisps(p, phase, lean, flutter) {
   }
 }
 
-function trueForm(name, duration, loop) {
-  return {
-    meta: { name, size: [128, 128], origin: [64, 50], fps: 30, duration, loop, bg: "none" },
-    draw(p, time) {
-      const phase = tau * time / (loop ? duration : 1.5);
-      const reveal = loop ? 1 : smooth(time / .18);
-      const concern = loop ? 0 : smooth((time - .08) / .39);
-      const withdrawn = loop ? 0 : smooth((time - .83) / .45);
-      const lean = concern * 5 - (1 - reveal) * 4;
-      const flutter = 1 + .22 * (1 - reveal) + .36 * withdrawn;
-      smallWisps(p, phase, lean, flutter);
-      drawPlume(p, tail, phase, 0, flutter, .89, 1.02);
-      drawPlume(p, backCurl, phase + .55, lean * .3, flutter, .67, 1.07);
-      drawPlume(p, body, phase, lean, flutter, .94, .92);
-      drawPlume(p, hornLeft, phase + .45, lean, flutter * 1.22, .85 - concern * .09, 1.08);
-      drawPlume(p, hornRight, phase - .34, lean, flutter * .85, .90, 1.12);
-      drawPlume(p, foreCurl, phase + .84, lean * .45, flutter, .81, 1.18);
-      drawFace(p, phase, lean, concern, withdrawn);
-    },
-  };
-}
-
-export const idle = trueForm("Requiem unsealed", 1.6, true);
-export const concern = trueForm("Requiem concern", 1.3, false);
+export const concern = {
+  meta: {
+    name: "Requiem concern", size: [128, 128], origin: [64, 50],
+    fps: 30, duration: 1.3, loop: false, bg: "none",
+  },
+  draw(p, time) {
+    const phase = tau * time / 1.5;
+    const reveal = smooth(time / .18);
+    const concern = smooth((time - .08) / .39);
+    const withdrawn = smooth((time - .83) / .45);
+    const lean = concern * 5 - (1 - reveal) * 4;
+    const flutter = 1 + .22 * (1 - reveal) + .36 * withdrawn;
+    smallWisps(p, phase, lean, flutter);
+    drawPlume(p, tail, phase, 0, flutter, .89, 1.02);
+    drawPlume(p, backCurl, phase + .55, lean * .3, flutter, .67, 1.07);
+    drawPlume(p, body, phase, lean, flutter, .94, .92);
+    drawPlume(p, hornLeft, phase + .45, lean, flutter * 1.22, .85 - concern * .09, 1.08);
+    drawPlume(p, hornRight, phase - .34, lean, flutter * .85, .90, 1.12);
+    drawPlume(p, foreCurl, phase + .84, lean * .45, flutter, .81, 1.18);
+    drawFace(p, phase, lean, concern, withdrawn);
+  },
+};

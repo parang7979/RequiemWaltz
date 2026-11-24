@@ -185,7 +185,7 @@ def build(staging):
         clip = manifest["clips"][name]
         sprites.append((crop(load_rgba(FORM_DIR / clip["maps"]["color"]), clip["frames"][0]), clip["pivot"]))
     waltz, blade = sprites
-    arena = load_rgba(ROOT / "assets/waltz_combat/chamber.png")
+    arena = load_rgba(ROOT / "assets/rooms/seal_chamber.png")
     floor = arena.crop((207, 152, 207 + PANEL[0], 152 + PANEL[1]))
 
     times = list(range(0, PERIOD, STEP))

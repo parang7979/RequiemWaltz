@@ -4,7 +4,7 @@
   "status": "candidate",
   "waltz_upper_materials": "../../../materials/v005/revision.json",
   "waltz_leg_materials": "../../../materials/v004/revision.json",
-  "requiem_reference": "../../../../../../assets/waltz_combat/requiem.png",
+  "requiem_reference": "../../../sources/v001/originals/requiem-legacy.png",
   "motion": "motion.json",
   "recipe_generator": "../../../authoring/build_waltz_defeat.py",
   "sheets": {

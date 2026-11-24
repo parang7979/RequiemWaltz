@@ -8,7 +8,7 @@ const WALK_TEXTURES := {
 	"front_right": preload("res://assets/actors/waltz_walk/walk_front_right_color.png"),
 	"back_right": preload("res://assets/actors/waltz_walk/walk_back_right_color.png"),
 }
-const ARENA = preload("res://assets/waltz_combat/chamber.png")
+const ARENA = preload("res://assets/rooms/seal_chamber.png")
 const TAIL = preload("res://assets/vfx/requiem_forms/tail.tres")
 const REFORM = preload("res://assets/vfx/requiem_forms/shift.tres")
 const DISPERSE = preload("res://assets/vfx/requiem_forms/disperse.tres")
@@ -633,7 +633,7 @@ func _update_defeat(delta: float) -> void:
 		var body_scale := lerpf(0.57, 0.73, approach)
 		var untether := smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
 		var anchor := defeat_mount.lerp(beside, approach) + Vector2(defeat_side * untether * 6.0, bob - untether * 14.0)
-		true_requiem.texture = TrueForm.texture_at(TrueForm.CONCERN, elapsed)
+		true_requiem.texture = TrueForm.texture_at(elapsed)
 		true_requiem.position = anchor.round()
 		true_requiem.scale = Vector2(-defeat_side, 1.0) * body_scale
 		true_requiem.modulate.a = smoothstep(0.0, 0.10, elapsed) * (1.0 - untether)

@@ -44,7 +44,7 @@ def waltz_rig(direction, recipe):
 
 def requiem_rig(recipe):
     spec = recipe["requiem"]
-    with Image.open(PROJECT / "assets/waltz_combat/requiem.png") as source:
+    with Image.open(CHARACTER / "sources/v001/originals/requiem-legacy.png") as source:
         sprite = source.convert("RGBA")
     draw = ImageDraw.Draw(sprite)
     for rect in spec["star_rects"]:

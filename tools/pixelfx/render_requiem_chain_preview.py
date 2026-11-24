@@ -59,7 +59,7 @@ def compose(staging):
     atlas = load_rgba(staging / "effects.png")
     frames = preview["atlas"]["frames"]
     size = (frames[0]["frame"]["w"], frames[0]["frame"]["h"])
-    arena = load_rgba(ROOT / "assets/waltz_combat/chamber.png")
+    arena = load_rgba(ROOT / "assets/rooms/seal_chamber.png")
     floor = arena.crop((146, 146, 146 + size[0], 146 + size[1]))
 
     forms = ACTORS / "requiem_forms"
