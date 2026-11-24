@@ -1,5 +1,6 @@
 """Compose the Requiem chain motion study with the original in-game sprites."""
 
+import argparse
 import json
 import math
 from pathlib import Path
@@ -11,7 +12,7 @@ from PIL import Image, ImageDraw, ImageOps
 
 ROOT = Path(__file__).resolve().parents[2]
 ACTORS = ROOT / "assets/actors"
-STUDY = ROOT / "artsource/spritecut/waltz/sources/form-studies/v002"
+STUDIES = ROOT / "artsource/spritecut/waltz/sources/form-studies"
 
 
 def load_rgba(path):
@@ -69,18 +70,19 @@ def compose(staging):
     sword = sprite_frame(forms / sword_clip["maps"]["color"], sword_clip["frames"][0])
     idle_skeleton = skeleton_frames("idle")[0]
     hit_skeleton = skeleton_frames("hit")
-    hit_time = preview["timing"]["hit"]
-
     for entry, pose in zip(frames, preview["frames"], strict=True):
         stage = floor.copy()
         waltz_x, waltz_y = preview["waltzFeet"]
         target_x, target_y = preview["targetFeet"]
         waltz_x += pose["lean"]
-        elapsed = pose["t"] - hit_time
-        hit = 0 <= elapsed < .18
+        duration = entry["duration"]
+        hit = next((hit for hit in preview["hits"] if 0 <= pose["t"] - hit["time"] < .18), None)
         if hit:
+            elapsed = pose["t"] - hit["time"]
+            if elapsed == 0:
+                duration += hit["holdMs"]
             skeleton = hit_skeleton[min(int(elapsed * 32), len(hit_skeleton) - 1)]
-            target_x -= 6 * math.sin(math.pi * elapsed / .18)
+            target_x += hit["push"] * math.sin(math.pi * elapsed / .18)
             if elapsed < .041:
                 tint = Image.new("RGBA", skeleton.size, (255, 223, 248))
                 tint.putalpha(skeleton.getchannel("A"))
@@ -92,6 +94,8 @@ def compose(staging):
         draw = ImageDraw.Draw(shadows)
         shadow(draw, waltz_x, waltz_y - 1, 13, 3, 108)
         shadow(draw, target_x, target_y - 1, 14, 4, 115)
+        if pose["spirit"]:
+            shadow(draw, pose["spirit"][0] - 11, waltz_y + 2, 12, 3, 58)
         shadow(draw, pose["x"] + 15, 111, 20, 2, 63)
         stage.alpha_composite(shadows)
         actor_frame(stage, waltz, (waltz_x, waltz_y), waltz_clip["pivot"])
@@ -100,10 +104,10 @@ def compose(staging):
         effect = atlas.crop((rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"]))
         stage.alpha_composite(effect)
         stage.alpha_composite(rotated_sword(stage, sword, pose, preview["pommel"]))
-        yield stage.convert("RGB"), entry["duration"]
+        yield stage.convert("RGB"), duration
 
 
-def save_gif(staging):
+def save_gif(staging, destination):
     frames, durations = zip(*compose(staging))
     width, height = frames[0].size
     samples = frames[::4]
@@ -118,17 +122,21 @@ def save_gif(staging):
         for frame in frames
     ]
     scaled[0].save(
-        STUDY / "chain-return.gif", save_all=True, append_images=scaled[1:],
+        destination, save_all=True, append_images=scaled[1:],
         duration=list(durations), loop=0,
     )
 
 
 if __name__ == "__main__":
-    STUDY.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", choices=("v002", "v003"), default="v003")
+    version = parser.parse_args().version
+    study = STUDIES / version
+    study.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(prefix="requiem-chain-") as temporary:
         staging = Path(temporary)
         subprocess.run(
-            ["node", ROOT / "artsource/pixelfx/requiem_chain.mjs", staging],
+            ["node", ROOT / "artsource/pixelfx/requiem_chain.mjs", staging, version],
             check=True,
         )
-        save_gif(staging)
+        save_gif(staging, study / "chain-return.gif")

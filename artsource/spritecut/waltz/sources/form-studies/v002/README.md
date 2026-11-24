@@ -17,5 +17,5 @@
 프로젝트 루트에서 실행한다.
 
 ```powershell
-../SpriteCut/.venv/Scripts/python.exe tools/pixelfx/render_requiem_chain_preview.py
+../SpriteCut/.venv/Scripts/python.exe tools/pixelfx/render_requiem_chain_preview.py --version v002
 ```
