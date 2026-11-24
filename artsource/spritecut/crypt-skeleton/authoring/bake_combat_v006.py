@@ -1,5 +1,6 @@
 """Transfer the v004 backward fall to the original v002 skeleton cutouts."""
 
+import argparse
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -8,7 +9,7 @@ from PIL import Image, ImageDraw
 from spritecut.animation.character import rest_geometry
 
 from bake_combat_v002 import MATERIAL, compiler_character
-from bake_combat_v004 import VERSION as REFERENCE, cells, read, registered_landmarks, screen_turn, unit
+from bake_combat_v004 import VERSION as REFERENCE, cells, publish, read, registered_landmarks, screen_turn, unit
 from build_crypt_skeleton import CELL, DIRECTIONS, GROUND, PROJECT, spritecut, write
 
 
@@ -243,4 +244,9 @@ def compare(before, after):
 
 
 if __name__ == "__main__":
-    bake()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--publish", action="store_true", help="apply the verified fall to Godot")
+    if parser.parse_args().publish:
+        publish(VERSION)
+    else:
+        bake()

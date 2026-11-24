@@ -304,12 +304,13 @@ def preview(baseline, clips):
     panel.convert("RGB").resize((1200, 440), Image.Resampling.NEAREST).save(previews / "pose-sheet-2x.png")
 
 
-def publish():
-    clips = read(VERSION / "sheets/clips.json")["clips"]
+def publish(version=VERSION):
+    sheets = version / "sheets"
+    clips = read(sheets / "clips.json")["clips"]
     for direction in DIRECTIONS:
         clip = clips["collapse_" + direction]
         color = clip["maps"]["color"]
-        shutil.copyfile(VERSION / "sheets" / color, RUNTIME / color)
+        shutil.copyfile(sheets / color, RUNTIME / color)
     for clip in clips.values():
         clip["maps"] = {kind: Path(path).name for kind, path in clip["maps"].items()}
     sprite_frames(clips)
