@@ -17,7 +17,7 @@
 
 네 시트는 128×128px 정면 셀, 피벗 (64, 119), 같은 컬러·노멀·이미시브 프레임 영역을 쓴다. 전환 유체의 중심은 셀의 (64, 57)에 있다.
 
-[공통 전환 불꽃](../../../../../pixelfx/requiem_forms.mjs)은 밝은 결이 아래에서 위로 올라오고 불씨가 뒤따른다. 기존 16컷과 피벗을 사용하며, PixelFX 0.3.1 공유 리비전 `4ec9a35938d2b0da20cdb19ca72e9de8d6cf4b19`에서 굽는다.
+[공통 전환 불꽃](../../../../../pixelfx/requiem_forms.mjs)은 폭이 넓고 끝이 갈라지는 중앙 불꽃이 먼저 솟고, 낮은 양옆 불꽃과 불씨가 뒤따른다. 기존 16컷과 피벗을 사용하며, PixelFX 0.3.1 공유 리비전 `4ec9a35938d2b0da20cdb19ca72e9de8d6cf4b19`에서 굽는다.
 
 ```powershell
 ../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/waltz/authoring/build_requiem_true_form.py --output-root .local/requiem-front-motion

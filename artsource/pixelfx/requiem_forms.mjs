@@ -36,11 +36,11 @@ const flameLight = 0xffff86b9;
 const flameRim = 0xffffb8e3;
 
 const shiftFlames = [
-  { x: -30, y: 10, reach: 37, width: 5.0, lag: .08, curl: -1 },
-  { x: 27, y: 8, reach: 45, width: 5.6, lag: .17, curl: 1 },
-  { x: -16, y: 15, reach: 53, width: 9.2, lag: .01, curl: 1 },
-  { x: 13, y: 11, reach: 48, width: 8.0, lag: .09, curl: -1 },
-  { x: -2, y: 17, reach: 24, width: 9.0, lag: .13, curl: -1 },
+  { x: -25, y: 13, reach: 38, width: 12, lag: .095, curl: -1 },
+  { x: 26, y: 11, reach: 39, width: 11, lag: .14, curl: 1 },
+  // Two overlapping tongues give the center flame a single base and a forked tip.
+  { x: -6, y: 15, reach: 45, width: 9, lag: .05, curl: -1 },
+  { x: -1, y: 17, reach: 59, width: 22, lag: .01, curl: 1 },
 ];
 
 function flameEase(value) {
@@ -50,32 +50,35 @@ function flameEase(value) {
 
 function drawShiftFlame(p, time, { x: rootX, y: rootY, reach, width, lag, curl }) {
   const growth = flameEase((time - lag) / .36);
-  const lift = flameEase((time - .48 - lag * .4) / .42);
+  const lift = flameEase((time - .43 - lag * .55) / .43);
   const strength = growth * (1 - lift);
   if (strength <= 0) return;
 
   const height = reach * (.20 + .80 * growth) * (1 - .63 * lift);
   const base = Math.round(rootY - 25 * lift);
   const sway = time * tau * 1.65 + rootX * .18;
-  const root = rootX * (.62 + .38 * growth) + curl * lift * 4;
-  p.glow(root, base - height * .30, 13, flameViolet, strength * .24);
+  const root = rootX * (.69 + .31 * growth) + curl * lift * 4;
+  p.glow(root, base - height * .30, 7 + width * .55, flameViolet, strength * .24);
   for (let row = 0; row < height; row++) {
     const u = row / height;
-    const wave = Math.sin(row * .23 - sway);
-    const x = root + u * (4.2 * wave + 4.6 * curl * u) + Math.sin(u * 5.5 - sway) * u * 2;
-    const belly = flameEase((row + 1) / 5) * (1 - u) ** .73;
-    const half = width * belly * (.58 + .42 * growth) * (.82 + .18 * wave) * (1 - .34 * lift);
+    const phase = row * .20 - sway;
+    const wave = Math.sin(phase);
+    const x = root + u * ((3 + width * .29) * wave + (5 + width * .22) * curl * u);
+    const belly = flameEase((row + 2) / 9) * (1 - u) ** .82;
+    const half = width * belly * (.58 + .42 * growth) * (.88 + .12 * wave) * (1 - .49 * lift);
     const opacity = strength * (.62 + .38 * (1 - u));
-    const rimSide = Math.cos(row * .22 - sway) > 0 ? 1 : -1;
+    const ridge = .57 * Math.cos(phase + .85);
+    const ridgePower = .60 + .40 * Math.sin(row * .28 - sway + 1);
     for (let px = Math.floor(x - half); px <= Math.ceil(x + half); px++) {
       const offset = px - x;
       const coverage = Math.max(0, Math.min(1, half + .45 - Math.abs(offset)));
-      const rim = offset * rimSide / Math.max(1, half);
-      const color = rim > .42 ? flameLight : rim > -.38 ? flameViolet : flameShade;
+      const across = offset / Math.max(1, half);
+      const fold = Math.abs(across - ridge);
+      let color = flameViolet;
+      if (Math.abs(across) > .78) color = flameShade;
+      else if (fold < .11 * ridgePower) color = flameRim;
+      else if (fold < .39) color = flameLight;
       p.blend(px, base - row, color, coverage * opacity);
-    }
-    if (half > 1.3 && wave > .23) {
-      p.blend(x + rimSide * half * .56, base - row, flameRim, opacity * (.45 + .43 * wave));
     }
   }
 }
@@ -89,9 +92,9 @@ export const shift = {
     for (let i = 0; i < 12; i++) {
       const age = (u - (.24 + i * .032)) / (.33 + (i % 3) * .035);
       if (age <= 0 || age >= 1) continue;
-      const { x: rootX, reach, curl } = shiftFlames[i % shiftFlames.length];
+      const { x: rootX, reach, width, curl } = shiftFlames[i % shiftFlames.length];
       const x = rootX + Math.sin(i * 2.4 + age * 4) * (2 + age * 4) + curl * 3 * age;
-      const y = 8 - reach * .46 - age * 21;
+      const y = 8 - reach * .46 - age * (26 - width * .26);
       const alpha = flameEase(age / .17) * (1 - age) * (.68 + (i % 3) * .16);
       p.blend(x, y, flameLight, alpha);
       p.blend(x, y + 1, flameViolet, alpha * .48);
