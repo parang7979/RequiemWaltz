@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "cell": [112, 104],
+  "pivot": [56, 52],
+  "views": [
+    {"direction": "front", "file": "front.png", "landmarks": {"socket": [78, 52], "tail": [39, 59]}}
+  ]
+}

@@ -208,6 +208,27 @@ def bake(name, recipe, stage):
     return manifest["clips"]
 
 
+def publish_chain(bundle):
+    version = CHARACTER / "motions/requiem_chain/v001"
+    sheets = version / "sheets"
+    sheet = json.loads((sheets / "clips.json").read_text(encoding="utf-8"))
+    tracks = json.loads((version / "tracks.json").read_text(encoding="utf-8"))
+    for clip in sheet["clips"].values():
+        for image in clip["maps"].values():
+            shutil.copyfile(sheets / image, RUNTIME / image)
+    links = CHARACTER / "materials/v009/prepared/chain_links.png"
+    shutil.copyfile(links, RUNTIME / links.name)
+    for side in DIRECTIONS:
+        form = f"chain_{side}"
+        points = {}
+        for name, clip in sheet["clips"].items():
+            alias = f"{form}_{name.removeprefix('chain_')}"
+            bundle["clips"][alias] = {**clip, "pivot": sheet["pivot"]}
+            points[alias] = tracks[name]
+        bundle["forms"][form] = {"axis_deg": 0, "tracks": points}
+    bundle["chain_cast"] = json.loads((version / "motion.json").read_text(encoding="utf-8"))["cast"]
+
+
 def main():
     prepare = json.loads((BASE_VIEWS / "registration.json").read_text(encoding="utf-8"))
     prepare["forms"]["hand"] = json.loads((VIEWS / "hand-registration.json").read_text(encoding="utf-8"))
@@ -246,8 +267,9 @@ def main():
         emission.save(mask)
         indexed.update(bake("sword", rest_recipe("sword", sword_file, sword, SWORD_PIVOT, mask), stage))
 
-    info = {"version": 1, "clips": indexed, "forms": tracked, "sword_tip": sword_tip,
+    info = {"version": 1, "clips": indexed.copy(), "forms": tracked, "sword_tip": sword_tip,
             "sword_edge_from": prepare["sword"]["edge_from"]}
+    publish_chain(info)
     write_json(RUNTIME / "clips.json", info)
     sheets = VERSION / "sheets"
     sheets.mkdir(exist_ok=True)

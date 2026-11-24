@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "v001",
+  "clip": "requiem_chain",
+  "status": "adopted",
+  "direction": "front",
+  "character": "../../../materials/v009/character.json",
+  "motion": "motion.json",
+  "sheets": "sheets/clips.json",
+  "tracks": "tracks.json",
+  "preview": "previews/chain-in-game.gif",
+  "recipe_generator": "../../../authoring/build_requiem_chain.py",
+  "spritecut": {
+    "commit": "5d7b1e94f4741626ccce9c04efead5cd9bf65cab",
+    "commands": ["bake", "preview"]
+  }
+}

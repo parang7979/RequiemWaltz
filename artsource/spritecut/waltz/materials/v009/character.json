@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "direction": "front",
+  "views": "prepared/views.json"
+}

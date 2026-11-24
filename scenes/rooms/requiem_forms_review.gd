@@ -8,6 +8,7 @@ const WALK_TEXTURES := {
 	"front_right": preload("res://assets/actors/waltz_walk/walk_front_right_color.png"),
 	"back_right": preload("res://assets/actors/waltz_walk/walk_back_right_color.png"),
 }
+const Chain := preload("res://scenes/actors/requiem_chain.gd")
 const TAIL = preload("res://assets/vfx/requiem_forms/tail.tres")
 const REFORM = preload("res://assets/vfx/requiem_forms/shift.tres")
 const DISPERSE = preload("res://assets/vfx/requiem_forms/disperse.tres")
@@ -22,10 +23,12 @@ const SOUNDS := {
 	"hand": preload("res://assets/audio/combat_study_swing.wav"),
 	"bow": preload("res://assets/audio/waltz_bow.wav"),
 	"cannon": preload("res://assets/audio/waltz_cannon.wav"),
+	"chain": preload("res://assets/audio/combat_study_swing.wav"),
 	"hit": preload("res://assets/audio/combat_study_impact.wav"),
 }
-const FORMS := ["hand", "bow", "cannon"]
-const LABELS := ["장갑", "활", "대포"]
+const FORMS := ["hand", "bow", "cannon", "chain"]
+const LABELS := ["장갑", "활", "대포", "사슬"]
+const CHAIN_FORM := 3
 const SPAWNS := [Vector2(376, 218), Vector2(470, 150), Vector2(468, 275), Vector2(119, 144)]
 const FIELD := Rect2(16, 45, 608, 277)
 const PLAY_AREA := Rect2(70, 118, 499, 186)
@@ -81,6 +84,7 @@ var hero: Sprite2D
 var hero_upper: Sprite2D
 var armor: Sprite2D
 var sword: Sprite2D
+var chain: Chain
 var spirit: AnimatedSprite2D
 var true_requiem: Sprite2D
 var fluid: AnimatedSprite2D
@@ -143,6 +147,7 @@ var blade_heading := 0.0
 var previous_grip := Vector2.ZERO
 var previous_tip := Vector2.ZERO
 var hit_in_swing: Array[int] = []
+var chain_return_hits: Array[int] = []
 var side := "front_right"
 
 
@@ -170,6 +175,9 @@ func _ready() -> void:
 	hero.add_child(hero_upper)
 	armor = _sprite(6)
 	sword = _new_sword()
+	chain = Chain.new()
+	chain.configure(manifest.chain_cast, _length("chain_front_right_action"))
+	add_child(chain)
 	spirit = _effect(TAIL, Vector2(55, 27), 2, true)
 	true_requiem = _sprite(5)
 	true_requiem.offset = -TrueForm.PIVOT
@@ -270,7 +278,7 @@ func _input(event: InputEvent) -> void:
 		if pointer and player_hp > 0:
 			attack_queued = true
 	elif event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode in [KEY_1, KEY_2, KEY_3]:
+		if event.physical_keycode >= KEY_1 and event.physical_keycode < KEY_1 + FORMS.size():
 			wanted_form = event.physical_keycode - KEY_1
 		elif event.physical_keycode == KEY_SPACE:
 			dodge_requested = true
@@ -315,6 +323,7 @@ func _reset() -> void:
 	walk_time_ms = 0.0
 	walking = false
 	form = 0
+	chain.hide()
 	wanted_form = 0
 	clip = "idle"
 	time_ms = 0.0
@@ -373,14 +382,17 @@ func _physics_process(delta: float) -> void:
 		if clip == "action" and time_ms >= _release_time() and not released:
 			released = true
 			_release()
-		if clip == "action" and form == 0 and released and time_ms <= _release_time() + _strike_duration():
-			_check_sweep()
+		if clip == "action" and released:
+			if form == 0 and time_ms <= _release_time() + _strike_duration():
+				_check_sweep()
+			elif form == CHAIN_FORM:
+				_check_chain_strike()
 		_fly(delta)
 		_update_counter_peek(delta * 1000.0)
 	_update_waltz_sprite()
 	_update_hand_cut()
 	sword.visible = form != 2 and (clip == "idle" or clip == "action") and not is_instance_valid(bolt) \
-		and (form == 0 or clip != "action" or not released)
+		and (form == 0 or form == CHAIN_FORM or clip != "action" or not released)
 	queue_redraw()
 	bowstring.queue_redraw()
 	hud.queue_redraw()
@@ -614,7 +626,7 @@ func _update_defeat(delta: float) -> void:
 		_update_pose()
 		armor.modulate.a = 1.0 - smoothstep(0.075, 0.205, defeat_elapsed)
 		sword.visible = form != 2 and defeat_elapsed < 0.076
-		spirit.visible = defeat_elapsed < DEFEAT_MORPH_TIME
+		spirit.visible = form != CHAIN_FORM and defeat_elapsed < DEFEAT_MORPH_TIME
 	if previous < DEFEAT_MORPH_TIME and defeat_elapsed >= DEFEAT_MORPH_TIME:
 		defeat_mount = rig_at
 		fluid = _effect(REFORM, Vector2(76, 47), 4, true)
@@ -625,6 +637,7 @@ func _update_defeat(delta: float) -> void:
 	if defeat_elapsed >= DEFEAT_REVEAL_TIME and defeat_elapsed < DEFEAT_VANISH_TIME:
 		armor.hide()
 		sword.hide()
+		chain.hide()
 		var elapsed := defeat_elapsed - DEFEAT_REVEAL_TIME
 		var approach := smoothstep(0.045, 0.40, elapsed)
 		var beside := player + Vector2(defeat_side * 45.0, -34.0)
@@ -734,6 +747,8 @@ func _update_clip(delta: float) -> void:
 		var minimum_reach := 28.0 if counter_attack else 14.0
 		attack_reach = clampf(_shoulder().distance_to(cursor) - inset, minimum_reach, maximum_reach)
 		attack_scale = (attack_reach + blade_length) / (maximum_reach + blade_length)
+		if form == CHAIN_FORM:
+			attack_reach = clampf(_shoulder().distance_to(cursor) - 70.0, 80.0, 145.0)
 		swing *= -1.0
 		if counter_attack:
 			counter_start = _hand_pose()
@@ -743,6 +758,7 @@ func _update_clip(delta: float) -> void:
 				swing = signf(approach_side)
 		released = false
 		hit_in_swing.clear()
+		chain_return_hits.clear()
 		_begin("action")
 
 
@@ -806,6 +822,7 @@ func _counter_pose(pivot: Vector2, rest: Transform2D) -> Transform2D:
 
 func _update_pose() -> void:
 	var hand_form := form == 0
+	var chain_form := form == CHAIN_FORM
 	var grip := Vector2.ZERO
 	blade_heading = locked_aim if clip == "action" else aim
 	if hand_form:
@@ -832,7 +849,8 @@ func _update_pose() -> void:
 	var angle := mirror * (local - deg_to_rad(float(manifest.forms[key].axis_deg)))
 	var follow := locked_aim if clip == "action" else follow_bearing
 	rig_basis = Transform2D(angle, Vector2(mirror, 1.0), 0.0, Vector2.ZERO)
-	var neutral_at := (_floating_mount() + Vector2.from_angle(follow) * 69.0).round()
+	var mount_reach := 51.0 if chain_form else 69.0
+	var neutral_at := (_floating_mount() + Vector2.from_angle(follow) * mount_reach).round()
 	rig_at = neutral_at
 	if hand_form:
 		var grip_at := grip - rig_basis.basis_xform(_point_local("socket"))
@@ -847,10 +865,18 @@ func _update_pose() -> void:
 	_set_sprite(armor, id, step)
 	armor.transform = rig_basis
 	mounted_position = _world_point("socket")
+	if chain_form:
+		var cast_time := time_ms if clip == "action" else -1.0
+		var flight := chain.pose(mounted_position, tool_heading, cast_time,
+			attack_reach, float(pose_points.presence), idle_clock)
+		mounted_position = flight.origin
+		blade_heading = flight.get_rotation()
+	else:
+		chain.hide()
 	sword.position = mounted_position.round()
 	sword.rotation = blade_heading
 	sword.z_index = 5 if form == 0 else 7
-	var stretch := [0.88, 0.54, 0.68][form] as float
+	var stretch := [0.88, 0.54, 0.68, 0.0][form] as float
 	stretch *= 1.0 - 0.36 * flinch
 	if form == 0 and clip == "action":
 		stretch += 0.60 * sin(PI * clampf(time_ms / 305.0, 0.0, 1.0))
@@ -859,7 +885,7 @@ func _update_pose() -> void:
 	spirit.position = _world_point("tail").round()
 	spirit.rotation = angle
 	spirit.scale = Vector2(stretch * mirror, stretch)
-	spirit.visible = clip == "idle" or clip == "action"
+	spirit.visible = not chain_form and (clip == "idle" or clip == "action")
 	if is_instance_valid(fluid):
 		fluid.position = rig_at
 
@@ -876,6 +902,10 @@ func _world_point(name: String) -> Vector2:
 func _release() -> void:
 	voices[FORMS[form]].pitch_scale = 0.83 if counter_attack else 1.0
 	voices[FORMS[form]].play()
+	if form == CHAIN_FORM:
+		previous_grip = mounted_position
+		previous_tip = _current_tip()
+		return
 	if form == 0:
 		var frames := COUNTER_CUT if counter_attack else HAND_CUT
 		var pivot := Vector2(56, 196) if counter_attack else Vector2(4, 150)
@@ -944,6 +974,23 @@ func _check_sweep() -> void:
 	previous_tip = tip
 
 
+func _check_chain_strike() -> void:
+	var leg := chain.hit_leg(time_ms)
+	var tip := _current_tip()
+	if leg != 0:
+		var hits := hit_in_swing if leg > 0 else chain_return_hits
+		for index in enemies.size():
+			var enemy := enemies[index]
+			if enemy.hp <= 0 or index in hits:
+				continue
+			var target := enemy.hit_center()
+			if Chain.blade_crossed(target, previous_grip, previous_tip, mounted_position, tip):
+				hits.append(index)
+				_impact(enemy, target, blade_heading, leg < 0)
+	previous_grip = mounted_position
+	previous_tip = tip
+
+
 func _fly(delta: float) -> void:
 	if not is_instance_valid(bolt):
 		return
@@ -997,22 +1044,24 @@ func _clip_cannon_bolt(direction: Vector2) -> void:
 	glow.offset = offset
 
 
-func _impact(enemy: Pursuer, contact: Vector2, angle: float) -> void:
+func _impact(enemy: Pursuer, contact: Vector2, angle: float, pull := false) -> void:
 	var push_direction := _shoulder().direction_to(enemy.hit_center())
 	if push_direction.is_zero_approx():
 		push_direction = Vector2.from_angle(angle)
-	var force: float = [266.0, 166.0, 320.0][form]
+	if pull:
+		push_direction = -push_direction
+	var force: float = [266.0, 166.0, 320.0, 118.0][form]
 	if counter_attack:
 		force = 346.0
 		var angle_to_hit := _shoulder().angle_to_point(contact)
 		if not is_instance_valid(counter_target) or absf(angle_difference(locked_aim, angle_to_hit)) < +				absf(angle_difference(locked_aim, _shoulder().angle_to_point(counter_target.hit_center()))):
 			counter_target = enemy
 	enemy.receive_strike(push_direction, force)
-	impact_ticks = maxi(impact_ticks, 4 if counter_attack else [3, 2, 4][form])
+	impact_ticks = maxi(impact_ticks, 4 if counter_attack else [3, 2, 4, 2][form])
 	var pop := _effect(HIT, Vector2(52, 53), 9)
 	pop.position = contact.round()
 	pop.rotation = angle
-	voices["hit"].pitch_scale = 0.88 if counter_attack else [1.0, 1.14, 0.83][form]
+	voices["hit"].pitch_scale = 0.88 if counter_attack else [1.0, 1.14, 0.83, 1.08][form]
 	voices["hit"].play()
 
 
@@ -1051,7 +1100,7 @@ func _draw_hud() -> void:
 		status = "방 돌파    R 다시 싸우기"
 	_text(Vector2(484, 27), status, 12, GHOST if player_hp > 0 else Color("#f58b8b"))
 	for i in LABELS.size():
-		var bounds := Rect2(19 + i * 89, 328, 82, 26)
+		var bounds := Rect2(19 + i * 68, 328, 62, 26)
 		hud.draw_rect(bounds, Color("#603a66") if i == form else Color("#322439"))
 		hud.draw_rect(bounds, Color("#bc87b3") if i == form else Color("#664758"), false)
 		_text(bounds.position + Vector2(8, 17), "%d  %s" % [i + 1, LABELS[i]], 12, LIGHT)

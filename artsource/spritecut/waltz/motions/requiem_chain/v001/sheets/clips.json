@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "cell": [
+    112,
+    104
+  ],
+  "pivot": [
+    56,
+    52
+  ],
+  "clips": {
+    "chain_idle": {
+      "maps": {
+        "color": "chain_idle_color.png",
+        "normal": "chain_idle_normal.png",
+        "emissive": "chain_idle_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 125,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 105,
+          "contacts": []
+        },
+        {
+          "x": 224,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 100,
+          "contacts": []
+        },
+        {
+          "x": 336,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 120,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 105,
+          "contacts": []
+        },
+        {
+          "x": 560,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 105,
+          "contacts": []
+        }
+      ]
+    },
+    "chain_action": {
+      "maps": {
+        "color": "chain_action_color.png",
+        "normal": "chain_action_normal.png",
+        "emissive": "chain_action_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 224,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 55,
+          "contacts": []
+        },
+        {
+          "x": 336,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": [],
+          "events": [
+            "release"
+          ]
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 560,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 784,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 25,
+          "contacts": []
+        },
+        {
+          "x": 0,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 35,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 35,
+          "contacts": []
+        },
+        {
+          "x": 224,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 336,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 560,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 672,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 55,
+          "contacts": []
+        },
+        {
+          "x": 784,
+          "y": 104,
+          "w": 112,
+          "h": 104,
+          "ms": 50,
+          "contacts": []
+        },
+        {
+          "x": 0,
+          "y": 208,
+          "w": 112,
+          "h": 104,
+          "ms": 55,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 208,
+          "w": 112,
+          "h": 104,
+          "ms": 45,
+          "contacts": []
+        }
+      ]
+    },
+    "chain_enter": {
+      "maps": {
+        "color": "chain_enter_color.png",
+        "normal": "chain_enter_normal.png",
+        "emissive": "chain_enter_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 15,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 20,
+          "contacts": []
+        },
+        {
+          "x": 224,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 22,
+          "contacts": []
+        },
+        {
+          "x": 336,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 24,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 23,
+          "contacts": []
+        },
+        {
+          "x": 560,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 26,
+          "contacts": []
+        }
+      ]
+    },
+    "chain_exit": {
+      "maps": {
+        "color": "chain_exit_color.png",
+        "normal": "chain_exit_normal.png",
+        "emissive": "chain_exit_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 16,
+          "contacts": []
+        },
+        {
+          "x": 112,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 20,
+          "contacts": []
+        },
+        {
+          "x": 224,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 22,
+          "contacts": []
+        },
+        {
+          "x": 336,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 22,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 22,
+          "contacts": []
+        },
+        {
+          "x": 560,
+          "y": 0,
+          "w": 112,
+          "h": 104,
+          "ms": 16,
+          "contacts": []
+        }
+      ]
+    }
+  }
+}
