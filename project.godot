@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Requiem Waltz"
-config/description="고딕 픽셀 아트 횡스크롤 액션 로그라이트"
+config/description="왈츠와 레퀴엠의 고딕 탑뷰 픽셀 액션 로그라이트"
 config/version="0.1.0-dev"
-run/main_scene="res://scenes/rooms/causeway.tscn"
+run/main_scene="res://scenes/rooms/requiem_forms_review.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]

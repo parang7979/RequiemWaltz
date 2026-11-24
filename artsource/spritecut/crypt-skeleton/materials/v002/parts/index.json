@@ -1,0 +1,908 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "parts": [
+    {
+      "id": "pelvis"
+    },
+    {
+      "id": "chest",
+      "parent": "pelvis"
+    },
+    {
+      "id": "head",
+      "parent": "chest"
+    },
+    {
+      "id": "cloth",
+      "parent": "pelvis"
+    },
+    {
+      "id": "right_thigh",
+      "parent": "pelvis"
+    },
+    {
+      "id": "right_shin",
+      "parent": "right_thigh"
+    },
+    {
+      "id": "right_boot",
+      "parent": "right_shin"
+    },
+    {
+      "id": "left_thigh",
+      "parent": "pelvis"
+    },
+    {
+      "id": "left_shin",
+      "parent": "left_thigh"
+    },
+    {
+      "id": "left_boot",
+      "parent": "left_shin"
+    },
+    {
+      "id": "right_upper_arm",
+      "parent": "chest"
+    },
+    {
+      "id": "right_forearm",
+      "parent": "right_upper_arm"
+    },
+    {
+      "id": "right_hand",
+      "parent": "right_forearm"
+    },
+    {
+      "id": "left_upper_arm",
+      "parent": "chest"
+    },
+    {
+      "id": "left_forearm",
+      "parent": "left_upper_arm"
+    },
+    {
+      "id": "left_hand",
+      "parent": "left_forearm"
+    }
+  ],
+  "views": {
+    "front_right": {
+      "parts": {
+        "pelvis": {
+          "visibility": "visible",
+          "file": "front_right/pelvis.png",
+          "pivot": [
+            32,
+            42
+          ],
+          "landmarks": {},
+          "order": 9,
+          "pixels": 40,
+          "bounds": [
+            21,
+            41,
+            44,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/pelvis.png",
+          "source_pixels": 40,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "chest": {
+          "visibility": "visible",
+          "file": "front_right/chest.png",
+          "pivot": [
+            32,
+            39
+          ],
+          "landmarks": {},
+          "order": 11,
+          "pixels": 125,
+          "bounds": [
+            22,
+            28,
+            44,
+            41
+          ],
+          "source_visibility": "visible",
+          "paint_order": 11,
+          "observed_file": "front_right/observed/chest.png",
+          "underpaint_file": "front_right/underpaint/chest.png",
+          "source_pixels": 88,
+          "repair_pixels": 37,
+          "reconstruction": "completed"
+        },
+        "head": {
+          "visibility": "visible",
+          "file": "front_right/head.png",
+          "pivot": [
+            33,
+            28.5
+          ],
+          "landmarks": {},
+          "order": 12,
+          "pixels": 377,
+          "bounds": [
+            20,
+            12,
+            44,
+            32
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/head.png",
+          "source_pixels": 377,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "cloth": {
+          "visibility": "visible",
+          "file": "front_right/cloth.png",
+          "pivot": [
+            33,
+            42
+          ],
+          "landmarks": {},
+          "order": 10,
+          "pixels": 31,
+          "bounds": [
+            29,
+            42,
+            37,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/cloth.png",
+          "source_pixels": 31,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_thigh": {
+          "visibility": "visible",
+          "file": "front_right/right_thigh.png",
+          "pivot": [
+            28,
+            43
+          ],
+          "landmarks": {},
+          "order": 3,
+          "pixels": 41,
+          "bounds": [
+            25,
+            42,
+            32,
+            49
+          ],
+          "source_visibility": "visible",
+          "paint_order": 3,
+          "observed_file": "front_right/observed/right_thigh.png",
+          "underpaint_file": "front_right/underpaint/right_thigh.png",
+          "source_pixels": 35,
+          "repair_pixels": 6,
+          "reconstruction": "completed"
+        },
+        "right_shin": {
+          "visibility": "visible",
+          "file": "front_right/right_shin.png",
+          "pivot": [
+            26.5,
+            49
+          ],
+          "landmarks": {},
+          "order": 4,
+          "pixels": 25,
+          "bounds": [
+            22,
+            49,
+            30,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/right_shin.png",
+          "source_pixels": 25,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_boot": {
+          "visibility": "visible",
+          "file": "front_right/right_boot.png",
+          "pivot": [
+            25,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              22,
+              57
+            ],
+            "toe": [
+              28,
+              57
+            ]
+          },
+          "order": 5,
+          "pixels": 43,
+          "bounds": [
+            20,
+            53,
+            30,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/right_boot.png",
+          "source_pixels": 43,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_thigh": {
+          "visibility": "visible",
+          "file": "front_right/left_thigh.png",
+          "pivot": [
+            35,
+            43
+          ],
+          "landmarks": {},
+          "order": 0,
+          "pixels": 37,
+          "bounds": [
+            33,
+            42,
+            39,
+            50
+          ],
+          "source_visibility": "visible",
+          "paint_order": 0,
+          "observed_file": "front_right/observed/left_thigh.png",
+          "underpaint_file": "front_right/underpaint/left_thigh.png",
+          "source_pixels": 28,
+          "repair_pixels": 9,
+          "reconstruction": "completed"
+        },
+        "left_shin": {
+          "visibility": "visible",
+          "file": "front_right/left_shin.png",
+          "pivot": [
+            36,
+            49.5
+          ],
+          "landmarks": {},
+          "order": 1,
+          "pixels": 24,
+          "bounds": [
+            33,
+            49,
+            40,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/left_shin.png",
+          "source_pixels": 24,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_boot": {
+          "visibility": "visible",
+          "file": "front_right/left_boot.png",
+          "pivot": [
+            36,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              34,
+              56
+            ],
+            "toe": [
+              41,
+              56
+            ]
+          },
+          "order": 2,
+          "pixels": 46,
+          "bounds": [
+            32,
+            53,
+            44,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/left_boot.png",
+          "source_pixels": 46,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_upper_arm": {
+          "visibility": "visible",
+          "file": "front_right/right_upper_arm.png",
+          "pivot": [
+            25,
+            33.5
+          ],
+          "landmarks": {},
+          "order": 13,
+          "pixels": 73,
+          "bounds": [
+            20,
+            29,
+            32,
+            37
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/right_upper_arm.png",
+          "source_pixels": 73,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_forearm": {
+          "visibility": "visible",
+          "file": "front_right/right_forearm.png",
+          "pivot": [
+            22.5,
+            38.5
+          ],
+          "landmarks": {},
+          "order": 14,
+          "pixels": 22,
+          "bounds": [
+            20,
+            37,
+            25,
+            42
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/right_forearm.png",
+          "source_pixels": 22,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_hand": {
+          "visibility": "visible",
+          "file": "front_right/right_hand.png",
+          "pivot": [
+            22,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              22,
+              46
+            ]
+          },
+          "order": 15,
+          "pixels": 36,
+          "bounds": [
+            20,
+            42,
+            26,
+            49
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/right_hand.png",
+          "source_pixels": 36,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_upper_arm": {
+          "visibility": "visible",
+          "file": "front_right/left_upper_arm.png",
+          "pivot": [
+            36,
+            34
+          ],
+          "landmarks": {},
+          "order": 6,
+          "pixels": 33,
+          "bounds": [
+            34,
+            32,
+            41,
+            39
+          ],
+          "source_visibility": "visible",
+          "paint_order": 6,
+          "observed_file": "front_right/observed/left_upper_arm.png",
+          "underpaint_file": "front_right/underpaint/left_upper_arm.png",
+          "source_pixels": 28,
+          "repair_pixels": 5,
+          "reconstruction": "completed"
+        },
+        "left_forearm": {
+          "visibility": "visible",
+          "file": "front_right/left_forearm.png",
+          "pivot": [
+            38.5,
+            38.5
+          ],
+          "landmarks": {},
+          "order": 7,
+          "pixels": 16,
+          "bounds": [
+            36,
+            37,
+            43,
+            42
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/left_forearm.png",
+          "source_pixels": 16,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_hand": {
+          "visibility": "visible",
+          "file": "front_right/left_hand.png",
+          "pivot": [
+            41,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              43,
+              46
+            ]
+          },
+          "order": 8,
+          "pixels": 31,
+          "bounds": [
+            39,
+            41,
+            44,
+            48
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/left_hand.png",
+          "source_pixels": 31,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        }
+      },
+      "remainder": "front_right/remainder.png",
+      "reconstructed": "front_right/reconstructed.png",
+      "difference_pixels": 0,
+      "foreground_pixels": 943,
+      "remainder_pixels": 0,
+      "repair_report": {
+        "added_pixels_by_part": {
+          "left_thigh": 9,
+          "right_thigh": 6,
+          "left_upper_arm": 5,
+          "chest": 37
+        },
+        "added_pixels": 57,
+        "paint_orders": {
+          "left_thigh": 0,
+          "right_thigh": 3,
+          "left_upper_arm": 6,
+          "chest": 11
+        },
+        "holdout_difference_pixels": 0,
+        "ordinary_blend_difference_pixels": 54
+      }
+    },
+    "back_right": {
+      "parts": {
+        "pelvis": {
+          "visibility": "visible",
+          "file": "back_right/pelvis.png",
+          "pivot": [
+            31,
+            42
+          ],
+          "landmarks": {},
+          "order": 9,
+          "pixels": 30,
+          "bounds": [
+            26,
+            41,
+            44,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/pelvis.png",
+          "source_pixels": 30,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "chest": {
+          "visibility": "visible",
+          "file": "back_right/chest.png",
+          "pivot": [
+            31,
+            39
+          ],
+          "landmarks": {},
+          "order": 11,
+          "pixels": 137,
+          "bounds": [
+            20,
+            29,
+            45,
+            41
+          ],
+          "source_visibility": "visible",
+          "paint_order": 11,
+          "observed_file": "back_right/observed/chest.png",
+          "underpaint_file": "back_right/underpaint/chest.png",
+          "source_pixels": 88,
+          "repair_pixels": 49,
+          "reconstruction": "completed"
+        },
+        "head": {
+          "visibility": "visible",
+          "file": "back_right/head.png",
+          "pivot": [
+            32,
+            27.5
+          ],
+          "landmarks": {},
+          "order": 12,
+          "pixels": 352,
+          "bounds": [
+            21,
+            12,
+            45,
+            30
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/head.png",
+          "source_pixels": 352,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "cloth": {
+          "visibility": "visible",
+          "file": "back_right/cloth.png",
+          "pivot": [
+            29,
+            42
+          ],
+          "landmarks": {},
+          "order": 10,
+          "pixels": 35,
+          "bounds": [
+            25,
+            42,
+            36,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/cloth.png",
+          "source_pixels": 35,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_thigh": {
+          "visibility": "visible",
+          "file": "back_right/right_thigh.png",
+          "pivot": [
+            34,
+            43
+          ],
+          "landmarks": {},
+          "order": 3,
+          "pixels": 43,
+          "bounds": [
+            32,
+            42,
+            39,
+            50
+          ],
+          "source_visibility": "visible",
+          "paint_order": 3,
+          "observed_file": "back_right/observed/right_thigh.png",
+          "underpaint_file": "back_right/underpaint/right_thigh.png",
+          "source_pixels": 32,
+          "repair_pixels": 11,
+          "reconstruction": "completed"
+        },
+        "right_shin": {
+          "visibility": "visible",
+          "file": "back_right/right_shin.png",
+          "pivot": [
+            35,
+            49
+          ],
+          "landmarks": {},
+          "order": 4,
+          "pixels": 23,
+          "bounds": [
+            32,
+            49,
+            39,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/right_shin.png",
+          "source_pixels": 23,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_boot": {
+          "visibility": "visible",
+          "file": "back_right/right_boot.png",
+          "pivot": [
+            34,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              32,
+              57
+            ],
+            "toe": [
+              39,
+              57
+            ]
+          },
+          "order": 5,
+          "pixels": 50,
+          "bounds": [
+            30,
+            53,
+            43,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/right_boot.png",
+          "source_pixels": 50,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_thigh": {
+          "visibility": "visible",
+          "file": "back_right/left_thigh.png",
+          "pivot": [
+            27,
+            43
+          ],
+          "landmarks": {},
+          "order": 0,
+          "pixels": 46,
+          "bounds": [
+            23,
+            42,
+            31,
+            50
+          ],
+          "source_visibility": "visible",
+          "paint_order": 0,
+          "observed_file": "back_right/observed/left_thigh.png",
+          "underpaint_file": "back_right/underpaint/left_thigh.png",
+          "source_pixels": 40,
+          "repair_pixels": 6,
+          "reconstruction": "completed"
+        },
+        "left_shin": {
+          "visibility": "visible",
+          "file": "back_right/left_shin.png",
+          "pivot": [
+            25.5,
+            49
+          ],
+          "landmarks": {},
+          "order": 1,
+          "pixels": 21,
+          "bounds": [
+            22,
+            49,
+            29,
+            53
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/left_shin.png",
+          "source_pixels": 21,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_boot": {
+          "visibility": "visible",
+          "file": "back_right/left_boot.png",
+          "pivot": [
+            23.5,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              21,
+              56
+            ],
+            "toe": [
+              27,
+              56
+            ]
+          },
+          "order": 2,
+          "pixels": 37,
+          "bounds": [
+            21,
+            53,
+            30,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/left_boot.png",
+          "source_pixels": 37,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_upper_arm": {
+          "visibility": "visible",
+          "file": "back_right/right_upper_arm.png",
+          "pivot": [
+            37,
+            33
+          ],
+          "landmarks": {},
+          "order": 13,
+          "pixels": 70,
+          "bounds": [
+            31,
+            29,
+            43,
+            37
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/right_upper_arm.png",
+          "source_pixels": 70,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_forearm": {
+          "visibility": "visible",
+          "file": "back_right/right_forearm.png",
+          "pivot": [
+            39,
+            37.5
+          ],
+          "landmarks": {},
+          "order": 14,
+          "pixels": 25,
+          "bounds": [
+            36,
+            36,
+            43,
+            42
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/right_forearm.png",
+          "source_pixels": 25,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "right_hand": {
+          "visibility": "visible",
+          "file": "back_right/right_hand.png",
+          "pivot": [
+            41.5,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              41,
+              46
+            ]
+          },
+          "order": 15,
+          "pixels": 41,
+          "bounds": [
+            38,
+            41,
+            45,
+            49
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/right_hand.png",
+          "source_pixels": 41,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_upper_arm": {
+          "visibility": "visible",
+          "file": "back_right/left_upper_arm.png",
+          "pivot": [
+            25,
+            32.5
+          ],
+          "landmarks": {},
+          "order": 6,
+          "pixels": 42,
+          "bounds": [
+            21,
+            29,
+            30,
+            38
+          ],
+          "source_visibility": "visible",
+          "paint_order": 6,
+          "observed_file": "back_right/observed/left_upper_arm.png",
+          "underpaint_file": "back_right/underpaint/left_upper_arm.png",
+          "source_pixels": 41,
+          "repair_pixels": 1,
+          "reconstruction": "completed"
+        },
+        "left_forearm": {
+          "visibility": "visible",
+          "file": "back_right/left_forearm.png",
+          "pivot": [
+            22,
+            38
+          ],
+          "landmarks": {},
+          "order": 7,
+          "pixels": 23,
+          "bounds": [
+            20,
+            37,
+            25,
+            43
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/left_forearm.png",
+          "source_pixels": 23,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "left_hand": {
+          "visibility": "visible",
+          "file": "back_right/left_hand.png",
+          "pivot": [
+            21,
+            42.5
+          ],
+          "landmarks": {
+            "tip": [
+              21,
+              46
+            ]
+          },
+          "order": 8,
+          "pixels": 22,
+          "bounds": [
+            20,
+            42,
+            24,
+            49
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/left_hand.png",
+          "source_pixels": 22,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        }
+      },
+      "remainder": "back_right/remainder.png",
+      "reconstructed": "back_right/reconstructed.png",
+      "difference_pixels": 0,
+      "foreground_pixels": 930,
+      "remainder_pixels": 0,
+      "repair_report": {
+        "added_pixels_by_part": {
+          "left_thigh": 6,
+          "right_thigh": 11,
+          "left_upper_arm": 1,
+          "chest": 49
+        },
+        "added_pixels": 67,
+        "paint_orders": {
+          "left_thigh": 0,
+          "right_thigh": 3,
+          "left_upper_arm": 6,
+          "chest": 11
+        },
+        "holdout_difference_pixels": 0,
+        "ordinary_blend_difference_pixels": 66
+      }
+    }
+  },
+  "rotation_pairs": [],
+  "pivot": [
+    32,
+    58
+  ],
+  "compositor": "observed_holdout_v1"
+}

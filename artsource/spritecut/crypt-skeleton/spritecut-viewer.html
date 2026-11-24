@@ -1,0 +1,545 @@
+<!doctype html>
+<!-- SpriteCut production viewer -->
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SpriteCut · 제작 뷰어</title>
+<style>
+:root{color-scheme:dark;--bg:#141718;--panel:#1d2122;--border:#353b3b;--text:#f2f3ee;--muted:#b1bab5;--accent:#c3ed92;--mono:"IBM Plex Mono",Consolas,monospace;font:15px/1.5 "Inter","Malgun Gothic",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}[hidden]{display:none!important}
+button,select,input{font:inherit;color:inherit}button,select,.pick,input[type=search]{background:#252a2b;border:1px solid var(--border);border-radius:6px;padding:7px 12px}button,.pick,select{cursor:pointer}button:hover,.pick:hover,select:hover{border-color:#788578}button:focus-visible,input:focus-visible,select:focus-visible,.pick:focus-within{outline:2px solid var(--accent);outline-offset:2px}button:disabled{opacity:.4;cursor:default}
+input[type=range],input[type=checkbox]{accent-color:var(--accent)}input[type=range]{min-width:60px}
+header{height:64px;padding:0 clamp(16px,3vw,52px);display:flex;gap:15px;align-items:center;border-bottom:1px solid var(--border);background:#191c1d}
+.brand{display:flex;align-items:center;gap:10px;font:bold 20px var(--mono);letter-spacing:-1px}.mark{width:16px;height:20px;background:var(--accent);clip-path:polygon(35% 0,100% 0,100% 25%,55% 25%,55% 45%,80% 45%,80% 75%,45% 75%,45% 100%,0 100%,0 73%,25% 73%,25% 52%,0 52%,0 25%,35% 25%)}.subtitle,.muted,small{color:var(--muted)}.pick{margin-left:auto;font-size:13px;position:relative}.pick input{opacity:0;position:absolute;inset:0;width:100%;cursor:pointer}
+main{max-width:1536px;margin:auto;padding:28px clamp(16px,3vw,52px) 36px}.titlebar,.sectionhead,.row,.filters,.controls,nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.titlebar{justify-content:space-between;margin-bottom:22px}h1,h2,h3,p{margin:0}h1{font-size:clamp(25px,3vw,38px);letter-spacing:-1.3px}h2{font-size:23px;overflow-wrap:anywhere}h3{font-size:15px}.count,.readout,.path{font:12px/1.6 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+nav{gap:4px;padding:3px;border:1px solid var(--border);border-radius:8px;background:var(--panel)}nav button{border:0;background:transparent}button[aria-pressed=true]{color:var(--accent);background:#323c2e}
+.layout{display:grid;grid-template-columns:minmax(165px,215px) minmax(0,1fr);gap:18px}.panel,aside{border:1px solid var(--border);border-radius:10px;background:var(--panel);overflow:hidden}aside{padding:16px 10px;align-self:start}aside h3{padding:0 9px 12px;color:var(--muted)}.items{display:grid;gap:4px;max-height:68vh;overflow:auto}.items button,.modes button{background:transparent;text-align:left;border:0}.items button{display:flex;gap:8px;align-items:center;justify-content:space-between;overflow-wrap:anywhere}.items button[aria-pressed=true],.modes button[aria-pressed=true]{background:#323c2e;color:var(--accent)}.sectionhead,.filters,.controls,.lighting{padding:14px 18px}.sectionhead{justify-content:space-between}.sectionhead label,.controls label,.filters label,.lighting label{font-size:13px;color:var(--muted)}.row{gap:8px}.stage,.thumb,.detail{background-color:#242b2b;background-image:linear-gradient(45deg,#293030 25%,transparent 25%,transparent 75%,#293030 75%),linear-gradient(45deg,#293030 25%,transparent 25%,transparent 75%,#293030 75%);background-size:24px 24px;background-position:0 0,12px 12px}
+.stage{display:grid;place-items:center;min-height:320px;height:clamp(320px,45vh,540px);position:relative;overflow:hidden;border-block:1px solid var(--border)}canvas{image-rendering:pixelated;max-width:95%;max-height:94%;object-fit:contain}.stage .corner{position:absolute;bottom:10px;left:14px;font:12px var(--mono);color:#c3cbc6;background:#202624e0;padding:4px 7px;border-radius:4px}.modes{display:flex;gap:3px;flex-wrap:wrap}.modes button{padding:6px 9px;font-size:13px}.controls{border-bottom:1px solid var(--border)}#play{min-width:84px;background:var(--accent);color:#172015;border:0;font-weight:700}#scrub{flex:1}.lighting{display:flex;flex-wrap:wrap;gap:20px;border-top:1px solid var(--border);background:#242a25}.lighting label{display:flex;align-items:center;gap:6px}.foot{padding:12px 18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.filters{border-top:1px solid var(--border)}.filters input{min-width:100px;flex:1}.gallery{padding:0 18px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}.card{background:#222728;padding:0;overflow:hidden;text-align:left;min-width:0}.thumb{height:110px;display:grid;place-items:center}.thumb img,.detail img{max-width:100%;max-height:100%;image-rendering:pixelated;object-fit:contain}.thumb img{width:100%;height:110px}.caption{display:block;padding:8px 10px}.caption strong,.caption small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.caption strong{font:13px var(--mono)}.caption small{font-size:11px}.empty{padding:25px;color:var(--muted)}#notice{color:#eed79d;margin-bottom:14px;white-space:pre-line}.pager{display:flex;gap:10px;align-items:center;justify-content:center;padding:0 12px 16px}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:10px;width:min(82vw,1000px);padding:0}dialog::backdrop{background:#101314d9}.detail{height:64vh;display:grid;place-items:center;overflow:auto}.detail img{width:100%;height:100%}dialog .sectionhead{flex-wrap:nowrap}#galleryTitle{margin-right:auto}
+@media(max-width:760px){main{padding-top:16px}.layout{grid-template-columns:1fr;gap:10px}.items{display:flex;overflow:auto;max-height:unset}.items button{white-space:nowrap}aside{padding:7px}aside h3,.subtitle{display:none}.titlebar{margin-bottom:12px}.stage{height:38vh;min-height:250px}.sectionhead,.controls,.filters{padding:10px}.gallery{padding:0 10px 12px;grid-template-columns:repeat(auto-fill,minmax(125px,1fr))}.lighting{gap:10px}.lighting input{width:90px}}
+</style></head><body>
+<header><span class="brand"><i class="mark" aria-hidden="true"></i>SpriteCut</span><span class="subtitle">제작 뷰어</span><button id="connect" class="pick" disabled>제작 폴더 열기</button><button id="refresh" hidden>새로고침</button><button id="resume" hidden>읽기 권한 허용</button><input id="folder" type="file" webkitdirectory multiple hidden></header>
+<main><div class="titlebar"><div><h1 id="project">캐릭터 제작 폴더</h1><div id="summary" class="count"></div></div>
+<nav aria-label="작업 영역"><button id="motionTab" aria-pressed="true">모션</button><button id="sequenceTab" aria-pressed="false" hidden>연결 재생</button><button id="artTab" aria-pressed="false">원화·재료</button></nav></div>
+<p id="notice" role="status"></p>
+<div class="layout"><aside><h3 id="listTitle">모션 목록</h3><div class="items" id="items"></div></aside>
+<section id="player" class="panel"><div class="sectionhead"><h2 id="motionTitle">모션</h2><div class="row"><select id="version" aria-label="모션 버전"></select><select id="clip" aria-label="클립"></select></div></div>
+<div id="sequenceControls" class="controls" hidden><label>반복 횟수 <select id="repeatStep" aria-label="반복할 구간"></select> <input id="stepCount" type="number" min="1" max="16" value="1" style="width:4em"></label><label><input type="checkbox" id="floorGuide" checked> 이동 바닥선</label><label><input type="checkbox" id="ghost"> 경계 자세 겹치기</label></div>
+<div class="sectionhead"><div class="modes" id="modes" aria-label="렌더 모드"></div><label>배율 <select id="zoom"><option>2×</option><option selected>4×</option><option>6×</option><option>8×</option></select></label></div>
+<div class="stage"><canvas id="screen" width="64" height="64" aria-label="현재 모션 프레임"></canvas><span class="corner" id="cell"></span></div>
+<div class="lighting" id="lighting" hidden><label>광원 방위 <input id="azimuth" type="range" min="-180" max="180" value="135"><output id="degrees">135°</output></label><label>주변광 <input id="ambient" type="range" min="0" max="100" value="22"></label><label>광량 <input id="power" type="range" min="0" max="200" value="100"></label><label><input id="glow" type="checkbox" checked>이미시브</label></div>
+<div class="controls"><button id="play">재생</button><button id="prev" aria-label="이전 프레임">‹</button><button id="next" aria-label="다음 프레임">›</button><input id="scrub" type="range" min="0" max="0" value="0" aria-label="프레임 이동"><span class="readout" id="frame"></span><label>속도 <select id="speed"><option>0.25×</option><option>0.5×</option><option selected>1×</option><option>2×</option></select></label><label><input id="loop" type="checkbox">반복</label></div>
+<div class="foot"><span class="readout" id="timing"></span><span class="readout" id="contacts"></span></div></section>
+<section id="art" class="panel" hidden><div class="sectionhead"><h2 id="galleryTitle">원화·재료</h2><span class="count" id="galleryCount"></span></div><div class="filters"><label>버전 <select id="artVersion"></select></label><input id="search" type="search" placeholder="파일명·방향·파츠 검색" aria-label="파일 경로 검색"></div><div class="gallery" id="gallery"></div><div class="pager" id="pager"><button id="pageBack">이전</button><span id="pageNumber" class="count"></span><button id="pageNext">다음</button></div></section></div></main>
+<dialog id="detail"><div class="sectionhead"><span class="path" id="imagePath"></span><button id="close">닫기</button></div><div class="detail"><img id="large" alt=""></div></dialog>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const collate = new Intl.Collator("ko", {numeric:true});
+const channels = {color:"컬러",normal:"노말",emissive:"이미시브",lit:"라이트 테스트"};
+const groups = ["원화","도트 원화","분할 파츠","마스크","보완 파츠","재질 시트","기타 결과물"];
+const servedProject = location.protocol === "http:" && new URLSearchParams(location.search).has("project");
+let projectDocuments = {};
+let localFiles = new Map(), objectUrls = new Map(), paths = new Set(), images = [], motions = new Map();
+let selected = {}, projectEpoch = 0, loadEpoch = 0, tab = "motion", group = "", page = 0;
+let mode = "color", motion = "", entries = [], active = null, sheets = {}, frame = 0;
+let elapsed = 0, playing = false, lastTick = 0, raf = 0;
+let sequences=[], sequence=0, repeats=[];
+const ctx = $("screen").getContext("2d");
+function options(select, rows) {
+  select.replaceChildren(...rows.map(([value,label]) => new Option(label,value)));
+}
+function button(label, action, pressed) {
+  const b = document.createElement("button"); b.textContent = label; b.onclick = action;
+  b.setAttribute("aria-pressed", String(pressed)); return b;
+}
+function source(path) {
+  if (!paths.has(path)) throw Error("파일을 찾을 수 없습니다 · " + path);
+  if (servedProject) return "/assets/" + path.split("/").map(encodeURIComponent).join("/");
+  if (!objectUrls.has(path)) objectUrls.set(path, URL.createObjectURL(localFiles.get(path)));
+  return objectUrls.get(path);
+}
+async function json(path) {
+  if (servedProject) return projectDocuments[path];
+  if (localFiles.has(path)) return JSON.parse((await localFiles.get(path).text()).replace(/^\uFEFF/,""));
+}
+function relative(base, name) {
+  if (typeof name !== "string" || !name || /^[/\\]|^[\w+.-]+:/.test(name)) throw Error("잘못된 시트 경로");
+  const parts = base.split("/").slice(0,-1);
+  for (const part of name.replaceAll("\\","/").split("/")) {
+    if (part === "..") { if (!parts.length) throw Error("제작 폴더 밖의 시트"); parts.pop(); }
+    else if (part && part !== ".") parts.push(part);
+  }
+  return parts.join("/");
+}
+function category(path, maps) {
+  const p = path.toLowerCase();
+  if (maps.has(path) || /[_/-](normal|emissive)\./.test(p)) return "재질 시트";
+  if (/\/masks?\/|[-_]mask\.|\/influences\//.test(p)) return "마스크";
+  if (/\/prepared\//.test(p)) return "도트 원화";
+  if (/^sources\/|^materials\/[^/]+\/views\//.test(p)) return "원화";
+  if (/\/parts\/(repaired|.*underpaint|.*repairs)\//.test(p)) return "보완 파츠";
+  if (/\/parts\//.test(p)) return "분할 파츠";
+  return "기타 결과물";
+}
+function versionOf(path) {
+  const m = path.match(/^(sources|materials)\/(v\d+)\//i);
+  if (m) return m[1] + "/" + m[2];
+  const clip = path.match(/^(motions\/[^/]+\/v\d+)\//i);
+  return clip ? clip[1] : "";
+}
+async function openProject(name, files) {
+  const id = ++projectEpoch; ++loadEpoch; clearPlayer(); $("notice").textContent = "";
+  for (const url of objectUrls.values()) URL.revokeObjectURL(url);
+  objectUrls.clear();
+  localFiles = files;
+  const keys = [...files.keys()];
+  paths = new Set(keys); motions = new Map(); images = []; selected = {};
+  const records = new Map(), maps = new Set(), warnings = [];
+  let selection;
+  try { selection = await json("selection.json"); } catch { warnings.push("selection.json을 읽을 수 없습니다."); }
+  if (id !== projectEpoch) return;
+  selected = selection || {};
+  sequences=Array.isArray(selected.sequences) ? selected.sequences.filter(s=>typeof s?.name==="string" && Array.isArray(s.steps) && s.steps.length) : [];
+  sequence=0; repeats=[]; $("sequenceTab").hidden=!sequences.length;
+  for (const key of keys.filter(p => /^motions\/[^/]+\/v\d+\/(?:.*\/)?clips\.json$/i.test(p)).sort(collate.compare)) {
+    const [,name,version] = key.split("/");
+    try {
+      const doc = await json(key);
+      if (id !== projectEpoch) return;
+      if (!doc?.clips || !Object.keys(doc.clips).length) throw Error();
+      for (const [label,clip] of Object.entries(doc.clips)) {
+        const files = {};
+        for (const channel of ["color","normal","emissive"]) {
+          if (clip.maps?.[channel]) { files[channel] = relative(key,clip.maps[channel]); maps.add(files[channel]); }
+        }
+        if (!records.has(name)) records.set(name,[]);
+        records.get(name).push({label,version,key,clip,files,pivot:doc.pivot});
+      }
+    } catch { warnings.push("읽을 수 없는 클립 · " + key); }
+  }
+  if (id !== projectEpoch) return;
+  // Keep authored versions visible even when the baker has not produced a sheet yet.
+  for (const key of keys) {
+    const m = key.match(/^motions\/([^/]+)\/(v\d+)\//i);
+    if (!m) continue;
+    const [,name,version] = m;
+    if (!records.has(name)) records.set(name,[]);
+    const rows = records.get(name);
+    if (!rows.some(r=>r.version===version)) rows.push({version, label:"시트 없음", key});
+  }
+  motions = records;
+  images = keys.filter(p => /\.(png|jpe?g|webp|gif|bmp|avif)$/i.test(p)).sort(collate.compare)
+    .map(path => ({path,group:category(path,maps),version:versionOf(path)}));
+  $("project").textContent = name;
+  const versions = [...motions.values()].reduce((n,rows) => n + new Set(rows.map(r=>r.version)).size,0);
+  $("summary").textContent = "모션 " + motions.size + "종　/　모션 버전 " + versions + "개　/　이미지 " + images.length + "장";
+  $("notice").textContent = warnings.join("\n") || (!keys.length ? "이 폴더에 표시할 제작 파일이 없습니다." : "");
+  motion = motions.has("idle") ? "idle" : motions.keys().next().value;
+  group = groups.find(g=>images.some(i=>i.group===g)) || groups[0];
+  setTab(sequences.length ? "sequence" : motions.size ? "motion" : "art");
+}
+// A handle persists the user's folder choice. Every navigation builds a fresh file index.
+const readOnly = {mode:"read"};
+let savedFolder;
+async function folderStore(handle) {
+  const db = await new Promise((resolve,reject) => {
+    const request = indexedDB.open("SpriteCut.viewer",1);
+    request.onupgradeneeded = () => request.result.createObjectStore("folders");
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+  try {
+    return await new Promise((resolve,reject) => {
+      const tx = db.transaction("folders",handle ? "readwrite" : "readonly");
+      const store = tx.objectStore("folders");
+      const request = handle ? store.put(handle,location.pathname) : store.get(location.pathname);
+      tx.oncomplete = () => resolve(request.result);
+      tx.onabort = () => reject(tx.error);
+    });
+  } finally { db.close(); }
+}
+async function scanDirectory(root) {
+  const files = new Map();
+  async function visit(dir,prefix) {
+    const pending = [];
+    for await (const entry of dir.values()) {
+      if (entry.name.startsWith(".")) continue;
+      const path = prefix + entry.name;
+      if (entry.kind === "directory") {
+        await visit(entry,path+"/");
+      } else if (/\.(png|jpe?g|webp|gif|bmp|avif|json)$/i.test(path)) {
+        pending.push([path,entry]);
+      }
+    }
+    await Promise.all(pending.map(async ([path,entry]) => {
+      try { files.set(path,await entry.getFile()); }
+      catch (error) { if (error.name !== "NotFoundError") throw error; }
+    }));
+  }
+  await visit(root,"");
+  return files;
+}
+async function loadDirectory(handle,remember=false) {
+  $("notice").textContent = handle.name+" 폴더를 읽는 중…";
+  const files = await scanDirectory(handle);
+  await openProject(handle.name,files);
+  savedFolder = handle;
+  $("refresh").hidden = false;
+  $("resume").hidden = true;
+  if (remember) {
+    try { await folderStore(handle); }
+    catch { $("notice").textContent += " 이 브라우저에서는 폴더 연결을 저장할 수 없습니다. 다음에 열 때 폴더를 다시 선택하세요."; }
+  }
+}
+async function folderAction(action) {
+  $("connect").disabled = $("resume").disabled = $("refresh").disabled = true;
+  try { await action(); }
+  catch (error) {
+    if (error.name !== "AbortError") $("notice").textContent = servedProject
+      ? "제작 폴더를 읽을 수 없습니다. 실행 창을 확인하고 새로고침하세요. "+error.message
+      : "폴더를 열 수 없습니다. 제작 폴더를 다시 선택하세요. "+error.message;
+  } finally { $("connect").disabled = $("resume").disabled = $("refresh").disabled = false; }
+}
+$("connect").onclick = () => {
+  if (!window.showDirectoryPicker) { $("folder").click(); return; }
+  folderAction(async () => {
+    const handle = await window.showDirectoryPicker({mode:"read",id:"spritecut"});
+    await loadDirectory(handle,true);
+  });
+};
+$("resume").onclick = () => folderAction(async () => {
+  if (await savedFolder.requestPermission(readOnly) === "granted") await loadDirectory(savedFolder);
+  else $("notice").textContent = "연결된 폴더에 읽기 권한을 허용하거나 다른 제작 폴더를 선택하세요.";
+});
+$("refresh").onclick = servedProject ? () => location.reload() : $("resume").onclick;
+window.addEventListener("keydown",event => {
+  if (servedProject || event.key !== "F5" || event.ctrlKey || event.shiftKey || $("refresh").hidden) return;
+  event.preventDefault();
+  $("refresh").click();
+});
+$("folder").onchange = async () => {
+  const files = [...$("folder").files]; if (!files.length) return;
+  const index = new Map();
+  for (const f of files) {
+    const path = f.webkitRelativePath.split("/").slice(1);
+    if (path.some(p=>p.startsWith("."))) continue;
+    index.set(path.join("/"), f);
+  }
+  $("folder").value = "";
+  await openProject(files[0].webkitRelativePath.split("/")[0],index);
+  $("notice").textContent += " 이 브라우저에서는 새로고침 후 폴더를 다시 선택하세요.";
+};
+async function restoreFolder() {
+  if (servedProject) {
+    $("connect").hidden = true;
+    $("refresh").hidden = false;
+    $("refresh").classList.add("pick");
+    $("notice").textContent = "제작 폴더를 읽는 중…";
+    const response = await fetch("/project.json",{cache:"no-store"});
+    if (!response.ok) throw Error("제작 폴더 목록을 읽을 수 없습니다.");
+    const project = await response.json();
+    projectDocuments = project.documents;
+    await openProject(project.name,new Map(project.paths.map(path=>[path,null])));
+    return;
+  }
+  await openProject("캐릭터 제작 폴더",new Map());
+  $("notice").textContent = "같은 폴더의 spritecut-viewer 실행 파일로 열면 이 폴더가 바로 표시됩니다. 여기서 계속하려면 제작 폴더 열기를 누르세요.";
+  if (!window.showDirectoryPicker) return;
+  try { savedFolder = await folderStore(); } catch { return; }
+  if (!savedFolder) return;
+  if (await savedFolder.queryPermission(readOnly) === "granted") await loadDirectory(savedFolder);
+  else {
+    $("notice").textContent = savedFolder.name+" 폴더를 다시 읽으려면 읽기 권한을 허용하세요.";
+    $("resume").hidden = false;
+  }
+}
+function sidebar() {
+  const list = $("items"); list.replaceChildren();
+  if (tab==="sequence") {
+    $("listTitle").textContent="재생 순서";
+    sequences.forEach((s,i)=>list.append(button(s.name,()=>{
+      sequence=i; repeats=[]; setTab("sequence");
+    },sequence===i)));
+    if (active?.sequence) active.starts.forEach((at,i)=>{
+      const b=button((i+1)+". "+active.frames[at].stage,()=>seek(at),false);
+      b.dataset.step=i; list.append(b);
+    });
+    return;
+  }
+  const isMotion = tab === "motion";
+  $("listTitle").textContent = isMotion ? "모션 목록" : "제작 단계";
+  const names = isMotion ? [...motions.keys()].sort(collate.compare) : groups;
+  for (const name of names) {
+    const count = isMotion ? new Set(motions.get(name).map(r=>r.version)).size : images.filter(i=>i.group===name).length;
+    const b = button(name, () => {
+      if (isMotion) { motion = name; chooseMotion(); } else { group = name; chooseGroup(); }
+      sidebar();
+    }, name === (isMotion ? motion : group));
+    const n = document.createElement("small"); n.textContent = count;
+    b.append(n); list.append(b);
+  }
+}
+function setTab(value) {
+  tab = value; const m = tab === "motion", s=tab==="sequence";
+  $("motionTab").setAttribute("aria-pressed",m); $("artTab").setAttribute("aria-pressed",!m&&!s);
+  $("sequenceTab").setAttribute("aria-pressed",s);
+  $("sequenceControls").hidden=!s; $("version").hidden=s;
+  $("player").hidden = !(m||s); $("art").hidden = m||s;
+  sidebar();
+  if (s) loadSequence(); else if (m) chooseMotion(); else { ++loadEpoch; clearPlayer(); chooseGroup(); }
+}
+$("sequenceTab").onclick=()=>setTab("sequence");
+$("motionTab").onclick = () => setTab("motion"); $("artTab").onclick = () => setTab("art");
+function chooseGroup() {
+  $("galleryTitle").textContent = group; $("search").value = "";
+  const versions = [...new Set(images.filter(i=>i.group===group).map(i=>i.version).filter(Boolean))];
+  options($("artVersion"),[["","모든 버전"], ...versions.map(v=>[v,v])]);
+  page = 0; showGallery();
+}
+function showGallery() {
+  const needle = $("search").value.trim().toLowerCase(), version = $("artVersion").value;
+  const rows = images.filter(i => i.group === group && (!version || i.version===version) && i.path.toLowerCase().includes(needle));
+  const perPage = 24, pages = Math.max(1,Math.ceil(rows.length/perPage));
+  $("galleryCount").textContent = rows.length + "장"; $("gallery").replaceChildren();
+  for (const {path} of rows.slice(page*perPage,(page+1)*perPage)) {
+    const card = document.createElement("button"); card.className="card"; card.title=path;
+    const thumb=document.createElement("span"); thumb.className="thumb";
+    const img=new Image(); img.loading="lazy"; img.alt=""; img.src=source(path); thumb.append(img);
+    const caption=document.createElement("span"); caption.className="caption";
+    const name=document.createElement("strong"), dir=document.createElement("small"), parts=path.split("/");
+    name.textContent=parts.pop(); dir.textContent=parts.join("/"); caption.append(name,dir); card.append(thumb,caption);
+    card.onclick=()=>{ $("imagePath").textContent=path; $("large").src=source(path); $("large").alt=name.textContent; $("detail").showModal(); };
+    $("gallery").append(card);
+  }
+  if (!rows.length) $("gallery").textContent="표시할 이미지가 없습니다.";
+  $("pager").hidden=pages===1; $("pageBack").disabled=page===0; $("pageNext").disabled=page+1>=pages;
+  $("pageNumber").textContent=(page+1)+" / "+pages;
+}
+$("search").oninput=$("artVersion").onchange=()=>{page=0;showGallery();};
+$("pageBack").onclick=()=>{page--;showGallery();}; $("pageNext").onclick=()=>{page++;showGallery();};
+$("close").onclick=()=>$("detail").close();
+function setPlaying(on) {
+  playing = on; $("play").textContent = on ? "일시정지" : "재생";
+  cancelAnimationFrame(raf);
+  if (on) { lastTick = performance.now(); raf = requestAnimationFrame(tick); }
+}
+function clearPlayer() {
+  setPlaying(false); active=null; sheets={}; frame=0; elapsed=0;
+  ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+  for (const id of ["cell","frame","timing","contacts"]) $(id).textContent="";
+  for (const id of ["play","prev","next","scrub","loop"]) $(id).disabled=true;
+  $("scrub").max=0; $("scrub").value=0;
+}
+function chooseMotion() {
+  entries=motions.get(motion) || [];
+  const versions=[...new Set(entries.map(r=>r.version))].sort(collate.compare);
+  const accepted=selected.motions?.[motion], reviewed=selected.reviewed?.[motion];
+  options($("version"),versions.map(v=>{
+    const status = v===accepted ? " · 채택" : v===reviewed ? " · 검수" : "";
+    return [v, v+status+(entries.some(r=>r.version===v && r.clip) ? "" : " · 시트 없음")];
+  }));
+  if (versions.includes(accepted)) $("version").value=accepted;
+  else if (versions.includes(reviewed)) $("version").value=reviewed;
+  else if (versions.length) $("version").value=versions.at(-1);
+  $("motionTitle").textContent=motion || "베이크된 모션이 없습니다";
+  chooseVersion();
+}
+function chooseVersion() {
+  const rows=entries.filter(r=>r.version===$("version").value);
+  const duplicates=new Set(rows.filter((r,i)=>rows.findIndex(s=>s.label===r.label)!==i).map(r=>r.label));
+  options($("clip"),rows.map(r=>[String(entries.indexOf(r)),duplicates.has(r.label)?r.label+" · "+r.key:r.label]));
+  $("clip").hidden=rows.length<2; loadClip();
+}
+$("version").onchange=chooseVersion; $("clip").onchange=loadClip;
+async function readClip(entry) {
+    const frames=entry.clip.frames;
+    if (!Array.isArray(frames) || !frames.length) throw Error("프레임이 없습니다");
+    const available={}, missing=[];
+    await Promise.all(["color","normal","emissive"].map(async key=>{
+      try {
+        const img=new Image(); img.src=source(entry.files[key]); await img.decode();
+        available[key]=img;
+      } catch { missing.push(channels[key]); }
+    }));
+    if (!available.color) throw Error("컬러 시트를 열 수 없습니다");
+    for (const [key,img] of Object.entries(available)) {
+      if (img.width!==available.color.width || img.height!==available.color.height) throw Error(channels[key]+" 시트 크기 불일치");
+    }
+    let total=0; const ends=[];
+    for (const f of frames) {
+      if (![f.x,f.y,f.w,f.h,f.ms].every(Number.isInteger) || f.ms<=0 || f.x<0 || f.y<0 || f.w<=0 || f.h<=0 ||
+          f.x+f.w>available.color.width || f.y+f.h>available.color.height) throw Error("프레임 좌표 또는 시간이 잘못되었습니다");
+      total+=f.ms; ends.push(total);
+    }
+    return {...entry,frames,ends,total,available,missing};
+}
+async function loadClip() {
+  const epoch=++loadEpoch; clearPlayer(); selectMode(mode);
+  const entry=entries[Number($("clip").value)]; if (!entry) return;
+  if (!entry.clip) {
+    $("lighting").hidden=true; $("cell").textContent="이 버전에는 재생할 clips.json이 없습니다."; return;
+  }
+  $("cell").textContent="시트 읽는 중…";
+  try {
+    const data=await readClip(entry);
+    if (epoch!==loadEpoch) return;
+    const {frames,total,available,missing}=data;
+    active=data; sheets=available;
+    $("loop").checked=entry.clip.loop!==false; $("scrub").max=frames.length-1;
+    for (const id of ["play","prev","next","scrub","loop"]) $(id).disabled=false;
+    $("timing").textContent=total+" ms　·　피벗 "+(entry.pivot || []).join(", ")+"　·　주기 전진 "+(entry.clip.cycle_advance_px ?? 0)+" px";
+    if (missing.length) $("timing").textContent+="　·　누락 "+missing.join(", ");
+    if (mode!=="color" && !available[mode] && !(mode==="lit" && available.normal)) mode="color";
+    selectMode(mode); setPlaying(true);
+  } catch (err) {
+    if (epoch===loadEpoch) $("cell").textContent=entry.key+" · "+err.message;
+  }
+}
+async function loadSequence() {
+  const epoch=++loadEpoch; clearPlayer(); sidebar();
+  const s=sequences[sequence]; if (!s) return;
+  $("motionTitle").textContent=s.name; $("clip").hidden=true;
+  $("cell").textContent="연결된 시트 읽는 중…";
+  const cache=new Map();
+  try {
+    const steps=await Promise.all(s.steps.map(step=>{
+      const name=step.motion, version=step.version || selected.motions?.[name] || selected.reviewed?.[name];
+      const entry=motions.get(name)?.find(r=>r.version===version && r.label===(step.clip || name));
+      if (!entry?.clip) throw Error("연결할 클립을 찾을 수 없습니다 · "+name+" / "+version);
+      if (!cache.has(entry)) cache.set(entry,readClip(entry));
+      return cache.get(entry);
+    }));
+    if (epoch!==loadEpoch) return;
+    const frames=[],ends=[],starts=[];
+    let total=0,world=0,left=0,right=0,top=0,bottom=0;
+    steps.forEach((clip,i)=>{
+      const step=s.steps[i], n=repeats[i] ?? step.repeat ?? 1;
+      if (!Number.isInteger(n)||n<1||n>16) throw Error("구간 반복 횟수는 1~16입니다.");
+      repeats[i]=n; starts.push(frames.length);
+      for (let lap=0;lap<n;lap++) {
+        let time=0;
+        for (const f of clip.frames) {
+          const [px,py]=clip.pivot || [f.w/2,f.h];
+          left=Math.max(left,px); right=Math.max(right,f.w-px);
+          top=Math.max(top,py); bottom=Math.max(bottom,f.h-py);
+          frames.push({...f,px,py,part:clip,stage:step.label || step.motion,step:i,lap,
+            world:world+(f.root_x_px ?? time/clip.total*(clip.clip.cycle_advance_px || 0))});
+          time+=f.ms; total+=f.ms; ends.push(total);
+        }
+        world+=clip.clip.cycle_advance_px || 0;
+      }
+    });
+    active={sequence:true,frames,ends,total,starts,left:Math.ceil(left),top:Math.ceil(top),
+            width:Math.ceil(left)+Math.ceil(right),height:Math.ceil(top)+Math.max(5,Math.ceil(bottom))};
+    sheets=Object.fromEntries(Object.keys(steps[0].available).filter(k=>steps.every(c=>c.available[k])).map(k=>[k,true]));
+    const adjustable=s.steps.flatMap((st,i)=>steps[i].clip.loop ? [[i,st.label || st.motion]] : []);
+    const prev=$("repeatStep").value;
+    options($("repeatStep"),adjustable);
+    if (adjustable.some(([i])=>String(i)===prev)) $("repeatStep").value=prev;
+    $("stepCount").disabled=$("repeatStep").disabled=!adjustable.length;
+    $("stepCount").value=repeats[Number($("repeatStep").value)] || 1;
+    $("loop").checked=false; $("scrub").max=frames.length-1;
+    for (const id of ["play","prev","next","scrub","loop"]) $(id).disabled=false;
+    $("timing").textContent=total+" ms · 전진 "+Math.round(world)+" px";
+    if (!sheets[mode] && !(mode==="lit" && sheets.normal)) mode="color";
+    sidebar(); selectMode(mode); setPlaying(true);
+  } catch (err) {
+    if (epoch===loadEpoch) $("cell").textContent=err.message;
+  }
+}
+$("repeatStep").onchange=()=>{$("stepCount").value=repeats[Number($("repeatStep").value)];};
+$("stepCount").onchange=()=>{
+  const i=Number($("repeatStep").value), n=$("stepCount").valueAsNumber;
+  if (Number.isInteger(n)&&n>=1&&n<=16) { repeats[i]=n; loadSequence(); }
+  else $("stepCount").value=repeats[i];
+};
+$("floorGuide").onchange=$("ghost").onchange=()=>draw();
+function selectMode(value) {
+  mode=value; $("lighting").hidden=mode!=="lit";
+  const list=$("modes"); list.replaceChildren();
+  for (const [key,name] of Object.entries(channels)) {
+    const b=button(name,()=>selectMode(key),key===mode);
+    b.disabled=!(key==="lit" ? sheets.normal : sheets[key]); list.append(b);
+  }
+  draw();
+}
+const samples=document.createElement("canvas");
+const sample=samples.getContext("2d",{willReadFrequently:true});
+function pixels(img,f) {
+  if (samples.width!==f.w || samples.height!==f.h) {samples.width=f.w; samples.height=f.h;}
+  sample.clearRect(0,0,f.w,f.h); sample.drawImage(img,f.x,f.y,f.w,f.h,0,0,f.w,f.h);
+  return sample.getImageData(0,0,f.w,f.h);
+}
+function drawLit(f,maps,x,y) {
+  const color=pixels(maps.color,f), normal=pixels(maps.normal,f).data;
+  const emission=$("glow").checked && maps.emissive ? pixels(maps.emissive,f).data : null;
+  const a=Number($("azimuth").value)*Math.PI/180;
+  // A unit light 30 degrees above the sprite plane. Normal green points up.
+  const lx=Math.cos(a)*Math.sqrt(0.75), ly=Math.sin(a)*Math.sqrt(0.75), lz=0.5;
+  const ambient=Number($("ambient").value)/100, power=Number($("power").value)/100;
+  const data=color.data;
+  for (let i=0;i<data.length;i+=4) {
+    if (!data[i+3]) continue;
+    const nx=normal[i]/127.5-1, ny=normal[i+1]/127.5-1, nz=normal[i+2]/127.5-1;
+    const diffuse=normal[i+3] ? Math.max(0,(nx*lx+ny*ly+nz*lz)/(Math.hypot(nx,ny,nz)||1)) : lz;
+    const light=ambient+power*diffuse;
+    const coverage=emission ? Math.min(1,emission[i+3]/data[i+3]) : 0;
+    for (let k=0;k<3;k++) data[i+k]=data[i+k]*light+(emission ? emission[i+k]*coverage : 0);
+  }
+  ctx.putImageData(color,x,y);
+}
+function draw() {
+  if (!active) return;
+  const f=active.frames[frame], canvas=ctx.canvas;
+  const w=active.width || f.w,h=active.height || f.h;
+  const x=active.sequence ? active.left-f.px : 0, y=active.sequence ? active.top-f.py : 0;
+  if (canvas.width!==w || canvas.height!==h) {canvas.width=w; canvas.height=h;}
+  canvas.style.width=(w*parseInt($("zoom").value))+"px";
+  ctx.clearRect(0,0,w,h);
+  const maps=f.part?.available || sheets;
+  if (mode==="lit") drawLit(f,maps,x,y);
+  else ctx.drawImage(maps[mode],f.x,f.y,f.w,f.h,x,y,f.w,f.h);
+  if (active.sequence) {
+    if ($("floorGuide").checked) {
+      ctx.fillStyle="#89948a"; ctx.fillRect(0,active.top,w,1);
+      for (let tick=-(Math.round(f.world)%8);tick<w;tick+=8) ctx.fillRect(tick,active.top+1,1,2);
+    }
+    const start=active.starts[f.step];
+    if ($("ghost").checked && f.step>0 && frame-start<3) {
+      const p=active.frames[start-1]; ctx.globalAlpha=.32;
+      ctx.drawImage(p.part.available.color,p.x,p.y,p.w,p.h,active.left-p.px,active.top-p.py,p.w,p.h);
+      ctx.globalAlpha=1;
+    }
+    $("cell").textContent=f.stage+" · "+(f.lap+1)+"/"+repeats[f.step]+" · "+Math.round(f.world)+" px";
+    for (const b of $("items").querySelectorAll("[data-step]")) b.setAttribute("aria-pressed",Number(b.dataset.step)===f.step);
+  } else $("cell").textContent=f.w+" × "+f.h+" px";
+  $("scrub").value=frame; $("frame").textContent=(frame+1)+" / "+active.frames.length;
+  $("contacts").textContent="프레임 "+f.ms+" ms　·　접지 "+(f.contacts?.join(", ") || "없음");
+}
+function tick(now) {
+  if (!active || !playing) return;
+  elapsed+=(now-lastTick)*parseFloat($("speed").value); lastTick=now;
+  if (elapsed>=active.total) {
+    if ($("loop").checked) elapsed%=active.total;
+    else {elapsed=active.total; frame=active.frames.length-1; draw(); setPlaying(false); return;}
+  }
+  const index=active.ends.findIndex(end=>end>elapsed);
+  if (index!==frame) {frame=index; draw();}
+  raf=requestAnimationFrame(tick);
+}
+function seek(index) {
+  if (!active) return;
+  setPlaying(false); frame=Math.max(0,Math.min(active.frames.length-1,index));
+  elapsed=frame===0 ? 0 : active.ends[frame-1]; draw();
+}
+$("play").onclick=()=>{
+  if (!active) return;
+  if (!playing && elapsed>=active.total) seek(0);
+  setPlaying(!playing);
+};
+$("prev").onclick=()=>seek(frame-1); $("next").onclick=()=>seek(frame+1);
+$("scrub").oninput=()=>seek(Number($("scrub").value)); $("zoom").onchange=draw;
+for (const id of ["ambient","power","azimuth","glow"]) $(id).oninput=()=>{$("degrees").textContent=$("azimuth").value+"°";draw();};
+folderAction(restoreFolder);
+</script>
+</body></html>

@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "sheet": "pixels.png",
+  "source_sheet": "source.png",
+  "reference": "front",
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "ground_y": 58,
+  "scale": 0.09871244635193133,
+  "height": 46,
+  "resample": "lanczos",
+  "source_pivot": [
+    147,
+    473
+  ],
+  "source_cell": [
+    292,
+    478
+  ],
+  "asymmetry": [
+    "The pauldron is on the anatomical right shoulder.",
+    "The clasp fastens the hip wrap on the anatomical right."
+  ],
+  "views": [
+    {
+      "direction": "front",
+      "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [
+        126,
+        4,
+        432,
+        491
+      ],
+      "ground": [
+        155,
+        477
+      ],
+      "levels": {
+        "crown": 11,
+        "chin": 204,
+        "shoulder": 220,
+        "hip": 312
+      },
+      "alpha_floor": 16,
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        12,
+        10,
+        294,
+        478
+      ],
+      "source_scale": 1,
+      "file": "front.png",
+      "rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        292,
+        478
+      ]
+    },
+    {
+      "direction": "front_right",
+      "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [
+        632,
+        4,
+        894,
+        491
+      ],
+      "ground": [
+        128,
+        477
+      ],
+      "levels": {
+        "crown": 9,
+        "chin": 205,
+        "shoulder": 217,
+        "hip": 311
+      },
+      "alpha_floor": 16,
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        9,
+        8,
+        251,
+        478
+      ],
+      "source_scale": 1,
+      "file": "front_right.png",
+      "rect": [
+        64,
+        0,
+        64,
+        64
+      ],
+      "source_rect": [
+        292,
+        0,
+        292,
+        478
+      ]
+    },
+    {
+      "direction": "right",
+      "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [
+        1123,
+        4,
+        1385,
+        491
+      ],
+      "ground": [
+        117,
+        477
+      ],
+      "levels": {
+        "crown": 11,
+        "chin": 205,
+        "shoulder": 221,
+        "hip": 312
+      },
+      "alpha_floor": 16,
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        12,
+        11,
+        249,
+        478
+      ],
+      "source_scale": 1,
+      "file": "right.png",
+      "rect": [
+        128,
+        0,
+        64,
+        64
+      ],
+      "source_rect": [
+        584,
+        0,
+        292,
+        478
+      ]
+    },
+    {
+      "direction": "back_right",
+      "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [
+        129,
+        514,
+        405,
+        1004
+      ],
+      "ground": [
+        128,
+        480
+      ],
+      "levels": {
+        "crown": 12,
+        "chin": 189,
+        "shoulder": 211,
+        "hip": 321
+      },
+      "alpha_floor": 16,
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        11,
+        11,
+        264,
+        480
+      ],
+      "source_scale": 1,
+      "file": "back_right.png",
+      "rect": [
+        192,
+        0,
+        64,
+        64
+      ],
+      "source_rect": [
+        876,
+        0,
+        292,
+        478
+      ]
+    },
+    {
+      "direction": "back",
+      "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [
+        614,
+        512,
+        916,
+        1003
+      ],
+      "ground": [
+        150,
+        480
+      ],
+      "levels": {
+        "crown": 14,
+        "shoulder": 214,
+        "hip": 322
+      },
+      "alpha_floor": 16,
+      "notes": "The jaw and chin are occluded in the back view.",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        12,
+        12,
+        291,
+        481
+      ],
+      "source_scale": 1,
+      "file": "back.png",
+      "rect": [
+        256,
+        0,
+        64,
+        64
+      ],
+      "source_rect": [
+        1168,
+        0,
+        292,
+        478
+      ]
+    }
+  ]
+}

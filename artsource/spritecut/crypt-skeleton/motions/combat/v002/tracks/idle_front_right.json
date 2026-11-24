@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "direction": "front_right",
+  "landmarks": {
+    "pelvis": {
+      "part": "pelvis",
+      "point": [
+        32,
+        42
+      ]
+    },
+    "right_elbow": {
+      "part": "right_forearm",
+      "point": [
+        22.5,
+        38.5
+      ]
+    },
+    "right_knee": {
+      "part": "right_shin",
+      "point": [
+        26.5,
+        49
+      ]
+    },
+    "right_foot": {
+      "part": "right_boot",
+      "point": [
+        22,
+        57
+      ]
+    },
+    "right_hand": {
+      "part": "right_hand",
+      "point": [
+        22,
+        46
+      ]
+    },
+    "left_elbow": {
+      "part": "left_forearm",
+      "point": [
+        38.5,
+        38.5
+      ]
+    },
+    "left_knee": {
+      "part": "left_shin",
+      "point": [
+        36,
+        49.5
+      ]
+    },
+    "left_foot": {
+      "part": "left_boot",
+      "point": [
+        34,
+        56
+      ]
+    },
+    "left_hand": {
+      "part": "left_hand",
+      "point": [
+        43,
+        46
+      ]
+    },
+    "chest": {
+      "part": "chest",
+      "point": [
+        32,
+        39
+      ]
+    },
+    "head": {
+      "part": "head",
+      "point": [
+        33,
+        28.5
+      ]
+    }
+  },
+  "frames": [
+    {
+      "phase": 0.0,
+      "angles": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "points": {
+        "pelvis": [
+          32.0,
+          42.0
+        ],
+        "right_elbow": [
+          22.5,
+          38.5
+        ],
+        "right_knee": [
+          26.5,
+          49.0
+        ],
+        "right_foot": [
+          22.0,
+          57.0
+        ],
+        "right_hand": [
+          22.0,
+          46.0
+        ],
+        "left_elbow": [
+          38.5,
+          38.5
+        ],
+        "left_knee": [
+          36.0,
+          49.5
+        ],
+        "left_foot": [
+          34.0,
+          56.0
+        ],
+        "left_hand": [
+          43.0,
+          46.0
+        ],
+        "chest": [
+          32.0,
+          39.0
+        ],
+        "head": [
+          33.0,
+          28.5
+        ]
+      },
+      "offsets": {}
+    },
+    {
+      "phase": 0.20625,
+      "angles": {
+        "head": 1,
+        "chest": -1
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "points": {
+        "pelvis": [
+          32.0,
+          42.0
+        ],
+        "right_elbow": [
+          22.49272069279564,
+          38.665874013575994
+        ],
+        "right_knee": [
+          26.5,
+          49.0
+        ],
+        "right_foot": [
+          22.0,
+          57.0
+        ],
+        "right_hand": [
+          22.123689893497072,
+          46.17345793046757
+        ],
+        "left_elbow": [
+          38.4902838152979,
+          38.38663551057946
+        ],
+        "left_knee": [
+          36.0,
+          49.5
+        ],
+        "left_foot": [
+          34.0,
+          56.0
+        ],
+        "left_hand": [
+          43.12049149178129,
+          45.80695739528461
+        ],
+        "chest": [
+          32.0,
+          39.0
+        ],
+        "head": [
+          32.816597427564915,
+          28.484146794420603
+        ]
+      },
+      "offsets": {}
+    },
+    {
+      "phase": 0.36875,
+      "angles": {
+        "head": 2,
+        "chest": -2
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "points": {
+        "pelvis": [
+          32.0,
+          42.0
+        ],
+        "right_elbow": [
+          22.48833739496734,
+          38.83184980516421
+        ],
+        "right_knee": [
+          26.5,
+          49.0
+        ],
+        "right_foot": [
+          22.0,
+          57.0
+        ],
+        "right_hand": [
+          22.250388206726548,
+          46.344730756158675
+        ],
+        "left_elbow": [
+          38.47859062727287,
+          38.27345785792419
+        ],
+        "left_knee": [
+          36.0,
+          49.5
+        ],
+        "left_foot": [
+          34.0,
+          56.0
+        ],
+        "left_hand": [
+          43.23759557412756,
+          45.611841325406154
+        ],
+        "chest": [
+          32.0,
+          39.0
+        ],
+        "head": [
+          32.63294611164283,
+          28.471496819596986
+        ]
+      },
+      "offsets": {}
+    },
+    {
+      "phase": 0.5875,
+      "angles": {
+        "head": -1,
+        "chest": 1
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "points": {
+        "pelvis": [
+          32.0,
+          42.0
+        ],
+        "right_elbow": [
+          22.510173099232926,
+          38.334278291267616
+        ],
+        "right_knee": [
+          26.5,
+          49.0
+        ],
+        "right_foot": [
+          22.0,
+          57.0
+        ],
+        "right_hand": [
+          21.879356203375103,
+          45.824409801721906
+        ],
+        "left_elbow": [
+          38.507736221735186,
+          38.61351679426415
+        ],
+        "left_knee": [
+          36.0,
+          49.5
+        ],
+        "left_foot": [
+          34.0,
+          56.0
+        ],
+        "left_hand": [
+          42.87615780165932,
+          46.190910336904864
+        ],
+        "chest": [
+          32.0,
+          39.0
+        ],
+        "head": [
+          33.183097962747865,
+          28.519051607295175
+        ]
+      },
+      "offsets": {}
+    },
+    {
+      "phase": 0.8,
+      "angles": {
+        "head": -1
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "points": {
+        "pelvis": [
+          32.0,
+          42.0
+        ],
+        "right_elbow": [
+          22.5,
+          38.5
+        ],
+        "right_knee": [
+          26.5,
+          49.0
+        ],
+        "right_foot": [
+          22.0,
+          57.0
+        ],
+        "right_hand": [
+          22.0,
+          46.0
+        ],
+        "left_elbow": [
+          38.5,
+          38.5
+        ],
+        "left_knee": [
+          36.0,
+          49.5
+        ],
+        "left_foot": [
+          34.0,
+          56.0
+        ],
+        "left_hand": [
+          43.0,
+          46.0
+        ],
+        "chest": [
+          32.0,
+          39.0
+        ],
+        "head": [
+          33.0,
+          28.5
+        ]
+      },
+      "offsets": {}
+    }
+  ],
+  "cycle_advance_px": 0
+}

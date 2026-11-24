@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "cell": [64, 64],
+  "height": 46,
+  "pivot": [32, 58],
+  "reference": "front",
+  "resample": "lanczos",
+  "tolerance_px": 2,
+  "asymmetry": [
+    "The pauldron is on the anatomical right shoulder.",
+    "The clasp fastens the hip wrap on the anatomical right."
+  ],
+  "views": [
+    {
+      "direction": "front",
+      "image": "../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [126, 4, 432, 491],
+      "ground": [155, 477],
+      "levels": {"crown": 11, "chin": 204, "shoulder": 220, "hip": 312},
+      "alpha_floor": 16
+    },
+    {
+      "direction": "front_right",
+      "image": "../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [632, 4, 894, 491],
+      "ground": [128, 477],
+      "levels": {"crown": 9, "chin": 205, "shoulder": 217, "hip": 311},
+      "alpha_floor": 16
+    },
+    {
+      "direction": "right",
+      "image": "../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [1123, 4, 1385, 491],
+      "ground": [117, 477],
+      "levels": {"crown": 11, "chin": 205, "shoulder": 221, "hip": 312},
+      "alpha_floor": 16
+    },
+    {
+      "direction": "back_right",
+      "image": "../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [129, 514, 405, 1004],
+      "ground": [128, 480],
+      "levels": {"crown": 12, "chin": 189, "shoulder": 211, "hip": 321},
+      "alpha_floor": 16
+    },
+    {
+      "direction": "back",
+      "image": "../../sources/v002/originals/crypt-skeleton-turnaround.png",
+      "origin": "generated",
+      "crop": [614, 512, 916, 1003],
+      "ground": [150, 480],
+      "levels": {"crown": 14, "shoulder": 214, "hip": 322},
+      "alpha_floor": 16,
+      "notes": "The jaw and chin are occluded in the back view."
+    }
+  ]
+}

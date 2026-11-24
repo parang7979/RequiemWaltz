@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "material": "v002",
+  "motions": {"combat": "v003"},
+  "reviewed": {"combat": ["v001", "v002"]}
+}

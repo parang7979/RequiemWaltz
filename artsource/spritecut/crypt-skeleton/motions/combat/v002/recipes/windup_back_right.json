@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "clip": "windup_back_right",
+  "loop": false,
+  "poses": [
+    {
+      "ms": 50,
+      "angles": {
+        "chest": -3,
+        "head": 3,
+        "right_upper_arm": 4,
+        "right_forearm": 6,
+        "left_upper_arm": -8,
+        "cloth": -2
+      },
+      "translations": {
+        "pelvis": [
+          0,
+          0.7
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 55,
+      "angles": {
+        "chest": -6,
+        "head": 5,
+        "right_upper_arm": 22,
+        "right_forearm": 14,
+        "left_upper_arm": -16,
+        "cloth": -5
+      },
+      "translations": {
+        "pelvis": [
+          -0.5,
+          1.2
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 60,
+      "angles": {
+        "chest": -9,
+        "head": 6,
+        "right_upper_arm": 49,
+        "right_forearm": 25,
+        "left_upper_arm": -20,
+        "cloth": -8
+      },
+      "translations": {
+        "pelvis": [
+          -1.0,
+          1.7
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 65,
+      "angles": {
+        "chest": -11,
+        "head": 7,
+        "right_upper_arm": 71,
+        "right_forearm": 38,
+        "left_upper_arm": -20,
+        "cloth": -9
+      },
+      "translations": {
+        "pelvis": [
+          -1.5,
+          2.0
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 65,
+      "angles": {
+        "chest": -12,
+        "head": 9,
+        "right_upper_arm": 74,
+        "right_forearm": 40,
+        "left_upper_arm": -21,
+        "cloth": -8
+      },
+      "translations": {
+        "pelvis": [
+          -1.5,
+          2.0
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 65,
+      "angles": {
+        "chest": -8,
+        "head": 7,
+        "right_upper_arm": 53,
+        "right_forearm": 29,
+        "left_upper_arm": -17,
+        "cloth": -6
+      },
+      "translations": {
+        "pelvis": [
+          -1.0,
+          1.7
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    }
+  ]
+}

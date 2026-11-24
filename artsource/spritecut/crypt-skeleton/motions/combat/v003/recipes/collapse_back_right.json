@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "clip": "collapse_back_right",
+  "loop": false,
+  "poses": [
+    {
+      "ms": 50,
+      "angles": {
+        "chest": -14,
+        "head": -10,
+        "right_upper_arm": 24,
+        "right_forearm": -14,
+        "left_upper_arm": -22,
+        "cloth": -8
+      },
+      "translations": {
+        "pelvis": [
+          -1.0,
+          1.7
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 62,
+      "angles": {
+        "chest": -20,
+        "head": -13,
+        "right_upper_arm": 32,
+        "right_forearm": -10,
+        "left_upper_arm": -28,
+        "cloth": -15
+      },
+      "translations": {
+        "pelvis": [
+          -1.4,
+          3.8
+        ]
+      },
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            -1,
+            0
+          ],
+          "angle_deg": 0
+        },
+        "left": {
+          "offset_px": [
+            0,
+            0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 65,
+      "angles": {
+        "pelvis": -20,
+        "chest": -19,
+        "head": -18,
+        "right_upper_arm": 31,
+        "right_forearm": 0,
+        "left_upper_arm": -24,
+        "cloth": 12
+      },
+      "translations": {
+        "pelvis": [
+          -0.5,
+          4.0
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            0.5,
+            0.0
+          ],
+          "angle_deg": 5
+        },
+        "left": {
+          "offset_px": [
+            1.0,
+            0.0
+          ],
+          "angle_deg": -3
+        }
+      }
+    },
+    {
+      "ms": 60,
+      "angles": {
+        "pelvis": -42,
+        "chest": -17,
+        "head": -14,
+        "right_upper_arm": 28,
+        "right_forearm": -15,
+        "left_upper_arm": -18,
+        "cloth": 18
+      },
+      "translations": {
+        "pelvis": [
+          0.5,
+          4.8
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            5.5,
+            -2.0
+          ],
+          "angle_deg": -3
+        },
+        "left": {
+          "offset_px": [
+            6.0,
+            -1.0
+          ],
+          "angle_deg": 0
+        }
+      }
+    },
+    {
+      "ms": 62,
+      "angles": {
+        "pelvis": -67,
+        "chest": -14,
+        "head": -9,
+        "right_upper_arm": 26,
+        "right_forearm": -26,
+        "left_upper_arm": -12,
+        "cloth": 20
+      },
+      "translations": {
+        "pelvis": [
+          1.8,
+          4.0
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            8.5,
+            -5.0
+          ],
+          "angle_deg": -8
+        },
+        "left": {
+          "offset_px": [
+            12.0,
+            -3.0
+          ],
+          "angle_deg": 4
+        }
+      }
+    },
+    {
+      "ms": 55,
+      "angles": {
+        "pelvis": -106,
+        "chest": -13,
+        "head": -3,
+        "right_upper_arm": 39,
+        "right_forearm": -35,
+        "left_upper_arm": -7,
+        "cloth": 14
+      },
+      "translations": {
+        "pelvis": [
+          3.2,
+          2.0
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            10.5,
+            -12.0
+          ],
+          "angle_deg": -16
+        },
+        "left": {
+          "offset_px": [
+            16.0,
+            -9.0
+          ],
+          "angle_deg": 8
+        }
+      }
+    },
+    {
+      "ms": 56,
+      "angles": {
+        "pelvis": -124,
+        "chest": -10,
+        "head": 2,
+        "right_upper_arm": 44,
+        "right_forearm": -46,
+        "left_upper_arm": -9,
+        "cloth": 12
+      },
+      "translations": {
+        "pelvis": [
+          4,
+          -2.3
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            10.5,
+            -21.0
+          ],
+          "angle_deg": -23
+        },
+        "left": {
+          "offset_px": [
+            19.0,
+            -18.0
+          ],
+          "angle_deg": 10
+        }
+      }
+    },
+    {
+      "ms": 310,
+      "angles": {
+        "pelvis": -126,
+        "chest": -9,
+        "head": 1,
+        "right_upper_arm": 42,
+        "right_forearm": -49,
+        "left_upper_arm": -10,
+        "cloth": 10
+      },
+      "translations": {
+        "pelvis": [
+          3.8,
+          -2.4
+        ]
+      },
+      "contacts": [],
+      "sole_targets": {
+        "right": {
+          "offset_px": [
+            10.5,
+            -21.0
+          ],
+          "angle_deg": -19
+        },
+        "left": {
+          "offset_px": [
+            19.0,
+            -18.0
+          ],
+          "angle_deg": 6
+        }
+      }
+    }
+  ]
+}

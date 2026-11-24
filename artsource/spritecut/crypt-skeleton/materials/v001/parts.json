@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "parts": [
+    {
+      "id": "far_leg"
+    },
+    {
+      "id": "near_leg"
+    },
+    {
+      "id": "far_arm",
+      "parent": "torso"
+    },
+    {
+      "id": "torso"
+    },
+    {
+      "id": "head",
+      "parent": "torso"
+    },
+    {
+      "id": "near_arm",
+      "parent": "torso"
+    }
+  ],
+  "views": {
+    "front_right": {
+      "parts": {
+        "far_leg": {
+          "mask": "front_right_far_leg.png",
+          "pivot": [
+            29,
+            40
+          ]
+        },
+        "near_leg": {
+          "mask": "front_right_near_leg.png",
+          "pivot": [
+            34,
+            41
+          ]
+        },
+        "far_arm": {
+          "mask": "front_right_far_arm.png",
+          "pivot": [
+            27,
+            30
+          ]
+        },
+        "torso": {
+          "mask": "front_right_torso.png",
+          "pivot": [
+            32,
+            41
+          ]
+        },
+        "head": {
+          "mask": "front_right_head.png",
+          "pivot": [
+            34,
+            26
+          ]
+        },
+        "near_arm": {
+          "mask": "front_right_near_arm.png",
+          "pivot": [
+            37,
+            29
+          ]
+        }
+      }
+    },
+    "back_right": {
+      "parts": {
+        "far_leg": {
+          "mask": "back_right_far_leg.png",
+          "pivot": [
+            29,
+            40
+          ]
+        },
+        "near_leg": {
+          "mask": "back_right_near_leg.png",
+          "pivot": [
+            34,
+            41
+          ]
+        },
+        "far_arm": {
+          "mask": "back_right_far_arm.png",
+          "pivot": [
+            27,
+            30
+          ]
+        },
+        "torso": {
+          "mask": "back_right_torso.png",
+          "pivot": [
+            32,
+            41
+          ]
+        },
+        "head": {
+          "mask": "back_right_head.png",
+          "pivot": [
+            34,
+            26
+          ]
+        },
+        "near_arm": {
+          "mask": "back_right_near_arm.png",
+          "pivot": [
+            37,
+            29
+          ]
+        }
+      }
+    }
+  }
+}

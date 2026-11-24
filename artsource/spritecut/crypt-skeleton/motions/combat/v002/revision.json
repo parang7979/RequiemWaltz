@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "id": "v002",
+  "clip": "combat",
+  "status": "adopted",
+  "direction": "front_right",
+  "character": "../../../materials/v002/character.json",
+  "parent": "../v001/revision.json",
+  "parent_source": "explicit",
+  "materials": "../../../materials/v002/revision.json",
+  "recipe_generator": "../../../authoring/bake_combat_v002.py",
+  "recipes": "recipes/",
+  "tracks": "tracks/",
+  "sheets": "sheets/clips.json",
+  "runtime_frames": "../../../../../../assets/actors/crypt_skeleton/crypt_skeleton_frames.tres",
+  "previews": {
+    "chamber_1x": "previews/chamber-1x.png",
+    "poses": "previews/motion-poses-2x.png",
+    "walk": "previews/walk.gif",
+    "attack": "previews/attack.gif",
+    "hit": "previews/hit.gif",
+    "death": "previews/death.gif"
+  },
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "87e4acc7f7af714e7345268a0424fe67568992b1",
+    "commands": ["animate", "bake"]
+  },
+  "review": "Both directions preserve the 64 x 64 cell and (32, 58) pivot without frame clipping. Godot 4.7.2 selects the first recovery frame on the update that applies a strike, and the death state holds its last frame before fading. The source project and Windows PCK passed encounter checks."
+}

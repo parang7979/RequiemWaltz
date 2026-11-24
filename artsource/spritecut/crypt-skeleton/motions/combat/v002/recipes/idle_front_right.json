@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "clip": "idle_front_right",
+  "loop": true,
+  "poses": [
+    {
+      "ms": 165,
+      "angles": {},
+      "translations": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ]
+    },
+    {
+      "ms": 130,
+      "angles": {
+        "head": 1,
+        "chest": -1
+      },
+      "translations": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ]
+    },
+    {
+      "ms": 175,
+      "angles": {
+        "head": 2,
+        "chest": -2
+      },
+      "translations": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ]
+    },
+    {
+      "ms": 170,
+      "angles": {
+        "head": -1,
+        "chest": 1
+      },
+      "translations": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ]
+    },
+    {
+      "ms": 160,
+      "angles": {
+        "head": -1
+      },
+      "translations": {},
+      "contacts": [
+        "right_boot",
+        "left_boot"
+      ]
+    }
+  ]
+}

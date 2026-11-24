@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "parts": [
+    {
+      "id": "pelvis"
+    },
+    {
+      "id": "chest",
+      "parent": "pelvis"
+    },
+    {
+      "id": "head",
+      "parent": "chest"
+    },
+    {
+      "id": "cloth",
+      "parent": "pelvis"
+    },
+    {
+      "id": "right_thigh",
+      "parent": "pelvis"
+    },
+    {
+      "id": "right_shin",
+      "parent": "right_thigh"
+    },
+    {
+      "id": "right_boot",
+      "parent": "right_shin"
+    },
+    {
+      "id": "left_thigh",
+      "parent": "pelvis"
+    },
+    {
+      "id": "left_shin",
+      "parent": "left_thigh"
+    },
+    {
+      "id": "left_boot",
+      "parent": "left_shin"
+    },
+    {
+      "id": "right_upper_arm",
+      "parent": "chest"
+    },
+    {
+      "id": "right_forearm",
+      "parent": "right_upper_arm"
+    },
+    {
+      "id": "right_hand",
+      "parent": "right_forearm"
+    },
+    {
+      "id": "left_upper_arm",
+      "parent": "chest"
+    },
+    {
+      "id": "left_forearm",
+      "parent": "left_upper_arm"
+    },
+    {
+      "id": "left_hand",
+      "parent": "left_forearm"
+    }
+  ],
+  "views": {
+    "front_right": {
+      "parts": {
+        "left_thigh": {
+          "mask": "masks/front_right_left_thigh.png",
+          "order": 0,
+          "pivot": [
+            35,
+            43
+          ],
+          "landmarks": {}
+        },
+        "left_shin": {
+          "mask": "masks/front_right_left_shin.png",
+          "order": 1,
+          "pivot": [
+            36,
+            49.5
+          ],
+          "landmarks": {}
+        },
+        "left_boot": {
+          "mask": "masks/front_right_left_boot.png",
+          "order": 2,
+          "pivot": [
+            36,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              34,
+              56
+            ],
+            "toe": [
+              41,
+              56
+            ]
+          }
+        },
+        "right_thigh": {
+          "mask": "masks/front_right_right_thigh.png",
+          "order": 3,
+          "pivot": [
+            28,
+            43
+          ],
+          "landmarks": {}
+        },
+        "right_shin": {
+          "mask": "masks/front_right_right_shin.png",
+          "order": 4,
+          "pivot": [
+            26.5,
+            49
+          ],
+          "landmarks": {}
+        },
+        "right_boot": {
+          "mask": "masks/front_right_right_boot.png",
+          "order": 5,
+          "pivot": [
+            25,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              22,
+              57
+            ],
+            "toe": [
+              28,
+              57
+            ]
+          }
+        },
+        "left_upper_arm": {
+          "mask": "masks/front_right_left_upper_arm.png",
+          "order": 6,
+          "pivot": [
+            36,
+            34
+          ],
+          "landmarks": {}
+        },
+        "left_forearm": {
+          "mask": "masks/front_right_left_forearm.png",
+          "order": 7,
+          "pivot": [
+            38.5,
+            38.5
+          ],
+          "landmarks": {}
+        },
+        "left_hand": {
+          "mask": "masks/front_right_left_hand.png",
+          "order": 8,
+          "pivot": [
+            41,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              43,
+              46
+            ]
+          }
+        },
+        "pelvis": {
+          "mask": "masks/front_right_pelvis.png",
+          "order": 9,
+          "pivot": [
+            32,
+            42
+          ],
+          "landmarks": {}
+        },
+        "cloth": {
+          "mask": "masks/front_right_cloth.png",
+          "order": 10,
+          "pivot": [
+            33,
+            42
+          ],
+          "landmarks": {}
+        },
+        "chest": {
+          "mask": "masks/front_right_chest.png",
+          "order": 11,
+          "pivot": [
+            32,
+            39
+          ],
+          "landmarks": {}
+        },
+        "head": {
+          "mask": "masks/front_right_head.png",
+          "order": 12,
+          "pivot": [
+            33,
+            28.5
+          ],
+          "landmarks": {}
+        },
+        "right_upper_arm": {
+          "mask": "masks/front_right_right_upper_arm.png",
+          "order": 13,
+          "pivot": [
+            25,
+            33.5
+          ],
+          "landmarks": {}
+        },
+        "right_forearm": {
+          "mask": "masks/front_right_right_forearm.png",
+          "order": 14,
+          "pivot": [
+            22.5,
+            38.5
+          ],
+          "landmarks": {}
+        },
+        "right_hand": {
+          "mask": "masks/front_right_right_hand.png",
+          "order": 15,
+          "pivot": [
+            22,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              22,
+              46
+            ]
+          }
+        }
+      }
+    },
+    "back_right": {
+      "parts": {
+        "left_thigh": {
+          "mask": "masks/back_right_left_thigh.png",
+          "order": 0,
+          "pivot": [
+            27,
+            43
+          ],
+          "landmarks": {}
+        },
+        "left_shin": {
+          "mask": "masks/back_right_left_shin.png",
+          "order": 1,
+          "pivot": [
+            25.5,
+            49
+          ],
+          "landmarks": {}
+        },
+        "left_boot": {
+          "mask": "masks/back_right_left_boot.png",
+          "order": 2,
+          "pivot": [
+            23.5,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              21,
+              56
+            ],
+            "toe": [
+              27,
+              56
+            ]
+          }
+        },
+        "right_thigh": {
+          "mask": "masks/back_right_right_thigh.png",
+          "order": 3,
+          "pivot": [
+            34,
+            43
+          ],
+          "landmarks": {}
+        },
+        "right_shin": {
+          "mask": "masks/back_right_right_shin.png",
+          "order": 4,
+          "pivot": [
+            35,
+            49
+          ],
+          "landmarks": {}
+        },
+        "right_boot": {
+          "mask": "masks/back_right_right_boot.png",
+          "order": 5,
+          "pivot": [
+            34,
+            54
+          ],
+          "landmarks": {
+            "heel": [
+              32,
+              57
+            ],
+            "toe": [
+              39,
+              57
+            ]
+          }
+        },
+        "left_upper_arm": {
+          "mask": "masks/back_right_left_upper_arm.png",
+          "order": 6,
+          "pivot": [
+            25,
+            32.5
+          ],
+          "landmarks": {}
+        },
+        "left_forearm": {
+          "mask": "masks/back_right_left_forearm.png",
+          "order": 7,
+          "pivot": [
+            22,
+            38
+          ],
+          "landmarks": {}
+        },
+        "left_hand": {
+          "mask": "masks/back_right_left_hand.png",
+          "order": 8,
+          "pivot": [
+            21,
+            42.5
+          ],
+          "landmarks": {
+            "tip": [
+              21,
+              46
+            ]
+          }
+        },
+        "pelvis": {
+          "mask": "masks/back_right_pelvis.png",
+          "order": 9,
+          "pivot": [
+            31,
+            42
+          ],
+          "landmarks": {}
+        },
+        "cloth": {
+          "mask": "masks/back_right_cloth.png",
+          "order": 10,
+          "pivot": [
+            29,
+            42
+          ],
+          "landmarks": {}
+        },
+        "chest": {
+          "mask": "masks/back_right_chest.png",
+          "order": 11,
+          "pivot": [
+            31,
+            39
+          ],
+          "landmarks": {}
+        },
+        "head": {
+          "mask": "masks/back_right_head.png",
+          "order": 12,
+          "pivot": [
+            32,
+            27.5
+          ],
+          "landmarks": {}
+        },
+        "right_upper_arm": {
+          "mask": "masks/back_right_right_upper_arm.png",
+          "order": 13,
+          "pivot": [
+            37,
+            33
+          ],
+          "landmarks": {}
+        },
+        "right_forearm": {
+          "mask": "masks/back_right_right_forearm.png",
+          "order": 14,
+          "pivot": [
+            39,
+            37.5
+          ],
+          "landmarks": {}
+        },
+        "right_hand": {
+          "mask": "masks/back_right_right_hand.png",
+          "order": 15,
+          "pivot": [
+            41.5,
+            42
+          ],
+          "landmarks": {
+            "tip": [
+              41,
+              46
+            ]
+          }
+        }
+      }
+    }
+  }
+}

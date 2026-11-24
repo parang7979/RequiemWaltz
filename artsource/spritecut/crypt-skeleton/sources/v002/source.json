@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "id": "v002",
+  "parent": "v001",
+  "origin": "Built-in ImageGen",
+  "prompt": "imagegen-prompt.txt",
+  "style_references": [
+    "../../../waltz/sources/v001/originals/waltz-requiem-top-view.png",
+    "../../../waltz/sources/v001/originals/waltz-requiem-design.png"
+  ],
+  "files": {
+    "turnaround": {
+      "file": "originals/crypt-skeleton-turnaround.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "c8e34a1e4065ab740b1305db3c8f0bb3babdbbdb7c2729e3d0f69e11339e94d8",
+      "directions": [
+        "front",
+        "front_right",
+        "right",
+        "back_right",
+        "back"
+      ]
+    }
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "reference": "front",
+  "missing": [],
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "height": 46,
+  "scale": 0.09871244635193133,
+  "tolerance_px": 2,
+  "measurements": {
+    "front": {
+      "source": {
+        "direction": "front",
+        "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+        "origin": "generated",
+        "crop": [
+          126,
+          4,
+          432,
+          491
+        ],
+        "ground": [
+          155,
+          477
+        ],
+        "levels": {
+          "crown": 11,
+          "chin": 204,
+          "shoulder": 220,
+          "hip": 312
+        },
+        "alpha_floor": 16,
+        "source_size": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": [
+          12,
+          10,
+          294,
+          478
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 466,
+        "chin": 273,
+        "shoulder": 257,
+        "hip": 165,
+        "bottom_from_ground": 1
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.0,
+        "chin": 0.0,
+        "shoulder": 0.0,
+        "hip": 0.0,
+        "bottom_from_ground": 0.0
+      },
+      "review_levels": [],
+      "unmeasured": [],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "front_right": {
+      "source": {
+        "direction": "front_right",
+        "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+        "origin": "generated",
+        "crop": [
+          632,
+          4,
+          894,
+          491
+        ],
+        "ground": [
+          128,
+          477
+        ],
+        "levels": {
+          "crown": 9,
+          "chin": 205,
+          "shoulder": 217,
+          "hip": 311
+        },
+        "alpha_floor": 16,
+        "source_size": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": [
+          9,
+          8,
+          251,
+          478
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 468,
+        "chin": 272,
+        "shoulder": 260,
+        "hip": 166,
+        "bottom_from_ground": 1
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.19742489270386265,
+        "chin": -0.09871244635193133,
+        "shoulder": 0.296137339055794,
+        "hip": 0.09871244635193133,
+        "bottom_from_ground": 0.0
+      },
+      "review_levels": [],
+      "unmeasured": [],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "source": {
+        "direction": "right",
+        "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+        "origin": "generated",
+        "crop": [
+          1123,
+          4,
+          1385,
+          491
+        ],
+        "ground": [
+          117,
+          477
+        ],
+        "levels": {
+          "crown": 11,
+          "chin": 205,
+          "shoulder": 221,
+          "hip": 312
+        },
+        "alpha_floor": 16,
+        "source_size": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": [
+          12,
+          11,
+          249,
+          478
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 466,
+        "chin": 272,
+        "shoulder": 256,
+        "hip": 165,
+        "bottom_from_ground": 1
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.0,
+        "chin": -0.09871244635193133,
+        "shoulder": -0.09871244635193133,
+        "hip": 0.0,
+        "bottom_from_ground": 0.0
+      },
+      "review_levels": [],
+      "unmeasured": [],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "back_right": {
+      "source": {
+        "direction": "back_right",
+        "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+        "origin": "generated",
+        "crop": [
+          129,
+          514,
+          405,
+          1004
+        ],
+        "ground": [
+          128,
+          480
+        ],
+        "levels": {
+          "crown": 12,
+          "chin": 189,
+          "shoulder": 211,
+          "hip": 321
+        },
+        "alpha_floor": 16,
+        "source_size": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": [
+          11,
+          11,
+          264,
+          480
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 468,
+        "chin": 291,
+        "shoulder": 269,
+        "hip": 159,
+        "bottom_from_ground": 0
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.19742489270386265,
+        "chin": 1.7768240343347639,
+        "shoulder": 1.184549356223176,
+        "hip": -0.592274678111588,
+        "bottom_from_ground": -0.09871244635193133
+      },
+      "review_levels": [],
+      "unmeasured": [],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "back": {
+      "source": {
+        "direction": "back",
+        "image": "../../../sources/v002/originals/crypt-skeleton-turnaround.png",
+        "origin": "generated",
+        "crop": [
+          614,
+          512,
+          916,
+          1003
+        ],
+        "ground": [
+          150,
+          480
+        ],
+        "levels": {
+          "crown": 14,
+          "shoulder": 214,
+          "hip": 322
+        },
+        "alpha_floor": 16,
+        "notes": "The jaw and chin are occluded in the back view.",
+        "source_size": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": [
+          12,
+          12,
+          291,
+          481
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 466,
+        "shoulder": 266,
+        "hip": 158,
+        "bottom_from_ground": 1
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.0,
+        "shoulder": 0.8884120171673819,
+        "hip": -0.6909871244635193,
+        "bottom_from_ground": 0.0
+      },
+      "review_levels": [],
+      "unmeasured": [
+        "chin"
+      ],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "overflow": []
+}

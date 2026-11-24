@@ -17,9 +17,7 @@ const CANNON_FLASH = preload("res://assets/vfx/requiem_forms/cannon_release.tres
 const HAND_CUT = preload("res://assets/vfx/requiem_forms/hand_cut.tres")
 const COUNTER_CUT = preload("res://assets/vfx/requiem_forms/counter_cut.tres")
 const HIT = preload("res://assets/vfx/combat_study/impact.tres")
-const Pursuer := preload("res://scenes/actors/seal_room_pursuer.gd")
-const Motion := preload("res://scenes/actors/ryne_motion.gd")
-const ENEMY_LIBRARY := "res://assets/actors/skeleton_soldier"
+const Pursuer := preload("res://scenes/actors/crypt_skeleton.gd")
 const SOUNDS := {
 	"hand": preload("res://assets/audio/combat_study_swing.wav"),
 	"bow": preload("res://assets/audio/waltz_bow.wav"),
@@ -95,9 +93,6 @@ var hud: Node2D
 var font: SystemFont
 var title: SystemFont
 var enemies: Array[Pursuer] = []
-var enemy_idle: Motion
-var enemy_hit: Motion
-var enemy_fall: Motion
 
 var form := 0
 var wanted_form := 0
@@ -209,9 +204,6 @@ func _ready() -> void:
 		voices[key] = voice
 	get_window().mouse_exited.connect(_show_cursor)
 	get_window().focus_exited.connect(_show_cursor)
-	enemy_idle = Motion.new("idle", ENEMY_LIBRARY)
-	enemy_hit = Motion.new("heavy_hit", ENEMY_LIBRARY)
-	enemy_fall = Motion.new("knockdown_start", ENEMY_LIBRARY)
 	_spawn_enemies()
 	_update_pose()
 
@@ -365,7 +357,7 @@ func _spawn_enemies() -> void:
 	enemies.clear()
 	for i in SPAWNS.size():
 		var enemy := Pursuer.new()
-		enemy.configure(SPAWNS[i], 0.12 * i, enemy_idle, enemy_hit, enemy_fall)
+		enemy.configure(SPAWNS[i], 0.12 * i)
 		add_child(enemy)
 		enemies.append(enemy)
 

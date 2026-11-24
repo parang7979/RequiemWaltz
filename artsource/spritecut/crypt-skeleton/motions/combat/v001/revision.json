@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "id": "v001",
+  "status": "adopted",
+  "character": "../../../materials/v001/character.json",
+  "materials": "../../../materials/v001/revision.json",
+  "recipes": {
+    "front_right": "front_right.json",
+    "back_right": "back_right.json"
+  },
+  "recipe_generator": "../../../authoring/build_crypt_skeleton.py",
+  "sheets": "sheets/clips.json",
+  "runtime_frames": "../../../../../../assets/actors/crypt_skeleton/crypt_skeleton_frames.tres",
+  "previews": {
+    "size_and_poses": "previews/size-and-poses.png",
+    "chamber_1x": "previews/chamber-1x.png"
+  },
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "87e4acc7f7af714e7345268a0424fe67568992b1",
+    "commands": ["rig", "bake"]
+  }
+}

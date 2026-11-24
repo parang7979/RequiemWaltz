@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "views": [
+    {
+      "direction": "front_right",
+      "file": "front_right.png"
+    },
+    {
+      "direction": "back_right",
+      "file": "back_right.png"
+    }
+  ]
+}

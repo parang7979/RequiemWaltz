@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "parts": [
+    {
+      "id": "far_leg"
+    },
+    {
+      "id": "near_leg"
+    },
+    {
+      "id": "far_arm",
+      "parent": "torso"
+    },
+    {
+      "id": "torso"
+    },
+    {
+      "id": "head",
+      "parent": "torso"
+    },
+    {
+      "id": "near_arm",
+      "parent": "torso"
+    }
+  ],
+  "views": {
+    "front_right": {
+      "parts": {
+        "far_leg": {
+          "visibility": "visible",
+          "file": "front_right/far_leg.png",
+          "pivot": [
+            29,
+            40
+          ],
+          "landmarks": {},
+          "order": 0,
+          "pixels": 64,
+          "bounds": [
+            23,
+            44,
+            32,
+            56
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/far_leg.png",
+          "source_pixels": 64,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "near_leg": {
+          "visibility": "visible",
+          "file": "front_right/near_leg.png",
+          "pivot": [
+            34,
+            41
+          ],
+          "landmarks": {},
+          "order": 1,
+          "pixels": 86,
+          "bounds": [
+            32,
+            45,
+            42,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/near_leg.png",
+          "source_pixels": 86,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "far_arm": {
+          "visibility": "visible",
+          "file": "front_right/far_arm.png",
+          "pivot": [
+            27,
+            30
+          ],
+          "landmarks": {},
+          "order": 2,
+          "pixels": 64,
+          "bounds": [
+            21,
+            29,
+            27,
+            45
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/far_arm.png",
+          "source_pixels": 64,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "torso": {
+          "visibility": "visible",
+          "file": "front_right/torso.png",
+          "pivot": [
+            32,
+            41
+          ],
+          "landmarks": {},
+          "order": 3,
+          "pixels": 191,
+          "bounds": [
+            25,
+            26,
+            40,
+            48
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/torso.png",
+          "source_pixels": 191,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "head": {
+          "visibility": "visible",
+          "file": "front_right/head.png",
+          "pivot": [
+            34,
+            26
+          ],
+          "landmarks": {},
+          "order": 4,
+          "pixels": 243,
+          "bounds": [
+            25,
+            12,
+            43,
+            30
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/head.png",
+          "source_pixels": 243,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "near_arm": {
+          "visibility": "visible",
+          "file": "front_right/near_arm.png",
+          "pivot": [
+            37,
+            29
+          ],
+          "landmarks": {},
+          "order": 5,
+          "pixels": 81,
+          "bounds": [
+            35,
+            28,
+            45,
+            43
+          ],
+          "source_visibility": "visible",
+          "observed_file": "front_right/near_arm.png",
+          "source_pixels": 81,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        }
+      },
+      "remainder": "front_right/remainder.png",
+      "reconstructed": "front_right/reconstructed.png",
+      "difference_pixels": 0,
+      "foreground_pixels": 729,
+      "remainder_pixels": 0,
+      "repair_report": {
+        "added_pixels_by_part": {},
+        "added_pixels": 0,
+        "paint_orders": {},
+        "holdout_difference_pixels": 0,
+        "ordinary_blend_difference_pixels": 0
+      }
+    },
+    "back_right": {
+      "parts": {
+        "far_leg": {
+          "visibility": "visible",
+          "file": "back_right/far_leg.png",
+          "pivot": [
+            29,
+            40
+          ],
+          "landmarks": {},
+          "order": 0,
+          "pixels": 64,
+          "bounds": [
+            23,
+            44,
+            32,
+            56
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/far_leg.png",
+          "source_pixels": 64,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "near_leg": {
+          "visibility": "visible",
+          "file": "back_right/near_leg.png",
+          "pivot": [
+            34,
+            41
+          ],
+          "landmarks": {},
+          "order": 1,
+          "pixels": 86,
+          "bounds": [
+            32,
+            45,
+            42,
+            58
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/near_leg.png",
+          "source_pixels": 86,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "far_arm": {
+          "visibility": "visible",
+          "file": "back_right/far_arm.png",
+          "pivot": [
+            27,
+            30
+          ],
+          "landmarks": {},
+          "order": 2,
+          "pixels": 64,
+          "bounds": [
+            21,
+            29,
+            27,
+            45
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/far_arm.png",
+          "source_pixels": 64,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "torso": {
+          "visibility": "visible",
+          "file": "back_right/torso.png",
+          "pivot": [
+            32,
+            41
+          ],
+          "landmarks": {},
+          "order": 3,
+          "pixels": 191,
+          "bounds": [
+            25,
+            26,
+            40,
+            48
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/torso.png",
+          "source_pixels": 191,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "head": {
+          "visibility": "visible",
+          "file": "back_right/head.png",
+          "pivot": [
+            34,
+            26
+          ],
+          "landmarks": {},
+          "order": 4,
+          "pixels": 243,
+          "bounds": [
+            25,
+            12,
+            43,
+            30
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/head.png",
+          "source_pixels": 243,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        },
+        "near_arm": {
+          "visibility": "visible",
+          "file": "back_right/near_arm.png",
+          "pivot": [
+            37,
+            29
+          ],
+          "landmarks": {},
+          "order": 5,
+          "pixels": 81,
+          "bounds": [
+            35,
+            28,
+            45,
+            43
+          ],
+          "source_visibility": "visible",
+          "observed_file": "back_right/near_arm.png",
+          "source_pixels": 81,
+          "repair_pixels": 0,
+          "reconstruction": "observed"
+        }
+      },
+      "remainder": "back_right/remainder.png",
+      "reconstructed": "back_right/reconstructed.png",
+      "difference_pixels": 0,
+      "foreground_pixels": 729,
+      "remainder_pixels": 0,
+      "repair_report": {
+        "added_pixels_by_part": {},
+        "added_pixels": 0,
+        "paint_orders": {},
+        "holdout_difference_pixels": 0,
+        "ordinary_blend_difference_pixels": 0
+      }
+    }
+  },
+  "rotation_pairs": [],
+  "pivot": [
+    32,
+    58
+  ],
+  "compositor": "observed_holdout_v1"
+}

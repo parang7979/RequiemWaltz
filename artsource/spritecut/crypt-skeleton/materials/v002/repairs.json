@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "views": {
+    "front_right": {
+      "left_upper_arm": "underpaint/front_right_left_upper_arm.png",
+      "right_thigh": "underpaint/front_right_right_thigh.png",
+      "left_thigh": "underpaint/front_right_left_thigh.png",
+      "chest": "underpaint/front_right_chest.png"
+    },
+    "back_right": {
+      "left_upper_arm": "underpaint/back_right_left_upper_arm.png",
+      "right_thigh": "underpaint/back_right_right_thigh.png",
+      "left_thigh": "underpaint/back_right_left_thigh.png",
+      "chest": "underpaint/back_right_chest.png"
+    }
+  }
+}

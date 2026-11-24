@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "id": "v003",
+  "clip": "combat",
+  "status": "adopted",
+  "direction": "front_right",
+  "character": "../../../materials/v002/character.json",
+  "parent": "../v002/revision.json",
+  "parent_source": "explicit",
+  "materials": "../../../materials/v002/revision.json",
+  "recipe_generator": "../../../authoring/bake_combat_v003.py",
+  "recipes": "recipes/",
+  "tracks": "tracks/",
+  "sheets": "sheets/clips.json",
+  "previews": {
+    "side_by_side": "previews/death-comparison.gif",
+    "end_poses": "previews/death-end-poses.png",
+    "chamber_1x": "previews/chamber-falls-1x.png"
+  },
+  "review": "The two collapse clips replace only the color atlases in Godot. They preserve the eight frame rectangles, 720 ms duration, and (32, 58) pivot. End pose head-to-heel midpoint offsets are (-16.9, -16.4) px in front_right and (-17.8, +11.4) px in back_right. All frames fit their cells."
+}

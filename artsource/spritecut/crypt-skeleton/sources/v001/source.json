@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "origin": "Original pixel artwork",
+  "files": {
+    "front_right": {
+      "file": "originals/front_right.png",
+      "sha256": "13f7a3fa96e031a0bcf52e754193cbd74704d0e460fabe41077300efed7a6315"
+    },
+    "back_right": {
+      "file": "originals/back_right.png",
+      "sha256": "1446f28ae3418b292f5ff36290cc07319f21056ab0f89a63cf7c3a8a24a1ed13"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "id": "v002",
+  "parent": "v001",
+  "status": "adopted",
+  "stage": "articulated",
+  "sources": "../../sources/v002/source.json",
+  "recipe": "turnaround.json",
+  "views": "prepared/views.json",
+  "character": "character.json",
+  "joints": "joints.json",
+  "parts": "parts/index.json",
+  "preparation": "../../authoring/prepare_combat_v002.py",
+  "cell": [64, 64],
+  "pivot": [32, 58],
+  "neutral_height_px": 46,
+  "previews": {
+    "registered_art": "prepared/review.png",
+    "registration_report": "prepared/review.json",
+    "pixels_native": "prepared/pixels.png",
+    "pixels_3x": "prepared/pixels-3x.png",
+    "waltz_scale": "previews/scale-comparison-3x.png"
+  },
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "87e4acc7f7af714e7345268a0424fe67568992b1",
+    "commands": ["views inspect", "views prepare", "parts", "parts-repair"]
+  },
+  "review": "All five views fit their crops and prepared cells. Both rigged directions reconstruct the registered RGBA cells with zero differences using observed holdout. The chin is occluded in the back view."
+}

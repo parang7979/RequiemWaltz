@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "clips": {
+    "idle_front_right": {
+      "maps": {
+        "color": "idle_front_right_color.png",
+        "normal": "idle_front_right_normal.png",
+        "emissive": "idle_front_right_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 210,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 240,
+          "contacts": []
+        }
+      ]
+    },
+    "walk_front_right": {
+      "maps": {
+        "color": "walk_front_right_color.png",
+        "normal": "walk_front_right_normal.png",
+        "emissive": "walk_front_right_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 80,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        }
+      ]
+    },
+    "windup_front_right": {
+      "maps": {
+        "color": "windup_front_right_color.png",
+        "normal": "windup_front_right_normal.png",
+        "emissive": "windup_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 85,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 160,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 50,
+          "contacts": []
+        }
+      ]
+    },
+    "recover_front_right": {
+      "maps": {
+        "color": "recover_front_right_color.png",
+        "normal": "recover_front_right_normal.png",
+        "emissive": "recover_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 82,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 104,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 124,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 210,
+          "contacts": []
+        }
+      ]
+    },
+    "hit_front_right": {
+      "maps": {
+        "color": "hit_front_right_color.png",
+        "normal": "hit_front_right_normal.png",
+        "emissive": "hit_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 60,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 85,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 70,
+          "contacts": []
+        }
+      ]
+    },
+    "collapse_front_right": {
+      "maps": {
+        "color": "collapse_front_right_color.png",
+        "normal": "collapse_front_right_normal.png",
+        "emissive": "collapse_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 66,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 74,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 270,
+          "contacts": []
+        }
+      ]
+    },
+    "idle_back_right": {
+      "maps": {
+        "color": "idle_back_right_color.png",
+        "normal": "idle_back_right_normal.png",
+        "emissive": "idle_back_right_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 210,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 240,
+          "contacts": []
+        }
+      ]
+    },
+    "walk_back_right": {
+      "maps": {
+        "color": "walk_back_right_color.png",
+        "normal": "walk_back_right_normal.png",
+        "emissive": "walk_back_right_emissive.png"
+      },
+      "loop": true,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 80,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        }
+      ]
+    },
+    "windup_back_right": {
+      "maps": {
+        "color": "windup_back_right_color.png",
+        "normal": "windup_back_right_normal.png",
+        "emissive": "windup_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 65,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 85,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 160,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 50,
+          "contacts": []
+        }
+      ]
+    },
+    "recover_back_right": {
+      "maps": {
+        "color": "recover_back_right_color.png",
+        "normal": "recover_back_right_normal.png",
+        "emissive": "recover_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 82,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 104,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 124,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 210,
+          "contacts": []
+        }
+      ]
+    },
+    "hit_back_right": {
+      "maps": {
+        "color": "hit_back_right_color.png",
+        "normal": "hit_back_right_normal.png",
+        "emissive": "hit_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 60,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 85,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 70,
+          "contacts": []
+        }
+      ]
+    },
+    "collapse_back_right": {
+      "maps": {
+        "color": "collapse_back_right_color.png",
+        "normal": "collapse_back_right_normal.png",
+        "emissive": "collapse_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 66,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 74,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 75,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 270,
+          "contacts": []
+        }
+      ]
+    }
+  }
+}
