@@ -2,7 +2,7 @@
   "version": 1,
   "id": "v005",
   "clip": "combat",
-  "status": "adopted",
+  "status": "candidate",
   "direction": "back_right",
   "character": "../../../materials/v002/character.json",
   "parent": "../v004/revision.json",
@@ -15,5 +15,6 @@
   "tracks": "tracks/",
   "sheets": "sheets/clips.json",
   "previews": {"rear_foot_comparison": "previews/rear-foot-comparison.gif"},
+  "decision": "Review selected the v004 motion after comparing the backward falls.",
   "review": "Only the rear collapse is rebaked. Its entry holds the original standing boots and ankle poses. The floor projection uses the same registered boot surfaces and joins each leg to the original ankle. Both rigs share the feet across all 12 cells at pivot (48, 58) and 720 ms. The rendered left and right sole pixels at (41, 56) and (52, 57) remain visible at the same coordinates across both stages. The front clip inherits v004."
 }

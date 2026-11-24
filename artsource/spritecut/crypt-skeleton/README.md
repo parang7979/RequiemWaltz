@@ -9,9 +9,8 @@
 [재료 기록](materials/v002/revision.json) · [ImageGen 프롬프트](sources/v002/imagegen-prompt.txt)
 
 <a id="전투-모션-v003"></a>
-<a id="전투-모션-v004"></a>
 
-## 전투 모션 v005
+## 전투 모션 v004
 
 우측전면과 우측후면에서 팔꿈치와 무릎, 손목과 발목을 나눴다. 게임은 반대쪽 이동에 좌우 반전을 사용한다. [Godot 사망 자세 1배율 화면](motions/combat/v004/previews/chamber-contact-1x.png) · [이동·공격 대표 자세](motions/combat/v002/previews/motion-poses-2x.png)
 
@@ -20,17 +19,17 @@
 | 이동 | 양발이 지면을 번갈아 딛는 440ms 루프. 반대쪽 팔과 허리 천이 따라온다. | [이동](motions/combat/v002/previews/walk.gif) |
 | 피격 | 두개골과 흉곽이 뒤로 튕기고 290ms 동안 자세를 되찾는다. | [피격](motions/combat/v002/previews/hit.gif) |
 | 공격 | 팔을 당겨 360ms 동안 예고한다. 내지르는 첫 셀에 타격 판정이 나고 520ms 동안 팔을 거둔다. | [공격](motions/combat/v002/previews/attack.gif) |
-| 사망 | 바라보던 방향의 반대쪽 대각선으로 쓰러진다. 흉곽과 얼굴이 위를 향하고, 등이 닿은 뒤 두개골이 마지막으로 내려앉는다. 12프레임, 전체 720ms. | [후면 발 위치 전후 비교](motions/combat/v005/previews/rear-foot-comparison.gif) |
+| 사망 | 바라보던 방향의 반대쪽 대각선으로 쓰러진다. 흉곽과 얼굴이 위를 향하고, 등이 닿은 뒤 두개골이 마지막으로 내려앉는다. 12프레임, 전체 720ms. | [사망 전후 비교](motions/combat/v004/previews/fall-comparison.gif) |
 
 왈츠 사망 모션과 같은 방식으로 두 발의 접지점을 맞추고, 몸통의 길이만 눕는 축을 따라 줄였다. [바닥 자세 원화](sources/v003/originals/supine-contact.png)에서 분리한 흉곽과 두개골은 각각 움직인다. 사망 셀은 96×96px이며 발 피벗의 높이는 58px이다.
 
-v005 후면 동작에서는 첫 프레임의 두 발 그림과 발목 위치를 끝까지 유지한다. 바닥 자세의 다리는 그 발목에 이어지며, 발밑 표시가 있는 비교 GIF로 실제 발 픽셀을 확인할 수 있다. 전면 사망 모션은 v004 시트를 사용한다.
+후면의 발 위치를 고정한 [v005 비교본](motions/combat/v005/previews/rear-foot-comparison.gif)을 검수한 뒤 v004를 채택했다.
 
-게임 루트에서 후면 사망 모션의 컬러·노멀·이미시브 시트를 다시 굽는다. `--publish`가 후면 컬러 시트만 게임에 적용한다.
+게임 루트에서 사망 모션의 컬러·노멀·이미시브 시트를 다시 굽는다. `--publish`가 컬러 시트 두 장과 SpriteFrames를 게임에 적용한다. 이동·피격·공격의 v002 시트가 먼저 있어야 한다.
 
 ~~~powershell
-../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/crypt-skeleton/authoring/bake_combat_v005.py
-../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/crypt-skeleton/authoring/bake_combat_v005.py --publish
+../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/crypt-skeleton/authoring/bake_combat_v004.py
+../SpriteCut/.venv/Scripts/python.exe artsource/spritecut/crypt-skeleton/authoring/bake_combat_v004.py --publish
 ~~~
 
-[동작 레시피와 시트](motions/combat/v005/revision.json) · [Windows SpriteCut 뷰어](spritecut-viewer.cmd) · [v004](motions/combat/v004/revision.json) · [v003](motions/combat/v003/revision.json) · [v002](motions/combat/v002/revision.json)
+[동작 레시피와 시트](motions/combat/v004/revision.json) · [Windows SpriteCut 뷰어](spritecut-viewer.cmd) · [v003](motions/combat/v003/revision.json) · [v002](motions/combat/v002/revision.json)
