@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 
 from PIL import Image, ImageDraw, ImageFont
 
-from render_requiem_chain_preview import ACTORS, ROOT, STUDIES, actor_frame, load_rgba, rotated_sword
+from render_requiem_chain_preview import ACTORS, ROOT, STUDIES, actor_frame, floor_crop, load_rgba, rotated_sword
 
 
 FORMS = ("hand", "bow", "cannon")
@@ -185,8 +185,7 @@ def build(staging):
         clip = manifest["clips"][name]
         sprites.append((crop(load_rgba(FORM_DIR / clip["maps"]["color"]), clip["frames"][0]), clip["pivot"]))
     waltz, blade = sprites
-    arena = load_rgba(ROOT / "assets/rooms/seal_chamber.png")
-    floor = arena.crop((207, 152, 207 + PANEL[0], 152 + PANEL[1]))
+    floor = floor_crop(207, 152, *PANEL)
 
     times = list(range(0, PERIOD, STEP))
     poses = [(time, kind, poses_for_time(time, forms[kind])) for time in times for kind in FORMS]

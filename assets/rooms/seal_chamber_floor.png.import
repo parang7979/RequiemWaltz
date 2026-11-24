@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deoosmxq01wnn"
-path="res://.godot/imported/seal_chamber.png-562eba88ed706dcc39642a61f1a17733.ctex"
+uid="uid://d1w6hhf8gdso8"
+path="res://.godot/imported/seal_chamber_floor.png-6e65e4050a46b4e8d89661b6494ab8a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/seal_chamber.png"
-dest_files=["res://.godot/imported/seal_chamber.png-562eba88ed706dcc39642a61f1a17733.ctex"]
+source_file="res://assets/rooms/seal_chamber_floor.png"
+dest_files=["res://.godot/imported/seal_chamber_floor.png-6e65e4050a46b4e8d89661b6494ab8a3.ctex"]
 
 [params]
 

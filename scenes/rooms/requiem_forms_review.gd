@@ -8,7 +8,6 @@ const WALK_TEXTURES := {
 	"front_right": preload("res://assets/actors/waltz_walk/walk_front_right_color.png"),
 	"back_right": preload("res://assets/actors/waltz_walk/walk_back_right_color.png"),
 }
-const ARENA = preload("res://assets/rooms/seal_chamber.png")
 const TAIL = preload("res://assets/vfx/requiem_forms/tail.tres")
 const REFORM = preload("res://assets/vfx/requiem_forms/shift.tres")
 const DISPERSE = preload("res://assets/vfx/requiem_forms/disperse.tres")
@@ -1026,7 +1025,6 @@ func _draw_bowstring() -> void:
 
 
 func _draw() -> void:
-	draw_texture(ARENA, Vector2.ZERO)
 	draw_rect(Rect2(player.round() - Vector2(12, 2), Vector2(24, 4)), Color("#21182b"))
 	if is_instance_valid(true_requiem) and true_requiem.visible:
 		var shadow := Color("#2a2036")

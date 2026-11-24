@@ -20,6 +20,12 @@ def load_rgba(path):
         return image.convert("RGBA")
 
 
+def floor_crop(x, y, width, height):
+    floor = load_rgba(ROOT / "assets/rooms/seal_chamber_floor.png")
+    local_y = y - 112  # The floor starts at y=112 in the room scene.
+    return floor.crop((x, local_y, x + width, local_y + height))
+
+
 def sprite_frame(path, rect):
     return load_rgba(path).crop(
         (rect["x"], rect["y"], rect["x"] + rect["w"], rect["y"] + rect["h"])
@@ -59,8 +65,7 @@ def compose(staging):
     atlas = load_rgba(staging / "effects.png")
     frames = preview["atlas"]["frames"]
     size = (frames[0]["frame"]["w"], frames[0]["frame"]["h"])
-    arena = load_rgba(ROOT / "assets/rooms/seal_chamber.png")
-    floor = arena.crop((146, 146, 146 + size[0], 146 + size[1]))
+    floor = floor_crop(146, 146, *size)
 
     forms = ACTORS / "requiem_forms"
     clips = json.loads((forms / "clips.json").read_text(encoding="utf-8"))["clips"]

@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scenes/rooms/requiem_forms_review.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/rooms/seal_chamber_floor.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/rooms/seal_chamber_wall.png" id="3"]
 
 [node name="RequiemFormsReview" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1")
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(0, 112)
+texture = ExtResource("2")
+centered = false
+
+[node name="Wall" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 44)
+texture = ExtResource("3")
+centered = false
