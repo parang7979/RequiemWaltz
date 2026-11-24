@@ -1,5 +1,6 @@
 extends Node2D
 
+const GROUND_SHADOW := preload("res://assets/vfx/ground_shadow.tres")
 const FRAMES := preload("res://assets/actors/crypt_skeleton/crypt_skeleton_frames.tres")
 const WALK_SPEED := 65.0
 const WINDUP_TIME := 0.36
@@ -138,19 +139,18 @@ func _update_sprite() -> void:
 
 
 func _draw_ground() -> void:
-	var shade := Color("#21182b")
-	if phase != Phase.FALL:
-		draw_rect(Rect2(-10, -2, 20, 4), shade)
-		return
-	var contact := smoothstep(FALL_PLANT_TIME, FALL_FLOOR_TIME, elapsed)
-	var opacity := paint.modulate.a
-	shade.a = opacity * lerpf(1.0, 0.28, contact)
-	draw_rect(Rect2(-10, -2, 20, 4), shade)
+	var contact := 0.0
+	var opacity := 1.0
+	if phase == Phase.FALL:
+		contact = smoothstep(FALL_PLANT_TIME, FALL_FLOOR_TIME, elapsed)
+		opacity = paint.modulate.a
+	var shade := Color(1.0, 1.0, 1.0, opacity * lerpf(1.0, 0.28, contact))
+	draw_texture_rect(GROUND_SHADOW, Rect2(-11, -4, 22, 8), false, shade)
 	if contact > 0.0:
 		var body := Vector2(-13.0 * facing, 8.5 if back_view else -12.5)
 		shade.a = opacity * contact * 0.72
-		draw_set_transform(body * contact, body.angle(), Vector2(1.55, 0.46))
-		draw_circle(Vector2.ZERO, 11.0, shade)
+		draw_set_transform((body * contact).round(), body.angle())
+		draw_texture_rect(GROUND_SHADOW, Rect2(-18, -6, 36, 12), false, shade)
 		draw_set_transform(Vector2.ZERO)
 
 

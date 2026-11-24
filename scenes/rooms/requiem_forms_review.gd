@@ -1,5 +1,7 @@
 extends Node2D
 
+const GROUND_SHADOW := preload("res://assets/vfx/ground_shadow.tres")
+
 const BUNDLE := "res://assets/actors/requiem_forms/"
 const WALK_BUNDLE := "res://assets/actors/waltz_walk/"
 const REACTION_BUNDLE := "res://assets/actors/waltz_reactions/"
@@ -1074,13 +1076,16 @@ func _draw_bowstring() -> void:
 
 
 func _draw() -> void:
-	draw_rect(Rect2(player.round() - Vector2(12, 2), Vector2(24, 4)), Color("#21182b"))
+	var shadow_size := Vector2(26, 10)
+	draw_texture_rect(GROUND_SHADOW, Rect2(player.round() - shadow_size * 0.5, shadow_size), false)
 	if is_instance_valid(true_requiem) and true_requiem.visible:
-		var shadow := Color("#2a2036")
-		shadow.a = true_requiem.modulate.a
-		draw_rect(Rect2(true_requiem.position + Vector2(-19, 31), Vector2(38, 4)), shadow)
+		var shade := Color(1.0, 1.0, 1.0, true_requiem.modulate.a * 0.64)
+		draw_texture_rect(GROUND_SHADOW, Rect2(true_requiem.position + Vector2(-20, 27),
+			Vector2(40, 12)), false, shade)
 	elif armor != null and armor.visible:
-		draw_rect(Rect2(rig_at + Vector2(-28, 24), Vector2(56, 4)), Color("#2a2036"))
+		var shade := Color(1.0, 1.0, 1.0, armor.modulate.a * 0.64)
+		draw_texture_rect(GROUND_SHADOW, Rect2(rig_at.round() + Vector2(-28, 20),
+			Vector2(56, 12)), false, shade)
 
 
 func _draw_hud() -> void:
