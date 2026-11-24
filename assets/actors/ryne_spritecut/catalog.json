@@ -17,7 +17,7 @@
     "group": "이동 · 기본",
     "label": "달리기",
     "clip": "run",
-    "version": "v012",
+    "version": "v015",
     "manifest": "res://assets/actors/ryne_spritecut/motions/run/clips.json"
   },
   {

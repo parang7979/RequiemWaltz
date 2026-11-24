@@ -39,7 +39,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- |
 | [대기](ryne/productions/pilot-01/motions/idle/v002/previews/full-speed.gif) | `idle` | v002 | v002 | 48 | 1,920ms | 검수본 |
 | [걷기](ryne/productions/pilot-01/motions/walk/v003/previews/full-speed.png) | `walk` | v003 | v002 | 48 | 1,200ms | 검수본 |
-| [달리기](ryne/productions/pilot-01/motions/run/v012/previews/full-speed.gif) | `run` | v012 | v002 | 24 | 720ms | 채택 기준 |
+| [달리기](ryne/motions/run/v015/causeway-1x-speed.webp) | `run` | v015 | v002 | 24 | 720ms | 채택 기준 |
 | [팔 스윙](ryne/productions/pilot-01/motions/arm_swing/v002/previews/full-speed.gif) | `arm_swing` | v002 | v001 | 24 | 960ms | 검수본 |
 | [점프](ryne/productions/pilot-01/motions/jump/v003/previews/full-speed.gif) | `jump` | v003 | v004 | 26 | 1,160ms | 검수본 |
 | [전방 대시](ryne/productions/pilot-01/motions/dash_forward/v001/previews/full-speed.gif) | `dash_forward` | v001 | v004 | 15 | 380ms | 검증된 후보 |
@@ -58,7 +58,9 @@
 
 Godot 미리보기는 시트를 전환할 때 컬러·노말과 발광 스프라이트의 오프셋을 각각 해당 시트의 `-pivot`으로 설정한다. 카탈로그의 모든 셀을 피벗 기준으로 겹친 범위에서 창에 맞는 공통 배율과 바닥 위치를 구하므로 크기가 다른 모션으로 바꿔도 캐릭터의 배율과 접지 기준점이 유지된다.
 
-제작 루트는 `artsource/spritecut/ryne/productions/pilot-01`이다. 새 클립에 사용할 재료는 v002, 앞대각 달리기 기준은 run v012다. 같은 루트의 [제작 기준표](ryne/productions/pilot-01/selection.json)에서 채택본과 검수본을 구분한다. 달리기 한 주기는 720ms·40px이며 F23·F24·다음 F01에 왼무릎이 고관절 뒤에 있다. [실제 속도 전후 비교](ryne/productions/pilot-01/motions/run/v012/previews/gait/before-after.gif)
+제작 루트는 `artsource/spritecut/ryne/productions/pilot-01`이다. 새 클립에 사용할 재료는 v002, 앞대각 달리기 기준은 run v015다. 같은 루트의 [제작 기준표](ryne/productions/pilot-01/selection.json)에서 채택본과 검수본을 구분한다. 달리기 한 주기는 720ms·40px이며 F23·F24·다음 F01에 왼무릎이 고관절 뒤에 있다. [실제 속도 전후 비교](ryne/motions/run/v015/causeway-1x-speed.webp)
+
+리네의 앞대각 달리기 v015는 머리카락의 Lanczos 색을 유지하고 양쪽 홍채와 재킷 자락을 보정한 채택본이다. Godot 석교에서 오른쪽으로 약 176px를 달리며 24프레임 전체가 표시되는 것을 확인했다. 엔진에서 읽은 세 재질의 가시 색과 전체 알파 값은 v015 시트와 일치했다. [석교 검증 결과](ryne/motions/run/v015/gameplay-check/causeway-run-check.json) · [실제 게임 캡처](ryne/motions/run/v015/gameplay-check/causeway-run-tick-27.png)
 
 현재 SpriteCut 작업본으로 새 모션을 시작할 때는 게임 루트에서 `python tools/spritecut_cli.py motion-start artsource/spritecut/ryne/productions/pilot-01 클립명`을 실행한다. 각 작업은 출력된 버전을 사용한다. 준비한 드라이버는 대기·걷기·달리기·팔 스윙이며 단발 동작은 방향별 리그의 키 포즈와 타이밍을 저작한다.
 
