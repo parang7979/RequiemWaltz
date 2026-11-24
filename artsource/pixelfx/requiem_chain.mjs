@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { drawSpectralLink, drawSpectralSpirit } from "./requiem_chain_spirit.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const forms = JSON.parse(readFileSync(resolve(root, "assets/actors/requiem_forms/clips.json"), "utf8"));
@@ -8,7 +9,8 @@ const pommel = [3, forms.clips.sword.pivot[1]];
 const tip = forms.sword_tip[0] + forms.clips.sword.pivot[0] - pommel[0];
 const edge = forms.sword_edge_from + forms.clips.sword.pivot[0] - pommel[0];
 
-const floating = process.argv[3] === "v003";
+const spectral = process.argv[3] === "v004";
+const floating = spectral || process.argv[3] === "v003";
 const timing = { windup: .24, launch: .40, fullReach: .60, pull: .68, catch: .94, settle: 1.18 };
 const meta = {
   name: "Requiem chain return", size: [350, 144], origin: [0, 0],
@@ -89,7 +91,8 @@ function spiritAnchor(time) {
   const reach = smooth(progress(time, timing.launch, timing.fullReach))
     * (1 - smooth(progress(time, timing.pull, timing.catch)));
   const hover = Math.sin(2 * Math.PI * time / meta.duration);
-  return [109 + 4 * reach - 3 * recoil, 86 - 2 * hover - 3 * reach + recoil];
+  const idleX = spectral ? 122 : 109;
+  return [idleX + 4 * reach - 3 * recoil, 86 - 2 * hover - 3 * reach + recoil];
 }
 
 function chainPath(current, time) {
@@ -138,7 +141,7 @@ function drawLink(p, x, y, angle, face, alpha) {
   p.blend(...point([3.7, 2.6]), orchid, alpha * .65);
 }
 
-function drawChain(p, chain) {
+function drawChain(p, chain, phase) {
   const total = chain.at(-1).length;
   // Measure from the sword so the last link stays on the pommel through the turn.
   let segment = chain.length - 1;
@@ -149,8 +152,12 @@ function drawChain(p, chain) {
     const to = chain[segment];
     const u = (distance - from.length) / (to.length - from.length);
     const angle = Math.atan2(to.y - from.y, to.x - from.x);
-    drawLink(p, mix(from.x, to.x, u), mix(from.y, to.y, u), angle, link % 2 === 0,
-      mix(.52, 1, clamp(distance / 13)));
+    const x = mix(from.x, to.x, u);
+    const y = mix(from.y, to.y, u);
+    const strength = mix(.52, 1, clamp(distance / 13));
+    const faceOn = link % 2 === 0;
+    if (spectral) drawSpectralLink(p, x, y, angle, faceOn, strength, phase * 3 - link * .53);
+    else drawLink(p, x, y, angle, faceOn, strength);
   }
 }
 
@@ -273,10 +280,12 @@ const effect = {
   draw(p, time) {
     const current = pose(time);
     const chain = chainPath(current, time);
+    const phase = 2 * Math.PI * time / meta.duration;
     if (floating) drawCastTrail(p, current, time);
     drawReturnTrail(p, time);
-    drawChain(p, chain);
-    if (floating) drawSpirit(p, chain, time);
+    drawChain(p, chain, phase);
+    if (spectral) drawSpectralSpirit(p, chain, phase);
+    else if (floating) drawSpirit(p, chain, time);
     for (const hit of hits) drawContact(p, time, hit);
   },
 };

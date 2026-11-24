@@ -129,7 +129,7 @@ def save_gif(staging, destination):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", choices=("v002", "v003"), default="v003")
+    parser.add_argument("--version", choices=("v002", "v003", "v004"), default="v004")
     version = parser.parse_args().version
     study = STUDIES / version
     study.mkdir(parents=True, exist_ok=True)
