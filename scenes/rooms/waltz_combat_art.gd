@@ -3,7 +3,7 @@ extends Node2D
 const Logic = preload("res://scenes/rooms/waltz_combat.gd")
 const CHAMBER = preload("res://assets/waltz_combat/chamber.png")
 const WALTZ = preload("res://assets/waltz_combat/waltz.png")
-const REQUIEM = preload("res://assets/waltz_combat/requiem.png")
+const TrueForm = preload("res://scenes/actors/requiem_true_form.gd")
 const SPIRIT = preload("res://assets/waltz_combat/weapon_spirit.png")
 const WEAPONS = preload("res://assets/waltz_combat/weapons.png")
 const GUARD = preload("res://assets/waltz_combat/imp.png")
@@ -113,10 +113,16 @@ func _draw_seal() -> void:
 				var p := outer.lerp(core, float(link) / 6.0).round()
 				draw_rect(Rect2(p - Vector2(2, 1), Vector2(4, 3)), Color("#bd86a6"), false)
 	if talking:
-		var bob := roundf(sin(game.ticks * 0.075) * 2.0)
+		var elapsed := float(game.ticks - game.pact_started) / 60.0
+		var rise := smoothstep(0.0, 0.50, elapsed)
+		var bob := sin(elapsed * TAU / 1.6) * 2.0
 		for ring in range(3):
 			_ellipse(at + Vector2(0, 4 - 7 * ring), Vector2(36 - ring * 5, 12 - ring * 2), AMETHYST, 0.60)
-		draw_texture(REQUIEM, at + Vector2(-48, -77 + bob))
+		var center := at + Vector2(0, lerpf(-18.0, -46.0, rise) + bob * rise)
+		draw_set_transform(center.round(), 0.0, Vector2.ONE * lerpf(0.52, 0.87, rise))
+		draw_texture(TrueForm.texture_at(TrueForm.IDLE, elapsed), -TrueForm.PIVOT,
+			Color(1, 1, 1, smoothstep(0.0, 0.24, elapsed)))
+		draw_set_transform(Vector2.ZERO)
 
 
 func _draw_aura() -> void:

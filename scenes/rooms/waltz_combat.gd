@@ -91,6 +91,7 @@ var sweep_origin := Vector2.ZERO
 var hitstop := 0
 var shake := 0
 var ticks := 0
+var pact_started := 0
 var form_flash := 0
 var extra_damage := 0
 var haste := false
@@ -179,6 +180,7 @@ func _release_pointer() -> void:
 func _interact() -> void:
 	if phase == Phase.SEALED and player.distance_to(SEAL) < 101.0:
 		phase = Phase.PACT
+		pact_started = ticks
 		velocity = Vector2.ZERO
 		bursts.append(Burst.new(&"seal", SEAL, 0.0))
 		voices[&"seal"].play()

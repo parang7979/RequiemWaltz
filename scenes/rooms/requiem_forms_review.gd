@@ -12,6 +12,7 @@ const ARENA = preload("res://assets/waltz_combat/chamber.png")
 const TAIL = preload("res://assets/vfx/requiem_forms/tail.tres")
 const REFORM = preload("res://assets/vfx/requiem_forms/shift.tres")
 const DISPERSE = preload("res://assets/vfx/requiem_forms/disperse.tres")
+const TrueForm = preload("res://scenes/actors/requiem_true_form.gd")
 const BOW_FLASH = preload("res://assets/vfx/requiem_forms/bow_release.tres")
 const CANNON_FLASH = preload("res://assets/vfx/requiem_forms/cannon_release.tres")
 const HAND_CUT = preload("res://assets/vfx/requiem_forms/hand_cut.tres")
@@ -83,8 +84,6 @@ var armor: Sprite2D
 var sword: Sprite2D
 var spirit: AnimatedSprite2D
 var true_requiem: Sprite2D
-var true_tail: Node2D
-var true_tail_glow: Node2D
 var fluid: AnimatedSprite2D
 var hand_cut: AnimatedSprite2D
 var bolt: Sprite2D
@@ -122,9 +121,6 @@ var hurt_direction := Vector2.ZERO
 var defeat_elapsed := -1.0
 var defeat_mount := Vector2.ZERO
 var defeat_side := 1.0
-var tail_tip := Vector2.ZERO
-var tail_velocity := Vector2.ZERO
-var tail_previous_anchor := Vector2.ZERO
 var impact_ticks := 0
 var walk_heading := Vector2(1, 1)
 var walk_time_ms := 0.0
@@ -177,16 +173,8 @@ func _ready() -> void:
 	sword = _new_sword()
 	spirit = _effect(TAIL, Vector2(55, 27), 2, true)
 	true_requiem = _sprite(5)
+	true_requiem.offset = -TrueForm.PIVOT
 	true_requiem.hide()
-	true_tail = Node2D.new()
-	true_tail.z_index = 4
-	true_tail.draw.connect(_draw_true_tail)
-	add_child(true_tail)
-	true_tail_glow = Node2D.new()
-	true_tail_glow.material = emissive
-	true_tail_glow.draw.connect(_draw_true_tail_glow)
-	true_tail.add_child(true_tail_glow)
-	true_tail.hide()
 	bowstring = Node2D.new()
 	bowstring.z_index = 4
 	add_child(bowstring)
@@ -320,7 +308,6 @@ func _reset() -> void:
 	hurt_direction = Vector2.ZERO
 	defeat_elapsed = -1.0
 	true_requiem.hide()
-	true_tail.hide()
 	armor.modulate = Color.WHITE
 	armor.show()
 	spirit.modulate = Color.WHITE
@@ -594,8 +581,6 @@ func _start_defeat() -> void:
 	defeat_elapsed = 0.0
 	defeat_mount = rig_at
 	defeat_side = -1.0 if defeat_mount.x < player.x else 1.0
-	tail_tip = Vector2(defeat_side * 11.0, 17.0)
-	tail_velocity = Vector2.ZERO
 	_begin("exit")
 	if is_instance_valid(fluid):
 		fluid.queue_free()
@@ -648,16 +633,14 @@ func _update_defeat(delta: float) -> void:
 		var body_scale := lerpf(0.57, 0.73, approach)
 		var untether := smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
 		var anchor := defeat_mount.lerp(beside, approach) + Vector2(defeat_side * untether * 6.0, bob - untether * 14.0)
-		_set_defeat_cell(true_requiem, "requiem_concern", elapsed * 1000.0)
+		true_requiem.texture = TrueForm.texture_at(TrueForm.CONCERN, elapsed)
 		true_requiem.position = anchor.round()
 		true_requiem.scale = Vector2(-defeat_side, 1.0) * body_scale
 		true_requiem.modulate.a = smoothstep(0.0, 0.10, elapsed) * (1.0 - untether)
 		true_requiem.show()
 		spirit.hide()
-		_update_true_tail(delta, elapsed, anchor + Vector2(0.0, body_scale * 9.0))
 	elif defeat_elapsed >= DEFEAT_VANISH_TIME:
 		true_requiem.hide()
-		true_tail.hide()
 	queue_redraw()
 	bowstring.queue_redraw()
 	hud.queue_redraw()
@@ -666,50 +649,6 @@ func _update_defeat(delta: float) -> void:
 func _set_defeat_cell(sprite: Sprite2D, id: String, elapsed_ms: float) -> void:
 	var motion: Dictionary = defeat_manifest.clips[id]
 	_set_sprite_cell(sprite, defeat_textures[id], motion.frames[_frame_at(motion.frames, elapsed_ms)], motion.pivot)
-
-
-func _update_true_tail(delta: float, elapsed: float, anchor: Vector2) -> void:
-	if not true_tail.visible:
-		tail_previous_anchor = anchor
-		true_tail.show()
-	var drag := (anchor - tail_previous_anchor).limit_length(4.0) * 4.2
-	var rest := Vector2(defeat_side * (24.0 + sin(elapsed * 4.6) * 1.8), 20.0 + sin(elapsed * 4.6 + 0.6) * 1.5)
-	var untether := smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
-	rest += Vector2(defeat_side * 15.0, -14.0) * untether
-	tail_velocity += ((rest - drag - tail_tip) * 116.0 - tail_velocity * 13.0) * delta
-	tail_tip += tail_velocity * delta
-	tail_previous_anchor = anchor
-	true_tail.position = anchor.round()
-	true_tail.modulate.a = true_requiem.modulate.a
-	true_tail.queue_redraw()
-	true_tail_glow.queue_redraw()
-
-
-func _tail_curve(u: float) -> Vector2:
-	var bend := Vector2(-defeat_side * 9.0, 18.0)
-	var curl := Vector2(tail_tip.x * 0.62, tail_tip.y + 15.0)
-	return Vector2.ZERO.bezier_interpolate(bend, curl, tail_tip, u)
-
-
-func _draw_true_tail() -> void:
-	var centerline := PackedVector2Array()
-	var radius := PackedFloat32Array()
-	for i in 25:
-		var u := float(i) / 24.0
-		centerline.append(_tail_curve(u).round())
-		radius.append(maxf(0.65, 7.0 * pow(1.0 - u, 1.08)))
-	for i in centerline.size():
-		true_tail.draw_circle(centerline[i], radius[i], Color("#3b2153"))
-	for i in centerline.size() - 1:
-		true_tail.draw_circle(centerline[i] + Vector2(0, -1), maxf(0.52, radius[i] - 1.65), Color("#8050b7"))
-
-
-func _draw_true_tail_glow() -> void:
-	var shimmer := 0.28 + sin(defeat_elapsed * 13.0) * 0.08
-	for i in range(2, 18):
-		var u := float(i) / 24.0
-		var point := _tail_curve(u).round() + Vector2(-defeat_side, -2.0)
-		true_tail_glow.draw_rect(Rect2(point, Vector2(2, 1)), Color(0.84, 0.51, 1.0, shimmer * (1.0 - u)))
 
 
 func _update_aim() -> void:
