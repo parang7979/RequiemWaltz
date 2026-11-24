@@ -83,6 +83,29 @@ function drawShiftFlame(p, time, { x: rootX, y: rootY, reach, width, lag, curl }
   }
 }
 
+const shiftSparks = [
+  { start: .28, x: -24, y: -5, drift: -15, rise: 23 },
+  { start: .36, x: 26, y: -7, drift: 14, rise: 25 },
+  { start: .40, x: -8, y: -23, drift: -12, rise: 16 },
+  { start: .47, x: 13, y: -20, drift: 12, rise: 19 },
+  { start: .56, x: -28, y: -11, drift: -9, rise: 19 },
+  { start: .61, x: 27, y: -12, drift: 11, rise: 22 },
+];
+
+function drawShiftSparks(p, time) {
+  for (const spark of shiftSparks) {
+    const age = (time - spark.start) / .34;
+    if (age <= 0 || age >= 1) continue;
+    const x = spark.x + spark.drift * age + Math.sin(age * Math.PI) * spark.drift * .14;
+    const y = spark.y - spark.rise * age;
+    const alpha = flameEase(age / .20) * (1 - age) ** 1.15;
+    p.blend(x, y, flameRim, alpha * .86);
+    p.blend(x, y + 1, flameLight, alpha * .55);
+    p.blend(x, y + 2, flameViolet, alpha * .23);
+    p.glow(x, y, 3, flameViolet, alpha * .22);
+  }
+}
+
 export const shift = {
   meta: { name: "Requiem rising spirit fire", size: [152, 94], origin: [76, 47], fps: 60, duration: shiftDuration, loop: false },
   draw(p, t) {
@@ -103,6 +126,7 @@ export const shift = {
         p.glow(x, y, 3, flameViolet, alpha * .22);
       }
     }
+    drawShiftSparks(p, u);
   },
 };
 
