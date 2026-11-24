@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "direction": "back_right",
+  "parts": [
+    {
+      "name": "far_leg",
+      "mask": "back_right_far_leg.png",
+      "pivot": [
+        27,
+        47
+      ],
+      "behind_body": true
+    },
+    {
+      "name": "near_leg",
+      "mask": "back_right_near_leg.png",
+      "pivot": [
+        34,
+        47
+      ],
+      "behind_body": true
+    }
+  ],
+  "skins": [
+    {
+      "parts": [
+        "far_leg"
+      ],
+      "bands_y": [
+        [
+          48,
+          51
+        ]
+      ],
+      "spacing": 1
+    },
+    {
+      "parts": [
+        "near_leg"
+      ],
+      "bands_y": [
+        [
+          48,
+          53
+        ]
+      ],
+      "spacing": 1
+    }
+  ],
+  "clips": {
+    "walk_back_right": {
+      "cycle_advance_px": 0,
+      "loop": true,
+      "frames": [
+        {
+          "ms": 48,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              0,
+              0.0
+            ],
+            "far_leg": [
+              0,
+              0.0
+            ]
+          },
+          "angles": {
+            "near_leg": 0,
+            "far_leg": 0
+          },
+          "contacts": [
+            "near_leg",
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 38,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              1,
+              -1.22
+            ],
+            "far_leg": [
+              -1,
+              0.22
+            ]
+          },
+          "angles": {
+            "near_leg": -4,
+            "far_leg": 3
+          },
+          "contacts": [
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 38,
+          "offset": [
+            0,
+            -1
+          ],
+          "translations": {
+            "near_leg": [
+              3,
+              -2.66
+            ],
+            "far_leg": [
+              -2,
+              1.44
+            ]
+          },
+          "angles": {
+            "near_leg": -6,
+            "far_leg": 5
+          },
+          "contacts": [
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 44,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              4,
+              -1.68
+            ],
+            "far_leg": [
+              -2,
+              0.44
+            ]
+          },
+          "angles": {
+            "near_leg": -2,
+            "far_leg": 3
+          },
+          "contacts": [
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 68,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              3,
+              -0.66
+            ],
+            "far_leg": [
+              -1,
+              0.22
+            ]
+          },
+          "angles": {
+            "near_leg": 1,
+            "far_leg": 2
+          },
+          "contacts": [
+            "near_leg",
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 39,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              1,
+              -0.22
+            ],
+            "far_leg": [
+              0,
+              -0.8
+            ]
+          },
+          "angles": {
+            "near_leg": -1,
+            "far_leg": 4
+          },
+          "contacts": [
+            "near_leg"
+          ]
+        },
+        {
+          "ms": 36,
+          "offset": [
+            0,
+            -1
+          ],
+          "translations": {
+            "near_leg": [
+              -1,
+              1.22
+            ],
+            "far_leg": [
+              2,
+              -1.64
+            ]
+          },
+          "angles": {
+            "near_leg": 3,
+            "far_leg": 5
+          },
+          "contacts": [
+            "near_leg"
+          ]
+        },
+        {
+          "ms": 43,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              -3,
+              0.66
+            ],
+            "far_leg": [
+              3,
+              -1.26
+            ]
+          },
+          "angles": {
+            "near_leg": 4,
+            "far_leg": 0
+          },
+          "contacts": [
+            "near_leg"
+          ]
+        },
+        {
+          "ms": 54,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              -2,
+              0.44
+            ],
+            "far_leg": [
+              2,
+              -0.44
+            ]
+          },
+          "angles": {
+            "near_leg": 1,
+            "far_leg": -1
+          },
+          "contacts": [
+            "near_leg",
+            "far_leg"
+          ]
+        },
+        {
+          "ms": 32,
+          "offset": [
+            0,
+            0
+          ],
+          "translations": {
+            "near_leg": [
+              -1,
+              0.22
+            ],
+            "far_leg": [
+              1,
+              -0.22
+            ]
+          },
+          "angles": {
+            "near_leg": 0,
+            "far_leg": 0
+          },
+          "contacts": [
+            "near_leg",
+            "far_leg"
+          ]
+        }
+      ]
+    }
+  }
+}

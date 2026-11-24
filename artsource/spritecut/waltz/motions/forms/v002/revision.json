@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "id": "v002",
+  "status": "candidate",
+  "materials": "../../../materials/v002/revision.json",
+  "parent": "../v001",
+  "recipe_generator": "../../../authoring/build_requiem_forms.py",
+  "runtime_catalog": "../../../../../../assets/actors/requiem_forms/clips.json",
+  "sheets": "sheets/clips.json",
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "67ba005b109574712c55416bef1c591bf166aaad"
+  },
+  "timing_ms": {
+    "exit": 118,
+    "enter": 130,
+    "release": {
+      "hand": 138,
+      "bow": 183,
+      "cannon": 186
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "views": [
+    {
+      "direction": "front_right",
+      "file": "../../v003/prepared/waltz_front_right.png"
+    },
+    {
+      "direction": "back_right",
+      "file": "../../v003/prepared/waltz_back_right.png"
+    }
+  ]
+}

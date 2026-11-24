@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "../../v003/prepared",
+  "cell": [64, 64],
+  "pivot": [32, 58],
+  "views": {
+    "front_right": {
+      "far_leg": {"rect": [34, 48, 45, 64], "pivot": [37, 47], "band": [48, 51], "sole": [39, 53]},
+      "near_leg": {"rect": [20, 48, 34, 64], "pivot": [29, 47], "band": [48, 53], "sole": [30, 57]}
+    },
+    "back_right": {
+      "far_leg": {"rect": [20, 48, 31, 64], "pivot": [27, 47], "band": [48, 51], "sole": [27, 53]},
+      "near_leg": {"rect": [31, 48, 45, 64], "pivot": [34, 47], "band": [48, 53], "sole": [35, 57]}
+    }
+  }
+}

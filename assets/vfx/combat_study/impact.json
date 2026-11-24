@@ -1,0 +1,457 @@
+{
+  "frames": [
+    {
+      "filename": "impact 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 1",
+      "frame": {
+        "x": 126,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 2",
+      "frame": {
+        "x": 252,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 3",
+      "frame": {
+        "x": 378,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 4",
+      "frame": {
+        "x": 0,
+        "y": 106,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 5",
+      "frame": {
+        "x": 126,
+        "y": 106,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 6",
+      "frame": {
+        "x": 252,
+        "y": 106,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 7",
+      "frame": {
+        "x": 378,
+        "y": 106,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 8",
+      "frame": {
+        "x": 0,
+        "y": 212,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 9",
+      "frame": {
+        "x": 126,
+        "y": 212,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 10",
+      "frame": {
+        "x": 252,
+        "y": 212,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 11",
+      "frame": {
+        "x": 378,
+        "y": 212,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 12",
+      "frame": {
+        "x": 0,
+        "y": 318,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 13",
+      "frame": {
+        "x": 126,
+        "y": 318,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 14",
+      "frame": {
+        "x": 252,
+        "y": 318,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 15",
+      "frame": {
+        "x": 378,
+        "y": 318,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 16",
+      "frame": {
+        "x": 0,
+        "y": 424,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 17",
+      "frame": {
+        "x": 126,
+        "y": 424,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    },
+    {
+      "filename": "impact 18",
+      "frame": {
+        "x": 252,
+        "y": 424,
+        "w": 126,
+        "h": 106
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 126,
+        "h": 106
+      },
+      "sourceSize": {
+        "w": 126,
+        "h": 106
+      },
+      "duration": 17
+    }
+  ],
+  "meta": {
+    "app": "https://github.com/patch-gg/pixelfx",
+    "version": "1",
+    "image": "impact.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 504,
+      "h": 530
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "impact",
+        "from": 0,
+        "to": 18,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "requiem/combat-study-impact",
+      "name": "Bell strike",
+      "fps": 60,
+      "loop": false,
+      "frames": 19,
+      "frameSize": [
+        126,
+        106
+      ],
+      "pivot": [
+        52,
+        53
+      ],
+      "columns": 4
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "v004",
+  "status": "candidate",
+  "parent": "../v003/revision.json",
+  "source_cells": "../v003/prepared",
+  "views": "rig/views.json",
+  "rigs": {
+    "front_right": "rig/front_right.json",
+    "back_right": "rig/back_right.json"
+  },
+  "leg_boundaries": "rig/legs.json",
+  "notes": "Two registered rest cells from v003. The visible legs use distinct masks and skin bands pinned at the cloak hem. The game mirrors the matching right view for left-facing movement."
+}

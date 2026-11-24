@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "v001",
+  "stage": "directional_artwork",
+  "status": "superseded_candidate",
+  "parent": null,
+  "source": "../../sources/v001/source.json",
+  "generator": "Built-in ImageGen",
+  "views": [
+    "front_right",
+    "back_right"
+  ],
+  "facing_left": "Runtime mirrors the matching right-facing view.",
+  "registration": "views/registration.json",
+  "originals": {
+    "views/requiem-directions.png": {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "694431548b8fb2868be597675c6394f21d0af0173714b95aa3c937cf6d314c2e",
+      "prompt": "views/tools-prompt.txt"
+    },
+    "views/waltz-and-sword.png": {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "c77043d0f399cf205ff66e1b592ac042a8e40f4e1a6175d39d406569e7a51d92",
+      "prompt": "views/waltz-sword-prompt.txt"
+    }
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "frames": [
+    {
+      "filename": "counter_cut 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 1",
+      "frame": {
+        "x": 240,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 2",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 3",
+      "frame": {
+        "x": 720,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 4",
+      "frame": {
+        "x": 960,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 5",
+      "frame": {
+        "x": 1200,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 6",
+      "frame": {
+        "x": 0,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 7",
+      "frame": {
+        "x": 240,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 8",
+      "frame": {
+        "x": 480,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 9",
+      "frame": {
+        "x": 720,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 10",
+      "frame": {
+        "x": 960,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 11",
+      "frame": {
+        "x": 1200,
+        "y": 392,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 12",
+      "frame": {
+        "x": 0,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 13",
+      "frame": {
+        "x": 240,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 14",
+      "frame": {
+        "x": 480,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 15",
+      "frame": {
+        "x": 720,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 16",
+      "frame": {
+        "x": 960,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    },
+    {
+      "filename": "counter_cut 17",
+      "frame": {
+        "x": 1200,
+        "y": 784,
+        "w": 240,
+        "h": 392
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 392
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 392
+      },
+      "duration": 17
+    }
+  ],
+  "meta": {
+    "app": "https://github.com/patch-gg/pixelfx",
+    "version": "1",
+    "image": "counter_cut.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1440,
+      "h": 1176
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "counter_cut",
+        "from": 0,
+        "to": 17,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "requiem/forms-counter_cut",
+      "name": "Requiem dodge counter",
+      "fps": 60,
+      "loop": false,
+      "frames": 18,
+      "frameSize": [
+        240,
+        392
+      ],
+      "pivot": [
+        56,
+        196
+      ],
+      "columns": 6
+    }
+  }
+}

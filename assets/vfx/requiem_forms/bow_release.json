@@ -1,0 +1,303 @@
+{
+  "frames": [
+    {
+      "filename": "bow_release 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 1",
+      "frame": {
+        "x": 128,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 2",
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 3",
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 4",
+      "frame": {
+        "x": 0,
+        "y": 100,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 5",
+      "frame": {
+        "x": 128,
+        "y": 100,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 6",
+      "frame": {
+        "x": 256,
+        "y": 100,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 7",
+      "frame": {
+        "x": 384,
+        "y": 100,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 8",
+      "frame": {
+        "x": 0,
+        "y": 200,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 9",
+      "frame": {
+        "x": 128,
+        "y": 200,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 10",
+      "frame": {
+        "x": 256,
+        "y": 200,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    },
+    {
+      "filename": "bow_release 11",
+      "frame": {
+        "x": 384,
+        "y": 200,
+        "w": 128,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 100
+      },
+      "duration": 17
+    }
+  ],
+  "meta": {
+    "app": "https://github.com/patch-gg/pixelfx",
+    "version": "1",
+    "image": "bow_release.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 512,
+      "h": 300
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "bow_release",
+        "from": 0,
+        "to": 11,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "requiem/forms-bow_release",
+      "name": "Bow snap",
+      "fps": 60,
+      "loop": false,
+      "frames": 12,
+      "frameSize": [
+        128,
+        100
+      ],
+      "pivot": [
+        42,
+        50
+      ],
+      "columns": 4
+    }
+  }
+}

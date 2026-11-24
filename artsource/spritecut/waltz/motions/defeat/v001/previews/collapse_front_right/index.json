@@ -1,0 +1,15 @@
+{
+  "clip": "collapse_front_right",
+  "duration_ms": 532,
+  "label": "Current",
+  "gaps": {
+    "alpha_min": 96,
+    "min_area_px": 4,
+    "connectivity": 8,
+    "current": {
+      "frames_checked": 9,
+      "split_frames": []
+    }
+  },
+  "playback": "full-speed.png"
+}

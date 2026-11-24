@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "v004",
+  "status": "candidate",
+  "parent": "../v003/revision.json",
+  "materials": "../../../materials/v005/revision.json",
+  "motion": "motion.json",
+  "recipe_generator": "../../../authoring/build_waltz_reactions.py",
+  "sheets": "sheets/clips.json",
+  "runtime_catalog": "../../../../../../assets/actors/waltz_reactions/clips.json",
+  "previews": {
+    "front_right": "previews/hurt_front_right/full-speed.png",
+    "back_right": "previews/hurt_back_right/full-speed.png",
+    "detail": "../../../../../../doc/art/waltz-hit-reaction.gif",
+    "combat": "../../../../../../doc/art/requiem-player-hit.gif"
+  },
+  "spritecut": {"version": "0.1.0", "commit": "67ba005b109574712c55416bef1c591bf166aaad", "commands": ["rig", "bake", "preview"]},
+  "clips": {
+    "hurt": {"frames_per_view": 8, "duration_ms": 247}
+  },
+  "review": "The first impact registers a short upper-body recoil. The front eyes and mouth open briefly with the head tilt. The legs brace for the 125 ms directional shove, then walking resumes under the settling upper pose. The mounted tool recoils from the same hit and settles on the damped follow spring."
+}

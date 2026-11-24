@@ -1,0 +1,32 @@
+{
+  "forms": {
+    "hand": {
+      "scale": 0.165,
+      "front_right": {"crop": [16, 60, 565, 480], "root": [270, 283], "axis": -6,
+        "points": {"socket": [433, 291], "tail": [69, 327]}},
+      "back_right": {"crop": [20, 558, 545, 981], "root": [269, 782], "axis": -15,
+        "points": {"socket": [421, 745], "tail": [70, 875]}}
+    },
+    "bow": {
+      "scale": 0.175,
+      "front_right": {"crop": [610, 9, 973, 508], "root": [823, 256], "axis": 0,
+        "points": {"upper": [669, 66], "lower": [675, 454], "socket": [683, 263], "tail": [839, 259]}},
+      "back_right": {"crop": [606, 515, 976, 1000], "root": [815, 749], "axis": 0,
+        "points": {"upper": [648, 557], "lower": [667, 946], "socket": [681, 746], "tail": [841, 741]}}
+    },
+    "cannon": {
+      "scale": 0.180,
+      "front_right": {"crop": [1004, 101, 1520, 454], "root": [1244, 276], "axis": 11,
+        "points": {"socket": [1464, 286], "tail": [1043, 262]}},
+      "back_right": {"crop": [1006, 564, 1520, 948], "root": [1250, 748], "axis": -14,
+        "points": {"socket": [1452, 694], "tail": [1058, 784]}}
+    }
+  },
+  "waltz": {
+    "scale": 0.073,
+    "front_right": {"crop": [36, 150, 478, 906], "root": [258, 834]},
+    "back_right": {"crop": [559, 147, 955, 905], "root": [761, 829]}
+  },
+  "sword": {"crop": [1031, 204, 1520, 816], "root": [1143, 670], "tip": [1489, 250],
+    "scale": 0.087, "edge_from": 14}
+}

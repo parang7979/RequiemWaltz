@@ -1,0 +1,369 @@
+{
+  "frames": [
+    {
+      "filename": "hand_cut 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 1",
+      "frame": {
+        "x": 170,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 2",
+      "frame": {
+        "x": 340,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 3",
+      "frame": {
+        "x": 510,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 4",
+      "frame": {
+        "x": 680,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 5",
+      "frame": {
+        "x": 850,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 6",
+      "frame": {
+        "x": 0,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 7",
+      "frame": {
+        "x": 170,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 8",
+      "frame": {
+        "x": 340,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 9",
+      "frame": {
+        "x": 510,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 10",
+      "frame": {
+        "x": 680,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 11",
+      "frame": {
+        "x": 850,
+        "y": 300,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 12",
+      "frame": {
+        "x": 0,
+        "y": 600,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 13",
+      "frame": {
+        "x": 170,
+        "y": 600,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    },
+    {
+      "filename": "hand_cut 14",
+      "frame": {
+        "x": 340,
+        "y": 600,
+        "w": 170,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 170,
+        "h": 300
+      },
+      "duration": 17
+    }
+  ],
+  "meta": {
+    "app": "https://github.com/patch-gg/pixelfx",
+    "version": "1",
+    "image": "hand_cut.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1020,
+      "h": 900
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "hand_cut",
+        "from": 0,
+        "to": 14,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "requiem/forms-hand_cut",
+      "name": "Waltz-centered sword sweep",
+      "fps": 60,
+      "loop": false,
+      "frames": 15,
+      "frameSize": [
+        170,
+        300
+      ],
+      "pivot": [
+        4,
+        150
+      ],
+      "columns": 6
+    }
+  }
+}

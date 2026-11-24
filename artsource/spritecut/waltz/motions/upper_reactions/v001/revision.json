@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "id": "v001",
+  "status": "candidate",
+  "materials": "../../../materials/v005/revision.json",
+  "motion": "motion.json",
+  "recipe_generator": "../../../authoring/build_waltz_reactions.py",
+  "sheets": "sheets/clips.json",
+  "runtime_catalog": "../../../../../../assets/actors/waltz_reactions/clips.json",
+  "previews": {
+    "cower_front_right": "previews/cower_front_right/full-speed.png",
+    "cower_back_right": "previews/cower_back_right/full-speed.png",
+    "dodge_front_right": "previews/dodge_front_right/full-speed.png",
+    "dodge_back_right": "previews/dodge_back_right/full-speed.png",
+    "cower_details": "../../../../../../doc/art/waltz-attack-cower.gif",
+    "combat": "../../../../../../doc/art/requiem-dodge-counter.gif"
+  },
+  "spritecut": {"version": "0.1.0", "commit": "67ba005b109574712c55416bef1c591bf166aaad", "commands": ["rig", "bake", "preview"]},
+  "clips": {
+    "cower": {"frames_per_view": 8, "duration_ms": 365},
+    "dodge": {"frames_per_view": 5, "duration_ms": 150}
+  },
+  "review": "SpriteCut reported zero split frames in both views for either clip. The review scene plays the upper pose above the walking legs. A recorded backstep avoids the skeleton swing and a buffered strike starts on the first free physics tick."
+}

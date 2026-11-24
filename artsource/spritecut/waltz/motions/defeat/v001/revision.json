@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "id": "v001",
+  "status": "candidate",
+  "waltz_upper_materials": "../../../materials/v005/revision.json",
+  "waltz_leg_materials": "../../../materials/v004/revision.json",
+  "requiem_reference": "../../../../../../assets/waltz_combat/requiem.png",
+  "motion": "motion.json",
+  "recipe_generator": "../../../authoring/build_waltz_defeat.py",
+  "sheets": {
+    "waltz": "sheets/clips.json",
+    "requiem": "sheets/requiem-clips.json"
+  },
+  "runtime_catalog": "../../../../../../assets/actors/waltz_defeat/clips.json",
+  "previews": {
+    "collapse_front_right": "previews/collapse_front_right/full-speed.png",
+    "collapse_back_right": "previews/collapse_back_right/full-speed.png",
+    "requiem_concern": "previews/requiem_concern/full-speed.png",
+    "combat": "../../../../../../doc/art/requiem-defeat.gif",
+    "detail": "../../../../../../doc/art/requiem-defeat-close-up.gif"
+  },
+  "clips": {
+    "collapse": {"frames_per_view": 9, "duration_ms": 532, "cell": [64, 64], "pivot": [32, 58]},
+    "requiem_concern": {"frames": 7, "duration_ms": 502, "cell": [96, 92], "pivot": [48, 52]}
+  },
+  "spritecut": {"version": "0.1.0", "commit": "67ba005b109574712c55416bef1c591bf166aaad", "commands": ["rig", "bake", "preview"]},
+  "review": "The last hit begins both performances. Waltz's knees buckle, then her robe and hood fall forward to a prone hold. Requiem recoils in his original form, approaches with a single spring-driven tail, and dips his head. With the tether broken, the tail curls up and the original form dissipates in PixelFX. The scene holds Waltz's final pose until restart."
+}

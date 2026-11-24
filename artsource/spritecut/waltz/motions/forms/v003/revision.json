@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "id": "v003",
+  "status": "candidate",
+  "parent": "../v002/revision.json",
+  "materials": "../../../materials/v003/revision.json",
+  "recipe_generator": "../../../authoring/build_requiem_forms.py",
+  "sheets": "sheets/clips.json",
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "67ba005b109574712c55416bef1c591bf166aaad"
+  },
+  "timings_ms": {
+    "exit": 118,
+    "enter": 130,
+    "hand_strike": 100
+  },
+  "review": "The hand’s socket follows the cursor-facing sword through the sweep. Cannon launch crops both layers of the sword at the muzzle."
+}

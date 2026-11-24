@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "direction": "front",
+  "parts": [
+    {
+      "name": "body",
+      "mask": "requiem_body.png",
+      "pivot": [
+        48,
+        56
+      ]
+    },
+    {
+      "name": "near_hand",
+      "mask": "requiem_near_hand.png",
+      "pivot": [
+        30,
+        43
+      ]
+    },
+    {
+      "name": "far_hand",
+      "mask": "requiem_far_hand.png",
+      "pivot": [
+        66,
+        43
+      ]
+    },
+    {
+      "name": "head",
+      "mask": "requiem_head.png",
+      "pivot": [
+        47,
+        35
+      ]
+    }
+  ],
+  "clips": {
+    "requiem_concern": {
+      "loop": false,
+      "frames": [
+        {
+          "ms": 42,
+          "translations": {
+            "head": [
+              0,
+              -1
+            ],
+            "near_hand": [
+              -1,
+              -1
+            ],
+            "far_hand": [
+              1,
+              -1
+            ]
+          },
+          "angles": {
+            "head": 0,
+            "near_hand": 6,
+            "far_hand": -6
+          }
+        },
+        {
+          "ms": 50,
+          "translations": {
+            "head": [
+              -1,
+              -2
+            ],
+            "near_hand": [
+              -1,
+              -2
+            ],
+            "far_hand": [
+              1,
+              -2
+            ]
+          },
+          "angles": {
+            "head": -8,
+            "near_hand": 10,
+            "far_hand": -9
+          }
+        },
+        {
+          "ms": 67,
+          "translations": {
+            "head": [
+              0,
+              -1
+            ],
+            "near_hand": [
+              -1,
+              -1
+            ],
+            "far_hand": [
+              1,
+              -1
+            ]
+          },
+          "angles": {
+            "head": -4,
+            "near_hand": 6,
+            "far_hand": -6
+          }
+        },
+        {
+          "ms": 62,
+          "translations": {
+            "head": [
+              2,
+              2
+            ],
+            "near_hand": [
+              1,
+              1
+            ],
+            "far_hand": [
+              1,
+              1
+            ]
+          },
+          "angles": {
+            "head": 6,
+            "near_hand": -3,
+            "far_hand": 5
+          }
+        },
+        {
+          "ms": 78,
+          "translations": {
+            "head": [
+              4,
+              4
+            ],
+            "near_hand": [
+              1,
+              1
+            ],
+            "far_hand": [
+              2,
+              2
+            ]
+          },
+          "angles": {
+            "head": 12,
+            "near_hand": -5,
+            "far_hand": 9
+          }
+        },
+        {
+          "ms": 85,
+          "translations": {
+            "head": [
+              4,
+              6
+            ],
+            "near_hand": [
+              1,
+              2
+            ],
+            "far_hand": [
+              2,
+              3
+            ]
+          },
+          "angles": {
+            "head": 15,
+            "near_hand": -8,
+            "far_hand": 11
+          }
+        },
+        {
+          "ms": 118,
+          "translations": {
+            "head": [
+              4,
+              5
+            ],
+            "near_hand": [
+              1,
+              1
+            ],
+            "far_hand": [
+              2,
+              2
+            ]
+          },
+          "angles": {
+            "head": 13,
+            "near_hand": -6,
+            "far_hand": 9
+          }
+        }
+      ]
+    }
+  }
+}

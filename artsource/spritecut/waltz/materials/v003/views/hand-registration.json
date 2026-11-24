@@ -1,0 +1,7 @@
+{
+  "scale": 0.108,
+  "front_right": {"crop": [24, 255, 720, 780], "root": [370, 420], "axis": 0,
+    "points": {"socket": [596, 420], "tail": [87, 600]}},
+  "back_right": {"crop": [790, 255, 1512, 780], "root": [1140, 421], "axis": 0,
+    "points": {"socket": [1380, 421], "tail": [859, 587]}}
+}

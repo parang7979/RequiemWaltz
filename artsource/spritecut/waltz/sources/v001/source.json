@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "id": "v001",
+  "character": "waltz",
+  "status": "candidate",
+  "stage": "concept_art",
+  "generator": "Built-in ImageGen",
+  "spritecut": {
+    "version": "0.1.0",
+    "commit": "67ba005b109574712c55416bef1c591bf166aaad",
+    "use": "production viewer"
+  },
+  "originals": {
+    "waltz-requiem-design.png": {
+      "description": "정면 계열 디자인 원화와 장착 비교.",
+      "format": "PNG",
+      "mode": "RGB",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "f865e300775742157759317243f4e9dba7d40edb697048c6a13ba197306c341e",
+      "prompt": "design-prompt.txt",
+      "reference": [
+        "사용자 참고 534.png (붉은 후드와 왈츠의 얼굴)",
+        "사용자 참고 533.png (레퀴엠의 영체와 보라색 팔레트)"
+      ]
+    },
+    "waltz-requiem-top-view.png": {
+      "description": "탑뷰에서 왈츠와 장착 상태의 실루엣을 검토하는 원화.",
+      "format": "PNG",
+      "mode": "RGB",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "85c96edf9800afb044061a66bffc8e506c877d9196f2610ee6670c74297a6972",
+      "prompt": "top-view-prompt.txt",
+      "reference": [
+        "originals/waltz-requiem-design.png"
+      ]
+    },
+    "requiem-tool-motion.png": {
+      "description": "장갑 대기, 장갑 EXIT, 거치구 ENTER 키 포즈 원화.",
+      "format": "PNG",
+      "mode": "RGB",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "ef6b7656867b8cff173f03f3c4799432b7323b145cceec001b9b13dd3a5f2c10",
+      "prompt": "motion-prompt.txt",
+      "reference": [
+        "originals/waltz-requiem-design.png"
+      ]
+    }
+  }
+}

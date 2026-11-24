@@ -1,0 +1,448 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "clips": {
+    "cower_front_right": {
+      "maps": {
+        "color": "cower_front_right_color.png",
+        "normal": "cower_front_right_normal.png",
+        "emissive": "cower_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 17,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 42,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 70,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 69,
+          "contacts": []
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 58,
+          "contacts": []
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 42,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 22,
+          "contacts": []
+        }
+      ]
+    },
+    "dodge_front_right": {
+      "maps": {
+        "color": "dodge_front_right_color.png",
+        "normal": "dodge_front_right_normal.png",
+        "emissive": "dodge_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 18,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 32,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 34,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 38,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 28,
+          "contacts": []
+        }
+      ]
+    },
+    "hood_grab_front_right": {
+      "maps": {
+        "color": "hood_grab_front_right_color.png",
+        "normal": "hood_grab_front_right_normal.png",
+        "emissive": "hood_grab_front_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 17,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 26,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 32,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 52,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 72,
+          "contacts": []
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 58,
+          "contacts": []
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 49,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 0,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 35,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 24,
+          "contacts": []
+        }
+      ]
+    },
+    "cower_back_right": {
+      "maps": {
+        "color": "cower_back_right_color.png",
+        "normal": "cower_back_right_normal.png",
+        "emissive": "cower_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 17,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 42,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 70,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 69,
+          "contacts": []
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 58,
+          "contacts": []
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 42,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 22,
+          "contacts": []
+        }
+      ]
+    },
+    "dodge_back_right": {
+      "maps": {
+        "color": "dodge_back_right_color.png",
+        "normal": "dodge_back_right_normal.png",
+        "emissive": "dodge_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 18,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 32,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 34,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 38,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 28,
+          "contacts": []
+        }
+      ]
+    },
+    "hood_grab_back_right": {
+      "maps": {
+        "color": "hood_grab_back_right_color.png",
+        "normal": "hood_grab_back_right_normal.png",
+        "emissive": "hood_grab_back_right_emissive.png"
+      },
+      "loop": false,
+      "cycle_advance_px": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 17,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 26,
+          "contacts": []
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 32,
+          "contacts": []
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 52,
+          "contacts": []
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 72,
+          "contacts": []
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 58,
+          "contacts": []
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 49,
+          "contacts": []
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "w": 64,
+          "h": 64,
+          "ms": 45,
+          "contacts": []
+        },
+        {
+          "x": 0,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 35,
+          "contacts": []
+        },
+        {
+          "x": 64,
+          "y": 64,
+          "w": 64,
+          "h": 64,
+          "ms": 24,
+          "contacts": []
+        }
+      ]
+    }
+  },
+  "hem_row": 48
+}

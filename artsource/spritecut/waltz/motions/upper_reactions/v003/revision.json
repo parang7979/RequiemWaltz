@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "v003",
+  "status": "candidate",
+  "parent": "../v002/revision.json",
+  "materials": "../../../materials/v005/revision.json",
+  "motion": "motion.json",
+  "recipe_generator": "../../../authoring/build_waltz_reactions.py",
+  "sheets": "sheets/clips.json",
+  "runtime_catalog": "../../../../../../assets/actors/waltz_reactions/clips.json",
+  "previews": {
+    "front_right": "previews/counter_peek_front_right/full-speed.png",
+    "back_right": "previews/counter_peek_back_right/full-speed.png",
+    "detail": "../../../../../../doc/art/waltz-counter-peek.gif",
+    "combat": "../../../../../../doc/art/requiem-counter-peek.gif"
+  },
+  "spritecut": {"version": "0.1.0", "commit": "67ba005b109574712c55416bef1c591bf166aaad", "commands": ["rig", "bake", "preview"]},
+  "clips": {
+    "counter_peek": {"frames_per_view": 9, "duration_ms": 302, "glance_ms": [24, 204]}
+  },
+  "review": "Recovery starts from the held hood_grab pose when the strike ends. The front view opens the lid along the visible eye socket before the hood rises. The grip steps down to the resting hand positions. A missed strike looks in the locked aim direction. Movement continues underneath and combat can interrupt the recovery."
+}

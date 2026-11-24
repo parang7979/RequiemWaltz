@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "v005",
+  "status": "candidate",
+  "parent": "../v004/revision.json",
+  "source_cells": "../v003/prepared",
+  "views": "rig/views.json",
+  "rigs": {
+    "front_right": "rig/front_right.json",
+    "back_right": "rig/back_right.json"
+  },
+  "upper_body_boundaries": "rig/upper-body.json",
+  "notes": "Registered v003 cells retain the walk pivot. The hood, torso, and visible hands are masked for the upper body reactions. The rest cloak hem overlaps the walk layer by one row."
+}

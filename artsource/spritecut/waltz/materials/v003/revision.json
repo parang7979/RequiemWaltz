@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "v003",
+  "status": "candidate",
+  "parent": "../v002/revision.json",
+  "request": "쥐고 있는 장갑과 더 작은 도트 크기",
+  "originals": {
+    "views/requiem-hand-grip.png": {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "396108f1e2958912fe85170c95fa2e938a338efacfe938f9a24287bdf36d14e0",
+      "generator": "Built-in ImageGen",
+      "prompt": "views/hand-grip-prompt.txt"
+    }
+  },
+  "registration": "views/hand-registration.json",
+  "front_right_idle_width_px": [
+    84,
+    69
+  ],
+  "back_right_idle_width_px": [
+    80,
+    70
+  ]
+}

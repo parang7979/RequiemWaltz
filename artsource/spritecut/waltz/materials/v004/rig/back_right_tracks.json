@@ -1,0 +1,18 @@
+{
+  "tracks": {
+    "far_leg_sole": {
+      "part": "far_leg",
+      "point": [
+        27,
+        53
+      ]
+    },
+    "near_leg_sole": {
+      "part": "near_leg",
+      "point": [
+        35,
+        57
+      ]
+    }
+  }
+}
