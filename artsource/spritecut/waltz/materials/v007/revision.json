@@ -1,0 +1,14 @@
+{
+  "version": "v007",
+  "subject": "Requiem true form",
+  "status": "candidate",
+  "sources": "../../sources/v002/source.json",
+  "registration": "registration.json",
+  "prepared": "prepared/views.json",
+  "review": "prepared/review.json",
+  "spritecut": {
+    "commit": "79b60ad93205b59bfc5fba220c30f5eb059eb35e",
+    "direction": "front",
+    "commands": ["views inspect --only front", "views prepare --only front"]
+  }
+}

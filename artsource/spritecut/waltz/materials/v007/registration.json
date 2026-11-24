@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "cell": [128, 128],
+  "height": 104,
+  "pivot": [64, 119],
+  "reference": "front",
+  "resample": "lanczos",
+  "asymmetry": ["The tail sweeps across the body's centerline and curls back toward the center below the hands."],
+  "views": [
+    {
+      "direction": "front",
+      "image": "../../sources/v002/originals/requiem-front.png",
+      "origin": "generated",
+      "ground": [535, 1303],
+      "levels": {
+        "crown": 218,
+        "chin": 574,
+        "shoulder": 523,
+        "hip": 853
+      },
+      "alpha_floor": 20,
+      "notes": "Front-facing, with a slight downward camera angle. Register under the torso centerline, just below the tail tip. Hip marks the start of the torso taper into the tail."
+    }
+  ]
+}

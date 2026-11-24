@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "reference": "front",
+  "missing": [],
+  "cell": [
+    128,
+    128
+  ],
+  "pivot": [
+    64,
+    119
+  ],
+  "height": 104,
+  "scale": 0.09585253456221199,
+  "tolerance_px": 2,
+  "measurements": {
+    "front": {
+      "source": {
+        "direction": "front",
+        "image": "../../../sources/v002/originals/requiem-front.png",
+        "origin": "generated",
+        "ground": [
+          535,
+          1303
+        ],
+        "levels": {
+          "crown": 218,
+          "chin": 574,
+          "shoulder": 523,
+          "hip": 853
+        },
+        "alpha_floor": 20,
+        "notes": "Front-facing, with a slight downward camera angle. Register under the torso centerline, just below the tail tip. Hip marks the start of the torso taper into the tail.",
+        "source_size": [
+          1070,
+          1470
+        ],
+        "crop": [
+          0,
+          0,
+          1070,
+          1470
+        ],
+        "alpha_bounds": [
+          64,
+          170,
+          1007,
+          1284
+        ],
+        "source_scale": 1
+      },
+      "registered_heights": {
+        "crown": 1085,
+        "chin": 729,
+        "shoulder": 780,
+        "hip": 450,
+        "bottom_from_ground": -19
+      },
+      "touches_crop": [],
+      "delta_px": {
+        "crown": 0.0,
+        "chin": 0.0,
+        "shoulder": 0.0,
+        "hip": 0.0,
+        "bottom_from_ground": 0.0
+      },
+      "review_levels": [],
+      "unmeasured": [],
+      "overflow_px": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "overflow": []
+}

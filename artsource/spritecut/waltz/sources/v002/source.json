@@ -1,0 +1,18 @@
+{
+  "version": "v002",
+  "subject": "Requiem true form",
+  "status": "candidate",
+  "originals": [
+    {
+      "view": "front",
+      "file": "originals/requiem-front.png",
+      "size": [1070, 1470],
+      "origin": "generated",
+      "generator": "built-in ImageGen",
+      "prompt": "imagegen-prompt.txt",
+      "style_reference": "../../../../../doc/art/requiem-forms-v003-details.png",
+      "sha256": "fc930b7f20431d814bec8c8ead7ffd2b36e1655729e263f4f805bbaec2effb14"
+    }
+  ],
+  "material_revision": "../../materials/v007/revision.json"
+}
