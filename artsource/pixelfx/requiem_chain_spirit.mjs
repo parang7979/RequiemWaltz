@@ -3,6 +3,7 @@ const colors = [
   0xff330d20, 0xff491732, 0xff642348, 0xff7d335c, 0xffa44878,
   0xffbf6095, 0xffdc82b3, 0xfff5b5de,
 ];
+export { colors as spectralColors };
 const eyeLight = 0xfffbd7f0;
 const clamp = (n) => Math.max(0, Math.min(1, n));
 const lerp = (a, b, t) => a + (b - a) * t;
