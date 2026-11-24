@@ -7,6 +7,9 @@ const RECOVERY_TIME := 0.52
 const STAGGER_TIME := 0.29
 const FALL_TIME := 0.72
 const FALL_FADE_START := 0.5
+const FALL_PLANT_TIME := 0.173
+const FALL_FLOOR_TIME := 0.374
+const GROUND_Y := 58.0
 const STRIKE_RADIUS := 19.0
 const BRAKE := 1320.0
 
@@ -26,8 +29,6 @@ var paint := Sprite2D.new()
 
 func _ready() -> void:
 	z_index = 4
-	# The 64 × 64 cell has its ground pivot at (32, 58).
-	paint.offset = Vector2(0, -26)
 	add_child(paint)
 	_update_sprite()
 
@@ -44,7 +45,8 @@ func hit_center() -> Vector2:
 func receive_strike(direction: Vector2, force: float) -> void:
 	hp -= 1
 	push = direction * force
-	_face(-direction)
+	if hp > 0:
+		_face(-direction)
 	_set_phase(Phase.STAGGER if hp > 0 else Phase.FALL)
 	_update_sprite()
 	queue_redraw()
@@ -122,6 +124,8 @@ func _update_sprite() -> void:
 		cursor -= FRAMES.get_frame_duration(animation, frame)
 		frame += 1
 	paint.texture = FRAMES.get_frame_texture(animation, frame)
+	# Both cell sizes share row 58 as the ground anchor.
+	paint.offset.y = paint.texture.get_height() * 0.5 - GROUND_Y
 	paint.flip_h = facing < 0.0
 	paint.modulate = Color.WHITE
 	if phase == Phase.WINDUP:
@@ -133,8 +137,25 @@ func _update_sprite() -> void:
 			paint.modulate.a = 1.0 - smoothstep(FALL_FADE_START, FALL_TIME, elapsed)
 
 
+func _draw_ground() -> void:
+	var shade := Color("#21182b")
+	if phase != Phase.FALL:
+		draw_rect(Rect2(-10, -2, 20, 4), shade)
+		return
+	var contact := smoothstep(FALL_PLANT_TIME, FALL_FLOOR_TIME, elapsed)
+	var opacity := paint.modulate.a
+	shade.a = opacity * lerpf(1.0, 0.28, contact)
+	draw_rect(Rect2(-10, -2, 20, 4), shade)
+	if contact > 0.0:
+		var body := Vector2(-13.0 * facing, 8.5 if back_view else -12.5)
+		shade.a = opacity * contact * 0.72
+		draw_set_transform(body * contact, body.angle(), Vector2(1.55, 0.46))
+		draw_circle(Vector2.ZERO, 11.0, shade)
+		draw_set_transform(Vector2.ZERO)
+
+
 func _draw() -> void:
-	draw_rect(Rect2(-10, -2, 20, 4), Color("#21182b"))
+	_draw_ground()
 	if phase == Phase.WINDUP:
 		var tint := Color("#f58b8b")
 		tint.a = lerpf(0.4, 0.92, elapsed / WINDUP_TIME)

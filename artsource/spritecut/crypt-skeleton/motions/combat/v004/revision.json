@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "id": "v004",
+  "clip": "combat",
+  "status": "adopted",
+  "direction": "front_right",
+  "character": "../../../materials/v002/character.json",
+  "parent": "../v003/revision.json",
+  "parent_source": "explicit",
+  "materials": "../../../materials/v002/revision.json",
+  "floor_source": "../../../sources/v003/source.json",
+  "recipe_generator": "../../../authoring/bake_combat_v004.py",
+  "contact_recipe": "contact-poses.json",
+  "contact_materials": "contact-materials/",
+  "recipes": "recipes/",
+  "tracks": "tracks/",
+  "sheets": "sheets/clips.json",
+  "previews": {
+    "side_by_side": "previews/fall-comparison.gif",
+    "key_poses": "previews/pose-sheet-2x.png",
+    "contact_poses": "previews/ground-contact.png",
+    "chamber_1x": "previews/chamber-contact-1x.png"
+  },
+  "review": "Adapts the planted-foot, depth-projected fall from Waltz defeat v025–v026 to a backward fall. The face-up posing and the skull settle are authored separately. Both soles align at the cut between the rig and floor projection. The two Godot collapse clips use 12 cells at 96 by 96 px per direction, (48, 58) pivot, and 720 ms total duration. Foot plant starts at 173 ms and the floor shadow reaches full size at 374 ms. The lethal hit preserves the actor's last facing and applies its usual knockback."
+}

@@ -143,35 +143,51 @@ region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_0"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_1"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_2"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(128, 0, 64, 64)
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_3"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(192, 0, 64, 64)
+region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_4"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(256, 0, 64, 64)
+region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_5"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(320, 0, 64, 64)
+region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_6"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(384, 0, 64, 64)
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_front_right_7"]
 atlas = ExtResource("collapse_front_right")
-region = Rect2(448, 0, 64, 64)
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_front_right_8"]
+atlas = ExtResource("collapse_front_right")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_front_right_9"]
+atlas = ExtResource("collapse_front_right")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_front_right_10"]
+atlas = ExtResource("collapse_front_right")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_front_right_11"]
+atlas = ExtResource("collapse_front_right")
+region = Rect2(1056, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="idle_back_right_0"]
 atlas = ExtResource("idle_back_right")
@@ -303,35 +319,51 @@ region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_0"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_1"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_2"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(128, 0, 64, 64)
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_3"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(192, 0, 64, 64)
+region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_4"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(256, 0, 64, 64)
+region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_5"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(320, 0, 64, 64)
+region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_6"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(384, 0, 64, 64)
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="collapse_back_right_7"]
 atlas = ExtResource("collapse_back_right")
-region = Rect2(448, 0, 64, 64)
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_back_right_8"]
+atlas = ExtResource("collapse_back_right")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_back_right_9"]
+atlas = ExtResource("collapse_back_right")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_back_right_10"]
+atlas = ExtResource("collapse_back_right")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="collapse_back_right_11"]
+atlas = ExtResource("collapse_back_right")
+region = Rect2(1056, 0, 96, 96)
 
 [resource]
 animations = [{
@@ -392,14 +424,18 @@ animations = [{
 "speed": 10.0
 },
 {
-"frames": [{"duration": 0.5, "texture": SubResource("collapse_front_right_0")},
-{"duration": 0.62, "texture": SubResource("collapse_front_right_1")},
-{"duration": 0.65, "texture": SubResource("collapse_front_right_2")},
-{"duration": 0.6, "texture": SubResource("collapse_front_right_3")},
-{"duration": 0.62, "texture": SubResource("collapse_front_right_4")},
-{"duration": 0.55, "texture": SubResource("collapse_front_right_5")},
-{"duration": 0.56, "texture": SubResource("collapse_front_right_6")},
-{"duration": 3.1, "texture": SubResource("collapse_front_right_7")}],
+"frames": [{"duration": 0.48, "texture": SubResource("collapse_front_right_0")},
+{"duration": 0.42, "texture": SubResource("collapse_front_right_1")},
+{"duration": 0.4, "texture": SubResource("collapse_front_right_2")},
+{"duration": 0.43, "texture": SubResource("collapse_front_right_3")},
+{"duration": 0.4, "texture": SubResource("collapse_front_right_4")},
+{"duration": 0.38, "texture": SubResource("collapse_front_right_5")},
+{"duration": 0.4, "texture": SubResource("collapse_front_right_6")},
+{"duration": 0.39, "texture": SubResource("collapse_front_right_7")},
+{"duration": 0.44, "texture": SubResource("collapse_front_right_8")},
+{"duration": 0.44, "texture": SubResource("collapse_front_right_9")},
+{"duration": 0.42, "texture": SubResource("collapse_front_right_10")},
+{"duration": 2.6, "texture": SubResource("collapse_front_right_11")}],
 "loop": false,
 "name": &"collapse_front_right",
 "speed": 10.0
@@ -462,14 +498,18 @@ animations = [{
 "speed": 10.0
 },
 {
-"frames": [{"duration": 0.5, "texture": SubResource("collapse_back_right_0")},
-{"duration": 0.62, "texture": SubResource("collapse_back_right_1")},
-{"duration": 0.65, "texture": SubResource("collapse_back_right_2")},
-{"duration": 0.6, "texture": SubResource("collapse_back_right_3")},
-{"duration": 0.62, "texture": SubResource("collapse_back_right_4")},
-{"duration": 0.55, "texture": SubResource("collapse_back_right_5")},
-{"duration": 0.56, "texture": SubResource("collapse_back_right_6")},
-{"duration": 3.1, "texture": SubResource("collapse_back_right_7")}],
+"frames": [{"duration": 0.48, "texture": SubResource("collapse_back_right_0")},
+{"duration": 0.42, "texture": SubResource("collapse_back_right_1")},
+{"duration": 0.4, "texture": SubResource("collapse_back_right_2")},
+{"duration": 0.43, "texture": SubResource("collapse_back_right_3")},
+{"duration": 0.4, "texture": SubResource("collapse_back_right_4")},
+{"duration": 0.38, "texture": SubResource("collapse_back_right_5")},
+{"duration": 0.4, "texture": SubResource("collapse_back_right_6")},
+{"duration": 0.39, "texture": SubResource("collapse_back_right_7")},
+{"duration": 0.44, "texture": SubResource("collapse_back_right_8")},
+{"duration": 0.44, "texture": SubResource("collapse_back_right_9")},
+{"duration": 0.42, "texture": SubResource("collapse_back_right_10")},
+{"duration": 2.6, "texture": SubResource("collapse_back_right_11")}],
 "loop": false,
 "name": &"collapse_back_right",
 "speed": 10.0

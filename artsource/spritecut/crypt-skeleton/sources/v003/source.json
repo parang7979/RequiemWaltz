@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "v003",
+  "origin": "Built-in ImageGen",
+  "prompt": "imagegen-prompt.txt",
+  "reference": "../v002/originals/crypt-skeleton-turnaround.png",
+  "files": {
+    "supine_contact": {
+      "file": "originals/supine-contact.png",
+      "size": [1774, 887],
+      "sha256": "d38784db6a70dc05d12fc24f34cebfa7280424813feefbe7296293154df58dfd"
+    }
+  }
+}
