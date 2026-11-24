@@ -66,11 +66,16 @@ def register(direction, spec, size, support):
     output.mkdir(parents=True, exist_ok=True)
     for name, layer in registered.items():
         layer.save(output / f"{name}.png")
+    return registered, registered_landmarks(spec, support)
+
+
+def registered_landmarks(spec, support):
+    feet = np.mean(spec["soles"], axis=0)
 
     def point(source):
-        return (np.asarray(source) - feet) * scale + support
+        return (np.asarray(source) - feet) * spec["scale"] + support
 
-    landmarks = {
+    return {
         "support": support,
         "soles": [point(mark) for mark in spec["soles"]],
         "ankles": [point(mark) for mark in spec["ankles"]],
@@ -78,20 +83,21 @@ def register(direction, spec, size, support):
         "neck": point(spec["neck"]),
         "crown": point(spec["axis_tip"]),
     }
-    return registered, landmarks
 
 
-def map_limb(vertices, start, end, posed):
+def map_limb(vertices, start, end, posed, *, posed_start=None):
     """Place the original leg between its fixed ankle and its posed hip."""
     before = unit(end - start)
-    span = posed - start
+    if posed_start is None:
+        posed_start = start
+    span = posed - posed_start
     after = unit(span)
     before_perp = np.array([-before[1], before[0]])
     after_perp = np.array([-after[1], after[0]])
     offset = vertices - start
     along = np.outer(offset @ before, span / np.linalg.norm(end - start))
     across = np.outer(offset @ before_perp, after_perp)
-    return start + along + across
+    return posed_start + along + across
 
 
 def entry_poses(baseline, recipe, landmarks, joints):
@@ -119,12 +125,12 @@ def entry_poses(baseline, recipe, landmarks, joints):
     return initial
 
 
-def plane_recipe(part_images, landmarks, recipe, spec, work, name):
+def plane_recipe(part_images, landmarks, recipe, spec, work, name, *, layer_order=LAYERS):
     size = tuple(recipe["cell"])
     width, height = size
-    atlas = Image.new("RGBA", (width * len(LAYERS), height))
+    atlas = Image.new("RGBA", (width * len(layer_order), height))
     quads, uv, triangles = {}, [], []
-    for index, part in enumerate(LAYERS):
+    for index, part in enumerate(layer_order):
         layer = part_images[part]
         atlas.paste(layer, (width * index, 0))
         x0, y0, x1, y1 = layer.getchannel("A").getbbox()
@@ -135,6 +141,7 @@ def plane_recipe(part_images, landmarks, recipe, spec, work, name):
     atlas.save(work / "surfaces.png")
     support = landmarks["support"]
     axis = unit(landmarks["crown"] - support)
+    planted_ankles = landmarks.get("planted_ankles", landmarks["ankles"])
     local = recipe["durations_ms"][EARLY_FRAMES:]
     frames, tracks = [], []
     for index, ms in enumerate(local):
@@ -150,10 +157,11 @@ def plane_recipe(part_images, landmarks, recipe, spec, work, name):
         head_at = neck + [0, spec["head_offsets"][index]]
         posed = {**quads, "body": torso(quads["body"]),
                  "head": head_at + (quads["head"] - landmarks["neck"]) @ head_turn.T}
-        for side, ankle, hip in zip(("right", "left"), landmarks["ankles"], landmarks["hips"]):
+        for side, ankle, hip, fixed_ankle in zip(("right", "left"), landmarks["ankles"],
+                                               landmarks["hips"], planted_ankles):
             part = side + "_leg"
-            posed[part] = map_limb(quads[part], ankle, hip, torso(hip))
-        vertices = np.concatenate([posed[part] for part in LAYERS])
+            posed[part] = map_limb(quads[part], ankle, hip, torso(hip), posed_start=fixed_ankle)
+        vertices = np.concatenate([posed[part] for part in layer_order])
         frames.append({"ms": ms, "vertices": vertices.tolist(), "contacts": ["right_boot", "left_boot"]})
         points = {
             "right_foot": landmarks["soles"][0].tolist(),
@@ -184,13 +192,13 @@ def read_frames(directory, name):
     return materials
 
 
-def pack(name, phases, floor_tracks, early_tracks, recipe):
+def pack(name, phases, floor_tracks, early_tracks, recipe, *, version=VERSION):
     size = tuple(recipe["cell"])
     width, height = size
     pivot = np.asarray(recipe["pivot"])
     delta = pivot - [32, 58]
     count = len(recipe["durations_ms"])
-    sheets = VERSION / "sheets"
+    sheets = version / "sheets"
     maps = {}
     for material in ("color", "normal", "emissive"):
         atlas = Image.new("RGBA", (width * count, height))
@@ -207,7 +215,7 @@ def pack(name, phases, floor_tracks, early_tracks, recipe):
     shifted = [{"ms": ms, "contacts": original["contacts"], "points": {
         part: (point + delta).tolist() for part, point in original["points"].items()
     }} for ms, original in zip(recipe["durations_ms"], early_tracks)]
-    write(VERSION / "tracks" / f"{name}.json", {
+    write(version / "tracks" / f"{name}.json", {
         "version": 1, "cell": size, "pivot": recipe["pivot"], "direction": name.removeprefix("collapse_"),
         "frames": shifted + floor_tracks,
     })
