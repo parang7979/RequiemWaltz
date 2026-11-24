@@ -104,4 +104,4 @@ animations = [{
 "name": &"fx",
 "speed": 1000.0
 }]
-metadata/pixelfx = {"id": "requiem/forms-shift", "name": "Spirit reformation", "fps": 60, "loop": false, "frames": 16, "frameSize": [152, 94], "pivot": [76, 47], "columns": 4}
+metadata/pixelfx = {"id": "requiem/forms-shift", "name": "Requiem rising spirit fire", "fps": 60, "loop": false, "frames": 16, "frameSize": [152, 94], "pivot": [76, 47], "columns": 4}

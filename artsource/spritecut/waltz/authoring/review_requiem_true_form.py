@@ -151,10 +151,10 @@ if __name__ == "__main__":
         exit_track = (*baked("exit"), fluid)
         overview([idle_track, exit_track, baked("vanish")])
         switch_preview(exit_track, game_clip(forms, "hand_front_right_enter"),
-                       game_clip(forms, "hand_front_right_idle"), "본모습 → 공통 유체 → 장갑 · ¼배속",
+                       game_clip(forms, "hand_front_right_idle"), "본모습 → 보랏빛 불꽃 → 장갑 · ¼배속",
                        MOTIONS / CLIPS[1] / "v001/previews/to-gauntlet-slow.gif")
     enter_track = (*baked("enter"), fluid)
     previews = MOTIONS / "requiem_true_enter/v001/previews"
     enter_preview(enter_track, previews / "enter-full-speed.gif")
     switch_preview(game_clip(forms, "hand_front_right_exit"), enter_track, idle_track,
-                   "장갑 → 공통 유체 → 본모습 · ¼배속", previews / "from-gauntlet-slow.gif")
+                   "장갑 → 보랏빛 불꽃 → 본모습 · ¼배속", previews / "from-gauntlet-slow.gif")

@@ -29,31 +29,77 @@ export const tail = {
   },
 };
 
+const shiftDuration = 15 / 60;
+const flameShade = 0xff852836;
+const flameViolet = 0xffda4b83;
+const flameLight = 0xffff86b9;
+const flameRim = 0xffffb8e3;
+
+const shiftFlames = [
+  { x: -30, y: 10, reach: 37, width: 5.0, lag: .08, curl: -1 },
+  { x: 27, y: 8, reach: 45, width: 5.6, lag: .17, curl: 1 },
+  { x: -16, y: 15, reach: 53, width: 9.2, lag: .01, curl: 1 },
+  { x: 13, y: 11, reach: 48, width: 8.0, lag: .09, curl: -1 },
+  { x: -2, y: 17, reach: 24, width: 9.0, lag: .13, curl: -1 },
+];
+
+function flameEase(value) {
+  const u = Math.max(0, Math.min(1, value));
+  return u * u * (3 - 2 * u);
+}
+
+function drawShiftFlame(p, time, { x: rootX, y: rootY, reach, width, lag, curl }) {
+  const growth = flameEase((time - lag) / .36);
+  const lift = flameEase((time - .48 - lag * .4) / .42);
+  const strength = growth * (1 - lift);
+  if (strength <= 0) return;
+
+  const height = reach * (.20 + .80 * growth) * (1 - .63 * lift);
+  const base = Math.round(rootY - 25 * lift);
+  const sway = time * tau * 1.65 + rootX * .18;
+  const root = rootX * (.62 + .38 * growth) + curl * lift * 4;
+  p.glow(root, base - height * .30, 13, flameViolet, strength * .24);
+  for (let row = 0; row < height; row++) {
+    const u = row / height;
+    const wave = Math.sin(row * .23 - sway);
+    const x = root + u * (4.2 * wave + 4.6 * curl * u) + Math.sin(u * 5.5 - sway) * u * 2;
+    const belly = flameEase((row + 1) / 5) * (1 - u) ** .73;
+    const half = width * belly * (.58 + .42 * growth) * (.82 + .18 * wave) * (1 - .34 * lift);
+    const opacity = strength * (.62 + .38 * (1 - u));
+    const rimSide = Math.cos(row * .22 - sway) > 0 ? 1 : -1;
+    for (let px = Math.floor(x - half); px <= Math.ceil(x + half); px++) {
+      const offset = px - x;
+      const coverage = Math.max(0, Math.min(1, half + .45 - Math.abs(offset)));
+      const rim = offset * rimSide / Math.max(1, half);
+      const color = rim > .42 ? flameLight : rim > -.38 ? flameViolet : flameShade;
+      p.blend(px, base - row, color, coverage * opacity);
+    }
+    if (half > 1.3 && wave > .23) {
+      p.blend(x + rimSide * half * .56, base - row, flameRim, opacity * (.45 + .43 * wave));
+    }
+  }
+}
+
 export const shift = {
-  meta: { name: "Spirit reformation", size: [152, 94], origin: [76, 47], fps: 60, duration: 15 / 60, loop: false },
+  meta: { name: "Requiem rising spirit fire", size: [152, 94], origin: [76, 47], fps: 60, duration: shiftDuration, loop: false },
   draw(p, t) {
-    const u = t * 4;
-    if (u >= 1) return;
-    const envelope = Math.sin(Math.PI * u) ** 0.68;
-    const spread = 13 + 46 * envelope;
-    for (let strand = 0; strand < 3; strand++) {
-      const yScale = [10, 18, 24][strand];
-      const start = -0.55 + strand * 0.29 - u * 2.4;
-      const end = start + 4.40;
-      for (let a = start; a < end; a += 0.025) {
-        const phase = (a - start) / (end - start);
-        const thick = 9 * Math.sin(Math.PI * phase) ** .7 * envelope;
-        const x = Math.cos(a) * (spread - strand * 6);
-        const y = Math.sin(a) * yScale * envelope + Math.sin(a * 2 + u * 5) * 4;
-        for (let i = 0; i <= thick; i++) {
-          const color = i < 2 ? luminous : i < 4 ? orchid : i < 7 ? violet : ink;
-          p.blend(x, y - i, color, envelope * (.38 + .55 * phase));
-        }
+    const u = t / shiftDuration;
+    if (u <= 0 || u >= 1) return;
+    for (const flame of shiftFlames) drawShiftFlame(p, u, flame);
+    for (let i = 0; i < 12; i++) {
+      const age = (u - (.24 + i * .032)) / (.33 + (i % 3) * .035);
+      if (age <= 0 || age >= 1) continue;
+      const { x: rootX, reach, curl } = shiftFlames[i % shiftFlames.length];
+      const x = rootX + Math.sin(i * 2.4 + age * 4) * (2 + age * 4) + curl * 3 * age;
+      const y = 8 - reach * .46 - age * 21;
+      const alpha = flameEase(age / .17) * (1 - age) * (.68 + (i % 3) * .16);
+      p.blend(x, y, flameLight, alpha);
+      p.blend(x, y + 1, flameViolet, alpha * .48);
+      if (i % 4 === 0) {
+        p.blend(x + 1, y + 1, flameViolet, alpha * .55);
+        p.glow(x, y, 3, flameViolet, alpha * .22);
       }
     }
-    p.glow(0, 0, 18, violet, envelope * .55);
-    p.line(-8 * envelope, 0, 8 * envelope, 0, luminous, envelope);
-    p.line(0, -5 * envelope, 0, 4 * envelope, white, envelope);
   },
 };
 
