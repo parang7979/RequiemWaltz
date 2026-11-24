@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "direction": "front",
+  "views": "../v007/prepared/views.json",
+  "parts": "parts/index.json"
+}

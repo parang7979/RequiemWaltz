@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "cell": [
+    128,
+    128
+  ],
+  "parts": [
+    {
+      "id": "head",
+      "parent": "body"
+    },
+    {
+      "id": "right_arm",
+      "parent": "body"
+    },
+    {
+      "id": "left_arm",
+      "parent": "body"
+    },
+    {
+      "id": "tail",
+      "parent": "body"
+    },
+    {
+      "id": "body"
+    }
+  ],
+  "views": {
+    "front": {
+      "parts": {
+        "head": {
+          "visibility": "visible",
+          "file": "front/head.png",
+          "pivot": [
+            64,
+            42
+          ],
+          "landmarks": {
+            "eyes": [
+              64,
+              38
+            ],
+            "mouth": [
+              64,
+              42
+            ]
+          },
+          "order": 0,
+          "pixels": 1871,
+          "bounds": [
+            29,
+            10,
+            97,
+            50
+          ]
+        },
+        "right_arm": {
+          "visibility": "visible",
+          "file": "front/right_arm.png",
+          "pivot": [
+            38,
+            45
+          ],
+          "landmarks": {
+            "shoulder": [
+              38,
+              45
+            ],
+            "elbow": [
+              26,
+              65
+            ],
+            "wrist": [
+              32,
+              75
+            ],
+            "fingertip": [
+              39,
+              83
+            ]
+          },
+          "order": 1,
+          "pixels": 885,
+          "bounds": [
+            19,
+            39,
+            47,
+            89
+          ]
+        },
+        "left_arm": {
+          "visibility": "visible",
+          "file": "front/left_arm.png",
+          "pivot": [
+            91,
+            45
+          ],
+          "landmarks": {
+            "shoulder": [
+              91,
+              45
+            ],
+            "elbow": [
+              102,
+              65
+            ],
+            "wrist": [
+              95,
+              75
+            ],
+            "fingertip": [
+              86,
+              83
+            ]
+          },
+          "order": 2,
+          "pixels": 917,
+          "bounds": [
+            81,
+            37,
+            109,
+            89
+          ]
+        },
+        "tail": {
+          "visibility": "visible",
+          "file": "front/tail.png",
+          "pivot": [
+            61,
+            73
+          ],
+          "landmarks": {
+            "root": [
+              61,
+              73
+            ],
+            "middle": [
+              58,
+              95
+            ],
+            "tip": [
+              63,
+              115
+            ]
+          },
+          "order": 3,
+          "pixels": 925,
+          "bounds": [
+            46,
+            70,
+            84,
+            117
+          ]
+        },
+        "body": {
+          "visibility": "visible",
+          "file": "front/body.png",
+          "pivot": [
+            65,
+            59
+          ],
+          "landmarks": {
+            "chest": [
+              65,
+              56
+            ],
+            "waist": [
+              61,
+              73
+            ]
+          },
+          "order": 4,
+          "pixels": 1049,
+          "bounds": [
+            32,
+            41,
+            93,
+            91
+          ]
+        }
+      },
+      "remainder": "front/remainder.png",
+      "reconstructed": "front/reconstructed.png",
+      "difference_pixels": 0,
+      "foreground_pixels": 5647,
+      "remainder_pixels": 0
+    }
+  },
+  "rotation_pairs": [],
+  "pivot": [
+    64,
+    119
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "v008",
+  "status": "candidate",
+  "subject": "Requiem true form",
+  "parent": "../v007/revision.json",
+  "character": "character.json",
+  "rest_regions": "regions.json",
+  "parts": "parts/index.json",
+  "review": "parts/parts-grid.png",
+  "notes": "Observed front regions on one continuous weighted surface. The arm and tail limits overlap by blended influence so one translucent fold can cross a joint.",
+  "spritecut": "79b60ad93205b59bfc5fba220c30f5eb059eb35e"
+}

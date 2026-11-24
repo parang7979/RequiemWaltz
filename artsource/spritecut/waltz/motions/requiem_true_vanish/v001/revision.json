@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "id": "v001",
+  "clip": "requiem_true_vanish",
+  "status": "candidate",
+  "direction": "front",
+  "character": "../../../materials/v008/character.json",
+  "motion": "motion.json",
+  "sheets": "sheets/clips.json",
+  "tracks": "tracks.json",
+  "preview": "previews/full-speed.gif",
+  "preview_index": "previews/index.json",
+  "recipe_generator": "../../../authoring/build_requiem_true_form.py",
+  "duration_ms": 640,
+  "spritecut": {
+    "commit": "79b60ad93205b59bfc5fba220c30f5eb059eb35e",
+    "commands": [
+      "parts",
+      "bake",
+      "preview"
+    ]
+  },
+  "review": "Edges peel away in waves. Small flecks rise as the face fades."
+}

@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "parts": [
+    {
+      "id": "head",
+      "parent": "body"
+    },
+    {
+      "id": "right_arm",
+      "parent": "body"
+    },
+    {
+      "id": "left_arm",
+      "parent": "body"
+    },
+    {
+      "id": "tail",
+      "parent": "body"
+    },
+    {
+      "id": "body"
+    }
+  ],
+  "views": {
+    "front": {
+      "parts": {
+        "head": {
+          "mask": "masks/head.png",
+          "pivot": [
+            64,
+            42
+          ],
+          "landmarks": {
+            "eyes": [
+              64,
+              38
+            ],
+            "mouth": [
+              64,
+              42
+            ]
+          },
+          "order": 0
+        },
+        "right_arm": {
+          "mask": "masks/right_arm.png",
+          "pivot": [
+            38,
+            45
+          ],
+          "landmarks": {
+            "shoulder": [
+              38,
+              45
+            ],
+            "elbow": [
+              26,
+              65
+            ],
+            "wrist": [
+              32,
+              75
+            ],
+            "fingertip": [
+              39,
+              83
+            ]
+          },
+          "order": 1
+        },
+        "left_arm": {
+          "mask": "masks/left_arm.png",
+          "pivot": [
+            91,
+            45
+          ],
+          "landmarks": {
+            "shoulder": [
+              91,
+              45
+            ],
+            "elbow": [
+              102,
+              65
+            ],
+            "wrist": [
+              95,
+              75
+            ],
+            "fingertip": [
+              86,
+              83
+            ]
+          },
+          "order": 2
+        },
+        "tail": {
+          "mask": "masks/tail.png",
+          "pivot": [
+            61,
+            73
+          ],
+          "landmarks": {
+            "root": [
+              61,
+              73
+            ],
+            "middle": [
+              58,
+              95
+            ],
+            "tip": [
+              63,
+              115
+            ]
+          },
+          "order": 3
+        },
+        "body": {
+          "mask": "masks/body.png",
+          "pivot": [
+            65,
+            59
+          ],
+          "landmarks": {
+            "chest": [
+              65,
+              56
+            ],
+            "waist": [
+              61,
+              73
+            ]
+          },
+          "order": 4
+        }
+      }
+    }
+  }
+}

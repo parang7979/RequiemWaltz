@@ -1,0 +1,421 @@
+{
+  "clip": "requiem_true_vanish",
+  "duration_ms": 640,
+  "label": "Current",
+  "gaps": {
+    "alpha_min": 96,
+    "min_area_px": 4,
+    "connectivity": 8,
+    "current": {
+      "frames_checked": 16,
+      "split_frames": [
+        {
+          "frame_index": 4,
+          "elapsed_ms": 160,
+          "components": [
+            {
+              "area_px": 4509,
+              "rect": [
+                21,
+                7,
+                87,
+                99
+              ]
+            },
+            {
+              "area_px": 14,
+              "rect": [
+                64,
+                105,
+                4,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 5,
+          "elapsed_ms": 200,
+          "components": [
+            {
+              "area_px": 3985,
+              "rect": [
+                22,
+                7,
+                85,
+                93
+              ]
+            },
+            {
+              "area_px": 8,
+              "rect": [
+                58,
+                101,
+                4,
+                2
+              ]
+            },
+            {
+              "area_px": 5,
+              "rect": [
+                65,
+                104,
+                2,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 6,
+          "elapsed_ms": 240,
+          "components": [
+            {
+              "area_px": 3283,
+              "rect": [
+                24,
+                6,
+                79,
+                79
+              ]
+            },
+            {
+              "area_px": 17,
+              "rect": [
+                52,
+                85,
+                5,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 7,
+          "elapsed_ms": 280,
+          "components": [
+            {
+              "area_px": 5,
+              "rect": [
+                47,
+                6,
+                3,
+                3
+              ]
+            },
+            {
+              "area_px": 2525,
+              "rect": [
+                29,
+                8,
+                69,
+                74
+              ]
+            },
+            {
+              "area_px": 13,
+              "rect": [
+                50,
+                9,
+                5,
+                4
+              ]
+            },
+            {
+              "area_px": 70,
+              "rect": [
+                92,
+                58,
+                10,
+                12
+              ]
+            },
+            {
+              "area_px": 48,
+              "rect": [
+                26,
+                61,
+                8,
+                10
+              ]
+            },
+            {
+              "area_px": 4,
+              "rect": [
+                35,
+                74,
+                2,
+                3
+              ]
+            },
+            {
+              "area_px": 4,
+              "rect": [
+                60,
+                93,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 8,
+          "elapsed_ms": 320,
+          "components": [
+            {
+              "area_px": 4,
+              "rect": [
+                75,
+                9,
+                3,
+                2
+              ]
+            },
+            {
+              "area_px": 1915,
+              "rect": [
+                31,
+                11,
+                66,
+                64
+              ]
+            },
+            {
+              "area_px": 39,
+              "rect": [
+                80,
+                12,
+                9,
+                9
+              ]
+            },
+            {
+              "area_px": 42,
+              "rect": [
+                38,
+                13,
+                8,
+                9
+              ]
+            },
+            {
+              "area_px": 21,
+              "rect": [
+                96,
+                60,
+                4,
+                8
+              ]
+            },
+            {
+              "area_px": 11,
+              "rect": [
+                30,
+                63,
+                4,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 9,
+          "elapsed_ms": 360,
+          "components": [
+            {
+              "area_px": 1411,
+              "rect": [
+                34,
+                12,
+                50,
+                55
+              ]
+            },
+            {
+              "area_px": 9,
+              "rect": [
+                42,
+                13,
+                3,
+                4
+              ]
+            },
+            {
+              "area_px": 5,
+              "rect": [
+                85,
+                14,
+                3,
+                2
+              ]
+            },
+            {
+              "area_px": 40,
+              "rect": [
+                85,
+                34,
+                5,
+                11
+              ]
+            },
+            {
+              "area_px": 7,
+              "rect": [
+                97,
+                61,
+                3,
+                4
+              ]
+            },
+            {
+              "area_px": 5,
+              "rect": [
+                67,
+                70,
+                3,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 10,
+          "elapsed_ms": 400,
+          "components": [
+            {
+              "area_px": 965,
+              "rect": [
+                43,
+                12,
+                39,
+                51
+              ]
+            },
+            {
+              "area_px": 17,
+              "rect": [
+                36,
+                36,
+                4,
+                6
+              ]
+            },
+            {
+              "area_px": 4,
+              "rect": [
+                86,
+                36,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 11,
+          "elapsed_ms": 440,
+          "components": [
+            {
+              "area_px": 376,
+              "rect": [
+                50,
+                12,
+                25,
+                30
+              ]
+            },
+            {
+              "area_px": 7,
+              "rect": [
+                45,
+                30,
+                2,
+                4
+              ]
+            },
+            {
+              "area_px": 23,
+              "rect": [
+                63,
+                38,
+                4,
+                9
+              ]
+            },
+            {
+              "area_px": 6,
+              "rect": [
+                70,
+                44,
+                2,
+                4
+              ]
+            },
+            {
+              "area_px": 15,
+              "rect": [
+                56,
+                48,
+                3,
+                6
+              ]
+            },
+            {
+              "area_px": 14,
+              "rect": [
+                63,
+                52,
+                3,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 12,
+          "elapsed_ms": 480,
+          "components": [
+            {
+              "area_px": 49,
+              "rect": [
+                58,
+                13,
+                9,
+                16
+              ]
+            },
+            {
+              "area_px": 26,
+              "rect": [
+                53,
+                16,
+                6,
+                11
+              ]
+            },
+            {
+              "area_px": 42,
+              "rect": [
+                64,
+                18,
+                7,
+                14
+              ]
+            },
+            {
+              "area_px": 7,
+              "rect": [
+                51,
+                29,
+                2,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "playback": "full-speed.gif"
+}

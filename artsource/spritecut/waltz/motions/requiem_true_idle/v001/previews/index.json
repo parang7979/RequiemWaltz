@@ -1,0 +1,15 @@
+{
+  "clip": "requiem_true_idle",
+  "duration_ms": 1600,
+  "label": "Current",
+  "gaps": {
+    "alpha_min": 96,
+    "min_area_px": 4,
+    "connectivity": 8,
+    "current": {
+      "frames_checked": 40,
+      "split_frames": []
+    }
+  },
+  "playback": "full-speed.gif"
+}
