@@ -1,0 +1,462 @@
+{
+  "version": 1,
+  "direction": "front",
+  "pivot": [
+    64,
+    119
+  ],
+  "rest": {
+    "head_eyes": [
+      64,
+      38
+    ],
+    "head_mouth": [
+      64,
+      42
+    ],
+    "right_arm_shoulder": [
+      38,
+      45
+    ],
+    "right_arm_elbow": [
+      26,
+      65
+    ],
+    "right_arm_wrist": [
+      32,
+      75
+    ],
+    "right_arm_fingertip": [
+      39,
+      83
+    ],
+    "left_arm_shoulder": [
+      91,
+      45
+    ],
+    "left_arm_elbow": [
+      102,
+      65
+    ],
+    "left_arm_wrist": [
+      95,
+      75
+    ],
+    "left_arm_fingertip": [
+      86,
+      83
+    ],
+    "tail_root": [
+      61,
+      73
+    ],
+    "tail_middle": [
+      58,
+      95
+    ],
+    "tail_tip": [
+      63,
+      115
+    ],
+    "body_chest": [
+      65,
+      56
+    ],
+    "body_waist": [
+      61,
+      73
+    ]
+  },
+  "frames": [
+    {
+      "ms": 15,
+      "landmarks": {
+        "head_eyes": [
+          64.0,
+          56.24
+        ],
+        "head_mouth": [
+          64.0,
+          56.4
+        ],
+        "right_arm_shoulder": [
+          59.32,
+          56.52
+        ],
+        "right_arm_elbow": [
+          57.2934,
+          57.28
+        ],
+        "right_arm_wrist": [
+          58.7275,
+          57.63
+        ],
+        "right_arm_fingertip": [
+          60.1888,
+          57.91
+        ],
+        "left_arm_shoulder": [
+          68.86,
+          56.52
+        ],
+        "left_arm_elbow": [
+          70.7066,
+          57.28
+        ],
+        "left_arm_wrist": [
+          69.1077,
+          57.63
+        ],
+        "left_arm_fingertip": [
+          67.3539,
+          57.91
+        ],
+        "tail_root": [
+          63.4973,
+          57.56
+        ],
+        "tail_middle": [
+          63.1916,
+          58.33
+        ],
+        "tail_tip": [
+          63.8751,
+          59.03
+        ],
+        "body_chest": [
+          64.18,
+          56.96
+        ],
+        "body_waist": [
+          63.4973,
+          57.56
+        ]
+      }
+    },
+    {
+      "ms": 20,
+      "landmarks": {
+        "head_eyes": [
+          62.0002,
+          52.44
+        ],
+        "head_mouth": [
+          62.7015,
+          53.4
+        ],
+        "right_arm_shoulder": [
+          51.2533,
+          54.12
+        ],
+        "right_arm_elbow": [
+          47.1531,
+          57.6
+        ],
+        "right_arm_wrist": [
+          52.4085,
+          58.35
+        ],
+        "right_arm_fingertip": [
+          56.9154,
+          58.95
+        ],
+        "left_arm_shoulder": [
+          75.6333,
+          54.12
+        ],
+        "left_arm_elbow": [
+          81.4046,
+          57.6
+        ],
+        "left_arm_wrist": [
+          78.8399,
+          58.35
+        ],
+        "left_arm_fingertip": [
+          75.0973,
+          58.95
+        ],
+        "tail_root": [
+          64.1984,
+          58.2
+        ],
+        "tail_middle": [
+          62.0635,
+          59.85
+        ],
+        "tail_tip": [
+          59.6901,
+          61.35
+        ],
+        "body_chest": [
+          64.4593,
+          56.76
+        ],
+        "body_waist": [
+          64.1984,
+          58.2
+        ]
+      }
+    },
+    {
+      "ms": 22,
+      "landmarks": {
+        "head_eyes": [
+          59.5004,
+          44.46
+        ],
+        "head_mouth": [
+          61.0783,
+          47.1
+        ],
+        "right_arm_shoulder": [
+          43.7699,
+          49.08
+        ],
+        "right_arm_elbow": [
+          38.0247,
+          59.4
+        ],
+        "right_arm_wrist": [
+          46.785,
+          62.4
+        ],
+        "right_arm_fingertip": [
+          54.0174,
+          64.8
+        ],
+        "left_arm_shoulder": [
+          81.3999,
+          49.08
+        ],
+        "left_arm_elbow": [
+          91.2302,
+          59.4
+        ],
+        "left_arm_wrist": [
+          88.8009,
+          62.4
+        ],
+        "left_arm_fingertip": [
+          83.7261,
+          64.8
+        ],
+        "tail_root": [
+          65.3039,
+          61.8
+        ],
+        "tail_middle": [
+          60.7383,
+          68.4
+        ],
+        "tail_tip": [
+          54.4544,
+          74.4
+        ],
+        "body_chest": [
+          64.7085,
+          56.34
+        ],
+        "body_waist": [
+          65.3039,
+          61.8
+        ]
+      }
+    },
+    {
+      "ms": 24,
+      "landmarks": {
+        "head_eyes": [
+          60.0003,
+          39.14
+        ],
+        "head_mouth": [
+          61.403,
+          42.9
+        ],
+        "right_arm_shoulder": [
+          37.9866,
+          45.72
+        ],
+        "right_arm_elbow": [
+          29.031,
+          62.84
+        ],
+        "right_arm_wrist": [
+          38.2941,
+          70.14
+        ],
+        "right_arm_fingertip": [
+          46.6708,
+          75.98
+        ],
+        "left_arm_shoulder": [
+          87.8066,
+          45.72
+        ],
+        "left_arm_elbow": [
+          100.0845,
+          62.84
+        ],
+        "left_arm_wrist": [
+          96.1239,
+          70.14
+        ],
+        "left_arm_fingertip": [
+          88.9755,
+          75.98
+        ],
+        "tail_root": [
+          64.1926,
+          68.68
+        ],
+        "tail_middle": [
+          58.9581,
+          84.74
+        ],
+        "tail_tip": [
+          55.1474,
+          99.34
+        ],
+        "body_chest": [
+          64.9387,
+          56.06
+        ],
+        "body_waist": [
+          64.1926,
+          68.68
+        ]
+      }
+    },
+    {
+      "ms": 23,
+      "landmarks": {
+        "head_eyes": [
+          65.2999,
+          37.772
+        ],
+        "head_mouth": [
+          64.844,
+          41.82
+        ],
+        "right_arm_shoulder": [
+          38.3814,
+          44.856
+        ],
+        "right_arm_elbow": [
+          25.6103,
+          65.2
+        ],
+        "right_arm_wrist": [
+          30.5807,
+          75.45
+        ],
+        "right_arm_fingertip": [
+          37.0987,
+          83.65
+        ],
+        "left_arm_shoulder": [
+          91.6464,
+          44.856
+        ],
+        "left_arm_elbow": [
+          102.0271,
+          65.2
+        ],
+        "left_arm_wrist": [
+          94.0281,
+          75.45
+        ],
+        "left_arm_fingertip": [
+          84.5123,
+          83.65
+        ],
+        "tail_root": [
+          60.0183,
+          73.4
+        ],
+        "tail_middle": [
+          57.866,
+          95.95
+        ],
+        "tail_tip": [
+          65.5849,
+          116.45
+        ],
+        "body_chest": [
+          65.0054,
+          55.988
+        ],
+        "body_waist": [
+          60.0183,
+          73.4
+        ]
+      }
+    },
+    {
+      "ms": 26,
+      "landmarks": {
+        "head_eyes": [
+          64.0,
+          38.0
+        ],
+        "head_mouth": [
+          64.0,
+          42.0
+        ],
+        "right_arm_shoulder": [
+          38.0,
+          45.0
+        ],
+        "right_arm_elbow": [
+          26.0,
+          65.0
+        ],
+        "right_arm_wrist": [
+          32.0,
+          75.0
+        ],
+        "right_arm_fingertip": [
+          39.0,
+          83.0
+        ],
+        "left_arm_shoulder": [
+          91.0,
+          45.0
+        ],
+        "left_arm_elbow": [
+          102.0,
+          65.0
+        ],
+        "left_arm_wrist": [
+          95.0,
+          75.0
+        ],
+        "left_arm_fingertip": [
+          86.0,
+          83.0
+        ],
+        "tail_root": [
+          61.0,
+          73.0
+        ],
+        "tail_middle": [
+          58.0,
+          95.0
+        ],
+        "tail_tip": [
+          63.0,
+          115.0
+        ],
+        "body_chest": [
+          65.0,
+          56.0
+        ],
+        "body_waist": [
+          61.0,
+          73.0
+        ]
+      }
+    }
+  ]
+}

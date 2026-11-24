@@ -1,11 +1,12 @@
-"""Review the baked front motions and the hand-off into the existing gauntlet."""
+"""Review the baked front motions and their hand-offs with the existing gauntlet."""
 
+import argparse
 from bisect import bisect_right
 from itertools import accumulate
 
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 
-from build_requiem_true_form import CHARACTER, CLIPS, MATERIAL, read
+from build_requiem_true_form import CHARACTER, CLIPS, MATERIAL, read, write_json
 
 
 PROJECT = CHARACTER.parents[2]
@@ -91,44 +92,69 @@ def overview(tracks):
     save_gif(images, durations, MOTIONS / CLIPS[0] / "v001/previews/motion-overview.gif")
 
 
-def to_gauntlet(exit_track):
-    forms = PROJECT / "assets/actors/requiem_forms"
-    hand_enter = game_clip(forms, "hand_front_right_enter")
-    hand_idle = game_clip(forms, "hand_front_right_idle")
+def switch_preview(exit_track, enter_track, idle_track, label, path):
     shader = PROJECT / "assets/vfx/requiem_forms"
     fx = read(shader / "shift.json")
     with Image.open(shader / "shift.png") as sheet:
         shift = frames(sheet.convert("RGBA"), fx["frames"], "duration")
-    fluid = read(MATERIAL / "regions.json")["fluid_center"]
     exit_ms = exit_track[1][-1]
-    enter_ms = hand_enter[1][-1]
+    enter_ms = enter_track[1][-1]
     center = (78, 67)
-    points = sorted({0, *exit_track[1], *(exit_ms + t for t in hand_enter[1]),
-                     *(t for t in shift[1] if t < exit_ms + enter_ms), exit_ms + enter_ms + 140})
+    settle_at = max(exit_ms + enter_ms, shift[1][-1])
+    points = sorted({0, *exit_track[1], *(exit_ms + t for t in enter_track[1]),
+                     *shift[1], settle_at + 140})
     images, lengths = [], []
     for i, t in enumerate(points[:-1]):
         background = Image.new("RGBA", (156, 140), BACKDROP)
         if t < exit_ms:
-            sprite = cell_at(exit_track, t)
-            pivot = fluid
+            track, elapsed = exit_track, t
+        elif t < exit_ms + enter_ms:
+            track, elapsed = enter_track, t - exit_ms
         else:
-            track = hand_enter if t < exit_ms + enter_ms else hand_idle
-            sprite = cell_at(track, t - exit_ms if track is hand_enter else 0)
-            pivot = track[2]
-        background.alpha_composite(sprite, tuple(a - b for a, b in zip(center, pivot)))
+            track, elapsed = idle_track, 0
+        background.alpha_composite(cell_at(track, elapsed), tuple(a - b for a, b in zip(center, track[2])))
         if t < shift[1][-1]:
             layer = Image.new("RGBA", background.size)
             layer.alpha_composite(cell_at(shift, t), tuple(a - b for a, b in zip(center, fx["meta"]["pixelfx"]["pivot"])))
             black = Image.new("RGB", layer.size)
             black.paste(layer, (0, 0), layer.getchannel("A"))
             background = ImageChops.add(background.convert("RGB"), black, scale=1.0)
-        images.append(layout([("본모습 → 공통 유체 → 장갑 · ¼배속", background)]))
+        images.append(layout([(label, background)]))
         lengths.append(max(10, round((points[i + 1] - t) * .4) * 10))
     lengths[0] += 200
-    save_gif(images, lengths, MOTIONS / CLIPS[1] / "v001/previews/to-gauntlet-slow.gif")
+    save_gif(images, lengths, path)
+
+
+def enter_preview(enter_track, path):
+    cells, ends = enter_track[:2]
+    ticks = [0, *(round(ms / 10) * 10 for ms in ends)]
+    exposures = [b - a for a, b in zip(ticks, ticks[1:])]
+    exposures[-1] += 600
+    images = [layout([("본모습 등장 · 실제 속도", panel(cell))]) for cell in cells]
+    save_gif(images, exposures, path)
+    index_path = path.with_name("index.json")
+    index = read(index_path)
+    # SpriteCut outputs a still for this short shot. Its first frame is transparent.
+    path.with_name("full-speed.png").unlink(missing_ok=True)
+    index["playback"] = path.name
+    write_json(index_path, index)
 
 
 if __name__ == "__main__":
-    tracks = [baked(kind) for kind in ("idle", "exit", "vanish")]
-    overview(tracks)
-    to_gauntlet(tracks[1])
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--enter-only", action="store_true")
+    args = parser.parse_args()
+    forms = PROJECT / "assets/actors/requiem_forms"
+    fluid = read(MATERIAL / "regions.json")["fluid_center"]
+    idle_track = (*baked("idle"), fluid)
+    if not args.enter_only:
+        exit_track = (*baked("exit"), fluid)
+        overview([idle_track, exit_track, baked("vanish")])
+        switch_preview(exit_track, game_clip(forms, "hand_front_right_enter"),
+                       game_clip(forms, "hand_front_right_idle"), "본모습 → 공통 유체 → 장갑 · ¼배속",
+                       MOTIONS / CLIPS[1] / "v001/previews/to-gauntlet-slow.gif")
+    enter_track = (*baked("enter"), fluid)
+    previews = MOTIONS / "requiem_true_enter/v001/previews"
+    enter_preview(enter_track, previews / "enter-full-speed.gif")
+    switch_preview(game_clip(forms, "hand_front_right_exit"), enter_track, idle_track,
+                   "장갑 → 공통 유체 → 본모습 · ¼배속", previews / "from-gauntlet-slow.gif")

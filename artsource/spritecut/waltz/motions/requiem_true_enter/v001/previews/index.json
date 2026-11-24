@@ -1,0 +1,100 @@
+{
+  "clip": "requiem_true_enter",
+  "duration_ms": 130,
+  "label": "Current",
+  "gaps": {
+    "alpha_min": 96,
+    "min_area_px": 4,
+    "connectivity": 8,
+    "current": {
+      "frames_checked": 6,
+      "split_frames": [
+        {
+          "frame_index": 1,
+          "elapsed_ms": 15,
+          "components": [
+            {
+              "area_px": 4,
+              "rect": [
+                57,
+                46,
+                4,
+                2
+              ]
+            },
+            {
+              "area_px": 4,
+              "rect": [
+                70,
+                46,
+                3,
+                2
+              ]
+            },
+            {
+              "area_px": 11,
+              "rect": [
+                47,
+                47,
+                7,
+                4
+              ]
+            },
+            {
+              "area_px": 8,
+              "rect": [
+                72,
+                47,
+                5,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "frame_index": 2,
+          "elapsed_ms": 35,
+          "components": [
+            {
+              "area_px": 1154,
+              "rect": [
+                36,
+                26,
+                56,
+                36
+              ]
+            },
+            {
+              "area_px": 6,
+              "rect": [
+                42,
+                53,
+                4,
+                2
+              ]
+            },
+            {
+              "area_px": 13,
+              "rect": [
+                34,
+                58,
+                10,
+                3
+              ]
+            },
+            {
+              "area_px": 5,
+              "rect": [
+                93,
+                59,
+                3,
+                2
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "playback": "enter-full-speed.gif"
+}

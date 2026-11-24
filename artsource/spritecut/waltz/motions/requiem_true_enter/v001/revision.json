@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "id": "v001",
+  "clip": "requiem_true_enter",
+  "status": "candidate",
+  "direction": "front",
+  "character": "../../../materials/v008/character.json",
+  "motion": "motion.json",
+  "sheets": "sheets/clips.json",
+  "tracks": "tracks.json",
+  "preview": "previews/enter-full-speed.gif",
+  "preview_index": "previews/index.json",
+  "recipe_generator": "../../../authoring/build_requiem_true_form.py",
+  "duration_ms": 130,
+  "spritecut": {
+    "commit": "79b60ad93205b59bfc5fba220c30f5eb059eb35e",
+    "commands": ["bake", "preview"]
+  },
+  "review": "Starts at the common transition center. Highlights and eyes form first, then arms and tail. The last frame matches requiem_true_idle v001."
+}

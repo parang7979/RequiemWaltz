@@ -18,7 +18,7 @@ from build_requiem_forms import mesh, write_json
 
 CHARACTER = Path(__file__).resolve().parents[1]
 MATERIAL = CHARACTER / "materials/v008"
-CLIPS = ("requiem_true_idle", "requiem_true_exit", "requiem_true_vanish")
+CLIPS = ("requiem_true_idle", "requiem_true_exit", "requiem_true_vanish", "requiem_true_enter")
 FLECK_TILE = 4
 
 
@@ -98,6 +98,20 @@ def lagged(phase, delay):
     return np.sin(phase - delay) - np.sin(-delay)
 
 
+def unfold(x, y, center_x, center_y, key):
+    width, crown, tail, curl = key
+    height = y - center_y
+    # The crown lifts first. The lower half stays close to the transition center,
+    # then the tail follows an S path as its vertical extent catches up.
+    lower = smooth(height / 52)
+    spread = width + (tail - width) * .38 * lower
+    drift = curl * np.sin(height * .082) * smooth(np.abs(height) / 38)
+    return (
+        center_x + (x - center_x) * spread + drift,
+        center_y + height * np.where(height < 0, crown, tail),
+    )
+
+
 def deform(points, surface, rig, clip, index):
     x, y = np.asarray(points, dtype=float).T
     height, width = surface["body"].shape
@@ -140,6 +154,8 @@ def deform(points, surface, rig, clip, index):
         curled_x, curled_y = rotate(tuck_x, tuck_y, center_x, center_y, twist)
         px = center_x + (curled_x - center_x) * scale_x
         py = center_y + (curled_y - center_y) * scale_y
+    elif kind == "requiem_true_enter":
+        px, py = unfold(x, y, center_x, center_y, clip["unfold"][index])
     else:
         peel = smooth(u)
         drift = lagged(phase, (y - 56) * .10)
@@ -157,22 +173,37 @@ def pigments(base, surface, clip, index, atlas_width):
     crest = smooth((value - 71) / 91)
     count = len(clip["timing_ms"])
     u = index / (count - 1)
-    phase = math.tau * (index / count if clip["loop"] else u * 1.15)
+    kind = clip["clip"]
+    if kind == "requiem_true_enter":
+        phase = math.tau * u
+    else:
+        phase = math.tau * (index / count if clip["loop"] else u * 1.15)
     phase_field = y * .163 + x * .038 + np.sin(x * .124) * 1.23
     passing = .5 * lagged(phase, phase_field)
     beam = 1.0 + clip["fold_light"] * passing * crest
     colored = rgb * beam[:, :, None]
 
-    if clip["clip"] == "requiem_true_exit":
+    if kind == "requiem_true_exit":
         core = smooth((u - .35) / .65)
         tint = np.array([163., 96., 202.])
         colored += (tint - colored) * (core * .52 * (.6 + .4 * crest))[:, :, None]
         alpha *= 1 - .13 * core
-    elif clip["clip"] == "requiem_true_vanish":
+    elif kind == "requiem_true_vanish":
         depth = distance_transform_edt(alpha >= .10)
         delay = .17 + .37 * smooth(depth / 13) + surface["head"] * .10 - surface["tail"] * .075
         breakup = .048 * np.sin(x * .80 + y * .22) + .036 * np.sin(y * .57 - x * .27)
         alpha *= 1.0 - smooth((u - delay - breakup) / .27)
+    elif kind == "requiem_true_enter":
+        reveal = clip["reveal"][index]
+        arms = surface["left_arm"] + surface["right_arm"]
+        delay = (.13 * surface["head"] + .22 * surface["body"] + .34 * arms
+                 + .45 * surface["tail"])
+        # Bright folds lead the dark interior and trace the silhouette as it forms.
+        delay += .16 * (1 - crest) + .040 * np.sin(phase_field)
+        alpha *= smooth((reveal - delay) / .31)
+        shimmer = .24 * math.sin(math.pi * reveal) * crest * smooth(passing + .32)
+        tint = np.array([198., 131., 235.])
+        colored += (tint - colored) * shimmer[:, :, None]
 
     rgba = np.zeros((base.shape[0], atlas_width, 4), dtype=np.uint8)
     rgba[:, :base.shape[1], :3] = np.rint(np.clip(colored, 0, 255))
