@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/rooms/requiem_forms_review.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/rooms/dungeon_monsters_review.gd" id="2"]
+
+[node name="DungeonMonstersReview" instance=ExtResource("1")]
+script = ExtResource("2")

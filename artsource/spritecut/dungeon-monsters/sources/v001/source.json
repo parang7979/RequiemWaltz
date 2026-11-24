@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "v001",
+  "origin": "Built-in ImageGen",
+  "style_reference": "../../../crypt-skeleton/materials/v002/prepared/pixels-3x.png",
+  "views": [
+    "front_right",
+    "back_right"
+  ],
+  "files": {
+    "crypt_warden": {
+      "file": "originals/crypt_warden.png",
+      "prompt": "crypt_warden-prompt.txt",
+      "size": [
+        2172,
+        724
+      ],
+      "sha256": "c01dd2c2ef378c194304372bd0a890ec88189f4f833cbe39b4828daa93e33843"
+    },
+    "ossuary_hexer": {
+      "file": "originals/ossuary_hexer.png",
+      "prompt": "ossuary_hexer-prompt.txt",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "5c1202d021ac13dd2bcf1a4bf85e2d0a388664c5e7782b7cfa80444342103398"
+    },
+    "quartz_sentinel": {
+      "file": "originals/quartz_sentinel.png",
+      "prompt": "quartz_sentinel-prompt.txt",
+      "size": [
+        2170,
+        725
+      ],
+      "sha256": "239f0659d7a925abb15a7fe61b3a6b9f4002c4f09e44c7a235c29be0ed38a432"
+    },
+    "spore_lurker": {
+      "file": "originals/spore_lurker.png",
+      "prompt": "spore_lurker-prompt.txt",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "98079fbdb7cd32fbbadf4c7a504f4258576c74157a2c7fcda4ce2fb69fbe950f"
+    }
+  }
+}

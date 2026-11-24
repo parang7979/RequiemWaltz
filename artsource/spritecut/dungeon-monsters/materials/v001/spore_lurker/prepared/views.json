@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "cell": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    58
+  ],
+  "views": [
+    {
+      "direction": "front_right",
+      "file": "front_right.png",
+      "placement": {
+        "source_half": 0,
+        "bounds_in_half": [
+          311,
+          157,
+          726,
+          754
+        ],
+        "mirrored": false,
+        "height": 43,
+        "alpha_cutoff": 100,
+        "origin": [
+          18,
+          15
+        ]
+      }
+    },
+    {
+      "direction": "back_right",
+      "file": "back_right.png",
+      "placement": {
+        "source_half": 1,
+        "bounds_in_half": [
+          167,
+          161,
+          576,
+          754
+        ],
+        "mirrored": false,
+        "height": 43,
+        "alpha_cutoff": 100,
+        "origin": [
+          18,
+          15
+        ]
+      }
+    }
+  ]
+}

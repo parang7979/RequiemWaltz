@@ -1,0 +1,4293 @@
+{
+  "version": 1,
+  "cell": [
+    96,
+    96
+  ],
+  "pivot": [
+    48,
+    58
+  ],
+  "clips": {
+    "crypt_warden_idle_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_walk_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_windup_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_recover_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_hit_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_collapse_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_front_right_color.png",
+        "normal": "crypt_warden_front_right_normal.png",
+        "emissive": "crypt_warden_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_idle_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_walk_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_windup_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_recover_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_hit_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "crypt_warden_collapse_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "crypt_warden_back_right_color.png",
+        "normal": "crypt_warden_back_right_normal.png",
+        "emissive": "crypt_warden_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_idle_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_walk_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_windup_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_recover_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_hit_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_collapse_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_front_right_color.png",
+        "normal": "spore_lurker_front_right_normal.png",
+        "emissive": "spore_lurker_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_idle_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_walk_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_windup_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_recover_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_hit_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "spore_lurker_collapse_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "spore_lurker_back_right_color.png",
+        "normal": "spore_lurker_back_right_normal.png",
+        "emissive": "spore_lurker_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_idle_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_walk_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_windup_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_recover_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_hit_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_collapse_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_front_right_color.png",
+        "normal": "ossuary_hexer_front_right_normal.png",
+        "emissive": "ossuary_hexer_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_idle_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_walk_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_windup_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_recover_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_hit_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "ossuary_hexer_collapse_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "ossuary_hexer_back_right_color.png",
+        "normal": "ossuary_hexer_back_right_normal.png",
+        "emissive": "ossuary_hexer_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_idle_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_walk_front_right": {
+      "loop": true,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_windup_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_recover_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_hit_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_collapse_front_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_front_right_color.png",
+        "normal": "quartz_sentinel_front_right_normal.png",
+        "emissive": "quartz_sentinel_front_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_idle_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 165,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 130,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 175,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 170,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 160,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_walk_back_right": {
+      "loop": true,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 0,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_windup_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 480,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 96,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 65,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_recover_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 288,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 68,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 82,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 192,
+          "w": 96,
+          "h": 96,
+          "ms": 95,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 90,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 75,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_hit_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 192,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 35,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 60,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 55,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 288,
+          "w": 96,
+          "h": 96,
+          "ms": 50,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    },
+    "quartz_sentinel_collapse_back_right": {
+      "loop": false,
+      "maps": {
+        "color": "quartz_sentinel_back_right_color.png",
+        "normal": "quartz_sentinel_back_right_normal.png",
+        "emissive": "quartz_sentinel_back_right_emissive.png"
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 48,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": []
+        },
+        {
+          "x": 288,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 43,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 480,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 38,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 576,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 40,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 672,
+          "y": 384,
+          "w": 96,
+          "h": 96,
+          "ms": 39,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 96,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 44,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 192,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 42,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        },
+        {
+          "x": 288,
+          "y": 480,
+          "w": 96,
+          "h": 96,
+          "ms": 260,
+          "contacts": [
+            "right_boot",
+            "left_boot"
+          ]
+        }
+      ]
+    }
+  }
+}

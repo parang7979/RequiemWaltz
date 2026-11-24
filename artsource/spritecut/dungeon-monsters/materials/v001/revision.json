@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "id": "v001",
+  "status": "adopted",
+  "source": "../../sources/v001/source.json",
+  "landmarks": "landmarks.json",
+  "registration": "../../authoring/prepare_views.py",
+  "cell": [64, 64],
+  "pivot": [32, 58],
+  "directions": ["front_right", "back_right"],
+  "review": "Each registered view assigns visible pixels to authored anatomical joints before transferring the combat poses. The source sheets and authored landmarks reproduce all separation masks and backing layers."
+}

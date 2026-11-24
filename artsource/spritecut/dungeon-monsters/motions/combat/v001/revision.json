@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "id": "v001",
+  "clip": "combat",
+  "status": "adopted",
+  "materials": "../../../materials/v001/revision.json",
+  "source_combat": "../../../../crypt-skeleton/motions/combat/v006/revision.json",
+  "spritecut_commit": "5d7b1e94f4741626ccce9c04efead5cd9bf65cab",
+  "recipe_generator": "../../../authoring/bake_monsters.py",
+  "sheets": "sheets/clips.json",
+  "previews": {"roster": "previews/roster.png", "motion": "previews/combat.gif", "godot": "previews/chamber-1x.png"},
+  "review": "Four characters share the skeleton's authored exposure times. Each two-direction rig uses its own observed parts, joint positions and seam backing. The original camera-facing head becomes visible during the rear collapse. The game reuses the skeleton timing and anchors with the matching variant color atlas."
+}
