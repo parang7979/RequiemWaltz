@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/rooms/seal_chamber_lighting.gd" id="1"]
+
+[sub_resource type="Gradient" id="Gradient_light"]
+offsets = PackedFloat32Array(0, 0.28, 0.57, 0.82, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.7, 0.7, 0.7, 1, 0.32, 0.32, 0.32, 1, 0.07, 0.07, 0.07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_light"]
+gradient = SubResource("Gradient_light")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Environment" id="Environment_bloom"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.65
+glow_hdr_threshold = 0.70
+glow_hdr_scale = 1.35
+
+[node name="Lighting" type="Node2D"]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bloom")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Ambient" type="CanvasModulate" parent="Lights"]
+color = Color(0.54, 0.53, 0.68, 1)
+
+[node name="WestTorch" type="PointLight2D" parent="Lights"]
+position = Vector2(113, 92)
+color = Color(1, 0.66, 0.42, 1)
+energy = 1.22
+height = 58.0
+texture = SubResource("GradientTexture_light")
+texture_scale = 1.18
+
+[node name="EastTorch" type="PointLight2D" parent="Lights"]
+position = Vector2(468, 92)
+color = Color(1, 0.62, 0.38, 1)
+energy = 1.12
+height = 58.0
+texture = SubResource("GradientTexture_light")
+texture_scale = 1.18
+
+[node name="AltarFill" type="PointLight2D" parent="Lights"]
+position = Vector2(320, 167)
+color = Color(0.64, 0.73, 1, 1)
+energy = 0.45
+height = 64.0
+texture = SubResource("GradientTexture_light")
+texture_scale = 1.62
+
+[node name="Requiem" type="PointLight2D" parent="Lights"]
+enabled = false
+color = Color(0.72, 0.32, 1, 1)
+height = 38.0
+texture = SubResource("GradientTexture_light")
+texture_scale = 0.78

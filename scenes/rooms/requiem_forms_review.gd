@@ -1,6 +1,8 @@
 extends Node2D
 
 const GROUND_SHADOW := preload("res://assets/vfx/ground_shadow.tres")
+const SPIRIT_SURFACE := preload("res://assets/vfx/requiem_forms/spirit_surface.gdshader")
+const Lighting := preload("res://scenes/rooms/seal_chamber_lighting.gd")
 
 const BUNDLE := "res://assets/actors/requiem_forms/"
 const WALK_BUNDLE := "res://assets/actors/waltz_walk/"
@@ -88,8 +90,10 @@ var reaction_durations: Dictionary[String, float] = {}
 var defeat_manifest: Dictionary
 var defeat_textures: Dictionary[String, Texture2D] = {}
 var textures: Dictionary[String, Texture2D] = {}
+var lit_waltz_textures: Dictionary[Texture2D, Texture2D] = {}
 var voices: Dictionary[String, AudioStreamPlayer] = {}
 var emissive := CanvasItemMaterial.new()
+var spirit_surface := ShaderMaterial.new()
 var hero: Sprite2D
 var hero_upper: Sprite2D
 var armor: Sprite2D
@@ -167,6 +171,8 @@ var hit_in_swing: Array[int] = []
 var chain_return_hits: Array[int] = []
 var side := "front_right"
 
+@onready var lighting: Lighting = $Lighting
+
 
 func _ready() -> void:
 	manifest = JSON.parse_string(FileAccess.get_file_as_string(BUNDLE + "clips.json"))
@@ -181,31 +187,37 @@ func _ready() -> void:
 		defeat_textures[name] = load(DEFEAT_BUNDLE + defeat_manifest.clips[name].maps.color)
 	emissive.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
 	emissive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	spirit_surface.shader = SPIRIT_SURFACE
 	font = SystemFont.new()
 	font.font_names = PackedStringArray(["Malgun Gothic", "Segoe UI"])
 	title = SystemFont.new()
 	title.font_names = PackedStringArray(["Georgia", "Cambria"])
 	hero = _sprite(1)
+	hero.texture_changed.connect(_apply_waltz_normal)
 	hero_upper = Sprite2D.new()
 	hero_upper.centered = false
 	hero_upper.hide()
 	hero.add_child(hero_upper)
 	armor = _sprite(6)
+	armor.material = spirit_surface
 	sword = _new_sword()
 	chain = Chain.new()
+	chain.material = spirit_surface
 	chain.configure(manifest.chain_cast, _length("chain_front_right_action"))
 	add_child(chain)
 	spirit = _effect(TAIL, Vector2(55, 27), 2, true)
 	true_requiem = _sprite(5)
+	true_requiem.material = spirit_surface
 	true_requiem.offset = -TrueForm.PIVOT
 	true_requiem.hide()
 	bowstring = Node2D.new()
 	bowstring.z_index = 4
+	bowstring.material = spirit_surface
 	add_child(bowstring)
 	bowstring.draw.connect(_draw_bowstring)
 	hud = Node2D.new()
 	hud.z_index = 20
-	add_child(hud)
+	$Interface.add_child(hud)
 	hud.draw.connect(_draw_hud)
 	for key: String in SOUNDS:
 		var voice := AudioStreamPlayer.new()
@@ -232,6 +244,7 @@ func _sprite(layer: int) -> Sprite2D:
 
 func _new_sword() -> Sprite2D:
 	var sprite := _sprite(5)
+	sprite.material = spirit_surface
 	_set_sprite(sprite, "sword", 0)
 	var glow := Sprite2D.new()
 	glow.centered = false
@@ -255,10 +268,40 @@ func _set_sprite(sprite: Sprite2D, name: String, frame: int) -> void:
 
 
 func _set_sprite_cell(sprite: Sprite2D, texture: Texture2D, cell: Dictionary, pivot: Array) -> void:
-	sprite.texture = texture
+	sprite.texture = _waltz_surface(texture) if sprite == hero or sprite.get_parent() == hero else texture
 	sprite.region_enabled = true
 	sprite.region_rect = Rect2(cell.x, cell.y, cell.w, cell.h)
 	sprite.offset = -Vector2(pivot[0], pivot[1])
+
+
+func _apply_waltz_normal() -> void:
+	# The main sprite can also swap to a separate fall-body atlas after setting the cell.
+	var diffuse := hero.texture
+	if diffuse == null or diffuse is CanvasTexture:
+		return
+	var surface := _waltz_surface(diffuse)
+	if surface != diffuse:
+		hero.texture = surface
+
+
+func _waltz_surface(diffuse: Texture2D) -> Texture2D:
+	if not lighting.normal_maps_enabled:
+		return diffuse
+	if lit_waltz_textures.has(diffuse):
+		return lit_waltz_textures[diffuse]
+	var path := diffuse.resource_path
+	# The separate fall layers occupy the same cells as the full pose normal atlas.
+	var stem := path.get_basename().rsplit("_", true, 1)[0]
+	var normal_path := stem + "_normal.png"
+	var surface := diffuse
+	if ResourceLoader.exists(normal_path, "Texture2D"):
+		var normal := load(normal_path) as Texture2D
+		var mapped := CanvasTexture.new()
+		mapped.diffuse_texture = diffuse
+		mapped.normal_texture = normal
+		surface = mapped
+	lit_waltz_textures[diffuse] = surface
+	return surface
 
 
 func _frame_at(frames: Array, elapsed_ms: float) -> int:
@@ -726,6 +769,11 @@ func _update_defeat(delta: float) -> void:
 		spirit.hide()
 	elif defeat_elapsed >= DEFEAT_VANISH_TIME:
 		true_requiem.hide()
+	if true_requiem.visible:
+		var fade := 1.0 - smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
+		lighting.place_spirit_light(true_requiem, 33.0, fade)
+	else:
+		lighting.place_spirit_light(armor, 26.0)
 	queue_redraw()
 	bowstring.queue_redraw()
 	hud.queue_redraw()
@@ -981,6 +1029,7 @@ func _update_pose() -> void:
 	spirit.visible = not chain_form and (clip == "idle" or clip == "action")
 	if is_instance_valid(fluid):
 		fluid.position = rig_at
+	lighting.place_spirit_light(armor, 26.0)
 
 
 func _point_local(name: String) -> Vector2:
@@ -1004,6 +1053,7 @@ func _release() -> void:
 		var frames := COUNTER_CUT if wide_cut else HAND_CUT
 		var pivot := Vector2(56, 196) if wide_cut else Vector2(4, 150)
 		hand_cut = _effect(frames, pivot, 3)
+		hand_cut.material = spirit_surface
 		hand_cut.rotation = locked_aim
 		hand_cut.scale = Vector2(attack_scale, -swing * attack_scale)
 		hand_cut.pause()
@@ -1012,6 +1062,7 @@ func _release() -> void:
 		return
 
 	var effect := _effect(BOW_FLASH if form == 1 else CANNON_FLASH, Vector2(42, 50), 8)
+	effect.material = spirit_surface
 	var launch_direction := Vector2.from_angle(locked_aim)
 	var muzzle := mounted_position
 	if form == 1:

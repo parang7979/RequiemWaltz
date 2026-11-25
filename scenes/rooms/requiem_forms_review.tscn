@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scenes/rooms/requiem_forms_review.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/rooms/seal_chamber_floor.png" id="2"]
 [ext_resource type="Texture2D" path="res://assets/rooms/seal_chamber_wall.png" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/seal_chamber_lighting.tscn" id="4"]
 
 [node name="RequiemFormsReview" type="Node2D"]
 texture_filter = 1
@@ -19,3 +20,7 @@ z_index = -1
 position = Vector2(0, 44)
 texture = ExtResource("3")
 centered = false
+
+[node name="Lighting" parent="." instance=ExtResource("4")]
+
+[node name="Interface" type="CanvasLayer" parent="."]
