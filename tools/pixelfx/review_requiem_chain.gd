@@ -27,6 +27,9 @@ func _run() -> void:
 	await _fight(1.0)
 	await _fight(-1.0)
 	await _defeat_and_reset()
+	await _charge_controls()
+	await _switch_controls()
+	await _charged_hits()
 	stage.queue_free()
 	await create_timer(0.35).timeout
 	print("Requiem chain review: %d failures." % failures)
@@ -37,6 +40,9 @@ func _room(direction: float) -> RoomScript:
 	var room := ROOM.instantiate() as RoomScript
 	stage.add_child(room)
 	room.set_physics_process(false)
+	if not capture:
+		for voice in room.voices.values():
+			voice.stream = null
 	room.player = Vector2(295, 222)
 	room.follow_origin = room._shoulder()
 	room.enemies[0].position = room.player + Vector2(174.0 * direction, 0)
@@ -58,10 +64,14 @@ func _press(room: Node2D, key: Key) -> void:
 
 
 func _attack(room: Node2D) -> void:
+	_mouse(room, MOUSE_BUTTON_LEFT, true)
+
+
+func _mouse(room: Node2D, button: MouseButton, pressed: bool) -> void:
 	var event := InputEventMouseButton.new()
 	event.position = room.cursor
-	event.button_index = MOUSE_BUTTON_LEFT
-	event.pressed = true
+	event.button_index = button
+	event.pressed = pressed
 	room._input(event)
 
 
@@ -120,6 +130,148 @@ func _defeat_and_reset() -> void:
 	_press(room, KEY_R)
 	room._physics_process(STEP)
 	_check(room.form == 0 and not room.chain.visible and room.player_hp == 3, "reset returns to gauntlet")
+	room.queue_free()
+	await process_frame
+
+
+func _advance(room: RoomScript, ticks: int) -> void:
+	for i in ticks:
+		room._physics_process(STEP)
+
+
+func _charge_controls() -> void:
+	var room := _room(1.0)
+	room.enemies[0].hp = 0
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 10)
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	_check(room.clip == "idle" and room.charge_elapsed < 0.0, "early release cancels the charge")
+	_attack(room)
+	_advance(room, 1)
+	_check(room.clip == "action" and not room.charged_attack, "left click remains a regular attack")
+	_advance(room, 25)
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 32)
+	_check(room.clip == "idle" and room.charge_elapsed >= room.CHARGE_TIME, "full charge waits for release")
+	room._point(Vector2(222, 264))
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	_check(room.clip == "action" and room.charged_attack and not room.counter_attack
+		and is_equal_approx(room.locked_aim, room._shoulder().angle_to_point(room.cursor)),
+		"charge locks the aim at release and stays separate from the counter")
+	room.time_ms = room._release_time() + room._strike_duration() / 2.0
+	_check(is_zero_approx(angle_difference(room._hand_pose().get_rotation(), room.locked_aim)),
+		"the wide gauntlet strike sweeps through the aimed direction")
+	room.time_ms = 0.0
+	_advance(room, 30)
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 10)
+	_press(room, KEY_SPACE)
+	_advance(room, 1)
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	_check(room.charge_elapsed < 0.0 and room.clip == "idle", "dodge cancels the held charge")
+	_attack(room)
+	_advance(room, 24)
+	_check(room.counter_attack, "attack buffered during dodge still starts the gauntlet counter")
+	_advance(room, 45)
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 10)
+	_press(room, KEY_Q)
+	_advance(room, 1)
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	_check(room.clip == "exit" and room.charge_elapsed < 0.0, "starting a switch cancels the held charge")
+	room.queue_free()
+	await process_frame
+
+
+func _switch_controls() -> void:
+	var room := _room(1.0)
+	room.enemies[0].hp = 0
+	room.available_forms = 1 << room.CHAIN_FORM
+	_press(room, KEY_E)
+	_advance(room, 1)
+	_press(room, KEY_2)
+	_advance(room, 18)
+	_check(room.form == room.CHAIN_FORM and room.clip == "idle" and room.switch_cooldown > 0.0,
+		"E skips locked forms and the switch target stays fixed")
+	_press(room, KEY_Q)
+	_advance(room, 1)
+	_check(room.clip == "idle" and room.wanted_form == 0, "Q queues the next swap during the shared cooldown")
+	_attack(room)
+	_advance(room, 1)
+	_check(room.clip == "action", "a new form can attack during the switch cooldown")
+	_advance(room, 70)
+	_check(room.form == 0 and room.clip == "idle", "the queued switch waits for the attack to recover")
+	_advance(room, 30)
+	_press(room, KEY_F2)
+	_press(room, KEY_Q)
+	_advance(room, 1)
+	_check(room.clip == "exit" and is_equal_approx(room.switch_cooldown, 0.35),
+		"the upgraded switch interval applies in both directions")
+	_press(room, KEY_R)
+	room.available_forms = 0
+	_press(room, KEY_Q)
+	_press(room, KEY_E)
+	_advance(room, 1)
+	_check(room.form == 0 and room.clip == "idle" and room.switch_cooldown == 0.0,
+		"switching with only the gauntlet consumes no cooldown")
+	room.queue_free()
+	await process_frame
+
+
+func _charged_hits() -> void:
+	var room := _room(1.0)
+	var target: Node2D = room.enemies[0]
+	var other: Node2D = room.enemies[1]
+	other.position = target.position + Vector2(45.0, 0.0)
+	other.hp = 3
+	other.show()
+	_press(room, KEY_Q)
+	_advance(room, 18)
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 29)
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	var pull := 0.0
+	for i in 55:
+		room._physics_process(STEP)
+		pull = minf(pull, target.push.x)
+	_check(target.hp == 2 and other.hp == 3 and pull < -350.0, "charged chain pulls one target once")
+	room.queue_free()
+	await process_frame
+
+	for charged in [false, true]:
+		room = _room(1.0)
+		room.player = Vector2(155, 222)
+		target = room.enemies[0]
+		var far := Vector2(530, 222)
+		target.position = far
+		room._point(target.hit_center())
+		_press(room, KEY_E)
+		_advance(room, 18)
+		if charged:
+			_mouse(room, MOUSE_BUTTON_RIGHT, true)
+			_advance(room, 29)
+			_mouse(room, MOUSE_BUTTON_RIGHT, false)
+		else:
+			_attack(room)
+		for i in 70:
+			target.position = far
+			room._physics_process(STEP)
+		_check(target.hp == (2 if charged else 3), "only the charged bow reaches the distant target")
+		room.queue_free()
+		await process_frame
+
+	room = _room(1.0)
+	target = room.enemies[0]
+	_press(room, KEY_3)
+	_advance(room, 18)
+	_mouse(room, MOUSE_BUTTON_RIGHT, true)
+	_advance(room, 29)
+	_mouse(room, MOUSE_BUTTON_RIGHT, false)
+	var push := 0.0
+	for i in 40:
+		room._physics_process(STEP)
+		push = maxf(push, target.push.x)
+	_check(target.hp == 2 and push > 450.0, "charged cannon increases knockback")
 	room.queue_free()
 	await process_frame
 

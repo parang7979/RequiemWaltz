@@ -26,11 +26,17 @@ const SOUNDS := {
 	"bow": preload("res://assets/audio/waltz_bow.wav"),
 	"cannon": preload("res://assets/audio/waltz_cannon.wav"),
 	"chain": preload("res://assets/audio/combat_study_swing.wav"),
+	"charge_ready": preload("res://assets/audio/combat_study_impact.wav"),
 	"hit": preload("res://assets/audio/combat_study_impact.wav"),
 }
 const FORMS := ["hand", "bow", "cannon", "chain"]
 const LABELS := ["장갑", "활", "대포", "사슬"]
 const CHAIN_FORM := 3
+const FORM_SWITCH_COOLDOWN := 0.50
+const UPGRADED_SWITCH_COOLDOWN := 0.35
+const CHARGE_TIME := 0.45
+const BOW_TRAVEL := 170.0
+const CHARGED_BOW_TRAVEL := 360.0
 const SPAWNS := [Vector2(376, 218), Vector2(470, 150), Vector2(468, 275), Vector2(119, 144)]
 const FIELD := Rect2(16, 45, 608, 277)
 const PLAY_AREA := Rect2(70, 118, 499, 186)
@@ -71,6 +77,8 @@ const LIGHT := Color("#f5e3df")
 const GOLD := Color("#efc293")
 const GHOST := Color("#e9b5fa")
 
+@export_flags("활:2", "대포:4", "사슬:8") var available_forms := 14
+
 var manifest: Dictionary
 var walk_manifest: Dictionary
 var walk_cycle_ms := 0.0
@@ -100,6 +108,8 @@ var enemies: Array[Pursuer] = []
 
 var form := 0
 var wanted_form := 0
+var switch_cooldown := 0.0
+var switch_delay := FORM_SWITCH_COOLDOWN
 var clip := "idle"
 var time_ms := 0.0
 var idle_clock := 0.0
@@ -138,9 +148,14 @@ var swing := -1.0
 var attack_reach := HAND_REACH
 var attack_scale := 1.0
 var attack_queued := false
+var charge_elapsed := -1.0
+var charged_attack := false
+var chain_target: Pursuer
 var bolt_velocity := Vector2.ZERO
 var bolt_muzzle := Vector2.ZERO
-var cannon_bolt := false
+var bolt_form := 0
+var bolt_charged := false
+var bolt_travel_left := 0.0
 var rig_at := Vector2.ZERO
 var rig_basis := Transform2D.IDENTITY
 var pose_points: Dictionary
@@ -199,6 +214,8 @@ func _ready() -> void:
 		voice.volume_db = -4.0
 		add_child(voice)
 		voices[key] = voice
+	voices["charge_ready"].volume_db = -15.0
+	voices["charge_ready"].pitch_scale = 1.75
 	get_window().mouse_exited.connect(_show_cursor)
 	get_window().focus_exited.connect(_show_cursor)
 	_spawn_enemies()
@@ -275,17 +292,60 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion:
 		_point(event.position)
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	elif event is InputEventMouseButton:
 		_point(event.position)
-		if pointer and player_hp > 0:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			_charge_input(event.pressed)
+		elif event.button_index == MOUSE_BUTTON_LEFT and event.pressed and pointer \
+				and player_hp > 0 and charge_elapsed < 0.0:
 			attack_queued = true
 	elif event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode >= KEY_1 and event.physical_keycode < KEY_1 + FORMS.size():
-			wanted_form = event.physical_keycode - KEY_1
+		if event.physical_keycode == KEY_Q:
+			_request_form(_adjacent_form(-1))
+		elif event.physical_keycode == KEY_E:
+			_request_form(_adjacent_form(1))
+		elif event.physical_keycode >= KEY_1 and event.physical_keycode < KEY_1 + FORMS.size():
+			_request_form(event.physical_keycode - KEY_1)
 		elif event.physical_keycode == KEY_SPACE:
 			dodge_requested = true
+		elif event.physical_keycode == KEY_F2:
+			switch_delay = UPGRADED_SWITCH_COOLDOWN if switch_delay == FORM_SWITCH_COOLDOWN else FORM_SWITCH_COOLDOWN
 		elif event.physical_keycode == KEY_R:
 			_reset()
+
+
+func _form_available(index: int) -> bool:
+	return index == 0 or (available_forms & (1 << index)) != 0
+
+
+func _adjacent_form(direction: int) -> int:
+	for step in range(1, FORMS.size()):
+		var candidate := posmod(form + step * direction, FORMS.size())
+		if _form_available(candidate):
+			return candidate
+	return form
+
+
+func _request_form(next: int) -> void:
+	if next != form and wanted_form == form and clip != "enter" and _form_available(next):
+		wanted_form = next
+
+
+func _can_start_attack() -> bool:
+	return player_hp > 0 and clip == "idle" and not is_instance_valid(bolt) and not _is_dodging() \
+		and _hurt_age() >= HURT_PUSH_TIME
+
+
+func _charge_input(pressed: bool) -> void:
+	if pressed:
+		if pointer and charge_elapsed < 0.0 and wanted_form == form and not attack_queued and _can_start_attack():
+			charge_elapsed = 0.0
+		return
+	var ready := charge_elapsed >= CHARGE_TIME
+	charge_elapsed = -1.0
+	if ready and pointer and _can_start_attack():
+		_update_aim()
+		_start_attack(true)
 
 
 func _point(at: Vector2) -> void:
@@ -296,6 +356,7 @@ func _point(at: Vector2) -> void:
 
 func _show_cursor() -> void:
 	pointer = false
+	charge_elapsed = -1.0
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
@@ -327,6 +388,9 @@ func _reset() -> void:
 	form = 0
 	chain.hide()
 	wanted_form = 0
+	switch_cooldown = 0.0
+	charged_attack = false
+	chain_target = null
 	clip = "idle"
 	time_ms = 0.0
 	cursor = Vector2(372, 194)
@@ -366,6 +430,7 @@ func _physics_process(delta: float) -> void:
 		_update_defeat(delta)
 		return
 	counter_window = maxf(0.0, counter_window - delta)
+	switch_cooldown = maxf(0.0, switch_cooldown - delta)
 	_move(delta)
 	_update_aim()
 	var stopped := impact_ticks > 0
@@ -379,6 +444,10 @@ func _physics_process(delta: float) -> void:
 	_update_follow(delta)
 	if not stopped:
 		_update_clip(delta)
+	if charge_elapsed >= 0.0 and charge_elapsed < CHARGE_TIME:
+		charge_elapsed = minf(CHARGE_TIME, charge_elapsed + delta)
+		if charge_elapsed >= CHARGE_TIME:
+			voices["charge_ready"].play()
 	_update_pose()
 	if not stopped:
 		if clip == "action" and time_ms >= _release_time() and not released:
@@ -442,6 +511,7 @@ func _move(delta: float) -> void:
 
 
 func _start_dodge(step: Vector2) -> void:
+	charge_elapsed = -1.0
 	dodge_direction = step if step != Vector2.ZERO else -Vector2.from_angle(aim)
 	dodge_elapsed = 0.0
 	dodge_cooldown = DODGE_COOLDOWN
@@ -577,6 +647,7 @@ func _receive_hit(enemy: Pursuer) -> void:
 	counter_target = null
 	counter_peek_ms = -1.0
 	attack_queued = false
+	charge_elapsed = -1.0
 	if clip == "action":
 		_begin("idle")
 	follow_velocity = follow_velocity * 0.45 + hurt_direction * 215.0 + Vector2(0, -192)
@@ -680,6 +751,8 @@ func _begin(next: String) -> void:
 	time_ms = 0.0
 	if next != "action":
 		counter_attack = false
+		charged_attack = false
+		chain_target = null
 
 
 func _clip_id() -> String:
@@ -713,7 +786,7 @@ func _release_time() -> float:
 
 
 func _strike_duration() -> float:
-	return COUNTER_STRIKE_MS if counter_attack else HAND_STRIKE_MS
+	return COUNTER_STRIKE_MS if counter_attack or charged_attack else HAND_STRIKE_MS
 
 
 func _update_clip(delta: float) -> void:
@@ -732,36 +805,45 @@ func _update_clip(delta: float) -> void:
 		time_ms = spill
 		return
 	time_ms = fmod(time_ms, duration)
-	if wanted_form != form:
+	if wanted_form != form and switch_cooldown <= 0.00001 and not is_instance_valid(bolt):
+		charge_elapsed = -1.0
+		switch_cooldown = switch_delay
 		_begin("exit")
 		fluid = _effect(REFORM, Vector2(76, 47), 7, true)
 		fluid.position = rig_at
-	elif attack_queued and not is_instance_valid(bolt) and not _is_dodging() and _hurt_age() >= HURT_PUSH_TIME:
-		attack_queued = false
-		locked_aim = aim
-		counter_target = null
-		counter_peek_ms = -1.0
-		counter_attack = form == 0 and counter_window > 0.0
-		counter_window = 0.0
-		var blade_length := float(manifest.sword_tip[0])
-		var maximum_reach := COUNTER_REACH if counter_attack else HAND_REACH
-		var inset := 16.0 if counter_attack else 34.0
-		var minimum_reach := 28.0 if counter_attack else 14.0
-		attack_reach = clampf(_shoulder().distance_to(cursor) - inset, minimum_reach, maximum_reach)
-		attack_scale = (attack_reach + blade_length) / (maximum_reach + blade_length)
-		if form == CHAIN_FORM:
-			attack_reach = clampf(_shoulder().distance_to(cursor) - 70.0, 80.0, 145.0)
-		swing *= -1.0
-		if counter_attack:
-			counter_start = _hand_pose()
-			counter_velocity = follow_velocity
-			var approach_side := Vector2.from_angle(locked_aim).cross(follow_origin - _shoulder())
-			if absf(approach_side) > 8.0:
-				swing = signf(approach_side)
-		released = false
-		hit_in_swing.clear()
-		chain_return_hits.clear()
-		_begin("action")
+	elif attack_queued and _can_start_attack():
+		_start_attack(false)
+
+
+func _start_attack(charged: bool) -> void:
+	attack_queued = false
+	charged_attack = charged
+	locked_aim = aim
+	counter_target = null
+	counter_peek_ms = -1.0
+	counter_attack = not charged and form == 0 and counter_window > 0.0
+	counter_window = 0.0
+	var blade_length := float(manifest.sword_tip[0])
+	var heavy_swing := counter_attack or charged_attack
+	var maximum_reach := COUNTER_REACH if heavy_swing else HAND_REACH
+	var inset := 16.0 if heavy_swing else 34.0
+	var minimum_reach := 28.0 if heavy_swing else 14.0
+	attack_reach = clampf(_shoulder().distance_to(cursor) - inset, minimum_reach, maximum_reach)
+	attack_scale = (attack_reach + blade_length) / (maximum_reach + blade_length)
+	if form == CHAIN_FORM:
+		attack_reach = clampf(_shoulder().distance_to(cursor) - 70.0, 80.0, 145.0)
+	swing *= -1.0
+	if counter_attack:
+		counter_start = _hand_pose()
+		counter_velocity = follow_velocity
+		var approach_side := Vector2.from_angle(locked_aim).cross(follow_origin - _shoulder())
+		if absf(approach_side) > 8.0:
+			swing = signf(approach_side)
+	released = false
+	hit_in_swing.clear()
+	chain_return_hits.clear()
+	chain_target = null
+	_begin("action")
 
 
 func _hand_pose() -> Transform2D:
@@ -778,8 +860,10 @@ func _hand_pose() -> Transform2D:
 
 	var windup_ms := _release_time()
 	var strike_ms := time_ms - windup_ms
-	var start := locked_aim + swing * HAND_SWING_ANGLE
-	var finish := locked_aim - swing * HAND_SWING_ANGLE
+	var sweep := COUNTER_SWING_ANGLE if charged_attack else HAND_SWING_ANGLE
+	var strike_duration := _strike_duration()
+	var start := locked_aim + swing * sweep
+	var finish := locked_aim - swing * sweep
 	var heading: float
 	var reach: float
 	if strike_ms < 0.0:
@@ -787,12 +871,12 @@ func _hand_pose() -> Transform2D:
 		heading = lerp_angle(locked_aim, start, windup)
 		pivot = floating.lerp(pivot, windup)
 		reach = lerpf(rest_reach, attack_reach - 9.0 * attack_scale, windup)
-	elif strike_ms <= HAND_STRIKE_MS:
-		var travel := smoothstep(0.0, HAND_STRIKE_MS, strike_ms)
-		heading = lerp_angle(start, finish, travel)
+	elif strike_ms <= strike_duration:
+		var travel := smoothstep(0.0, strike_duration, strike_ms)
+		heading = locked_aim + swing * lerpf(sweep, -sweep, travel)
 		reach = attack_reach + (-9.0 * (1.0 - travel) + 12.0 * sin(PI * travel)) * attack_scale
 	else:
-		var recover := smoothstep(HAND_STRIKE_MS, 215.0, strike_ms)
+		var recover := smoothstep(strike_duration, 215.0, strike_ms)
 		heading = lerp_angle(finish, aim, recover)
 		pivot = pivot.lerp(floating, recover)
 		reach = lerpf(attack_reach, rest_reach, recover)
@@ -863,6 +947,13 @@ func _update_pose() -> void:
 				rig_at = neutral_at.lerp(grip_at, smoothstep(0.0, _length(id), time_ms))
 			_:
 				rig_at = grip_at
+	var charge_strength := clampf(charge_elapsed / CHARGE_TIME, 0.0, 1.0)
+	if charge_strength > 0.0:
+		var recoil := 5.0 + 1.5 * sin(idle_clock * 21.0) if charge_strength >= 1.0 else 5.0 * charge_strength
+		rig_at -= Vector2.from_angle(aim) * recoil
+	var charge_tint := Color(1.0 + charge_strength * 0.28, 1.0, 1.0 + charge_strength * 0.48)
+	armor.self_modulate = charge_tint
+	sword.modulate = charge_tint if not charged_attack else Color(1.24, 1.0, 1.45)
 	rig_basis.origin = rig_at
 	_set_sprite(armor, id, step)
 	armor.transform = rig_basis
@@ -902,15 +993,16 @@ func _world_point(name: String) -> Vector2:
 
 
 func _release() -> void:
-	voices[FORMS[form]].pitch_scale = 0.83 if counter_attack else 1.0
+	voices[FORMS[form]].pitch_scale = 0.83 if counter_attack or charged_attack else 1.0
 	voices[FORMS[form]].play()
 	if form == CHAIN_FORM:
 		previous_grip = mounted_position
 		previous_tip = _current_tip()
 		return
 	if form == 0:
-		var frames := COUNTER_CUT if counter_attack else HAND_CUT
-		var pivot := Vector2(56, 196) if counter_attack else Vector2(4, 150)
+		var wide_cut := counter_attack or charged_attack
+		var frames := COUNTER_CUT if wide_cut else HAND_CUT
+		var pivot := Vector2(56, 196) if wide_cut else Vector2(4, 150)
 		hand_cut = _effect(frames, pivot, 3)
 		hand_cut.rotation = locked_aim
 		hand_cut.scale = Vector2(attack_scale, -swing * attack_scale)
@@ -930,9 +1022,14 @@ func _release() -> void:
 	bolt.z_index = 8
 	bolt.position = mounted_position
 	bolt.rotation = locked_aim
-	bolt_velocity = launch_direction * (595.0 if form == 1 else 760.0)
-	cannon_bolt = form == 2
-	if cannon_bolt:
+	bolt_form = form
+	bolt_charged = charged_attack
+	bolt_travel_left = INF
+	if bolt_form == 1:
+		bolt_velocity = launch_direction * (840.0 if charged_attack else 595.0)
+		bolt_travel_left = CHARGED_BOW_TRAVEL if charged_attack else BOW_TRAVEL
+	else:
+		bolt_velocity = launch_direction * 760.0
 		bolt_muzzle = muzzle
 		bolt.position -= launch_direction * float(manifest.sword_tip[0])
 		_clip_cannon_bolt(launch_direction)
@@ -971,7 +1068,7 @@ func _check_sweep() -> void:
 		if minf(target.distance_to(from_tip), target.distance_to(from_blade)) < 15.0 \
 				or Geometry2D.is_point_in_polygon(target, swept_blade):
 			hit_in_swing.append(index)
-			_impact(enemy, target, blade_heading)
+			_impact(enemy, target, blade_heading, form, charged_attack)
 	previous_grip = mounted_position
 	previous_tip = tip
 
@@ -979,7 +1076,9 @@ func _check_sweep() -> void:
 func _check_chain_strike() -> void:
 	var leg := chain.hit_leg(time_ms)
 	var tip := _current_tip()
-	if leg != 0:
+	if charged_attack:
+		_check_charged_chain_strike(leg, tip)
+	elif leg != 0:
 		var hits := hit_in_swing if leg > 0 else chain_return_hits
 		for index in enemies.size():
 			var enemy := enemies[index]
@@ -988,19 +1087,38 @@ func _check_chain_strike() -> void:
 			var target := enemy.hit_center()
 			if Chain.blade_crossed(target, previous_grip, previous_tip, mounted_position, tip):
 				hits.append(index)
-				_impact(enemy, target, blade_heading, leg < 0)
+				_impact(enemy, target, blade_heading, form, false, leg < 0)
 	previous_grip = mounted_position
 	previous_tip = tip
+
+
+func _check_charged_chain_strike(leg: int, tip: Vector2) -> void:
+	if leg == -1 and is_instance_valid(chain_target):
+		if chain_target.hp > 0:
+			_impact(chain_target, chain_target.hit_center(), blade_heading, CHAIN_FORM, true, true)
+		chain_target = null
+	elif leg == 1 and not is_instance_valid(chain_target):
+		var closest := INF
+		for enemy in enemies:
+			if enemy.hp <= 0:
+				continue
+			var target := enemy.hit_center()
+			var distance := _shoulder().distance_squared_to(target)
+			if distance < closest and Chain.blade_crossed(target, previous_grip, previous_tip, mounted_position, tip):
+				chain_target = enemy
+				closest = distance
 
 
 func _fly(delta: float) -> void:
 	if not is_instance_valid(bolt):
 		return
-	var next := bolt.position + bolt_velocity * delta
 	var direction := bolt_velocity.normalized()
+	var travel := minf(bolt_travel_left, bolt_velocity.length() * delta)
+	var next := bolt.position + direction * travel
+	bolt_travel_left -= travel
 	var tip_offset := direction * float(manifest.sword_tip[0])
 	var exposed_start := bolt.position
-	if cannon_bolt:
+	if bolt_form == 2:
 		exposed_start += direction * maxf(0.0, (bolt_muzzle - exposed_start).dot(direction))
 	var first: Pursuer
 	var contact := Vector2.ZERO
@@ -1016,14 +1134,14 @@ func _fly(delta: float) -> void:
 			contact = hit
 			closest = distance
 	if first != null:
-		_impact(first, contact, bolt.rotation)
+		_impact(first, contact, bolt.rotation, bolt_form, bolt_charged)
 		bolt.queue_free()
 		bolt = null
 		return
 	bolt.position = next
-	if cannon_bolt:
+	if bolt_form == 2:
 		_clip_cannon_bolt(direction)
-	if not FIELD.grow(28.0).has_point(next):
+	if bolt_travel_left <= 0.0 or not FIELD.grow(28.0).has_point(next):
 		bolt.queue_free()
 		bolt = null
 
@@ -1046,24 +1164,27 @@ func _clip_cannon_bolt(direction: Vector2) -> void:
 	glow.offset = offset
 
 
-func _impact(enemy: Pursuer, contact: Vector2, angle: float, pull := false) -> void:
+func _impact(enemy: Pursuer, contact: Vector2, angle: float, strike_form: int, charged: bool, pull := false) -> void:
 	var push_direction := _shoulder().direction_to(enemy.hit_center())
 	if push_direction.is_zero_approx():
 		push_direction = Vector2.from_angle(angle)
 	if pull:
 		push_direction = -push_direction
-	var force: float = [266.0, 166.0, 320.0, 118.0][form]
-	if counter_attack:
+	var force: float = [266.0, 166.0, 320.0, 118.0][strike_form]
+	if charged:
+		force = [350.0, 166.0, 510.0, 425.0][strike_form]
+	var counter_hit := counter_attack and strike_form == 0
+	if counter_hit:
 		force = 346.0
 		var angle_to_hit := _shoulder().angle_to_point(contact)
 		if not is_instance_valid(counter_target) or absf(angle_difference(locked_aim, angle_to_hit)) < +				absf(angle_difference(locked_aim, _shoulder().angle_to_point(counter_target.hit_center()))):
 			counter_target = enemy
 	enemy.receive_strike(push_direction, force)
-	impact_ticks = maxi(impact_ticks, 4 if counter_attack else [3, 2, 4, 2][form])
+	impact_ticks = maxi(impact_ticks, 4 if counter_hit else [3, 2, 4, 2][strike_form])
 	var pop := _effect(HIT, Vector2(52, 53), 9)
 	pop.position = contact.round()
 	pop.rotation = angle
-	voices["hit"].pitch_scale = 0.88 if counter_attack else [1.0, 1.14, 0.83, 1.08][form]
+	voices["hit"].pitch_scale = 0.88 if counter_hit else [1.0, 1.14, 0.83, 1.08][strike_form]
 	voices["hit"].play()
 
 
@@ -1104,15 +1225,32 @@ func _draw_hud() -> void:
 	elif alive == 0:
 		status = "방 돌파    R 다시 싸우기"
 	_text(Vector2(484, 27), status, 12, GHOST if player_hp > 0 else Color("#f58b8b"))
+	var previous_form := _adjacent_form(-1)
+	var next_form := _adjacent_form(1)
 	for i in LABELS.size():
 		var bounds := Rect2(19 + i * 68, 328, 62, 26)
 		hud.draw_rect(bounds, Color("#603a66") if i == form else Color("#322439"))
-		hud.draw_rect(bounds, Color("#bc87b3") if i == form else Color("#664758"), false)
-		_text(bounds.position + Vector2(8, 17), "%d  %s" % [i + 1, LABELS[i]], 12, LIGHT)
-	_text(Vector2(297, 344), "WASD 이동   Space 회피   좌클릭 공격   R 초기화", 12, LIGHT)
+		var border := GOLD if i == wanted_form and i != form else Color("#664758")
+		if i == form:
+			border = Color("#bc87b3")
+		hud.draw_rect(bounds, border, false)
+		var key := str(i + 1)
+		if i != form and (i == previous_form or i == next_form):
+			key = "Q/E" if i == previous_form and i == next_form else ("Q" if i == previous_form else "E")
+		_text(bounds.position + Vector2(8, 17), "%s  %s" % [key, LABELS[i]], 12,
+			LIGHT if _form_available(i) else Color("#98798f"))
+	_text(Vector2(297, 338), "WASD 이동   Space 회피   좌클릭 공격   우클릭 차지", 11, LIGHT)
+	_text(Vector2(297, 352), "Q/E 전환   R 초기화   F2 전환 %.2f초" % switch_delay, 11, GHOST)
+	if switch_cooldown > 0.00001:
+		var width := 50.0 * clampf(switch_cooldown / FORM_SWITCH_COOLDOWN, 0.0, 1.0)
+		hud.draw_rect(Rect2(19 + form * 68 + 6, 350, width, 2), GHOST)
 	if pointer:
 		for arm in [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]:
 			hud.draw_line(cursor + arm * 5.0, cursor + arm * 9.0, GOLD)
+		if charge_elapsed > 0.0:
+			var progress := clampf(charge_elapsed / CHARGE_TIME, 0.0, 1.0)
+			hud.draw_arc(cursor, 13.0, -PI / 2.0, TAU * progress - PI / 2.0, 24,
+				LIGHT if progress >= 1.0 else GHOST, 2.0 if progress >= 1.0 else 1.0)
 
 
 func _text(at: Vector2, value: String, size: int, color: Color) -> void:
