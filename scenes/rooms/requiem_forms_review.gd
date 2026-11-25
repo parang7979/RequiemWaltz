@@ -15,7 +15,6 @@ const WALK_TEXTURES := {
 const Chain := preload("res://scenes/actors/requiem_chain.gd")
 const TAIL = preload("res://assets/vfx/requiem_forms/tail.tres")
 const REFORM = preload("res://assets/vfx/requiem_forms/shift.tres")
-const DISPERSE = preload("res://assets/vfx/requiem_forms/disperse.tres")
 const TrueForm = preload("res://scenes/actors/requiem_true_form.gd")
 const BOW_FLASH = preload("res://assets/vfx/requiem_forms/bow_release.tres")
 const CANNON_FLASH = preload("res://assets/vfx/requiem_forms/cannon_release.tres")
@@ -747,9 +746,6 @@ func _update_defeat(delta: float) -> void:
 		defeat_mount = rig_at
 		fluid = _effect(REFORM, Vector2(76, 47), 4, true)
 		fluid.position = defeat_mount
-	if previous < DEFEAT_DISPERSE_TIME and defeat_elapsed >= DEFEAT_DISPERSE_TIME:
-		fluid = _effect(DISPERSE, Vector2(72, 86), 6, true)
-		fluid.position = true_requiem.position
 	if defeat_elapsed >= DEFEAT_REVEAL_TIME and defeat_elapsed < DEFEAT_VANISH_TIME:
 		armor.hide()
 		sword.hide()
@@ -761,10 +757,13 @@ func _update_defeat(delta: float) -> void:
 		var body_scale := lerpf(0.57, 0.73, approach)
 		var untether := smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
 		var anchor := defeat_mount.lerp(beside, approach) + Vector2(defeat_side * untether * 6.0, bob - untether * 14.0)
-		true_requiem.texture = TrueForm.texture_at(elapsed)
+		if defeat_elapsed >= DEFEAT_DISPERSE_TIME:
+			true_requiem.texture = TrueForm.texture_at(defeat_elapsed - DEFEAT_DISPERSE_TIME, TrueForm.VANISH)
+		else:
+			true_requiem.texture = TrueForm.texture_at(elapsed)
 		true_requiem.position = anchor.round()
 		true_requiem.scale = Vector2(-defeat_side, 1.0) * body_scale
-		true_requiem.modulate.a = smoothstep(0.0, 0.10, elapsed) * (1.0 - untether)
+		true_requiem.modulate.a = smoothstep(0.0, 0.10, elapsed)
 		true_requiem.show()
 		spirit.hide()
 	elif defeat_elapsed >= DEFEAT_VANISH_TIME:
@@ -1251,7 +1250,8 @@ func _draw() -> void:
 	var shadow_size := Vector2(26, 10)
 	draw_texture_rect(GROUND_SHADOW, Rect2(player.round() - shadow_size * 0.5, shadow_size), false)
 	if is_instance_valid(true_requiem) and true_requiem.visible:
-		var shade := Color(1.0, 1.0, 1.0, true_requiem.modulate.a * 0.64)
+		var fade := 1.0 - smoothstep(DEFEAT_DISPERSE_TIME, DEFEAT_VANISH_TIME, defeat_elapsed)
+		var shade := Color(1.0, 1.0, 1.0, true_requiem.modulate.a * fade * 0.64)
 		draw_texture_rect(GROUND_SHADOW, Rect2(true_requiem.position + Vector2(-20, 27),
 			Vector2(40, 12)), false, shade)
 	elif armor != null and armor.visible:

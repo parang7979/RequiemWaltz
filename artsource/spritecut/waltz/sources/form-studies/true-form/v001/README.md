@@ -4,10 +4,4 @@
 
 [사망 연출](../../../../../../../scenes/rooms/requiem_forms_review.tscn)에서는 조작구에서 본모습이 나타나 왈츠 쪽을 바라본다. 눈매가 낮아지고 꼬리가 말리면서 영체가 보랏빛 조각으로 흩어진다.
 
-[PixelFX 레시피](../../../../../../pixelfx/requiem_true_form.mjs)는 투명 아틀라스와 Godot SpriteFrames를 만든다. 클립은 128×128px 셀과 얼굴 기준 피벗 (64, 50)을 사용한다.
-
-```powershell
-node tools/pixelfx/render_requiem_true_form.mjs
-```
-
-Node와 Python, 공용 PixelFX 0.3.1 리비전 `4ec9a35938d2b0da20cdb19ca72e9de8d6cf4b19`를 사용했다.
+이 버전의 레시피와 시트는 Git `39c548f`에 있다. 현재 사용하는 [본모습 v002](../v002/README.md)에는 대기·영체화·소멸 시트가 있다.
